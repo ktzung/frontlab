@@ -1,0 +1,20 @@
+{
+ "num": 29,
+ "slug": "student-pagination",
+ "steps": [
+  {
+   "label": "Tạo khung .card và thanh tiêu đề Flexbox",
+   "text": "Đặt .d-flex.justify-content-between.align-items-center.mb-3 để đẩy tiêu đề sang trái và huy hiệu .badge.bg-primary sang phải. •"
+  },
+  {
+   "label": "Xây dựng bảng .table-striped.table-hover",
+   "text": "Bọc <table class= \"table table-striped table-hover align-middle\"> trong <div class= \"table-responsive\">. Dùng <thead class=\"table-dark\"> để tạo hàng tiêu đề nền đen chữ trắng nổi bật. •"
+  },
+  {
+   "label": "Thêm thanh .pagination và tương tác chọn trang",
+   "text": "Đặt <ul class= \"pagination justify-content-center mb-0\"> ở cuối thẻ .card-body. Có thể bổ sung vài dòng JavaScript nhỏ để khi bấm vào số trang 1, 2, 3 thì lớp .active chuyển sang trang tương ứng."
+  }
+ ],
+ "highlight": "",
+ "mistake": ""
+}

@@ -1,0 +1,28 @@
+{
+ "id": "bai06",
+ "num": 6,
+ "title": "Bài 06 – Bảng danh sách “Các món ngon Hà Nội” | Hướng dẫn Frontend từng bước",
+ "chapter": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-06-hanoi-food-table",
+ "submitFile": "bai06.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 204,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "hanoi-food-table"
+ ],
+ "youtubeId": ""
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FrontLab Studio — Video bài thực hành</title>
+  <link rel="stylesheet" href="studio.css">
+</head>
+<body>
+  <div id="stage">
+    <div class="backdrop" aria-hidden="true">
+      <span class="glow g1"></span>
+      <span class="glow g2"></span>
+      <span class="grid"></span>
+    </div>
+
+    <header id="top">
+      <div class="brand">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span class="brand-word">FrontLab<span>STUDIO</span></span>
+      </div>
+      <div class="ep-meta">
+        <b id="ep-num">BÀI 01</b>
+        <span id="ep-chapter">CHƯƠNG 1 · HTML5</span>
+      </div>
+      <h1 id="ep-title">Trang thơ Bốn mùa</h1>
+      <div id="ep-tech" class="tech-chips"></div>
+      <div class="timebox">
+        <span id="time-code">00:00</span>
+        <span class="live-dot"></span>
+      </div>
+    </header>
+
+    <main id="main">
+      <aside id="side">
+        <div class="side-head">
+          <span>TIẾN TRÌNH BÀI GIẢNG</span>
+          <b id="step-count">01 / 06</b>
+        </div>
+        <ol id="steps"></ol>
+        <div class="side-head project-head">
+          <span>DỰ ÁN</span>
+          <b>EN</b>
+        </div>
+        <div id="tree" class="file-tree"></div>
+        <div class="side-foot">
+          <div class="foot-label">TỆP NỘP BÀI</div>
+          <div class="foot-file" id="submit-file">bai01.html</div>
+        </div>
+      </aside>
+
+      <section id="codePanel">
+        <div class="panel-head">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="file-name" id="fileName">index.html</span>
+          <span class="lang-chip" id="codeChip">HTML</span>
+        </div>
+        <div id="codeScroll">
+          <div id="codeBody"></div>
+        </div>
+        <div id="annotation" class="annotation"></div>
+        <div id="terminal" class="terminal hidden">
+          <div class="term-head"><span>TERMINAL</span><b>zsh</b></div>
+          <div id="termBody" class="term-body"></div>
+        </div>
+      </section>
+
+      <section id="previewPanel">
+        <div class="browser-bar">
+          <span class="b-dots"><i></i><i></i><i></i></span>
+          <span class="url" id="previewUrl">127.0.0.1:8086/exercises/…</span>
+          <span class="preview-tag">LIVE</span>
+        </div>
+        <div id="previewWrap">
+          <iframe id="preview" title="Bản chạy thử" loading="eager"></iframe>
+          <div id="cursor" class="cursor hidden"></div>
+        </div>
+        <div class="preview-foot">
+          <span id="viewportLabel">1280 × 800</span>
+          <span class="resize-hint">thu nhỏ để kiểm tra responsive</span>
+        </div>
+      </section>
+    </main>
+
+    <div id="cover" class="cover">
+      <div class="cover-inner">
+        <div class="cover-kicker" id="coverKicker">BÀI THỰC HÀNH 01 · CHƯƠNG 1</div>
+        <div class="cover-num" id="coverNum">01</div>
+        <h2 id="coverTitle">Trang thơ “Bốn mùa”</h2>
+        <p id="coverSub">Hướng dẫn từng bước: tạo dự án, viết HTML, định dạng CSS và chạy thử.</p>
+        <div id="coverTags" class="cover-tags"></div>
+        <div class="cover-project" id="coverProject">exercise-01-four-seasons-poem</div>
+      </div>
+    </div>
+
+    <div id="recap" class="recap hidden">
+      <div class="recap-inner">
+        <div class="recap-kicker" id="recapKicker">TỔNG KẾT BÀI <span id="recapNum">01</span></div>
+        <h2 id="recapTitle">Điều cần nhớ</h2>
+        <ul id="recapPoints"></ul>
+        <div class="recap-project"><span>Dự án</span><b id="recapProject"></b></div>
+      </div>
+    </div>
+
+    <footer id="captionBar">
+      <span class="cap-mark">“</span>
+      <div class="cap-text">
+        <b id="capScene">Mở đầu</b>
+        <p id="capText"></p>
+      </div>
+      <span class="cap-brand">FRONTLAB · BÀI GIẢNG TRỰC QUAN</span>
+    </footer>
+
+    <div id="progress"><span id="progressFill"></span></div>
+  </div>
+
+  <script src="../../js/render.js"></script>
+  <script src="studio.js"></script>
+</body>
+</html>

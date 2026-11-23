@@ -1,0 +1,17 @@
+Trang địa danh “Mũi Né – Huyền bí và quyến rũ” — hướng dẫn giải từng bước (CSS3 hiện đại — bố cục & hiệu ứng).
+
+Dự án: exercise-19-mui-ne-travel/index.html (khi nộp đổi tên thành bai19.html).
+Công nghệ: HTML5, CSS3, Flexbox, CSS Grid, Responsive.
+
+Chương:
+00:00 Mở đầu
+00:29 Yêu cầu
+00:56 Tạo dự án
+01:27 Cấu trúc HTML
+01:44 Định dạng CSS
+02:11 Chạy thử
+02:31 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #BàiTậpThựcHành

@@ -1,1 +1,4 @@
 .DS_Store
+videos/media/
+videos/build/audio/
+videos/build/audio-cache/

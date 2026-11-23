@@ -1,0 +1,163 @@
+{
+ "id": "bai30",
+ "num": 30,
+ "title": "Bảng điều khiển quản trị Admin Dashboard",
+ "chapter": 4,
+ "chapterName": "Thiết kế responsive với Bootstrap 5",
+ "project": "exercise-30-admin-dashboard",
+ "submitFile": "bai30.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Flexbox"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 194.26,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 30.213,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 30, Bảng điều khiển quản trị Admin Dashboard. Chúng ta sẽ cùng tạo dự án exercise 30 admin dashboard với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài tổng kết chương Bootstrap: dashboard nhiều vùng, KPI, bảng và thanh tiến độ. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 30, Bảng điều khiển quản trị Admin Dashboard. Chúng ta sẽ cùng tạo dự án exercise 30 admin dashboard với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 30.713,
+   "dur": 46.115,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Thiết lập bố cục 2 cột aside + main. Tạo div div. Cột bên trái là aside , cột bên phải là main.. Xây dựng 4 thẻ KPI với.progress. Tạo div chứa 4 khối div. Trong mỗi.card-body, hiển thị nhãn.text-muted.small, con số lớn h3.fw-bold, và thanh div.. Xây dựng danh sách.list-group-flush. Tạo.card.shadow-sm chứa.card-header.bg-white.fw-bold và ul.list-group.list-group-flush. Mỗi thẻ li.list-group-item dùng.d-flex.justify-content-between. align-items-center để căn tên chương sang trái và.badge sang phải.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Thiết lập bố cục 2 cột aside + main. Tạo div div. Cột bên trái là aside , cột bên phải là main.. Xây dựng 4 thẻ KPI với.progress. Tạo div chứa 4 khối div. Trong mỗi.card-body, hiển…",
+   "points": [
+    "Thiết lập bố cục 2 cột aside + main — Tạo <div class=\"container-fluid\"><div class=\"row min-vh-100\">. Cột bên trái là <aside class=\"bg-dark text-white p-3\" style=\"width: 230px;\">, cột bên phải là <main class= \"col p-4\">.",
+    "Xây dựng 4 thẻ KPI với .progress — Tạo <div class=\"row g-3 mb-4\"> chứa 4 khối <div class=\"col-md-3\">. Trong mỗi .card-body, hiển thị nhãn .text-muted.small, con số lớn h3.fw-bold, và thanh <div class=\"progress mt-2\" style=\"height: 6px;\">.",
+    "Xây dựng danh sách .list-group-flush — Tạo .card.shadow-sm chứa .card-header.bg-white.fw-bold và ul.list-group.list-group-flush. Mỗi thẻ li.list-group-item dùng .d-flex.justify-content-between. align-items-center để căn tên chương sang trái và .badge sang phải."
+   ],
+   "heading": "Bài 30 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 76.828,
+   "dur": 27.824,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 30 admin dashboard. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai30.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 30 admin dashboard. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-30-admin-dashboard",
+     "out": "✔ đã tạo thư mục exercise-30-admin-dashboard"
+    },
+    {
+     "cmd": "cd exercise-30-admin-dashboard",
+     "out": "→ đang ở ~/frontlab/exercise-30-admin-dashboard"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc trang",
+   "start": 104.652,
+   "dur": 17.588,
+   "narration": "Mở tệp index.html. Dashboard có sidebar dọc với logo và menu, vùng main chứa header, bốn thẻ KPI, bảng bài tập gần đây và tiến độ. Bố cục dùng flex và grid của Bootstrap. Các thẻ ngữ nghĩa chính gồm aside, main.",
+   "caption": "Mở tệp index.html. Dashboard có sidebar dọc với logo và menu, vùng main chứa header, bốn thẻ KPI, bảng bài tập gần đây và tiến độ. Bố cục dùng flex và grid của Bootstrap. Các thẻ ngữ nghĩa chính gồm aside, main.",
+   "lang": "html",
+   "code": "  <div class=\"container-fluid\">\n    <div class=\"row min-vh-100\">\n       <!-- Sidebar quản trị bên trái -->\n       <aside class=\"bg-dark text-white p-3\" style=\"width: 230px;\">\n         <h5 class=\"fw-bold border-bottom pb-2\">CSE.TLU Admin</h5>\n         <ul class=\"nav flex-column gap-1 mt-3\">\n           <li class=\"nav-item\">\n              <a class=\"nav-link active bg-primary text-white rounded\" href=\"#\">Tổng quan</a>\n           </li>\n           <li class=\"nav-item\">\n              <a class=\"nav-link text-white-50\" href=\"#\">Sinh viên</a>\n           </li>\n           <li class=\"nav-item\">\n              <a class=\"nav-link text-white-50\" href=\"#\">Bài tập</a>\n           </li>\n           <li class=\"nav-item\">\n              <a class=\"nav-link text-white-50\" href=\"#\">Báo cáo</a>\n           </li>\n         </ul>\n       </aside>\n\n       <!-- Khu vực nội dung chính -->\n       <main class=\"col p-4\">\n         <!-- Header Dashboard -->\n         <div class=\"d-flex justify-content-between align-items-center mb-4\">\n           <h3 class=\"fw-bold mb-0\">Bảng điều khiển học phần Web</h3>\n           <button class=\"btn btn-primary btn-sm\">+ Thêm bài tập</button>\n         </div>\n\n         <!-- 4 Thẻ chỉ số thống kê KPI -->\n         <div class=\"row g-3 mb-4\">\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                  <div class=\"card-body\">\n                    <div class=\"text-muted small\">Sinh viên</div>\n                    <h3 class=\"fw-bold text-primary mb-0\">128</h3>\n\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar\" style=\"width: 80%;\"></div>\n                    </div>\n                </div>\n              </div>\n           </div>\n\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                <div class=\"card-body\">\n                    <div class=\"text-muted small\">Đã nộp</div>\n                    <h3 class=\"fw-bold text-success mb-0\">96</h3>\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar bg-success\" style=\"width: 75%;\"></div>\n                    </div>\n                </div>\n              </div>\n           </div>\n\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                <div class=\"card-body\">\n                    <div class=\"text-muted small\">Chưa nộp</div>\n                    <h3 class=\"fw-bold text-warning mb-0\">32</h3>\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar bg-warning\" style=\"width: 25%;\"></div>\n                    </div>\n                </div>\n              </div>\n           </div>\n\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                <div class=\"card-body\">\n                    <div class=\"text-muted small\">Điểm TB</div>\n                    <h3 class=\"fw-bold text-danger mb-0\">7.8</h3>\n\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar bg-danger\" style=\"width: 78%;\"></div>\n                    </div>\n                  </div>\n              </div>\n           </div>\n         </div>\n\n         <!-- Card Tiến độ theo chương -->\n         <div class=\"card shadow-sm border-0\">\n           <div class=\"card-header bg-white fw-bold\">\n              Tiến độ theo chương\n           </div>\n           <ul class=\"list-group list-group-flush\">\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-success\">Hoàn thành 100%</span>\n              </li>\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-primary\">Đang học 85%</span>\n              </li>\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-info\">Đang học 70%</span>\n              </li>\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-warning\">Mới mở 50%</span>\n              </li>\n           </ul>\n         </div>\n       </main>\n\n    </div>\n  </div>",
+   "marks": [
+    2,
+    10,
+    17,
+    31,
+    39,
+    51,
+    63
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Tùy biến CSS",
+   "start": 122.239,
+   "dur": 18.215,
+   "narration": "Chuyển sang phần CSS. Sidebar nền tối cố định chiều rộng, main nền xám nhạt. Bốn thẻ KPI dùng col-md-3, mỗi thẻ có số lớn và thanh tiến độ. Bảng gọn, badge trạng thái màu. Media query ẩn hoặc thu gọn sidebar trên mobile.",
+   "caption": "Chuyển sang phần CSS. Sidebar nền tối cố định chiều rộng, main nền xám nhạt. Bốn thẻ KPI dùng col-md-3, mỗi thẻ có số lớn và thanh tiến độ. Bảng gọn, badge trạng thái màu. Media query ẩn hoặc thu gọn sidebar trên mobile.",
+   "lang": "css",
+   "code": "",
+   "marks": [],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 140.454,
+   "dur": 13.8,
+   "narration": "Phần Bootstrap. Các thành phần chủ yếu là HTML và class Bootstrap, thanh tiến độ dùng progress với width phần trăm. Bài tập trung vào bố cục dashboard và phân cấp thông tin.",
+   "caption": "Phần Bootstrap. Các thành phần chủ yếu là HTML và class Bootstrap, thanh tiến độ dùng progress với width phần trăm. Bài tập trung vào bố cục dashboard và phân cấp thông tin.",
+   "lang": "html",
+   "code": "  <div class=\"container-fluid\">\n    <div class=\"row min-vh-100\">\n       <!-- Sidebar quản trị bên trái -->\n       <aside class=\"bg-dark text-white p-3\" style=\"width: 230px;\">\n         <h5 class=\"fw-bold border-bottom pb-2\">CSE.TLU Admin</h5>\n         <ul class=\"nav flex-column gap-1 mt-3\">\n           <li class=\"nav-item\">\n              <a class=\"nav-link active bg-primary text-white rounded\" href=\"#\">Tổng quan</a>\n           </li>\n           <li class=\"nav-item\">\n              <a class=\"nav-link text-white-50\" href=\"#\">Sinh viên</a>\n           </li>\n           <li class=\"nav-item\">\n              <a class=\"nav-link text-white-50\" href=\"#\">Bài tập</a>\n           </li>\n           <li class=\"nav-item\">\n              <a class=\"nav-link text-white-50\" href=\"#\">Báo cáo</a>\n           </li>\n         </ul>\n       </aside>\n\n       <!-- Khu vực nội dung chính -->\n       <main class=\"col p-4\">\n         <!-- Header Dashboard -->\n         <div class=\"d-flex justify-content-between align-items-center mb-4\">\n           <h3 class=\"fw-bold mb-0\">Bảng điều khiển học phần Web</h3>\n           <button class=\"btn btn-primary btn-sm\">+ Thêm bài tập</button>\n         </div>\n\n         <!-- 4 Thẻ chỉ số thống kê KPI -->\n         <div class=\"row g-3 mb-4\">\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                  <div class=\"card-body\">\n                    <div class=\"text-muted small\">Sinh viên</div>\n                    <h3 class=\"fw-bold text-primary mb-0\">128</h3>\n\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar\" style=\"width: 80%;\"></div>\n                    </div>\n                </div>\n              </div>\n           </div>\n\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                <div class=\"card-body\">\n                    <div class=\"text-muted small\">Đã nộp</div>\n                    <h3 class=\"fw-bold text-success mb-0\">96</h3>\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar bg-success\" style=\"width: 75%;\"></div>\n                    </div>\n                </div>\n              </div>\n           </div>\n\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                <div class=\"card-body\">\n                    <div class=\"text-muted small\">Chưa nộp</div>\n                    <h3 class=\"fw-bold text-warning mb-0\">32</h3>\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar bg-warning\" style=\"width: 25%;\"></div>\n                    </div>\n                </div>\n              </div>\n           </div>\n\n           <div class=\"col-md-3\">\n              <div class=\"card shadow-sm border-0\">\n                <div class=\"card-body\">\n                    <div class=\"text-muted small\">Điểm TB</div>\n                    <h3 class=\"fw-bold text-danger mb-0\">7.8</h3>\n\n                    <div class=\"progress mt-2\" style=\"height: 6px;\">\n                       <div class=\"progress-bar bg-danger\" style=\"width: 78%;\"></div>\n                    </div>\n                  </div>\n              </div>\n           </div>\n         </div>\n\n         <!-- Card Tiến độ theo chương -->\n         <div class=\"card shadow-sm border-0\">\n           <div class=\"card-header bg-white fw-bold\">\n              Tiến độ theo chương\n           </div>\n           <ul class=\"list-group list-group-flush\">\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-success\">Hoàn thành 100%</span>\n              </li>\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-primary\">Đang học 85%</span>\n              </li>\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-info\">Đang học 70%</span>\n              </li>\n              <li class=\"list-group-item d-flex justify-content-between align-items-center\">\n                  <span class=\"badge text-bg-warning\">Mới mở 50%</span>\n              </li>\n           </ul>\n         </div>\n       </main>\n\n    </div>\n  </div>",
+   "marks": [
+    2,
+    10,
+    17,
+    31,
+    39,
+    51,
+    63
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 154.254,
+   "dur": 19,
+   "narration": "Chạy thử dashboard: sidebar tối bên trái, bốn thẻ KPI phía trên, bảng bài tập và thanh tiến độ bên dưới. Thu nhỏ màn hình, sidebar thu gọn và các thẻ KPI xếp dọc.",
+   "caption": "Chạy thử dashboard: sidebar tối bên trái, bốn thẻ KPI phía trên, bảng bài tập và thanh tiến độ bên dưới. Thu nhỏ màn hình, sidebar thu gọn và các thẻ KPI xếp dọc.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.35
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 173.254,
+   "dur": 21.005,
+   "narration": "Tổng kết bài 30. Tạo dự án exercise 30 admin dashboard, tệp chính index.html, khi nộp đổi tên thành bai30.html. Bài tổng kết chương Bootstrap: dashboard nhiều vùng, KPI, bảng và thanh tiến độ. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.",
+   "caption": "Tổng kết bài 30. Tạo dự án exercise 30 admin dashboard, tệp chính index.html, khi nộp đổi tên thành bai30.html. Bài tổng kết chương Bootstrap: dashboard nhiều vùng, KPI, bảng và thanh tiến độ. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn…",
+   "points": [
+    "Tạo dự án exercise-30-admin-dashboard, tệp chính index.html, khi nộp đổi tên thành bai30.html.",
+    "Bài tổng kết chương Bootstrap: dashboard nhiều vùng, KPI, bảng và thanh tiến độ.",
+    "Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ."
+   ],
+   "heading": "Bài 30 — điều cần nhớ"
+  }
+ ]
+}

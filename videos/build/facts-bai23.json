@@ -1,0 +1,16 @@
+{
+ "num": 23,
+ "slug": "hover-zoom-gallery",
+ "steps": [
+  {
+   "label": "Nguyên tắc “Cha relative + overflow",
+   "text": "hidden, Con absolute”: Đặt position: relative; overflow: hidden; trên .o-anh. Nhờ đó, .lop-phu với position: absolute; inset: auto 0 0 0; (tương đương left: 0; right: 0; bottom: 0;) sẽ bám chặt vào đáy bức ảnh, và khi img phóng to scale(1. 12), phần rìa ảnh thừa ra sẽ bị cắt gọn theo góc bo 12px. •"
+  },
+  {
+   "label": "Đặt transition trên trạng thái gốc của .o-anh img",
+   "text": "Đặt transition: transform 0.4s ease ngay trong rule .o-anh img (thay vì chỉ đặt trong :hover) để cả lúc đưa chuột vào lẫn lúc rút chuột ra ảnh đều co giãn mượt mà."
+  }
+ ],
+ "highlight": "Rê chuột qua từng ảnh trên trình duyệt để demo hiệu ứng scale(1.12) và giải thích nếu bỏ overflow: hidden trên .o-anh thì ảnh sẽ tràn đè lên các ô bên cạnh như thế nào. •",
+ "mistake": "Đặt :hover lên thẻ <img> thay vì .o-anh:hover img, khiến khi chuột di chuyển vào vùng chữ .lop-phu ở đáy ảnh thì hiệu ứng zoom bị mất đột ngột."
+}

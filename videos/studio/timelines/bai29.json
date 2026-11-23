@@ -1,0 +1,163 @@
+{
+ "id": "bai29",
+ "num": 29,
+ "title": "Bảng dữ liệu sinh viên & Phân trang",
+ "chapter": 4,
+ "chapterName": "Thiết kế responsive với Bootstrap 5",
+ "project": "exercise-29-student-pagination",
+ "submitFile": "bai29.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Flexbox"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 193.59,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 30.965,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 29, Bảng dữ liệu sinh viên & Phân trang. Chúng ta sẽ cùng tạo dự án exercise 29 student pagination với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện bảng dữ liệu lớn, badge trạng thái và cấu trúc phân trang chuẩn Bootstrap. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 29, Bảng dữ liệu sinh viên & Phân trang. Chúng ta sẽ cùng tạo dự án exercise 29 student pagination với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 31.465,
+   "dur": 43.535,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Tạo khung.card và thanh tiêu đề Flexbox. Đặt.d-flex.justify-content-between.align-items-center.mb-3 để đẩy tiêu đề sang trái và huy hiệu.badge.bg-primary sang phải.. Xây dựng bảng.table-striped.table-hover. Bọc table trong div. Dùng thead để tạo hàng tiêu đề nền đen chữ trắng nổi bật.. Thêm thanh.pagination và tương tác chọn trang. Đặt ul ở cuối thẻ.card-body. Có thể bổ sung vài dòng JavaScript nhỏ để khi bấm vào số trang 1, 2, 3 thì lớp.active chuyển sang trang tương ứng.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Tạo khung.card và thanh tiêu đề Flexbox. Đặt.d-flex.justify-content-between.align-items-center.mb-3 để đẩy tiêu đề sang trái và huy hiệu.badge.bg-primary sang phải.. Xây dựng…",
+   "points": [
+    "Tạo khung .card và thanh tiêu đề Flexbox — Đặt .d-flex.justify-content-between.align-items-center.mb-3 để đẩy tiêu đề sang trái và huy hiệu .badge.bg-primary sang phải.",
+    "Xây dựng bảng .table-striped.table-hover — Bọc <table class= \"table table-striped table-hover align-middle\"> trong <div class= \"table-responsive\">. Dùng <thead class=\"table-dark\"> để tạo hàng tiêu đề nền đen chữ trắng nổi bật.",
+    "Thêm thanh .pagination và tương tác chọn trang — Đặt <ul class= \"pagination justify-content-center mb-0\"> ở cuối thẻ .card-body. Có thể bổ sung vài dòng JavaScript nhỏ để khi bấm vào số trang 1, 2, 3 thì lớp .active chuyển sang trang tương ứng."
+   ],
+   "heading": "Bài 29 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 74.999,
+   "dur": 28.915,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 29 student pagination. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai29.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 29 student pagination. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án,…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-29-student-pagination",
+     "out": "✔ đã tạo thư mục exercise-29-student-pagination"
+    },
+    {
+     "cmd": "cd exercise-29-student-pagination",
+     "out": "→ đang ở ~/frontlab/exercise-29-student-pagination"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc trang",
+   "start": 103.914,
+   "dur": 19.05,
+   "narration": "Mở tệp index.html. Trang có bảng table-hover striped với các cột số thứ tự, mã sinh viên, họ tên, lớp, điểm và trạng thái. Trạng thái dùng badge xanh hoặc vàng. Dưới bảng là thanh pagination. Các thẻ ngữ nghĩa chính gồm table, nav.",
+   "caption": "Mở tệp index.html. Trang có bảng table-hover striped với các cột số thứ tự, mã sinh viên, họ tên, lớp, điểm và trạng thái. Trạng thái dùng badge xanh hoặc vàng. Dưới bảng là thanh pagination. Các thẻ ngữ nghĩa chính gồm table, nav.",
+   "lang": "html",
+   "code": "  <div class=\"container\">\n       <div class=\"card shadow-sm\">\n        <div class=\"card-body p-4\">\n          <!-- Tiêu đề & Badge học kỳ -->\n          <div class=\"d-flex justify-content-between align-items-center mb-3\">\n            <h4 class=\"fw-bold mb-0\">Bảng kết quả học tập</h4>\n            <span class=\"badge bg-primary fs-6\">Học kỳ 2 - 2026</span>\n          </div>\n\n          <!-- Bảng dữ liệu Responsive -->\n          <div class=\"table-responsive\">\n            <table class=\"table table-striped table-hover align-middle\">\n              <thead class=\"table-dark\">\n                   <tr>\n                     <th>#</th>\n                     <th>Mã SV</th>\n                     <th>Họ và tên</th>\n                     <th>Lớp</th>\n                     <th>Điểm TB</th>\n                     <th>Trạng thái</th>\n                   </tr>\n              </thead>\n              <tbody>\n                   <tr>\n                     <td>1</td>\n                     <td>2251172001</td>\n                     <td>Nguyễn Văn An</td>\n                     <td>64KTPM1</td>\n                     <td>8.6</td>\n                     <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                   </tr>\n                   <tr>\n                     <td>2</td>\n\n                    <td>2251172002</td>\n                    <td>Trần Thị Bình</td>\n                    <td>64KTPM1</td>\n                    <td>7.9</td>\n                    <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                  </tr>\n                  <tr>\n                    <td>3</td>\n                    <td>2251172003</td>\n                    <td>Lê Hoàng Cường</td>\n                    <td>64KTPM2</td>\n                    <td>6.5</td>\n                    <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                  </tr>\n                  <tr>\n                    <td>4</td>\n                    <td>2251172004</td>\n                    <td>Phạm Minh Dũng</td>\n                    <td>64KTPM2</td>\n                    <td>4.2</td>\n                    <td><span class=\"badge text-bg-warning\">Thi lại</span></td>\n                  </tr>\n                  <tr>\n                    <td>5</td>\n                    <td>2251172005</td>\n                    <td>Hoàng Thu Hà</td>\n                    <td>64CNTT1</td>\n                    <td>9.1</td>\n                    <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                  </tr>\n              </tbody>\n           </table>\n         </div>\n\n         <!-- Thanh phân trang Pagination -->\n         <nav aria-label=\"Phân trang danh sách sinh viên\">\n           <ul class=\"pagination justify-content-center mb-0\" id=\"pag\">\n              <li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\">Trước</a></li>\n\n              <li class=\"page-item active\"><a class=\"page-link\" href=\"#\">1</a></li>\n              <li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li>\n              <li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li>\n              <li class=\"page-item\"><a class=\"page-link\" href=\"#\">Sau</a></li>\n             </ul>\n           </nav>\n       </div>\n    </div>\n  </div>",
+   "marks": [
+    2,
+    3,
+    11,
+    12,
+    13,
+    22,
+    23
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Tùy biến CSS",
+   "start": 122.965,
+   "dur": 15.498,
+   "narration": "Chuyển sang phần CSS. Card bọc bảng có shadow, header bảng nền xanh nhạt. Badge Đạt màu xanh, Thi lại màu vàng. Pagination dùng component Bootstrap. Media query cho phép cuộn ngang bảng.",
+   "caption": "Chuyển sang phần CSS. Card bọc bảng có shadow, header bảng nền xanh nhạt. Badge Đạt màu xanh, Thi lại màu vàng. Pagination dùng component Bootstrap. Media query cho phép cuộn ngang bảng.",
+   "lang": "css",
+   "code": "",
+   "marks": [],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 138.463,
+   "dur": 13.776,
+   "narration": "Phần Bootstrap. Bài này tập trung vào trình bày dữ liệu và component tĩnh của Bootstrap, thanh phân trang minh họa cấu trúc page-item, page-link và trạng thái active, disabled.",
+   "caption": "Phần Bootstrap. Bài này tập trung vào trình bày dữ liệu và component tĩnh của Bootstrap, thanh phân trang minh họa cấu trúc page-item, page-link và trạng thái active, disabled.",
+   "lang": "html",
+   "code": "  <div class=\"container\">\n       <div class=\"card shadow-sm\">\n        <div class=\"card-body p-4\">\n          <!-- Tiêu đề & Badge học kỳ -->\n          <div class=\"d-flex justify-content-between align-items-center mb-3\">\n            <h4 class=\"fw-bold mb-0\">Bảng kết quả học tập</h4>\n            <span class=\"badge bg-primary fs-6\">Học kỳ 2 - 2026</span>\n          </div>\n\n          <!-- Bảng dữ liệu Responsive -->\n          <div class=\"table-responsive\">\n            <table class=\"table table-striped table-hover align-middle\">\n              <thead class=\"table-dark\">\n                   <tr>\n                     <th>#</th>\n                     <th>Mã SV</th>\n                     <th>Họ và tên</th>\n                     <th>Lớp</th>\n                     <th>Điểm TB</th>\n                     <th>Trạng thái</th>\n                   </tr>\n              </thead>\n              <tbody>\n                   <tr>\n                     <td>1</td>\n                     <td>2251172001</td>\n                     <td>Nguyễn Văn An</td>\n                     <td>64KTPM1</td>\n                     <td>8.6</td>\n                     <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                   </tr>\n                   <tr>\n                     <td>2</td>\n\n                    <td>2251172002</td>\n                    <td>Trần Thị Bình</td>\n                    <td>64KTPM1</td>\n                    <td>7.9</td>\n                    <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                  </tr>\n                  <tr>\n                    <td>3</td>\n                    <td>2251172003</td>\n                    <td>Lê Hoàng Cường</td>\n                    <td>64KTPM2</td>\n                    <td>6.5</td>\n                    <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                  </tr>\n                  <tr>\n                    <td>4</td>\n                    <td>2251172004</td>\n                    <td>Phạm Minh Dũng</td>\n                    <td>64KTPM2</td>\n                    <td>4.2</td>\n                    <td><span class=\"badge text-bg-warning\">Thi lại</span></td>\n                  </tr>\n                  <tr>\n                    <td>5</td>\n                    <td>2251172005</td>\n                    <td>Hoàng Thu Hà</td>\n                    <td>64CNTT1</td>\n                    <td>9.1</td>\n                    <td><span class=\"badge text-bg-success\">Đạt</span></td>\n                  </tr>\n              </tbody>\n           </table>\n         </div>\n\n         <!-- Thanh phân trang Pagination -->\n         <nav aria-label=\"Phân trang danh sách sinh viên\">\n           <ul class=\"pagination justify-content-center mb-0\" id=\"pag\">\n              <li class=\"page-item disabled\"><a class=\"page-link\" href=\"#\">Trước</a></li>\n\n              <li class=\"page-item active\"><a class=\"page-link\" href=\"#\">1</a></li>\n              <li class=\"page-item\"><a class=\"page-link\" href=\"#\">2</a></li>\n              <li class=\"page-item\"><a class=\"page-link\" href=\"#\">3</a></li>\n              <li class=\"page-item\"><a class=\"page-link\" href=\"#\">Sau</a></li>\n             </ul>\n           </nav>\n       </div>\n    </div>\n  </div>",
+   "marks": [
+    2,
+    3,
+    11,
+    12,
+    13,
+    22,
+    23
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 152.239,
+   "dur": 19,
+   "narration": "Chạy thử: bảng sinh viên có header xanh, badge trạng thái rõ ràng. Cuộn xuống xem thanh phân trang với trang một đang active. Thu nhỏ màn hình, bảng cuộn ngang thay vì vỡ cột.",
+   "caption": "Chạy thử: bảng sinh viên có header xanh, badge trạng thái rõ ràng. Cuộn xuống xem thanh phân trang với trang một đang active. Thu nhỏ màn hình, bảng cuộn ngang thay vì vỡ cột.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.4
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 171.239,
+   "dur": 22.351,
+   "narration": "Tổng kết bài 29. Tạo dự án exercise 29 student pagination, tệp chính index.html, khi nộp đổi tên thành bai29.html. Bài luyện bảng dữ liệu lớn, badge trạng thái và cấu trúc phân trang chuẩn Bootstrap. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.",
+   "caption": "Tổng kết bài 29. Tạo dự án exercise 29 student pagination, tệp chính index.html, khi nộp đổi tên thành bai29.html. Bài luyện bảng dữ liệu lớn, badge trạng thái và cấu trúc phân trang chuẩn Bootstrap. Lỗi thường gặp: quên kiểm tra lại giao diện trên…",
+   "points": [
+    "Tạo dự án exercise-29-student-pagination, tệp chính index.html, khi nộp đổi tên thành bai29.html.",
+    "Bài luyện bảng dữ liệu lớn, badge trạng thái và cấu trúc phân trang chuẩn Bootstrap.",
+    "Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ."
+   ],
+   "heading": "Bài 29 — điều cần nhớ"
+  }
+ ]
+}

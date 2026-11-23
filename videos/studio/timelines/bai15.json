@@ -1,0 +1,211 @@
+{
+ "id": "bai15",
+ "num": 15,
+ "title": "Ứng dụng Máy tính bỏ túi đơn giản",
+ "chapter": 2,
+ "chapterName": "Lập trình tương tác với JavaScript",
+ "project": "exercise-15-simple-calculator",
+ "submitFile": "bai15.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "CSS Grid",
+  "Transition"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 234.72,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 31.313,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 15, Ứng dụng Máy tính bỏ túi đơn giản. Chúng ta sẽ cùng tạo dự án exercise 15 simple calculator với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện event delegation, xử lý chuỗi biểu thức và cập nhật giao diện theo từng phím bấm. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 15, Ứng dụng Máy tính bỏ túi đơn giản. Chúng ta sẽ cùng tạo dự án exercise 15 simple calculator với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 31.813,
+   "dur": 43.009,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Lưu trữ biểu thức hiển thị và chuyển đổi ký hiệu toán học. Trên giao diện, người dùng nhìn thấy các ký hiệu chuẩn toán học ×, ÷, −. Khi bấm nút =, hàm tính toán chuyển đổi: – ×→* – ÷→/ – −→- – phần trăm → /100. Xử lý nút đóng/mở ngoặc () và kiểm tra biểu thức hợp lệ. Đếm số ngoặc mở (và ngoặc đóng) hiện có trong biểu thức để tự động chèn (hoặc). Kiểm tra chuỗi chỉ chứa các ký tự số và toán tử hợp lệ (/^[0-9+\\-*/.() ]+$/) trước khi tính giá trị và bắt lỗi bằng try catch.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Lưu trữ biểu thức hiển thị và chuyển đổi ký hiệu toán học. Trên giao diện, người dùng nhìn thấy các ký hiệu chuẩn toán học ×, ÷, −. Khi bấm nút =, hàm tính toán chuyển đổi: – ×→* –…",
+   "points": [
+    "Lưu trữ biểu thức hiển thị và chuyển đổi ký hiệu toán học — Trên giao diện, người dùng nhìn thấy các ký hiệu chuẩn toán học ×, ÷, −. Khi bấm nút =, hàm tính toán chuyển đổi: – ×→* – ÷→/ – −→- – % → /100",
+    "Xử lý nút đóng/mở ngoặc ( ) và kiểm tra biểu thức hợp lệ — Đếm số ngoặc mở ( và ngoặc đóng ) hiện có trong biểu thức để tự động chèn ( hoặc ). Kiểm tra chuỗi chỉ chứa các ký tự số và toán tử hợp lệ (/^[0-9+\\-*/.() ]+$/ ) trước khi tính giá trị và bắt lỗi bằng try...catch."
+   ],
+   "heading": "Bài 15 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 74.822,
+   "dur": 28.277,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 15 simple calculator. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai15.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 15 simple calculator. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-15-simple-calculator",
+     "out": "✔ đã tạo thư mục exercise-15-simple-calculator"
+    },
+    {
+     "cmd": "cd exercise-15-simple-calculator",
+     "out": "→ đang ở ~/frontlab/exercise-15-simple-calculator"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 103.098,
+   "dur": 17.007,
+   "narration": "Mở tệp index.html. Máy tính gồm màn hình hiển thị biểu thức và kết quả, bên dưới là lưới bốn cột các nút số và toán tử. Mỗi nút mang thuộc tính data-key để JavaScript biết phím nào được bấm. Các thẻ ngữ nghĩa chính gồm main.",
+   "caption": "Mở tệp index.html. Máy tính gồm màn hình hiển thị biểu thức và kết quả, bên dưới là lưới bốn cột các nút số và toán tử. Mỗi nút mang thuộc tính data-key để JavaScript biết phím nào được bấm. Các thẻ ngữ nghĩa chính gồm main.",
+   "lang": "html",
+   "code": "  <main class=\"may-tinh\" aria-label=\"Máy tính bỏ túi\">\n\n    <div class=\"man-hinh\">\n       <div class=\"phep-tinh\" id=\"phep-tinh\">12 + 8 × 3</div>\n       <div class=\"ket-qua\" id=\"ket-qua\">36</div>\n    </div>\n\n    <div class=\"luoi-phim\" id=\"ban-phim\">\n       <button type=\"button\" class=\"xoa\" data-key=\"C\">C</button>\n       <button type=\"button\" class=\"op\" data-key=\"()\">( )</button>\n       <button type=\"button\" class=\"op\" data-key=\"%\">%</button>\n       <button type=\"button\" class=\"op\" data-key=\"÷\">÷</button>\n\n       <button type=\"button\" class=\"so\" data-key=\"7\">7</button>\n       <button type=\"button\" class=\"so\" data-key=\"8\">8</button>\n       <button type=\"button\" class=\"so\" data-key=\"9\">9</button>\n       <button type=\"button\" class=\"op\" data-key=\"×\">×</button>\n\n       <button type=\"button\" class=\"so\" data-key=\"4\">4</button>\n       <button type=\"button\" class=\"so\" data-key=\"5\">5</button>\n       <button type=\"button\" class=\"so\" data-key=\"6\">6</button>\n       <button type=\"button\" class=\"op\" data-key=\"−\">−</button>\n\n       <button type=\"button\" class=\"so\" data-key=\"1\">1</button>\n       <button type=\"button\" class=\"so\" data-key=\"2\">2</button>\n       <button type=\"button\" class=\"so\" data-key=\"3\">3</button>\n       <button type=\"button\" class=\"op\" data-key=\"+\">+</button>\n\n       <button type=\"button\" class=\"so rong\" data-key=\"0\">0</button>\n       <button type=\"button\" class=\"so\" data-key=\".\">.</button>\n       <button type=\"button\" class=\"bang\" data-key=\"=\">=</button>\n    </div>\n  </main>",
+   "marks": [
+    1,
+    11,
+    15,
+    19,
+    22,
+    26,
+    30
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 120.105,
+   "dur": 31.387,
+   "narration": "Chuyển sang phần CSS. Bàn phím dùng CSS Grid bốn cột, nút số màu xám, toán tử màu xanh, nút bằng màu xanh lá, nút xóa màu đỏ. Nền tối, nút có hiệu ứng nhấn và đổ bóng. Media query thu nhỏ máy tính trên điện thoại. Bảng màu chính gồm #1e293b, #0f172a, #111827, #022c22, #4ade80.",
+   "caption": "Chuyển sang phần CSS. Bàn phím dùng CSS Grid bốn cột, nút số màu xám, toán tử màu xanh, nút bằng màu xanh lá, nút xóa màu đỏ. Nền tối, nút có hiệu ứng nhấn và đổ bóng. Media query thu nhỏ máy tính trên điện thoại. Bảng màu chính gồm #1e293b,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n        margin: 0;\n        min-height: 100vh;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        font-family: Arial, \"Segoe UI\", sans-serif;\n        background: linear-gradient(135deg, #1e293b, #0f172a);\n        padding: 24px;\n    }\n\n    .may-tinh {\n        width: 320px;\n        background: #111827;\n        border-radius: 16px;\n        padding: 18px;\n        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);\n    }\n\n    .man-hinh {\n        background: #022c22;\n        color: #4ade80;\n        border-radius: 10px;\n        padding: 16px 18px;\n        text-align: right;\n        font-family: \"Courier New\", monospace;\n        margin-bottom: 14px;\n        word-break: break-all;\n    }\n\n    .phep-tinh {\n        font-size: 14px;\n        opacity: 0.75;\n        min-height: 18px;\n\n    }\n\n    .ket-qua {\n         font-size: 34px;\n         font-weight: 700;\n         margin-top: 4px;\n    }\n\n    .luoi-phim {\n         display: grid;\n         grid-template-columns: repeat(4, 1fr);\n         gap: 9px;\n    }\n\n    button {\n         padding: 14px 0;\n         border: none;\n         border-radius: 8px;\n         background: #1f2a37;\n         color: #e5e7eb;\n         font-size: 16px;\n         font-weight: 600;\n         cursor: pointer;\n         transition: filter 0.15s;\n    }\n\n    button:hover { filter: brightness(1.15); }\n    button:active { transform: scale(0.97); }\n\n    .so      { background: #25313f; }\n    .op      { background: #0d6efd; color: #ffffff; }\n    .bang { background: #16a34a; color: #ffffff; }\n    .xoa     { background: #dc2626; color: #ffffff; }\n    .rong { grid-column: span 2; }",
+   "marks": [
+    6,
+    47,
+    48,
+    61,
+    64
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "JavaScript",
+   "start": 151.492,
+   "dur": 25.66,
+   "narration": "Phần JavaScript. Chỉ gắn một listener click lên cả bàn phím, dùng event delegation để đọc data-key. Biểu thức hiển thị dùng ký hiệu × ÷ − nhưng trước khi tính phải chuyển về dấu sao, chia, trừ. Hàm kiểm tra chuỗi hợp lệ và cân bằng ngoặc trước khi gọi tính toán. Các hàm chính là tinhGiaTri. Sự kiện được lắng nghe gồm click.",
+   "caption": "Phần JavaScript. Chỉ gắn một listener click lên cả bàn phím, dùng event delegation để đọc data-key. Biểu thức hiển thị dùng ký hiệu × ÷ − nhưng trước khi tính phải chuyển về dấu sao, chia, trừ. Hàm kiểm tra chuỗi hợp lệ và cân bằng ngoặc trước khi…",
+   "lang": "js",
+   "code": "    const elPhepTinh = document.getElementById(\"phep-tinh\");\n    const elKetQua = document.getElementById(\"ket-qua\");\n    let bieuThuc = \"\";\n\n    function tinhGiaTri(chuoi) {\n\n        const chuanHoa = chuoi\n            .replaceAll(\"×\", \"*\")\n            .replaceAll(\"÷\", \"/\")\n            .replaceAll(\"−\", \"-\")\n            .replaceAll(\"%\", \"/100\");\n\n        if (!/^[0-9+\\-*/.() ]+$/.test(chuanHoa)) {\n            throw new Error(\"Biểu thức không hợp lệ\");\n        }\n        const kq = Function(`\"use strict\"; return (${chuanHoa})`)();\n        if (!Number.isFinite(kq)) return \"Lỗi chia 0\";\n        return Number(kq.toFixed(8)).toString();\n    }\n\n    document.getElementById(\"ban-phim\").addEventListener(\"click\", (e) => {\n        const nut = e.target.closest(\"button\");\n        if (!nut) return;\n        const phim = nut.dataset.key;\n\n        if (phim === \"C\") {\n            bieuThuc = \"\";\n            elPhepTinh.textContent = \"\";\n            elKetQua.textContent = \"0\";\n            return;\n        }\n\n        if (phim === \"=\") {\n            if (!bieuThuc) return;\n            try {\n                const dapAn = tinhGiaTri(bieuThuc);\n                elPhepTinh.textContent = bieuThuc;\n                elKetQua.textContent = dapAn;\n                bieuThuc = dapAn === \"Lỗi chia 0\" ? \"\" : dapAn;\n            } catch {\n                elKetQua.textContent = \"Lỗi\";\n            }\n            return;\n        }\n\n       if (phim === \"()\") {\n           const mo = (bieuThuc.match(/\\(/g) || []).length;\n           const dong = (bieuThuc.match(/\\)/g) || []).length;\n           bieuThuc += mo > dong ? \")\" : \"(\";\n       } else {\n           bieuThuc += phim;\n       }\n\n       elPhepTinh.textContent = bieuThuc;\n       elKetQua.textContent = bieuThuc;\n    });",
+   "marks": [
+    1,
+    2,
+    5,
+    13,
+    21,
+    47,
+    48
+   ],
+   "annotation": "Xử lý sự kiện và cập nhật DOM"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 177.152,
+   "dur": 19,
+   "narration": "Chạy thử: bấm bảy, nhân, tám, bằng, kết quả năm mươi sáu. Bấm xóa rồi tính một cộng hai, kết quả ba. Màn hình hiển thị cả biểu thức và kết quả.",
+   "caption": "Chạy thử: bấm bảy, nhân, tám, bằng, kết quả năm mươi sáu. Bấm xóa rồi tính một cộng hai, kết quả ba. Màn hình hiển thị cả biểu thức và kết quả.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "click",
+     "selector": "[data-key=\"7\"]"
+    },
+    {
+     "t": 1.7,
+     "type": "click",
+     "selector": "[data-key=\"×\"]"
+    },
+    {
+     "t": 2.4,
+     "type": "click",
+     "selector": "[data-key=\"8\"]"
+    },
+    {
+     "t": 3.1,
+     "type": "click",
+     "selector": "[data-key=\"=\"]"
+    },
+    {
+     "t": 4.6,
+     "type": "click",
+     "selector": "[data-key=\"C\"]"
+    },
+    {
+     "t": 5.6,
+     "type": "click",
+     "selector": "[data-key=\"1\"]"
+    },
+    {
+     "t": 6.2,
+     "type": "click",
+     "selector": "[data-key=\"+\"]"
+    },
+    {
+     "t": 6.8,
+     "type": "click",
+     "selector": "[data-key=\"2\"]"
+    },
+    {
+     "t": 7.4,
+     "type": "click",
+     "selector": "[data-key=\"=\"]"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 196.152,
+   "dur": 38.565,
+   "narration": "Tổng kết bài 15. Tạo dự án exercise 15 simple calculator, tệp chính index.html, khi nộp đổi tên thành bai15.html. Giải thích kỹ thuật Ủy quyền sự kiện (Event Delegation) — chỉ gắn 1 addEventListener(click) duy nhất lên #ban-phim thay vì gắn 19 sự kiện riêng lẻ cho 19 nút bấm, và giải thích class.rong grid-column: span 2.. Lỗi thường gặp: Không chuyển đổi ký tự ×, ÷, − sang *, /, - trước khi tính toán khiến JavaScript báo lỗi SyntaxError.",
+   "caption": "Tổng kết bài 15. Tạo dự án exercise 15 simple calculator, tệp chính index.html, khi nộp đổi tên thành bai15.html. Giải thích kỹ thuật Ủy quyền sự kiện (Event Delegation) — chỉ gắn 1 addEventListener(click) duy nhất lên #ban-phim thay vì gắn 19 sự…",
+   "points": [
+    "Tạo dự án exercise-15-simple-calculator, tệp chính index.html, khi nộp đổi tên thành bai15.html.",
+    "Giải thích kỹ thuật Ủy quyền sự kiện (Event Delegation) — chỉ gắn 1 addEventListener(\"click\") duy nhất lên #ban-phim thay vì gắn 19 sự kiện riêng lẻ cho 19 nút bấm, và giải thích class .rong { grid-column: span 2; }.",
+    "Lỗi thường gặp: Không chuyển đổi ký tự ×, ÷, − sang *, /, - trước khi tính toán khiến JavaScript báo lỗi SyntaxError."
+   ],
+   "heading": "Bài 15 — điều cần nhớ"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+Quảng cáo tour du lịch “Hành trình Trung Hoa” — hướng dẫn giải từng bước (HTML5 cơ bản & thẻ ngữ nghĩa).
+
+Dự án: exercise-02-china-tour-ad/index.html (khi nộp đổi tên thành bai02.html).
+Công nghệ: HTML5, CSS3, Flexbox, Responsive.
+
+Chương:
+00:00 Mở đầu
+00:29 Yêu cầu
+01:38 Tạo dự án
+02:09 Cấu trúc HTML
+02:28 Định dạng CSS
+02:55 Chạy thử
+03:15 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #BàiTậpThựcHành

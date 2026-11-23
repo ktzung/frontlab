@@ -1,0 +1,177 @@
+{
+ "id": "bai09",
+ "num": 9,
+ "title": "Trang Hồ sơ cá nhân trực tuyến (CV Online)",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-09-online-cv",
+ "submitFile": "bai09.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 202.66,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 30.779,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 9, Trang Hồ sơ cá nhân trực tuyến (CV Online). Chúng ta sẽ cùng tạo dự án exercise 09 online cv với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện bố cục CV chuyên nghiệp: phân cấp thông tin, sidebar màu đậm và thanh kỹ năng trực quan. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 9, Trang Hồ sơ cá nhân trực tuyến (CV Online). Chúng ta sẽ cùng tạo dự án exercise 09 online cv với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 31.279,
+   "dur": 45.07,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Kỹ thuật bo góc khung cha có cột màu sát mép (overflow. hidden): Khi.the-cv có border-radius: 12 pixel nhưng bên trong có.cot-trai tô nền xanh sát mép, nền xanh của.cot-trai sẽ đè vuông góc lên góc trái trên và trái dưới. Dựng Avatar tròn và Chip kỹ năng bằng Flexbox. Với.avatar, kết hợp width: 110 pixel, height: 110 pixel, border-radius: 50 phần trăm, cùng bộ ba căn giữa tâm display: flex, align-items: center, justify-content: center.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Kỹ thuật bo góc khung cha có cột màu sát mép (overflow. hidden): Khi.the-cv có border-radius: 12 pixel nhưng bên trong có.cot-trai tô nền xanh sát mép, nền xanh của.cot-trai sẽ đè…",
+   "points": [
+    "Kỹ thuật bo góc khung cha có cột màu sát mép (overflow — hidden): Khi .the-cv có border-radius: 12px nhưng bên trong có .cot-trai tô nền xanh sát mép, nền xanh của .cot-trai sẽ đè vuông góc lên góc trái trên và trái dưới. Thêm overflow: hidden trên .the-cv giúp cắt gọn nền của các cột con theo đúng đường cong 12px…",
+    "Dựng Avatar tròn và Chip kỹ năng bằng Flexbox — Với .avatar, kết hợp width: 110px; height: 110px; border-radius: 50%; cùng bộ ba căn giữa tâm display: flex; align-items: center; justify-content: center. Với .ky-nang, dùng border-radius: 999px để hai đầu thẻ chip luôn bo tròn hoàn hảo bất kể độ dài chữ."
+   ],
+   "heading": "Bài 09 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 76.349,
+   "dur": 27.092,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 09 online cv. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai09.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 09 online cv. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-09-online-cv",
+     "out": "✔ đã tạo thư mục exercise-09-online-cv"
+    },
+    {
+     "cmd": "cd exercise-09-online-cv",
+     "out": "→ đang ở ~/frontlab/exercise-09-online-cv"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 103.441,
+   "dur": 19.759,
+   "narration": "Mở tệp index.html. CV gồm header tên và chức danh, cột trái chứa ảnh, thông tin liên hệ và kỹ năng, cột phải chứa học vấn, kinh nghiệm, dự án. Mỗi mục là một section có tiêu đề rõ ràng. Các thẻ ngữ nghĩa chính gồm article, aside, section.",
+   "caption": "Mở tệp index.html. CV gồm header tên và chức danh, cột trái chứa ảnh, thông tin liên hệ và kỹ năng, cột phải chứa học vấn, kinh nghiệm, dự án. Mỗi mục là một section có tiêu đề rõ ràng. Các thẻ ngữ nghĩa chính gồm article, aside, section.",
+   "lang": "html",
+   "code": "    <article class=\"the-cv\">\n      <aside class=\"cot-trai\">\n          <div class=\"avatar\">NA</div>\n          <h2>Nguyễn Văn An</h2>\n          <p>Sinh viên CNTT · K67</p>\n          <ul>\n            <li>&#9993; an.nv@tlu.edu.vn</li>\n            <li>&#9742; 0987 654 321</li>\n            <li>&#8962; Hà Nội</li>\n            <li>&#9873; github.com/annv</li>\n          </ul>\n      </aside>\n\n      <section class=\"cot-phai\">\n          <h3>Giới thiệu</h3>\n          <p>\n           Sinh viên năm 3 ngành Công nghệ thông tin, yêu thích lập trình web và thiết kế giao diện.\n\n           Đang tìm cơ hội thực tập vị trí Front-end Developer.\n      </p>\n\n      <h3>Kỹ năng</h3>\n      <div class=\"ky-nang\">\n           <span>HTML5</span>\n           <span>CSS3</span>\n           <span>JavaScript</span>\n           <span>Bootstrap</span>\n           <span>Git</span>\n      </div>\n\n      <h3>Học vấn</h3>\n      <p>2023 – nay: Trường Đại học Thủy lợi (TLU), ngành Công nghệ thông tin.</p>\n\n      <h3>Liên kết</h3>\n      <p class=\"lien-ket\">\n           <a href=\"#\">Portfolio</a> ·\n           <a href=\"#\">Facebook</a> ·\n           <a href=\"#\">LinkedIn</a>\n      </p>\n    </section>\n  </article>",
+   "marks": [
+    1,
+    2,
+    4,
+    12,
+    14,
+    40,
+    41
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 123.2,
+   "dur": 26.778,
+   "narration": "Chuyển sang phần CSS. Grid hai cột với sidebar xanh đậm và nội dung trắng. Thanh kỹ năng dùng div lồng nhau với chiều rộng phần trăm. Bảng màu xanh navy, media query đưa sidebar lên trên và chuyển thành bố cục một cột. Bảng màu chính gồm #eef2f7, #ffffff, #1565C0, #0d3f7a, #e3ebf5.",
+   "caption": "Chuyển sang phần CSS. Grid hai cột với sidebar xanh đậm và nội dung trắng. Thanh kỹ năng dùng div lồng nhau với chiều rộng phần trăm. Bảng màu xanh navy, media query đưa sidebar lên trên và chuyển thành bố cục một cột. Bảng màu chính gồm #eef2f7,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n\n        font-family: Arial, \"Segoe UI\", sans-serif;\n        background: #eef2f7;\n        display: flex;\n        justify-content: center;\n    }\n\n    .the-cv {\n        width: min(860px, 100%);\n        background: #ffffff;\n        border-radius: 12px;\n        overflow: hidden;\n        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);\n        display: grid;\n        grid-template-columns: 280px 1fr;\n    }\n\n    .cot-trai {\n        background: linear-gradient(180deg, #1565C0, #0d3f7a);\n        color: #ffffff;\n        padding: 28px 22px;\n        text-align: center;\n    }\n\n    .avatar {\n        width: 110px;\n        height: 110px;\n        border-radius: 50%;\n        margin: 0 auto 14px;\n        background: #ffffff;\n        color: #1565C0;\n        font-size: 38px;\n        font-weight: 800;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .cot-trai h2 { margin: 0 0 4px; font-size: 20px; }\n\n    .cot-trai p     { margin: 0 0 16px; font-size: 13px; opacity: 0.85; }\n\n    .cot-trai ul {\n        list-style: none;\n        padding: 0;\n        margin: 16px 0 0;\n        font-size: 13px;\n        text-align: left;\n        line-height: 1.9;\n    }\n\n    .cot-phai { padding: 28px 30px; }\n\n    .cot-phai h3 {\n        margin: 0 0 8px;\n        color: #1565C0;\n        font-size: 16px;\n        border-bottom: 2px solid #e3ebf5;\n        padding-bottom: 6px;\n    }\n\n    .cot-phai p {\n        margin: 0 0 16px;\n        font-size: 14px;\n        line-height: 1.7;\n        color: #333333;\n    }\n\n    .ky-nang {\n        display: flex;\n        flex-wrap: wrap;\n        gap: 8px;\n        margin-bottom: 18px;\n    }\n\n    .ky-nang span {\n        background: #e3f0ff;\n        color: #0d3f7a;\n\n          border-radius: 999px;\n          padding: 5px 14px;\n          font-size: 13px;\n          font-weight: 600;\n      }\n\n      .lien-ket a {\n          color: #1565C0;\n          text-decoration: none;\n          font-weight: 600;\n      }\n\n      .lien-ket a:hover { text-decoration: underline; }\n\n      @media (max-width: 680px) {\n          .the-cv { grid-template-columns: 1fr; }\n      }",
+   "marks": [
+    9,
+    19,
+    20,
+    39,
+    75,
+    97,
+    99
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 149.978,
+   "dur": 1.969,
+   "narration": "Phần Bootstrap.",
+   "caption": "Phần Bootstrap.",
+   "lang": "html",
+   "code": "    <article class=\"the-cv\">\n      <aside class=\"cot-trai\">\n          <div class=\"avatar\">NA</div>\n          <h2>Nguyễn Văn An</h2>\n          <p>Sinh viên CNTT · K67</p>\n          <ul>\n            <li>&#9993; an.nv@tlu.edu.vn</li>\n            <li>&#9742; 0987 654 321</li>\n            <li>&#8962; Hà Nội</li>\n            <li>&#9873; github.com/annv</li>\n          </ul>\n      </aside>\n\n      <section class=\"cot-phai\">\n          <h3>Giới thiệu</h3>\n          <p>\n           Sinh viên năm 3 ngành Công nghệ thông tin, yêu thích lập trình web và thiết kế giao diện.\n\n           Đang tìm cơ hội thực tập vị trí Front-end Developer.\n      </p>\n\n      <h3>Kỹ năng</h3>\n      <div class=\"ky-nang\">\n           <span>HTML5</span>\n           <span>CSS3</span>\n           <span>JavaScript</span>\n           <span>Bootstrap</span>\n           <span>Git</span>\n      </div>\n\n      <h3>Học vấn</h3>\n      <p>2023 – nay: Trường Đại học Thủy lợi (TLU), ngành Công nghệ thông tin.</p>\n\n      <h3>Liên kết</h3>\n      <p class=\"lien-ket\">\n           <a href=\"#\">Portfolio</a> ·\n           <a href=\"#\">Facebook</a> ·\n           <a href=\"#\">LinkedIn</a>\n      </p>\n    </section>\n  </article>",
+   "marks": [
+    1,
+    2,
+    4,
+    12,
+    14,
+    40,
+    41
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 151.947,
+   "dur": 20.5,
+   "narration": "Chạy thử CV: sidebar xanh bên trái, nội dung bên phải, thanh kỹ năng hiển thị theo tỉ lệ. Thu nhỏ màn hình, sidebar chuyển lên trên và toàn bộ CV xếp thành một cột.",
+   "caption": "Chạy thử CV: sidebar xanh bên trái, nội dung bên phải, thanh kỹ năng hiển thị theo tỉ lệ. Thu nhỏ màn hình, sidebar chuyển lên trên và toàn bộ CV xếp thành một cột.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.4
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 172.447,
+   "dur": 30.211,
+   "narration": "Tổng kết bài 9. Tạo dự án exercise 09 online cv, tệp chính index.html, khi nộp đổi tên thành bai09.html. Giải thích cách căn chữ NA chính giữa tâm hình tròn bằng Flexbox và vai trò của overflow: hidden trên thẻ cha.the-cv.. Lỗi thường gặp: Chỉ đặt width: 110 pixel mà quên height: 110 pixel trên. avatar, khiến vòng tròn bị biến thành hình bầu dục (ellipse).",
+   "caption": "Tổng kết bài 9. Tạo dự án exercise 09 online cv, tệp chính index.html, khi nộp đổi tên thành bai09.html. Giải thích cách căn chữ NA chính giữa tâm hình tròn bằng Flexbox và vai trò của overflow: hidden trên thẻ cha.the-cv.. Lỗi thường gặp: Chỉ đặt…",
+   "points": [
+    "Tạo dự án exercise-09-online-cv, tệp chính index.html, khi nộp đổi tên thành bai09.html.",
+    "Giải thích cách căn chữ NA chính giữa tâm hình tròn bằng Flexbox và vai trò của overflow: hidden trên thẻ cha .the-cv.",
+    "Lỗi thường gặp: Chỉ đặt width: 110px mà quên height: 110px trên . avatar, khiến vòng tròn bị biến thành hình bầu dục (ellipse)."
+   ],
+   "heading": "Bài 09 — điều cần nhớ"
+  }
+ ]
+}

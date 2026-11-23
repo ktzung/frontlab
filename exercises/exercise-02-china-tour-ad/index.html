@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 02 - Quảng cáo tour du lịch Trung Hoa</title>
+  <style>
+     * { box-sizing: border-box; }
+
+     body {
+         margin: 0;
+         padding: 32px 16px;
+
+        font-family: Georgia, "Times New Roman", serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+    }
+
+    .banner {
+        width: min(820px, 100%);
+        background: linear-gradient(160deg, #C9A227, #A8861B);
+        color: #ffffff;
+        padding: 28px 36px;
+        border-radius: 6px;
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.25);
+        display: flow-root;
+    }
+
+    .banner h1 {
+        margin: 0 0 16px;
+        text-align: center;
+        font-size: clamp(20px, 3vw, 26px);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .anh-noi {
+        float: right;
+        width: 260px;
+        margin: 0 0 14px 18px;
+        border: 3px solid rgba(255, 255, 255, 0.85);
+        border-radius: 4px;
+    }
+
+    .banner p {
+        margin: 0 0 14px;
+        line-height: 1.75;
+        text-align: justify;
+    }
+
+    .banner p:last-child { margin-bottom: 0; }
+
+      @media (max-width: 600px) {
+          .anh-noi {
+              float: none;
+              display: block;
+              width: 100%;
+              margin: 0 0 16px 0;
+          }
+      }
+    </style>
+</head>
+<body>
+    <article class="banner">
+      <h1>&ldquo;Bất đáo Trường Thành phi hảo hán&rdquo;…</h1>
+      <img class="anh-noi" src="assets/greatwall.jpg" alt="Vạn Lý Trường Thành">
+      <p>
+          Công ty du lịch Hoàn Mỹ giới thiệu hành trình khám phá Trung Hoa: chinh phục
+          Vạn Lý Trường Thành, ghé Thập Tam Lăng, tham quan Cung Điện Mùa Hè – nơi
+          Từ Hy Thái Hậu cho “đào hồ, đắp núi, xây chùa”.
+      </p>
+      <p>
+          Du khách còn được dạo quảng trường Thiên An Môn, chiêm ngưỡng Cố Cung, thưởng
+          thức vịt quay Bắc Kinh. Tiếp đó là Thượng Hải với vườn Dự Viên và khu lầu
+          Vạn Quốc bên bến sông Hoàng Phố.
+      </p>
+      <p>
+          Hành trình khép lại ở Hàng Châu – nơi có sự tích “cầu gãy mà không gãy” gắn
+          với chuyện Lương Sơn Bá – Chúc Anh Đài, cùng thiên đường mua sắm ngọc trai quý hiếm.
+      </p>
+    </article>
+</body>
+</html>

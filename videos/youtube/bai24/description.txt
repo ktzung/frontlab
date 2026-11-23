@@ -1,0 +1,18 @@
+Bảng giá dịch vụ 3 gói chuyên nghiệp (Pricing Table) — hướng dẫn giải từng bước (CSS3 hiện đại — bố cục & hiệu ứng).
+
+Dự án: exercise-24-pricing-table/index.html (khi nộp đổi tên thành bai24.html).
+Công nghệ: HTML5, CSS3, Bootstrap 5, Flexbox, CSS Grid, Responsive, Transition.
+
+Chương:
+00:00 Mở đầu
+00:33 Yêu cầu
+01:24 Tạo dự án
+01:52 Cấu trúc HTML
+02:11 Định dạng CSS
+02:37 Bootstrap
+02:39 Chạy thử
+02:58 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

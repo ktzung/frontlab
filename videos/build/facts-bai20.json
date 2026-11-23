@@ -1,0 +1,16 @@
+{
+ "num": 20,
+ "slug": "css-image-lab",
+ "steps": [
+  {
+   "label": "Tạo chữ vàng ánh kim bằng -webkit-background-clip",
+   "text": "text: Trên .chu-nghe-thuat, khai báo background: linear-gradient(90deg, #d4af37, #f5e6a3, #b8860b); -webkit-background-clip: text; background-clip: text; color: transparent;. Khi màu chữ trong suốt (transparent), dải màu vàng ánh kim ở nền sẽ chỉ hiển thị đúng phần nét chữ. •"
+  },
+  {
+   "label": "Kết hợp mảng cấu hình hiệu ứng trong JavaScript",
+   "text": "Định nghĩa danh sách 13 hiệu ứng gồm { ten, filter, transform }. Khi bấm nút, gỡ class .on khỏi nút cũ, thêm .on vào nút vừa bấm, và gán anh.style.filter cùng anh.style.transform."
+  }
+ ],
+ "highlight": "Giải thích lý do phải thay thế style=\"filter: progid:DXImageTransform.Microsoft...\" của Internet Explorer cũ bằng CSS3 filter và transform chuẩn W3C. •",
+ "mistake": "Khi chuyển từ nút FlipH (transform: scaleX(-1)) sang nút Gray (filter: grayscale(1)), nếu quên đặt lại anhHoa.style. transform = \"none\" thì bức ảnh vẫn bị lộn ngược."
+}

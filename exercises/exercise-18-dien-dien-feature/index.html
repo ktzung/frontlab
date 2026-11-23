@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 18 - Bông điên điển mùa nước nổi</title>
+  <style>
+      * { box-sizing: border-box; }
+
+      body {
+         margin: 0;
+
+        padding: 32px 16px;
+        font-family: Georgia, "Times New Roman", serif;
+        background: #fffdf7;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bai-viet {
+        width: min(860px, 100%);
+    }
+
+    .bai-viet h1 {
+        margin: 0 0 4px;
+        color: #E65100;
+        font-size: 30px;
+        line-height: 1.2;
+    }
+
+    .bai-viet h1 span {
+        display: block;
+        font-size: 0.6em;
+        font-weight: 400;
+    }
+
+    .cot-bai {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 24px;
+        margin-top: 16px;
+        align-items: start;
+    }
+
+    .cot-bai p {
+        margin: 0 0 14px;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    .cot-bai p:first-of-type::first-letter {
+        float: left;
+        font-size: 3rem;
+        line-height: 0.85;
+        color: #E65100;
+        font-weight: 700;
+        padding: 0.1rem 0.35rem 0 0;
+    }
+
+    .cot-bai img {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+    }
+
+    .hop-phu {
+        margin-top: 20px;
+        border: 2px solid #2E7D32;
+        border-radius: 8px;
+        padding: 16px 20px;
+        background: #f4fbf4;
+    }
+
+    .hop-phu h2 {
+        margin: 0 0 10px;
+        color: #2E7D32;
+        font-style: italic;
+        font-size: 17px;
+    }
+
+    .hop-phu ul {
+        margin: 0;
+        padding-left: 20px;
+        columns: 2;
+        column-gap: 32px;
+        line-height: 1.9;
+    }
+
+      @media (max-width: 640px) {
+          .cot-bai { grid-template-columns: 1fr; }
+          .hop-phu ul { columns: 1; }
+      }
+    </style>
+</head>
+<body>
+    <article class="bai-viet">
+      <h1>Bông điên điển <span>Món ngon mùa nước nổi</span></h1>
+
+      <div class="cot-bai">
+          <div>
+            <p>
+                 Mỗi năm, vào đầu mùa nước nổi, những cây điên điển bên bờ sông, bờ rạch lại xanh tươi trở lại,
+                 trổ đầy hoa vàng rực giữa vùng lũ Đồng bằng sông Cửu Long.
+            </p>
+            <p>
+                 Trước đây, người dân nghèo dùng bông điên điển nấu cháo cầm cự qua tháng ngày khó khăn. Ngày nay,
+              bông điên điển trở thành món ngon: làm dưa chỉ cần ngâm với giá sống trong nước muối vừa mặn,
+                 ba ngày sau là có dĩa dưa chua giòn chấm nước tương ớt.
+            </p>
+          </div>
+
+          <img src="assets/Diendien.jpg" alt="Hoa điên điển vàng mùa nước nổi">
+      </div>
+
+      <aside class="hop-phu">
+          <h2>Hương vị miền Nam</h2>
+          <ul>
+            <li>Bánh tráng Mỹ Lồng, bánh phồng Sơn Đốc</li>
+            <li>Dồi lươn rim nước cốt dừa</li>
+            <li>Bún mắm</li>
+            <li>Bún nước lèo Sóc Trăng</li>
+            <li>Nem lai Vung</li>
+            <li>Cốm dẹp</li>
+
+          <li>Bưởi Tân Triều</li>
+      </ul>
+    </aside>
+  </article>
+</body>
+</html>

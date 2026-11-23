@@ -1,0 +1,16 @@
+{
+ "num": 17,
+ "slug": "form-validation",
+ "steps": [
+  {
+   "label": "Viết hàm dùng chung datTrangThai(inputEl, tbEl, hopLe, thong Diep)",
+   "text": "Thay vì lặp lại mã thêm/xóa class cho từng ô, ta viết một hàm nhận vào phần tử <input> và phần tử thông báo .tb. Nếu hopLe === true, hàm gắn class ok và in 3 Hợp lệ; ngược lại gắn class loi và in ✗ ${thongDiep}. •"
+  },
+  {
+   "label": "Kiểm tra từng quy tắc nghiệp vụ",
+   "text": "– Họ tên: hoTen.trim().length >= 2. – Email: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.trim()). – Mật khẩu: matKhau.length >= 6. – Xác nhận mật khẩu: xacNhan.length >= 6 && xacNhan === matKhau."
+  }
+ ],
+ "highlight": "Giải thích ý nghĩa thuộc tính novalidate trên thẻ <form> (tắt bong bóng cảnh báo mặc định của trình duyệt để nhường quyền hiển thị thông báo tùy chỉnh bằng JavaScript) và phân tích biểu thức chính quy /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/. •",
+ "mistake": "Dùng toán tử || hoặc dừng hàm ngay ở lỗi đầu tiên (if (!kqTen) return;) khiến các ô bị sai phía dưới không hiện thông báo lỗi đồng thời. Hiệu Ứng Nâng Cao Thông tin ngày học Số lượng bài thực hành: 7 bài (Bài 18 – Bài 24) · Thời lượng gợi ý: 5 – 7 giờ thực hành · Cần biết trước: Các bộ chọn CSS cơ bản, mô hình hộp (box-sizing: border-box) và thao tác classList trong JavaScript. Sau chương thực hành này, bạn có thể: 1. Chia danh sách và văn bản thành nhiều cột tự động bằng thuộc tính columns của CSS Multi-column Layout (Bài 18). 2. Sử dụng thuộc tính filter, transform, -webkit-background-clip: text kết hợp bộ lọc vector <svg><filter> để thay thế hoàn toàn bộ lọc độc quyền IE Filter cũ (Bài 20). 3. Thiết kế bố cục trang cổng thông tin 4 vùng phức tạp bằng grid-template-areas thay thế hoàn toàn thẻ <frameset> lỗi thời (Bài 21). 4. Xây dựng hệ thống chuyển đổi giao diện Sáng / Tối (Light / Dark Mode) mượt mà bằng biến CSS (:root và .toi), hiệu ứng phóng to ảnh khi rê chuột (:hover + overflow: hidden) và bảng giá dịch vụ có thẻ nổi bật (Bài 22, 23, 24). Bảng thuật ngữ kỹ thuật cốt lõi Chương 3 Nghĩa chuẩn CNTT & Ứng Thuật ngữ tiếng Anh Phiên âm bồi dụng trong Chương 3 Multi-column Layout Mun-ti co-lầm lây-ao Thuộc tính columns: 2 tự động chia danh sách <ul> thành 2 cột cân đối (Bài 18) Nghĩa chuẩn CNTT & Ứng Thuật ngữ tiếng Anh Phiên âm bồi dụng trong Chương 3 CSS Filter & Transform Xi-ét-ét phin-tơ & Bộ lọc hình ảnh (grayscale, Tờ-ran-phom invert, blur, drop-shadow) và biến đổi hình học (scale) CSS Grid Areas Gờ-rít e-ri-ơ-dơ Đặt tên vùng trực quan (banner, menu, main, qc) trên lưới 2 chiều (Bài 21) CSS Custom Properties Cắt-x-tầm pờ-ro-pơ-ti-dơ Biến CSS (--nen, --chu) giúp đổi toàn bộ bảng màu Sáng/Tối chỉ bằng 1 class (Bài 22) Smooth Transition X-mút tờ-ran-di-sần Chuyển đổi trạng thái mượt mà theo thời gian (transition: transform 0.4s ease) Featured Pricing Card Phi-chơ pờ-rai-xinh các Thẻ gói dịch vụ nổi bật được nhấc cao hơn bằng transform: translateY(- 10px) (Bài 24)"
+}

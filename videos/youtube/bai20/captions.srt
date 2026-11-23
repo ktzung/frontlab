@@ -1,0 +1,160 @@
+1
+00:00:00,650 --> 00:00:01,831
+Chào các bạn.
+
+2
+00:00:01,881 --> 00:00:10,601
+Đây là video hướng dẫn bài thực hành số 20, Phòng thí nghiệm hiệu ứng ảnh với CSS3 & SVG Filter.
+
+3
+00:00:10,651 --> 00:00:25,730
+Chúng ta sẽ cùng tạo dự án exercise 20 css image lab với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:25,780 --> 00:00:32,684
+Bài luyện filter CSS, SVG filter và kỹ thuật sinh nút điều khiển từ dữ liệu.
+
+5
+00:00:32,734 --> 00:00:33,914
+Cùng bắt đầu.
+
+6
+00:00:34,264 --> 00:00:38,389
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:38,439 --> 00:00:40,322
+Bài gồm 2 phần chính.
+
+8
+00:00:40,372 --> 00:00:44,855
+Tạo chữ vàng ánh kim bằng -webkit-background-clip.
+
+9
+00:00:44,905 --> 00:01:00,327
+text: Trên.chu-nghe-thuat, khai báo background: linear-gradient(90deg, #d4af37, #f5e6a3, #b8860b), -webkit-background-clip: text, background-clip: text, color: transparent.
+
+10
+00:01:00,377 --> 00:01:04,681
+Kết hợp mảng cấu hình hiệu ứng trong JavaScript.
+
+11
+00:01:04,731 --> 00:01:10,110
+Định nghĩa danh sách 13 hiệu ứng gồm ten, filter, transform.
+
+12
+00:01:10,160 --> 00:01:20,203
+Khi bấm nút, gỡ class.on khỏi nút cũ, thêm.on vào nút vừa bấm, và gán anh.style.filter cùng anh.style.transform.
+
+13
+00:01:20,453 --> 00:01:22,065
+Bước một, tạo dự án.
+
+14
+00:01:22,115 --> 00:01:26,309
+Mở terminal và chạy mkdir exercise 20 css image lab.
+
+15
+00:01:26,359 --> 00:01:34,504
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+16
+00:01:34,554 --> 00:01:42,135
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+17
+00:01:42,185 --> 00:01:45,572
+Trong dự án, tệp chính luôn là index.html.
+
+18
+00:01:45,622 --> 00:01:51,106
+Khi nộp theo quy định của học phần, các em đổi tên thành bai20.html.
+
+19
+00:01:51,406 --> 00:01:52,834
+Mở tệp index.html.
+
+20
+00:01:52,884 --> 00:01:59,861
+Trang trưng bày một ảnh hoa hồng và một thanh nút được JavaScript sinh từ mảng hiệu ứng.
+
+21
+00:01:59,911 --> 00:02:03,163
+Ảnh có id để áp dụng filter và transform.
+
+22
+00:02:03,213 --> 00:02:06,701
+Có thêm bộ lọc SVG định nghĩa hiệu ứng sóng.
+
+23
+00:02:07,101 --> 00:02:09,288
+Chuyển sang phần CSS.
+
+24
+00:02:09,338 --> 00:02:14,024
+Khung ảnh nền tối, ảnh giữ nguyên kích thước.
+
+25
+00:02:14,074 --> 00:02:18,865
+Thanh nút nằm dưới, nút đang chọn có màu vàng.
+
+26
+00:02:18,915 --> 00:02:27,454
+Hiệu ứng dùng filter như grayscale, sepia, blur, drop-shadow và transform lật ảnh.
+
+27
+00:02:27,504 --> 00:02:31,357
+Media query cho thanh nút xuống dòng.
+
+28
+00:02:31,407 --> 00:02:37,968
+Bảng màu chính gồm #101418, #eeeeee, #1c2226, #d4af37, #f5e6a3.
+
+29
+00:02:38,268 --> 00:02:39,500
+Phần JavaScript.
+
+30
+00:02:39,550 --> 00:02:42,939
+Mảng hiệu ứng chứa tên, filter và transform.
+
+31
+00:02:42,989 --> 00:02:52,926
+Vòng lặp tạo từng nút, gắn sự kiện click: bỏ trạng thái chọn ở các nút cũ, thêm cho nút mới, rồi gán filter và transform cho ảnh.
+
+32
+00:02:52,976 --> 00:02:57,058
+Kỹ thuật này tách dữ liệu hiệu ứng khỏi mã giao diện.
+
+33
+00:02:57,108 --> 00:02:59,650
+Sự kiện được lắng nghe gồm click.
+
+34
+00:03:00,000 --> 00:03:07,497
+Chạy thử: bấm nút Glow, ảnh phát sáng vàng, bấm Wave, ảnh nghiêng nhẹ, bấm FlipH, ảnh lật ngang.
+
+35
+00:03:07,547 --> 00:03:09,890
+Mỗi lần chỉ một nút được chọn.
+
+36
+00:03:19,000 --> 00:03:20,405
+Tổng kết bài 20.
+
+37
+00:03:20,455 --> 00:03:28,530
+Tạo dự án exercise 20 css image lab, tệp chính index.html, khi nộp đổi tên thành bai20.html.
+
+38
+00:03:28,580 --> 00:03:41,308
+Giải thích lý do phải thay thế style=filter: progid:DXImageTransform.Microsoft của Internet Explorer cũ bằng CSS3 filter và transform chuẩn W3C..
+
+39
+00:03:41,358 --> 00:03:52,945
+Lỗi thường gặp: Khi chuyển từ nút FlipH (transform: scaleX(-1)) sang nút Gray (filter: grayscale(1)), nếu quên đặt lại anhHoa.style.
+
+40
+00:03:52,995 --> 00:03:57,032
+transform = none thì bức ảnh vẫn bị lộn ngược.
+

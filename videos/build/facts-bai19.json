@@ -1,0 +1,16 @@
+{
+ "num": 19,
+ "slug": "mui-ne-travel",
+ "steps": [
+  {
+   "label": "Kỹ thuật tạo bóng đổ chữ 2 lớp (text-shadow)",
+   "text": "Thuộc tính text-shadow cho phép khai báo nhiều lớp bóng cách nhau bằng dấu phẩy. Khi viết text-shadow: 1px 1px 0 #fff, 2px 2px 4px rgba(0,0,0,0.25);, lớp thứ nhất tạo viền sáng trắng 1px sát mép chữ, lớp thứ hai tạo bóng mờ phía sau giúp chữ vàng #C9A227 nổi hẳn lên trên nền trắng. •"
+  },
+  {
+   "label": "Căn đỉnh ảnh và tiêu đề bằng align-items",
+   "text": "start: Trên .bai-viet, đặt align-items: start để bức ảnh bên trái không bị kéo giãn chiều cao theo cột chữ bên phải."
+  }
+ ],
+ "highlight": "Giải thích 4 tham số của text-shadow: offset-x offset-y blur-radius color và phân biệt các kiểu đường viền solid (nét liền), dashed (nét gạch đứt), dotted (nét chấm). •",
+ "mistake": "Quên xóa margin-bottom ở đoạn <p:last-child> bên trong .noi-dung khiến khoảng đệm dưới đáy khung nét đứt bị dày gấp đôi khoảng đệm trên đỉnh."
+}

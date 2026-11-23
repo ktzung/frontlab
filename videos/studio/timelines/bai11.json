@@ -1,0 +1,159 @@
+{
+ "id": "bai11",
+ "num": 11,
+ "title": "Thư viện ảnh danh thắng Việt Nam",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-11-vietnam-gallery",
+ "submitFile": "bai11.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 214.88,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 28.809,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 11, Thư viện ảnh danh thắng Việt Nam. Chúng ta sẽ cùng tạo dự án exercise 11 vietnam gallery với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài luyện grid ảnh responsive và cặp figure figcaption đúng chuẩn HTML5. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 11, Thư viện ảnh danh thắng Việt Nam. Chúng ta sẽ cùng tạo dự án exercise 11 vietnam gallery với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 29.309,
+   "dur": 43.926,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Xóa margin mặc định của thẻ figure. Theo User-Agent Stylesheet của trình duyệt, thẻ figure mặc định có margin: 1em 40 pixel. Nếu không đặt figure margin: 0, , các ô trong lưới CSS Grid sẽ bị co nhỏ và lệch lề.. Loại bỏ khe hở 4 pixel dưới đáy thẻ img. Thẻ img mặc định có display: inline nên trình duyệt chừa một khe hở nhỏ dưới chân ảnh (cho chân chữ g, y, p). Đặt display: block trên figure img giúp ảnh khít hoàn toàn với phần figcaption bên dưới.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Xóa margin mặc định của thẻ figure. Theo User-Agent Stylesheet của trình duyệt, thẻ figure mặc định có margin: 1em 40 pixel. Nếu không đặt figure margin: 0, , các ô trong lưới CSS…",
+   "points": [
+    "Xóa margin mặc định của thẻ <figure> — Theo User-Agent Stylesheet của trình duyệt, thẻ <figure> mặc định có margin: 1em 40px. Nếu không đặt figure { margin: 0; }, các ô trong lưới CSS Grid sẽ bị co nhỏ và lệch lề.",
+    "Loại bỏ khe hở 4px dưới đáy thẻ <img> — Thẻ <img> mặc định có display: inline nên trình duyệt chừa một khe hở nhỏ dưới chân ảnh (cho chân chữ g, y, p). Đặt display: block trên figure img giúp ảnh khít hoàn toàn với phần <figcaption> bên dưới."
+   ],
+   "heading": "Bài 11 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 73.235,
+   "dur": 30.884,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 11 vietnam gallery. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai11.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 11 vietnam gallery. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh,…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-11-vietnam-gallery",
+     "out": "✔ đã tạo thư mục exercise-11-vietnam-gallery"
+    },
+    {
+     "cmd": "cd exercise-11-vietnam-gallery",
+     "out": "→ đang ở ~/frontlab/exercise-11-vietnam-gallery"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 104.119,
+   "dur": 18.946,
+   "narration": "Mở tệp index.html. Mỗi ảnh là một figure có img và figcaption. Toàn bộ thư viện nằm trong main, có tiêu đề h1 và mô tả ngắn. Cách dùng figure giúp ảnh và chú thích luôn gắn với nhau về ngữ nghĩa. Các thẻ ngữ nghĩa chính gồm main, figure.",
+   "caption": "Mở tệp index.html. Mỗi ảnh là một figure có img và figcaption. Toàn bộ thư viện nằm trong main, có tiêu đề h1 và mô tả ngắn. Cách dùng figure giúp ảnh và chú thích luôn gắn với nhau về ngữ nghĩa. Các thẻ ngữ nghĩa chính gồm main, figure.",
+   "lang": "html",
+   "code": "  <main class=\"thu-vien\">\n    <h1>Thư viện ảnh Việt Nam</h1>\n    <p class=\"mo-ta\">Bộ sưu tập 6 danh thắng tiêu biểu — minh hoạ thẻ ngữ nghĩa figure và figcaption.</p>\n\n    <div class=\"luoi-anh\">\n         <figure>\n           <img src=\"assets/1-vinh-ha-long.jpg\" alt=\"Vịnh Hạ Long\">\n           <figcaption>Hình 1. Vịnh Hạ Long</figcaption>\n         </figure>\n         <figure>\n           <img src=\"assets/2-son-doong.jpg\" alt=\"Hang Sơn Đoòng\">\n           <figcaption>Hình 2. Hang Sơn Đoòng</figcaption>\n         </figure>\n         <figure>\n           <img src=\"assets/3-thac-ban-gioc.jpg\" alt=\"Thác Bản Giốc\">\n           <figcaption>Hình 3. Thác Bản Giốc</figcaption>\n         </figure>\n         <figure>\n           <img src=\"assets/4-fansipan.jpg\" alt=\"Đỉnh Fansipan\">\n           <figcaption>Hình 4. Fansipan</figcaption>\n         </figure>\n         <figure>\n\n          <img src=\"assets/5-mekong.jpg\" alt=\"Đồng bằng sông Cửu Long\">\n          <figcaption>Hình 5. Đồng bằng sông Cửu Long</figcaption>\n      </figure>\n      <figure>\n          <img src=\"assets/6-phong-nha.jpg\" alt=\"Động Phong Nha\">\n          <figcaption>Hình 6. Động Phong Nha</figcaption>\n      </figure>\n    </div>\n  </main>",
+   "marks": [
+    1,
+    7,
+    11,
+    15,
+    19,
+    24,
+    28
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 123.065,
+   "dur": 29.541,
+   "narration": "Chuyển sang phần CSS. Grid tự động với các cột tối thiểu 240 pixel, khoảng cách đều. Ảnh phủ kín ô bằng object-fit cover, chú thích nằm dưới. Nền tối, chữ sáng, media query giảm số cột trên màn hình hẹp. Bảng màu chính gồm #0f172a, #e2e8f0, #94a3b8, #1e293b, #cbd5e1.",
+   "caption": "Chuyển sang phần CSS. Grid tự động với các cột tối thiểu 240 pixel, khoảng cách đều. Ảnh phủ kín ô bằng object-fit cover, chú thích nằm dưới. Nền tối, chữ sáng, media query giảm số cột trên màn hình hẹp. Bảng màu chính gồm #0f172a, #e2e8f0, #94a3b8,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         background: #0f172a;\n         color: #e2e8f0;\n    }\n\n    .thu-vien {\n         max-width: 1000px;\n\n        margin: 0 auto;\n    }\n\n    .thu-vien h1 {\n        text-align: center;\n        font-size: 26px;\n        margin: 0 0 6px;\n    }\n\n    .mo-ta {\n        text-align: center;\n        color: #94a3b8;\n        font-size: 14px;\n        margin: 0 0 26px;\n    }\n\n    .luoi-anh {\n        display: grid;\n        grid-template-columns: repeat(3, 1fr);\n        gap: 18px;\n    }\n\n    figure {\n        margin: 0;\n        background: #1e293b;\n        border-radius: 10px;\n        overflow: hidden;\n        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);\n    }\n\n    figure img {\n        width: 100%;\n        height: 170px;\n        object-fit: cover;\n        display: block;\n    }\n\n    figcaption {\n\n         padding: 10px 14px;\n         font-size: 13px;\n         color: #cbd5e1;\n    }\n\n    @media (max-width: 768px) {\n         .luoi-anh { grid-template-columns: repeat(2, 1fr); }\n    }\n\n    @media (max-width: 480px) {\n         .luoi-anh { grid-template-columns: 1fr; }\n    }",
+   "marks": [
+    31,
+    32,
+    58,
+    59,
+    62,
+    63
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 152.606,
+   "dur": 20.5,
+   "narration": "Chạy thử thư viện: các ảnh xếp thành lưới đều nhau, chú thích dưới mỗi ảnh. Thu nhỏ màn hình, lưới tự giảm từ ba cột xuống hai rồi một cột.",
+   "caption": "Chạy thử thư viện: các ảnh xếp thành lưới đều nhau, chú thích dưới mỗi ảnh. Thu nhỏ màn hình, lưới tự giảm từ ba cột xuống hai rồi một cột.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.5
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 173.106,
+   "dur": 41.769,
+   "narration": "Tổng kết bài 11. Tạo dự án exercise 11 vietnam gallery, tệp chính index.html, khi nộp đổi tên thành bai11.html. Giải thích ý nghĩa ngữ nghĩa của cặp thẻ figure / figcaption đối với công cụ tìm kiếm (SEO) và trình đọc màn hình, cùng lý do phải đặt figure margin: 0.. Lỗi thường gặp: Quên overflow: hidden trên thẻ figure khiến 2 góc trên của bức ảnh img vẫn nhọn vuông góc dù figure đã có border-radius: 10 pixel. JavaScript Thông tin ngày học Số lượng bài thực hành: 6 bài (Bài 12 – Bài 17).",
+   "caption": "Tổng kết bài 11. Tạo dự án exercise 11 vietnam gallery, tệp chính index.html, khi nộp đổi tên thành bai11.html. Giải thích ý nghĩa ngữ nghĩa của cặp thẻ figure / figcaption đối với công cụ tìm kiếm (SEO) và trình đọc màn hình, cùng lý do phải đặt…",
+   "points": [
+    "Tạo dự án exercise-11-vietnam-gallery, tệp chính index.html, khi nộp đổi tên thành bai11.html.",
+    "Giải thích ý nghĩa ngữ nghĩa của cặp thẻ <figure> / <figcaption> đối với công cụ tìm kiếm (SEO) và trình đọc màn hình, cùng lý do phải đặt figure { margin: 0; }.",
+    "Lỗi thường gặp: Quên overflow: hidden trên thẻ <figure> khiến 2 góc trên của bức ảnh <img> vẫn nhọn vuông góc dù <figure> đã có border-radius: 10px. JavaScript Thông tin ngày học Số lượng bài thực hành: 6 bài (Bài 12 – Bài 17) Thời lượng gợi ý: 5 –…"
+   ],
+   "heading": "Bài 11 — điều cần nhớ"
+  }
+ ]
+}

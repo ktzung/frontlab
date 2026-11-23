@@ -1,0 +1,163 @@
+{
+ "id": "bai10",
+ "num": 10,
+ "title": "Trang Biểu mẫu liên hệ khách hàng (HTML5 Form)",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-10-contact-form",
+ "submitFile": "bai10.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html"
+ ],
+ "total": 210.2,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 32.463,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 10, Trang Biểu mẫu liên hệ khách hàng (HTML5 Form). Chúng ta sẽ cùng tạo dự án exercise 10 contact form với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài chuẩn về form HTML5: label đúng cách, các kiểu input, thuộc tính bắt buộc và bố cục form responsive. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 10, Trang Biểu mẫu liên hệ khách hàng (HTML5 Form). Chúng ta sẽ cùng tạo dự án exercise 10 contact form với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 32.963,
+   "dur": 43.855,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Gắn kết label với input qua thuộc tính for và id. Mỗi trường nhập liệu đều có label đi kèm input. Đặc biệt với input , việc gắn label giúp người dùng bấm trực tiếp vào dòng chữ Tôi đồng ý nhận email phản hồi cũng tích chọn được ô vuông.. Lưu ý thuộc tính font. inherit cho các phần tử Form: Mặc định trình duyệt áp phông chữ riêng (thường là monospace trên textarea) và cỡ chữ nhỏ hơn cho input , select , textarea , button. Khai báo font: inherit, giúp tất cả ô nhập đồng bộ phông chữ với body.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Gắn kết label với input qua thuộc tính for và id. Mỗi trường nhập liệu đều có label đi kèm input. Đặc biệt với input , việc gắn label giúp người dùng bấm trực tiếp vào dòng chữ Tôi…",
+   "points": [
+    "Gắn kết <label> với <input> qua thuộc tính for và id — Mỗi trường nhập liệu đều có <label for=\"ho-ten\"> đi kèm <input id=\"ho-ten\">. Đặc biệt với <input type=\"checkbox\" id=\"dong-y\">, việc gắn <label for=\"dong-y\"> giúp người dùng bấm trực tiếp vào dòng chữ “Tôi đồng ý nhận email phản hồi” cũng tích chọn được ô…",
+    "Lưu ý thuộc tính font — inherit cho các phần tử Form: Mặc định trình duyệt áp phông chữ riêng (thường là monospace trên <textarea>) và cỡ chữ nhỏ hơn cho <input>, <select>, <textarea>, <button>. Khai báo font: inherit; giúp tất cả ô nhập đồng bộ phông chữ với <body>."
+   ],
+   "heading": "Bài 10 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 76.817,
+   "dur": 26.86,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 10 contact form. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai10.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 10 contact form. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-10-contact-form",
+     "out": "✔ đã tạo thư mục exercise-10-contact-form"
+    },
+    {
+     "cmd": "cd exercise-10-contact-form",
+     "out": "→ đang ở ~/frontlab/exercise-10-contact-form"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 103.677,
+   "dur": 23.959,
+   "narration": "Mở tệp index.html. Trang dùng form với fieldset và legend, các cặp label gắn với input qua thuộc tính for và id. Có ô họ tên, email, số điện thoại, chủ đề select, nội dung textarea và nút gửi. Các trường bắt buộc dùng required. Các thẻ ngữ nghĩa chính gồm article, header, form.",
+   "caption": "Mở tệp index.html. Trang dùng form với fieldset và legend, các cặp label gắn với input qua thuộc tính for và id. Có ô họ tên, email, số điện thoại, chủ đề select, nội dung textarea và nút gửi. Các trường bắt buộc dùng required. Các thẻ ngữ nghĩa…",
+   "lang": "html",
+   "code": "  <article class=\"the-form\">\n    <header>\n         <h1>Liên hệ với chúng tôi</h1>\n         <p>Vui lòng điền thông tin bên dưới, chúng tôi sẽ phản hồi trong 24 giờ.</p>\n    </header>\n\n    <form action=\"#\" method=\"post\">\n         <div class=\"dong-2-cot\">\n             <div>\n               <label class=\"nhan\" for=\"ho-ten\">Họ và tên</label>\n               <input type=\"text\" id=\"ho-ten\" name=\"hoTen\" value=\"Nguyễn Văn An\" required>\n             </div>\n             <div>\n               <label class=\"nhan\" for=\"email\">Email</label>\n               <input type=\"email\" id=\"email\" name=\"email\" value=\"an.nv@tlu.edu.vn\" required>\n             </div>\n         </div>\n\n      <div class=\"dong-2-cot\">\n          <div>\n              <label class=\"nhan\" for=\"dien-thoai\">Số điện thoại</label>\n              <input type=\"tel\" id=\"dien-thoai\" name=\"dienThoai\" value=\"0987 654 321\">\n          </div>\n          <div>\n              <label class=\"nhan\" for=\"chu-de\">Chủ đề</label>\n              <select id=\"chu-de\" name=\"chuDe\">\n               <option value=\"khoa-hoc\">Hỏi về khoá học</option>\n               <option value=\"ky-thuat\">Hỗ trợ kỹ thuật</option>\n               <option value=\"khac\">Khác</option>\n              </select>\n          </div>\n      </div>\n\n      <div class=\"truong-don\">\n          <label class=\"nhan\" for=\"noi-dung\">Nội dung</label>\n          <textarea id=\"noi-dung\" name=\"noiDung\" rows=\"4\" required>Em muốn hỏi về lịch nộp bài tập môn Lập trình Web ạ.</textarea>\n      </div>\n\n      <div class=\"hang-kiem\">\n          <input type=\"checkbox\" id=\"dong-y\" name=\"dongY\" checked>\n          <label for=\"dong-y\">Tôi đồng ý nhận email phản hồi.</label>\n      </div>\n\n      <div class=\"nhom-nut\">\n          <button type=\"submit\" class=\"nut-gui\">Gửi liên hệ</button>\n          <button type=\"reset\" class=\"nut-xoa\">Nhập lại</button>\n      </div>\n    </form>\n  </article>",
+   "marks": [
+    1,
+    3,
+    7,
+    11,
+    15,
+    22,
+    35
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 127.637,
+   "dur": 27.323,
+   "narration": "Chuyển sang phần CSS. Form đặt trong card trắng, lưới hai cột cho các trường ngắn, textarea chiếm toàn bộ chiều ngang. Nhãn đậm, viền xanh teal khi focus. Media query chuyển lưới hai cột thành một cột trên mobile. Bảng màu chính gồm #f1f5f9, #ffffff, #0f766e, #334155, #cbd5e1.",
+   "caption": "Chuyển sang phần CSS. Form đặt trong card trắng, lưới hai cột cho các trường ngắn, textarea chiếm toàn bộ chiều ngang. Nhãn đậm, viền xanh teal khi focus. Media query chuyển lưới hai cột thành một cột trên mobile. Bảng màu chính gồm #f1f5f9,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n        margin: 0;\n        padding: 32px 16px;\n        font-family: Arial, \"Segoe UI\", sans-serif;\n        background: #f1f5f9;\n        display: flex;\n        justify-content: center;\n    }\n\n    .the-form {\n        width: min(660px, 100%);\n        background: #ffffff;\n        border-radius: 12px;\n        overflow: hidden;\n        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);\n    }\n\n    header {\n        background: #0f766e;\n        color: #ffffff;\n        padding: 20px 26px;\n    }\n\n    header h1 { margin: 0; font-size: 22px; }\n    header p   { margin: 6px 0 0; font-size: 14px; opacity: 0.9; }\n\n    form { padding: 24px 26px; }\n\n    .dong-2-cot {\n        display: grid;\n        grid-template-columns: 1fr 1fr;\n        gap: 16px;\n        margin-bottom: 16px;\n    }\n\n    .truong-don { margin-bottom: 16px; }\n\n    label.nhan {\n\n        display: block;\n        font-size: 13px;\n        font-weight: 700;\n        margin-bottom: 6px;\n        color: #334155;\n    }\n\n    input[type=\"text\"],\n    input[type=\"email\"],\n    input[type=\"tel\"],\n    select,\n    textarea {\n        width: 100%;\n        padding: 10px 12px;\n        border: 1px solid #cbd5e1;\n        border-radius: 6px;\n        font: inherit;\n        font-size: 14px;\n    }\n\n    input:focus, select:focus, textarea:focus {\n        outline: none;\n        border-color: #0f766e;\n        box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);\n    }\n\n    .hang-kiem {\n        display: flex;\n        gap: 10px;\n        align-items: center;\n        font-size: 14px;\n        color: #334155;\n        margin-bottom: 18px;\n    }\n\n    .nhom-nut { display: flex; gap: 10px; }\n\n    button {\n\n         border: none;\n         padding: 11px 22px;\n         border-radius: 6px;\n         font: inherit;\n         font-size: 15px;\n         font-weight: 600;\n         cursor: pointer;\n    }\n\n    .nut-gui { background: #0f766e; color: #ffffff; }\n    .nut-xoa { background: #e2e8f0; color: #334155; }\n\n    @media (max-width: 560px) {\n         .dong-2-cot { grid-template-columns: 1fr; }\n    }",
+   "marks": [
+    8,
+    32,
+    33,
+    69,
+    77,
+    93,
+    94
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 154.96,
+   "dur": 19,
+   "narration": "Chạy thử biểu mẫu: nhấp vào từng ô để thấy viền focus, nhập thử họ tên và email. Nhấn gửi khi còn trống để trình duyệt nhắc trường bắt buộc. Thu nhỏ màn hình, các ô xếp thành một cột.",
+   "caption": "Chạy thử biểu mẫu: nhấp vào từng ô để thấy viền focus, nhập thử họ tên và email. Nhấn gửi khi còn trống để trình duyệt nhắc trường bắt buộc. Thu nhỏ màn hình, các ô xếp thành một cột.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.4
+    },
+    {
+     "t": 2.5,
+     "type": "fill",
+     "selector": "#ho-ten",
+     "value": "Nguyễn Văn An"
+    },
+    {
+     "t": 4,
+     "type": "fill",
+     "selector": "#email",
+     "value": "an.nv@tlu.edu.vn"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 173.96,
+   "dur": 36.243,
+   "narration": "Tổng kết bài 10. Tạo dự án exercise 10 contact form, tệp chính index.html, khi nộp đổi tên thành bai10.html. Giải thích sự khác biệt giữa input , input , select và textarea , đồng thời bấm thử nút Nhập lại (type=reset) để chứng minh trình duyệt tự khôi phục trạng thái ban đầu của form.. Lỗi thường gặp: Dùng rule CSS input width: 100 phần trăm, chung cho mọi input , khiến cả input cũng bị kéo giãn rộng 100 phần trăm và đẩy dòng chữ nhãn lệch khỏi hàng.",
+   "caption": "Tổng kết bài 10. Tạo dự án exercise 10 contact form, tệp chính index.html, khi nộp đổi tên thành bai10.html. Giải thích sự khác biệt giữa input , input , select và textarea , đồng thời bấm thử nút Nhập lại (type=reset) để chứng minh trình duyệt tự…",
+   "points": [
+    "Tạo dự án exercise-10-contact-form, tệp chính index.html, khi nộp đổi tên thành bai10.html.",
+    "Giải thích sự khác biệt giữa <input type=\"email\">, <input type=\"tel\">, <select> và <textarea>, đồng thời bấm thử nút Nhập lại (type=\"reset\") để chứng minh trình duyệt tự khôi phục trạng thái ban đầu của form.",
+    "Lỗi thường gặp: Dùng rule CSS input { width: 100%; } chung cho mọi <input>, khiến cả <input type=\"checkbox\"> cũng bị kéo giãn rộng 100% và đẩy dòng chữ nhãn lệch khỏi hàng."
+   ],
+   "heading": "Bài 10 — điều cần nhớ"
+  }
+ ]
+}

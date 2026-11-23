@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 11 - Thư viện ảnh Việt Nam (figure / figcaption)</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         padding: 32px 16px;
+         font-family: Arial, "Segoe UI", sans-serif;
+         background: #0f172a;
+         color: #e2e8f0;
+    }
+
+    .thu-vien {
+         max-width: 1000px;
+
+        margin: 0 auto;
+    }
+
+    .thu-vien h1 {
+        text-align: center;
+        font-size: 26px;
+        margin: 0 0 6px;
+    }
+
+    .mo-ta {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 14px;
+        margin: 0 0 26px;
+    }
+
+    .luoi-anh {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    figure {
+        margin: 0;
+        background: #1e293b;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    figure img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        display: block;
+    }
+
+    figcaption {
+
+         padding: 10px 14px;
+         font-size: 13px;
+         color: #cbd5e1;
+    }
+
+    @media (max-width: 768px) {
+         .luoi-anh { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+         .luoi-anh { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="thu-vien">
+    <h1>Thư viện ảnh Việt Nam</h1>
+    <p class="mo-ta">Bộ sưu tập 6 danh thắng tiêu biểu — minh hoạ thẻ ngữ nghĩa figure và figcaption.</p>
+
+    <div class="luoi-anh">
+         <figure>
+           <img src="assets/1-vinh-ha-long.jpg" alt="Vịnh Hạ Long">
+           <figcaption>Hình 1. Vịnh Hạ Long</figcaption>
+         </figure>
+         <figure>
+           <img src="assets/2-son-doong.jpg" alt="Hang Sơn Đoòng">
+           <figcaption>Hình 2. Hang Sơn Đoòng</figcaption>
+         </figure>
+         <figure>
+           <img src="assets/3-thac-ban-gioc.jpg" alt="Thác Bản Giốc">
+           <figcaption>Hình 3. Thác Bản Giốc</figcaption>
+         </figure>
+         <figure>
+           <img src="assets/4-fansipan.jpg" alt="Đỉnh Fansipan">
+           <figcaption>Hình 4. Fansipan</figcaption>
+         </figure>
+         <figure>
+
+          <img src="assets/5-mekong.jpg" alt="Đồng bằng sông Cửu Long">
+          <figcaption>Hình 5. Đồng bằng sông Cửu Long</figcaption>
+      </figure>
+      <figure>
+          <img src="assets/6-phong-nha.jpg" alt="Động Phong Nha">
+          <figcaption>Hình 6. Động Phong Nha</figcaption>
+      </figure>
+    </div>
+  </main>
+</body>
+</html>

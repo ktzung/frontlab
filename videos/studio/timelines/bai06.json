@@ -1,0 +1,159 @@
+{
+ "id": "bai06",
+ "num": 6,
+ "title": "Bảng danh sách “Các món ngon Hà Nội”",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-06-hanoi-food-table",
+ "submitFile": "bai06.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 204.41,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 30.06,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 6, Bảng danh sách Các món ngon Hà Nội. Chúng ta sẽ cùng tạo dự án exercise 06 hanoi food table với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Phân biệt table dữ liệu với table dàn trang: bài này dùng table đúng chuẩn và trình bày dữ liệu ẩm thực rõ ràng. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 6, Bảng danh sách Các món ngon Hà Nội. Chúng ta sẽ cùng tạo dự án exercise 06 hanoi food table với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Phân…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 30.56,
+   "dur": 42.618,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Phân tách thead và tbody trong table. Luôn đặt hàng tiêu đề cột (tr th STT th Tên món ăn) vào trong thead và 8 hàng dữ liệu vào trong tbody. Nhờ vậy, khi viết bộ chọn tbody tr:nth-child(even), việc đếm dòng chẵn/lẻ chỉ tính trên các dòng món ăn mà không tính nhầm dòng tiêu đề.. Gộp viền bảng và căn chỉnh cột. Đặt border-collapse: collapse trên table để loại bỏ khoảng hở giữa các ô. Dùng bộ chọn :first-child cho cả th và td để cố định bề rộng 60 pixel và căn giữa cột số thứ tự.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Phân tách thead và tbody trong table. Luôn đặt hàng tiêu đề cột (tr th STT th Tên món ăn) vào trong thead và 8 hàng dữ liệu vào trong tbody. Nhờ vậy, khi viết bộ chọn tbody…",
+   "points": [
+    "Phân tách <thead> và <tbody> trong <table> — Luôn đặt hàng tiêu đề cột (<tr><th>STT</th><th>Tên món ăn</th></tr>) vào trong <thead> và 8 hàng dữ liệu vào trong <tbody>. Nhờ vậy, khi viết bộ chọn tbody tr:nth-child(even), việc đếm dòng chẵn/lẻ chỉ tính trên các dòng món ăn mà không tính nhầm dòng tiêu đề.",
+    "Gộp viền bảng và căn chỉnh cột — Đặt border-collapse: collapse trên table để loại bỏ khoảng hở giữa các ô. Dùng bộ chọn :first-child cho cả th và td để cố định bề rộng 60px và căn giữa cột số thứ tự."
+   ],
+   "heading": "Bài 06 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 73.178,
+   "dur": 31.256,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 06 hanoi food table. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai06.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 06 hanoi food table. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-06-hanoi-food-table",
+     "out": "✔ đã tạo thư mục exercise-06-hanoi-food-table"
+    },
+    {
+     "cmd": "cd exercise-06-hanoi-food-table",
+     "out": "→ đang ở ~/frontlab/exercise-06-hanoi-food-table"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 104.433,
+   "dur": 20.871,
+   "narration": "Mở tệp index.html. Đây là bài dùng table đúng mục đích dữ liệu: thead chứa tiêu đề cột, tbody chứa từng món, mỗi dòng có số thứ tự, tên món, địa chỉ và ghi chú. Ngoài bảng còn có figure ảnh minh họa và caption. Các thẻ ngữ nghĩa chính gồm article, table.",
+   "caption": "Mở tệp index.html. Đây là bài dùng table đúng mục đích dữ liệu: thead chứa tiêu đề cột, tbody chứa từng món, mỗi dòng có số thứ tự, tên món, địa chỉ và ghi chú. Ngoài bảng còn có figure ảnh minh họa và caption. Các thẻ ngữ nghĩa chính gồm article,…",
+   "lang": "html",
+   "code": "  <article class=\"bai-viet\">\n    <h1>Các món ngon Hà Nội</h1>\n\n    <div class=\"bo-cuc\">\n         <img src=\"assets/Bat.gif\" alt=\"Ẩm thực truyền thống Hà Nội\">\n\n      <table>\n          <thead>\n             <tr>\n              <th>STT</th>\n              <th>Tên món ăn</th>\n             </tr>\n          </thead>\n          <tbody>\n             <tr><td>1</td><td>Bánh cuốn Thanh Trì</td></tr>\n             <tr><td>2</td><td>Xôi Hà Nội</td></tr>\n             <tr><td>3</td><td>Chả cá Lã Vọng</td></tr>\n             <tr><td>4</td><td>Cháo Cóc</td></tr>\n             <tr><td>5</td><td>Bánh Gai Ninh Giang</td></tr>\n             <tr><td>6</td><td>Bún Thang Hà Nội</td></tr>\n             <tr><td>7</td><td>Canh Lằng</td></tr>\n             <tr><td>8</td><td>Vịt quay Lạng Sơn</td></tr>\n          </tbody>\n      </table>\n    </div>\n  </article>",
+   "marks": [
+    1,
+    2,
+    5,
+    7,
+    8,
+    13,
+    14
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 125.304,
+   "dur": 26.522,
+   "narration": "Chuyển sang phần CSS. Bảng có viền, header nền cam đậm chữ trắng, hàng chẵn nền kem để dễ đọc. Ảnh dùng figure bo góc. Bảng màu cam, kem, nâu, media query cho phép cuộn ngang bảng trên màn hình nhỏ thay vì bóp chữ. Bảng màu chính gồm #FAF3E0, #E65100, #ffffff, #E0D6C2, #FDF8EF.",
+   "caption": "Chuyển sang phần CSS. Bảng có viền, header nền cam đậm chữ trắng, hàng chẵn nền kem để dễ đọc. Ảnh dùng figure bo góc. Bảng màu cam, kem, nâu, media query cho phép cuộn ngang bảng trên màn hình nhỏ thay vì bóp chữ. Bảng màu chính gồm #FAF3E0,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n\n        font-family: Georgia, \"Times New Roman\", serif;\n        background: #FAF3E0;\n        display: flex;\n        justify-content: center;\n    }\n\n    .bai-viet {\n        width: min(800px, 100%);\n    }\n\n    .bai-viet h1 {\n        margin: 0 0 22px;\n        text-align: center;\n        color: #E65100;\n        font-size: 26px;\n    }\n\n    .bo-cuc {\n        display: grid;\n        grid-template-columns: 220px 1fr;\n        gap: 24px;\n        align-items: start;\n    }\n\n    .bo-cuc img {\n        width: 100%;\n        border-radius: 10px;\n        display: block;\n    }\n\n    table {\n        width: 100%;\n        border-collapse: collapse;\n        background: #ffffff;\n        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);\n    }\n\n    th, td {\n\n         padding: 9px 12px;\n         border-bottom: 1px solid #E0D6C2;\n         text-align: left;\n    }\n\n    thead th {\n         background: #E65100;\n         color: #ffffff;\n    }\n\n    tbody tr:nth-child(even) {\n         background: #FDF8EF;\n    }\n\n    th:first-child,\n    td:first-child {\n         width: 60px;\n         text-align: center;\n    }\n\n    @media (max-width: 600px) {\n         .bo-cuc {\n             grid-template-columns: 1fr;\n         }\n         .bo-cuc img {\n             max-width: 200px;\n             margin: 0 auto;\n         }\n    }",
+   "marks": [
+    9,
+    25,
+    26,
+    66,
+    68
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 151.826,
+   "dur": 20.5,
+   "narration": "Chạy thử: bảng món ăn có header cam, các dòng xen kẽ. Thu nhỏ màn hình, bảng được đặt trong vùng cuộn ngang để không vỡ cột, ảnh và chú thích vẫn hiển thị.",
+   "caption": "Chạy thử: bảng món ăn có header cam, các dòng xen kẽ. Thu nhỏ màn hình, bảng được đặt trong vùng cuộn ngang để không vỡ cột, ảnh và chú thích vẫn hiển thị.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.5
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 172.326,
+   "dur": 32.087,
+   "narration": "Tổng kết bài 6. Tạo dự án exercise 06 hanoi food table, tệp chính index.html, khi nộp đổi tên thành bai06.html. Giải thích lợi ích của tbody tr:nth-child(even) (nếu thêm hoặc xóa một món ăn ở giữa danh sách, màu sọc dưa của bảng vẫn tự động cập nhật đúng mà không phải sửa lại class của từng hàng).. Lỗi thường gặp: Quên border-collapse: collapse khiến giữa các ô th trên thanh tiêu đề cam xuất hiện vạch trắng đứt đoạn.",
+   "caption": "Tổng kết bài 6. Tạo dự án exercise 06 hanoi food table, tệp chính index.html, khi nộp đổi tên thành bai06.html. Giải thích lợi ích của tbody tr:nth-child(even) (nếu thêm hoặc xóa một món ăn ở giữa danh sách, màu sọc dưa của bảng vẫn tự động cập nhật…",
+   "points": [
+    "Tạo dự án exercise-06-hanoi-food-table, tệp chính index.html, khi nộp đổi tên thành bai06.html.",
+    "Giải thích lợi ích của tbody tr:nth-child(even) (nếu thêm hoặc xóa một món ăn ở giữa danh sách, màu sọc dưa của bảng vẫn tự động cập nhật đúng mà không phải sửa lại class của từng hàng).",
+    "Lỗi thường gặp: Quên border-collapse: collapse khiến giữa các ô <th> trên thanh tiêu đề cam xuất hiện vạch trắng đứt đoạn."
+   ],
+   "heading": "Bài 06 — điều cần nhớ"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "id": "bai16",
+ "num": 16,
+ "title": "Bài 16 – Ứng dụng Quản lý danh sách việc cần làm (To-do List) | Hướng dẫn Frontend từng bước",
+ "chapter": "Lập trình tương tác với JavaScript",
+ "project": "exercise-16-todo-list",
+ "submitFile": "bai16.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "Events"
+ ],
+ "duration": 217,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "todo-list"
+ ],
+ "youtubeId": ""
+}

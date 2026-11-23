@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 26 - Form đăng ký CLB với Bootstrap 5</title>
+  <link href="../_shared/vendor/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-4">
+  <div class="container">
+       <div class="card shadow-sm mx-auto" style="max-width: 720px;">
+         <div class="card-header bg-success text-white fw-bold fs-5">
+           Đăng ký Câu lạc bộ Lập trình Web
+         </div>
+         <div class="card-body p-4">
+           <form id="frmClb" class="row g-3">
+
+           <!-- Hàng 1: Họ tên & Mã SV -->
+           <div class="col-md-6">
+            <label for="hoTen" class="form-label fw-semibold">Họ và tên</label>
+              <input type="text" id="hoTen" class="form-control" placeholder="Nguyễn Văn A" required>
+           </div>
+           <div class="col-md-6">
+              <label for="maSv" class="form-label fw-semibold">Mã sinh viên</label>
+              <input type="text" id="maSv" class="form-control" placeholder="2251172001" required>
+           </div>
+
+           <!-- Hàng 2: Email & Lớp -->
+           <div class="col-md-6">
+              <label for="email" class="form-label fw-semibold">Email</label>
+              <input type="email" id="email" class="form-control" placeholder="sv@tlu.edu.vn" required>
+           </div>
+           <div class="col-md-6">
+              <label for="lop" class="form-label fw-semibold">Lớp</label>
+              <select id="lop" class="form-select">
+                <option value="64KTPM1">64KTPM1</option>
+                <option value="64KTPM2">64KTPM2</option>
+                <option value="64CNTT1">64CNTT1</option>
+                <option value="64HTTT1">64HTTT1</option>
+              </select>
+           </div>
+
+           <!-- Hàng 3: Kỹ năng yêu thích (Radio inline) -->
+           <div class="col-12">
+              <label class="form-label fw-semibold d-block">Kỹ năng yêu thích</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="kn" id="kn1" value="HTML5 / CSS3" checked>
+                <label class="form-check-label" for="kn1">HTML5 / CSS3</label>
+              </div>
+
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="kn" id="kn2" value="JavaScript">
+                <label class="form-check-label" for="kn2">JavaScript</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="kn" id="kn3" value="Bootstrap 5">
+                <label class="form-check-label" for="kn3">Bootstrap 5</label>
+              </div>
+           </div>
+
+           <!-- Hàng 4: Mục tiêu tham gia -->
+           <div class="col-12">
+              <label for="mucTieu" class="form-label fw-semibold">Mục tiêu tham gia</label>
+              <textarea id="mucTieu" class="form-control" rows="3" placeholder="Giới thiệu ngắn gọn về bản thân..."></textarea>
+           </div>
+
+           <!-- Hàng 5: Checkbox cam kết -->
+           <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="ck" checked required>
+                <label class="form-check-label" for="ck">
+                       Tôi cam kết tham gia đầy đủ các buổi sinh hoạt CLB
+                </label>
+              </div>
+           </div>
+
+           <!-- Hàng 6: Nút bấm -->
+           <div class="col-12 text-end">
+              <button type="reset" class="btn btn-secondary me-2">Nhập lại</button>
+            <button type="submit" class="btn btn-success">Đăng ký ngay</button>
+           </div>
+         </form>
+
+             <!-- Hộp thông báo kết quả -->
+             <div id="ketQua" class="alert alert-success mt-3 mb-0 d-none" role="alert"></div>
+       </div>
+      </div>
+    </div>
+
+    <script>
+      const frm = document.getElementById('frmClb');
+      const ketQua = document.getElementById('ketQua');
+
+      frm.addEventListener('submit', function (e) {
+       e.preventDefault();
+       const hoTen = document.getElementById('hoTen').value.trim();
+       const maSv = document.getElementById('maSv').value.trim();
+       const lop = document.getElementById('lop').value;
+       const kyNang = document.querySelector('input[name="kn"]:checked').value;
+
+       ketQua.textContent = `Đăng ký thành công: ${hoTen} (${maSv} - ${lop}) | Kỹ năng: ${kyNang}.`;
+       ketQua.classList.remove('d-none');
+      });
+
+      frm.addEventListener('reset', function () {
+       ketQua.classList.add('d-none');
+      });
+    </script>
+</body>
+</html>

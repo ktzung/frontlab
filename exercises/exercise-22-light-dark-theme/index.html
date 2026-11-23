@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 22 - Chế độ Sáng / Tối với CSS Variables</title>
+  <style>
+    :root {
+         --nen: #ffffff;
+         --chu: #0f172a;
+         --the: #f1f5f9;
+         --vien: #e2e8f0;
+         --nhan: #2563eb;
+    }
+
+    body.toi {
+         --nen: #0f172a;
+         --chu: #e2e8f0;
+         --the: #1e293b;
+         --vien: #334155;
+         --nhan: #60a5fa;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         padding: 28px 16px;
+         font-family: Arial, "Segoe UI", sans-serif;
+         background: var(--nen);
+         color: var(--chu);
+         transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .khung-bai {
+         max-width: 900px;
+
+        margin: 0 auto;
+    }
+
+    .thanh-dau {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 22px;
+    }
+
+    .thanh-dau h1 { margin: 0; font-size: 24px; }
+
+    .cong-gat {
+        width: 64px;
+        height: 32px;
+        border-radius: 999px;
+        background: var(--nhan);
+        border: none;
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    .cong-gat::after {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #ffffff;
+        transition: transform 0.25s ease;
+    }
+
+    body.toi .cong-gat::after {
+        transform: translateX(32px);
+    }
+
+    .the {
+        background: var(--the);
+        border: 1px solid var(--vien);
+        border-radius: 10px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .the h3 {
+        margin: 0 0 8px;
+        color: var(--nhan);
+        font-size: 16px;
+    }
+
+    .the p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .trang-thai {
+        font-size: 13px;
+        opacity: 0.75;
+        margin-top: 16px;
+    }
+  </style>
+</head>
+<body class="toi">
+  <main class="khung-bai">
+    <div class="thanh-dau">
+        <h1>Chế độ Tối / Sáng</h1>
+        <button type="button" class="cong-gat" id="nut-gat" aria-label="Bật tắt chế độ tối"></button>
+    </div>
+
+    <article class="the">
+
+      <h3>Biến CSS (CSS Variables)</h3>
+      <p>Toàn bộ màu sắc được khai báo trong <code>:root</code> và ghi đè bằng class <code>.toi</code>.</p>
+    </article>
+
+    <article class="the">
+      <h3>Chuyển đổi bằng JavaScript</h3>
+      <p>Nút gạt thêm/bỏ class <code>.toi</code> trên <code>&lt;body&gt;</code> — mọi thành phần tự đổi màu.</p>
+    </article>
+
+    <article class="the">
+      <h3>Chuyển màu mượt</h3>
+      <p>Dùng <code>transition</code> để màu nền và chữ chuyển dần, không bị giật.</p>
+    </article>
+
+    <p class="trang-thai" id="trang-thai">Đây là giao diện ở chế độ TỐI (đang bật).</p>
+  </main>
+
+  <script>
+    const nutGat = document.getElementById("nut-gat");
+    const trangThai = document.getElementById("trang-thai");
+
+    nutGat.addEventListener("click", () => {
+      const dangToi = document.body.classList.toggle("toi");
+      trangThai.textContent = dangToi
+             ? "Đây là giao diện ở chế độ TỐI (đang bật)."
+             : "Đây là giao diện ở chế độ SÁNG (đang bật).";
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+ "id": "bai24",
+ "num": 24,
+ "title": "Bài 24 – Bảng giá dịch vụ 3 gói chuyên nghiệp (Pricing Table) | Hướng dẫn Frontend từng bước",
+ "chapter": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-24-pricing-table",
+ "submitFile": "bai24.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive",
+  "Transition"
+ ],
+ "duration": 219,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "pricing-table"
+ ],
+ "youtubeId": ""
+}

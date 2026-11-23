@@ -1,0 +1,159 @@
+{
+ "id": "bai05",
+ "num": 5,
+ "title": "Trang giới thiệu Công ty Hoa tươi Nhân Ái",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-05-nhan-ai-flower-shop",
+ "submitFile": "bai05.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 209.92,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 29.769,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 5, Trang giới thiệu Công ty Hoa tươi Nhân Ái. Chúng ta sẽ cùng tạo dự án exercise 05 nhan ai flower shop với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài đầu tiên ghép Grid hai cột với bảng dữ liệu và hệ thống nhãn màu, rất gần bố cục trang doanh nghiệp thật. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 5, Trang giới thiệu Công ty Hoa tươi Nhân Ái. Chúng ta sẽ cùng tạo dự án exercise 05 nhan ai flower shop với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 30.269,
+   "dur": 48.122,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Thay thế bảng dàn trang cũ bằng CSS Grid. Trong đề bài gốc của thế hệ HTML 4, bố cục ảnh bên trái – chữ bên phải thường bị đặt trong một table 1 hàng 2 ô. Với chuẩn HTML5/CSS3 hiện đại, ta dùng div với display: grid, grid-template-columns: 220 pixel 1fr, gap: 24 pixel.. Tạo nhãn tiêu đề nền hồng vừa khít chữ. Mặc định thẻ h2 là phần tử khối (block) nên màu nền sẽ kéo dài hết 100 phần trăm chiều ngang cột phải. Để nền hồng #FFC0CB chỉ bao vừa khít chữ 1. Giới thiệu và 2.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Thay thế bảng dàn trang cũ bằng CSS Grid. Trong đề bài gốc của thế hệ HTML 4, bố cục ảnh bên trái – chữ bên phải thường bị đặt trong một table 1 hàng 2 ô. Với chuẩn HTML5/CSS3 hiện…",
+   "points": [
+    "Thay thế bảng dàn trang cũ bằng CSS Grid — Trong đề bài gốc của thế hệ HTML 4, bố cục ảnh bên trái – chữ bên phải thường bị đặt trong một <table> 1 hàng 2 ô. Với chuẩn HTML5/CSS3 hiện đại, ta dùng <div class=\"bo-cuc-2-cot\"> với display: grid; grid-template-columns: 220px 1fr; gap: 24px.",
+    "Tạo nhãn tiêu đề nền hồng vừa khít chữ — Mặc định thẻ <h2> là phần tử khối (block) nên màu nền sẽ kéo dài hết 100% chiều ngang cột phải. Để nền hồng #FFC0CB chỉ bao vừa khít chữ “1. Giới thiệu” và “2. Liên hệ” như hình mẫu, ta đặt display: inline-block; padding: 4px 10px."
+   ],
+   "heading": "Bài 05 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 78.391,
+   "dur": 31.105,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 05 nhan ai flower shop. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai05.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 05 nhan ai flower shop. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-05-nhan-ai-flower-shop",
+     "out": "✔ đã tạo thư mục exercise-05-nhan-ai-flower-shop"
+    },
+    {
+     "cmd": "cd exercise-05-nhan-ai-flower-shop",
+     "out": "→ đang ở ~/frontlab/exercise-05-nhan-ai-flower-shop"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 109.495,
+   "dur": 19.687,
+   "narration": "Mở tệp index.html. Trang có header thương hiệu, nav liên kết, main chia hai cột: bên trái là bài giới thiệu và danh sách dịch vụ, bên phải là ảnh hoa và bảng thông tin liên hệ. Thông tin công ty dùng table dữ liệu. Các thẻ ngữ nghĩa chính gồm article, section.",
+   "caption": "Mở tệp index.html. Trang có header thương hiệu, nav liên kết, main chia hai cột: bên trái là bài giới thiệu và danh sách dịch vụ, bên phải là ảnh hoa và bảng thông tin liên hệ. Thông tin công ty dùng table dữ liệu. Các thẻ ngữ nghĩa chính gồm…",
+   "lang": "html",
+   "code": "  <article class=\"bai-viet\">\n    <h1>Công ty Hoa tươi Nhân Ái</h1>\n\n    <div class=\"bo-cuc-2-cot\">\n         <img src=\"assets/Rose.gif\" alt=\"Hoa hồng Nhân Ái\">\n\n         <section>\n             <h2 class=\"nhan-muc\">1. Giới thiệu</h2>\n             <ul class=\"ds-vuong\">\n               <li>Thành lập ngày 25/05/2007</li>\n               <li>Chuyên cung cấp các loại hoa tươi</li>\n\n             <li>Có trên 20 cửa hàng bán lẻ tại TP.HCM</li>\n             <li>Nhận kết giỏ hoa theo yêu cầu của khách hàng</li>\n          </ul>\n\n          <h2 class=\"nhan-muc\">2. Liên hệ</h2>\n          <ul class=\"ds-tron\">\n             <li>Điện thoại: 84-08-8351056</li>\n             <li>Địa chỉ: 227 Nguyễn Văn Cừ, Quận 5, TP.HCM</li>\n          </ul>\n\n          <a class=\"ban-quyen\" href=\"https://hoatuoinhanai.example.com\">\n             &copy; Copyright: Công ty Hoa tươi Nhân Ái\n          </a>\n      </section>\n    </div>\n  </article>",
+   "marks": [
+    1,
+    2,
+    5,
+    7,
+    8,
+    17,
+    26
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 129.182,
+   "dur": 24.92,
+   "narration": "Chuyển sang phần CSS. Hai cột dùng CSS Grid với tỉ lệ 2 chia 1. Nhãn mục dùng inline-block, danh sách bỏ bullet mặc định. Bảng màu hồng cánh sen, chữ trắng trên tiêu đề, media query gộp hai cột thành một. Bảng màu chính gồm #ffffff, #C2185B, #FFC0CB, #0000EE.",
+   "caption": "Chuyển sang phần CSS. Hai cột dùng CSS Grid với tỉ lệ 2 chia 1. Nhãn mục dùng inline-block, danh sách bỏ bullet mặc định. Bảng màu hồng cánh sen, chữ trắng trên tiêu đề, media query gộp hai cột thành một. Bảng màu chính gồm #ffffff, #C2185B,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n         font-family: Georgia, \"Times New Roman\", serif;\n         background: #ffffff;\n         display: flex;\n\n        justify-content: center;\n    }\n\n    .bai-viet {\n        width: min(800px, 100%);\n    }\n\n    .bai-viet h1 {\n        margin: 0 0 22px;\n        text-align: center;\n        color: #C2185B;\n        font-size: 26px;\n    }\n\n    .bo-cuc-2-cot {\n        display: grid;\n        grid-template-columns: 220px 1fr;\n        gap: 24px;\n        align-items: start;\n    }\n\n    .bo-cuc-2-cot img {\n        width: 100%;\n        border-radius: 8px;\n        display: block;\n    }\n\n    .nhan-muc {\n        background: #FFC0CB;\n        font-size: 16px;\n        font-weight: 700;\n        padding: 4px 10px;\n        display: inline-block;\n        margin: 0 0 12px;\n    }\n\n    ul {\n        margin: 0 0 18px;\n\n         padding-left: 22px;\n         line-height: 1.9;\n    }\n\n    .ds-vuong { list-style-type: square; }\n    .ds-tron      { list-style-type: circle; }\n\n    .ban-quyen {\n         display: block;\n         margin-top: 20px;\n         text-align: center;\n         color: #0000EE;\n         text-decoration: underline;\n    }\n\n    @media (max-width: 600px) {\n         .bo-cuc-2-cot {\n             grid-template-columns: 1fr;\n         }\n         .bo-cuc-2-cot img {\n             max-width: 220px;\n             margin: 0 auto;\n         }\n    }",
+   "marks": [
+    8,
+    25,
+    26,
+    64,
+    66
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 154.102,
+   "dur": 20.5,
+   "narration": "Chạy thử trang hoa tươi: cột nội dung bên trái, ảnh và bảng liên hệ bên phải. Thu nhỏ màn hình, Grid tự gộp thành một cột, bảng thông tin vẫn đọc được.",
+   "caption": "Chạy thử trang hoa tươi: cột nội dung bên trái, ảnh và bảng liên hệ bên phải. Thu nhỏ màn hình, Grid tự gộp thành một cột, bảng thông tin vẫn đọc được.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.5
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 174.602,
+   "dur": 35.314,
+   "narration": "Tổng kết bài 5. Tạo dự án exercise 05 nhan ai flower shop, tệp chính index.html, khi nộp đổi tên thành bai05.html. Giải thích tại sao dùng display: inline-block trên.nhan-muc và cách dùng list-style-type: square / circle thay vì thuộc tính HTML type=square đã lỗi thời.. Lỗi thường gặp: Dùng padding-left: 0 trên thẻ ul làm mất hoàn toàn các ký hiệu đầu dòng (square/circle) vì dấu chấm đầu dòng của ul nằm trong vùng padding-left.",
+   "caption": "Tổng kết bài 5. Tạo dự án exercise 05 nhan ai flower shop, tệp chính index.html, khi nộp đổi tên thành bai05.html. Giải thích tại sao dùng display: inline-block trên.nhan-muc và cách dùng list-style-type: square / circle thay vì thuộc tính HTML…",
+   "points": [
+    "Tạo dự án exercise-05-nhan-ai-flower-shop, tệp chính index.html, khi nộp đổi tên thành bai05.html.",
+    "Giải thích tại sao dùng display: inline-block trên .nhan-muc và cách dùng list-style-type: square / circle thay vì thuộc tính HTML type=\"square\" đã lỗi thời.",
+    "Lỗi thường gặp: Dùng padding-left: 0 trên thẻ <ul> làm mất hoàn toàn các ký hiệu đầu dòng (square/circle) vì dấu chấm đầu dòng của <ul> nằm trong vùng padding-left."
+   ],
+   "heading": "Bài 05 — điều cần nhớ"
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+Ứng dụng In lịch tờ theo Ngày – Tháng – Năm — hướng dẫn giải từng bước (Lập trình tương tác với JavaScript).
+
+Dự án: exercise-12-print-calendar/index.html (khi nộp đổi tên thành bai12.html).
+Công nghệ: HTML5, CSS3, JavaScript, DOM, Flexbox, CSS Variables, Events.
+
+Chương:
+00:00 Mở đầu
+00:33 Yêu cầu
+01:19 Tạo dự án
+01:50 Cấu trúc HTML
+02:08 Định dạng CSS
+02:37 JavaScript
+03:08 Chạy thử
+03:27 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

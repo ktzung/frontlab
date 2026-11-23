@@ -1,0 +1,16 @@
+{
+ "num": 6,
+ "slug": "hanoi-food-table",
+ "steps": [
+  {
+   "label": "Phân tách <thead> và <tbody> trong <table>",
+   "text": "Luôn đặt hàng tiêu đề cột (<tr><th>STT</th><th>Tên món ăn</th></tr>) vào trong <thead> và 8 hàng dữ liệu vào trong <tbody>. Nhờ vậy, khi viết bộ chọn tbody tr:nth-child(even), việc đếm dòng chẵn/lẻ chỉ tính trên các dòng món ăn mà không tính nhầm dòng tiêu đề. •"
+  },
+  {
+   "label": "Gộp viền bảng và căn chỉnh cột",
+   "text": "Đặt border-collapse: collapse trên table để loại bỏ khoảng hở giữa các ô. Dùng bộ chọn :first-child cho cả th và td để cố định bề rộng 60px và căn giữa cột số thứ tự."
+  }
+ ],
+ "highlight": "Giải thích lợi ích của tbody tr:nth-child(even) (nếu thêm hoặc xóa một món ăn ở giữa danh sách, màu sọc dưa của bảng vẫn tự động cập nhật đúng mà không phải sửa lại class của từng hàng). •",
+ "mistake": "Quên border-collapse: collapse khiến giữa các ô <th> trên thanh tiêu đề cam xuất hiện vạch trắng đứt đoạn."
+}

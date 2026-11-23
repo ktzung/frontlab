@@ -1,0 +1,144 @@
+1
+00:00:00,650 --> 00:00:01,777
+Chào các bạn.
+
+2
+00:00:01,827 --> 00:00:09,719
+Đây là video hướng dẫn bài thực hành số 10, Trang Biểu mẫu liên hệ khách hàng (HTML5 Form).
+
+3
+00:00:09,769 --> 00:00:22,516
+Chúng ta sẽ cùng tạo dự án exercise 10 contact form với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:22,566 --> 00:00:31,585
+Bài chuẩn về form HTML5: label đúng cách, các kiểu input, thuộc tính bắt buộc và bố cục form responsive.
+
+5
+00:00:31,635 --> 00:00:32,763
+Cùng bắt đầu.
+
+6
+00:00:33,113 --> 00:00:36,689
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:36,739 --> 00:00:38,372
+Bài gồm 2 phần chính.
+
+8
+00:00:38,422 --> 00:00:42,231
+Gắn kết label với input qua thuộc tính for và id.
+
+9
+00:00:42,281 --> 00:00:45,935
+Mỗi trường nhập liệu đều có label đi kèm input.
+
+10
+00:00:45,985 --> 00:00:56,792
+Đặc biệt với input , việc gắn label giúp người dùng bấm trực tiếp vào dòng chữ Tôi đồng ý nhận email phản hồi cũng tích chọn được ô vuông..
+
+11
+00:00:56,842 --> 00:00:58,552
+Lưu ý thuộc tính font.
+
+12
+00:00:58,602 --> 00:01:11,275
+inherit cho các phần tử Form: Mặc định trình duyệt áp phông chữ riêng (thường là monospace trên textarea) và cỡ chữ nhỏ hơn cho input , select , textarea , button.
+
+13
+00:01:11,325 --> 00:01:16,767
+Khai báo font: inherit, giúp tất cả ô nhập đồng bộ phông chữ với body.
+
+14
+00:01:16,967 --> 00:01:18,543
+Bước một, tạo dự án.
+
+15
+00:01:18,593 --> 00:01:22,610
+Mở terminal và chạy mkdir exercise 10 contact form.
+
+16
+00:01:22,660 --> 00:01:30,616
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+17
+00:01:30,666 --> 00:01:34,762
+Sau đó di chuyển vào thư mục, và tạo tệp index.html.
+
+18
+00:01:34,812 --> 00:01:38,121
+Trong dự án, tệp chính luôn là index.html.
+
+19
+00:01:38,171 --> 00:01:43,527
+Khi nộp theo quy định của học phần, các em đổi tên thành bai10.html.
+
+20
+00:01:43,827 --> 00:01:45,365
+Mở tệp index.html.
+
+21
+00:01:45,415 --> 00:01:53,361
+Trang dùng form với fieldset và legend, các cặp label gắn với input qua thuộc tính for và id.
+
+22
+00:01:53,411 --> 00:02:00,160
+Có ô họ tên, email, số điện thoại, chủ đề select, nội dung textarea và nút gửi.
+
+23
+00:02:00,210 --> 00:02:03,115
+Các trường bắt buộc dùng required.
+
+24
+00:02:03,165 --> 00:02:07,437
+Các thẻ ngữ nghĩa chính gồm article, header, form.
+
+25
+00:02:07,787 --> 00:02:09,846
+Chuyển sang phần CSS.
+
+26
+00:02:09,896 --> 00:02:19,311
+Form đặt trong card trắng, lưới hai cột cho các trường ngắn, textarea chiếm toàn bộ chiều ngang.
+
+27
+00:02:19,361 --> 00:02:22,793
+Nhãn đậm, viền xanh teal khi focus.
+
+28
+00:02:22,843 --> 00:02:28,531
+Media query chuyển lưới hai cột thành một cột trên mobile.
+
+29
+00:02:28,581 --> 00:02:34,760
+Bảng màu chính gồm #f1f5f9, #ffffff, #0f766e, #334155, #cbd5e1.
+
+30
+00:02:35,110 --> 00:02:41,096
+Chạy thử biểu mẫu: nhấp vào từng ô để thấy viền focus, nhập thử họ tên và email.
+
+31
+00:02:41,146 --> 00:02:45,560
+Nhấn gửi khi còn trống để trình duyệt nhắc trường bắt buộc.
+
+32
+00:02:45,610 --> 00:02:48,753
+Thu nhỏ màn hình, các ô xếp thành một cột.
+
+33
+00:02:54,110 --> 00:02:55,357
+Tổng kết bài 10.
+
+34
+00:02:55,407 --> 00:03:02,503
+Tạo dự án exercise 10 contact form, tệp chính index.html, khi nộp đổi tên thành bai10.html.
+
+35
+00:03:02,553 --> 00:03:16,432
+Giải thích sự khác biệt giữa input , input , select và textarea , đồng thời bấm thử nút Nhập lại (type=reset) để chứng minh trình duyệt tự khôi phục trạng thái ban đầu của form..
+
+36
+00:03:16,482 --> 00:03:29,503
+Lỗi thường gặp: Dùng rule CSS input width: 100 phần trăm, chung cho mọi input , khiến cả input cũng bị kéo giãn rộng 100 phần trăm và đẩy dòng chữ nhãn lệch khỏi hàng.
+

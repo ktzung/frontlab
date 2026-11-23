@@ -1,0 +1,190 @@
+{
+ "id": "bai17",
+ "num": 17,
+ "title": "Kiểm tra dữ liệu biểu mẫu bằng JavaScript (Form Validation)",
+ "chapter": 2,
+ "chapterName": "Lập trình tương tác với JavaScript",
+ "project": "exercise-17-form-validation",
+ "submitFile": "bai17.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "Events"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 242.65,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 33.148,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 17, Kiểm tra dữ liệu biểu mẫu bằng JavaScript (Form Validation). Chúng ta sẽ cùng tạo dự án exercise 17 form validation với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện regex, kiểm tra dữ liệu phía client và phản hồi lỗi ngay tại từng trường. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 17, Kiểm tra dữ liệu biểu mẫu bằng JavaScript (Form Validation). Chúng ta sẽ cùng tạo dự án exercise 17 form validation với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 33.648,
+   "dur": 51.721,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Viết hàm dùng chung datTrangThai(inputEl, tbEl, hopLe, thong Diep). Thay vì lặp lại mã thêm/xóa class cho từng ô, ta viết một hàm nhận vào phần tử input và phần tử thông báo.tb. Nếu hopLe === true, hàm gắn class ok và in 3 Hợp lệ, ngược lại gắn class loi và in ✗ $ thongDiep.. Kiểm tra từng quy tắc nghiệp vụ. – Họ tên: hoTen.trim().length >= 2. – Email: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.trim()). – Mật khẩu: matKhau.length >= 6. – Xác nhận mật khẩu: xacNhan.length >= 6 && xacNhan === matKhau.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Viết hàm dùng chung datTrangThai(inputEl, tbEl, hopLe, thong Diep). Thay vì lặp lại mã thêm/xóa class cho từng ô, ta viết một hàm nhận vào phần tử input và phần tử thông báo.tb.…",
+   "points": [
+    "Viết hàm dùng chung datTrangThai(inputEl, tbEl, hopLe, thong Diep) — Thay vì lặp lại mã thêm/xóa class cho từng ô, ta viết một hàm nhận vào phần tử <input> và phần tử thông báo .tb. Nếu hopLe === true, hàm gắn class ok và in 3 Hợp lệ; ngược lại gắn class loi và in ✗ ${thongDiep}.",
+    "Kiểm tra từng quy tắc nghiệp vụ — – Họ tên: hoTen.trim().length >= 2. – Email: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email.trim()). – Mật khẩu: matKhau.length >= 6. – Xác nhận mật khẩu: xacNhan.length >= 6 && xacNhan === matKhau."
+   ],
+   "heading": "Bài 17 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 85.368,
+   "dur": 28.102,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 17 form validation. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai17.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 17 form validation. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-17-form-validation",
+     "out": "✔ đã tạo thư mục exercise-17-form-validation"
+    },
+    {
+     "cmd": "cd exercise-17-form-validation",
+     "out": "→ đang ở ~/frontlab/exercise-17-form-validation"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 113.471,
+   "dur": 18.284,
+   "narration": "Mở tệp index.html. Form đăng ký gồm họ tên, email, mật khẩu, xác nhận mật khẩu, mỗi trường có một div thông báo lỗi riêng. Form đặt novalidate để JavaScript tự kiểm tra thay vì trình duyệt. Các thẻ ngữ nghĩa chính gồm form.",
+   "caption": "Mở tệp index.html. Form đăng ký gồm họ tên, email, mật khẩu, xác nhận mật khẩu, mỗi trường có một div thông báo lỗi riêng. Form đặt novalidate để JavaScript tự kiểm tra thay vì trình duyệt. Các thẻ ngữ nghĩa chính gồm form.",
+   "lang": "html",
+   "code": "  <form class=\"the-dk\" id=\"form-dk\" novalidate>\n    <h1>Đăng ký tài khoản</h1>\n    <p class=\"dan-nhap\">Dữ liệu được kiểm tra bằng JavaScript trước khi gửi.</p>\n\n    <div class=\"nhom-o\">\n       <label for=\"ho-ten\">Họ và tên</label>\n       <input type=\"text\" id=\"ho-ten\" value=\"Nguyễn Văn An\">\n       <div class=\"tb\" id=\"tb-ho-ten\"></div>\n    </div>\n\n    <div class=\"nhom-o\">\n       <label for=\"email\">Email</label>\n       <input type=\"email\" id=\"email\" value=\"an.nv@\">\n       <div class=\"tb\" id=\"tb-email\"></div>\n    </div>\n\n    <div class=\"nhom-o\">\n       <label for=\"mat-khau\">Mật khẩu</label>\n       <input type=\"password\" id=\"mat-khau\" value=\"123\">\n       <div class=\"tb\" id=\"tb-mat-khau\"></div>\n    </div>\n\n    <div class=\"nhom-o\">\n       <label for=\"xac-nhan\">Xác nhận mật khẩu</label>\n       <input type=\"password\" id=\"xac-nhan\" value=\"123456\">\n       <div class=\"tb\" id=\"tb-xac-nhan\"></div>\n    </div>\n\n    <button type=\"submit\">Đăng ký</button>\n  </form>",
+   "marks": [
+    1,
+    2,
+    6,
+    7,
+    12,
+    13,
+    18
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 131.755,
+   "dur": 23.103,
+   "narration": "Chuyển sang phần CSS. Trường hợp lệ có viền xanh, không hợp lệ viền đỏ và dòng thông báo đỏ. Nút đăng ký màu cam, card nền trắng. Media query xếp các trường thành một cột. Bảng màu chính gồm #fff7ed, #ffffff, #fed7aa, #c2410c, #6b7280.",
+   "caption": "Chuyển sang phần CSS. Trường hợp lệ có viền xanh, không hợp lệ viền đỏ và dòng thông báo đỏ. Nút đăng ký màu cam, card nền trắng. Media query xếp các trường thành một cột. Bảng màu chính gồm #fff7ed, #ffffff, #fed7aa, #c2410c, #6b7280.",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         background: #fff7ed;\n         display: flex;\n         justify-content: center;\n    }\n\n    .the-dk {\n         width: min(560px, 100%);\n         background: #ffffff;\n         border: 1px solid #fed7aa;\n\n        border-radius: 12px;\n        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);\n        padding: 26px 28px;\n    }\n\n    .the-dk h1 {\n        margin: 0 0 4px;\n        font-size: 21px;\n        color: #c2410c;\n    }\n\n    .dan-nhap {\n        margin: 0 0 20px;\n        font-size: 14px;\n        color: #6b7280;\n    }\n\n    .nhom-o { margin-bottom: 16px; }\n\n    label {\n        display: block;\n        font-size: 13px;\n        font-weight: 700;\n        color: #374151;\n        margin-bottom: 6px;\n    }\n\n    input {\n        width: 100%;\n        padding: 11px 13px;\n        border-radius: 8px;\n        font: inherit;\n        font-size: 14px;\n        border: 2px solid #e5e7eb;\n    }\n\n    input.loi {\n        border-color: #dc2626;\n\n         background: #fef2f2;\n    }\n\n    input.ok {\n         border-color: #16a34a;\n         background: #ffffff;\n    }\n\n    .tb {\n         margin-top: 6px;\n         font-size: 13px;\n         min-height: 18px;\n    }\n\n    .tb.loi { color: #dc2626; }\n    .tb.ok     { color: #16a34a; }\n\n    button {\n         width: 100%;\n         margin-top: 6px;\n         padding: 12px;\n         border: none;\n         border-radius: 8px;\n         background: #c2410c;\n         color: #ffffff;\n         font: inherit;\n         font-size: 15px;\n         font-weight: 700;\n         cursor: pointer;\n    }\n\n    button:hover { background: #9a3412; }",
+   "marks": [
+    8,
+    87
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "JavaScript",
+   "start": 154.857,
+   "dur": 26.76,
+   "narration": "Phần JavaScript. Mỗi trường có hàm kiểm tra riêng: tên không rỗng, email đúng biểu thức chính quy, mật khẩu đủ tám ký tự, xác nhận trùng khớp. Sự kiện input kiểm tra lại ngay khi gõ, sự kiện submit chặn mặc định và chỉ báo thành công khi tất cả hợp lệ. Các hàm chính là datTrangThai, kiemTraTatCa. Sự kiện được lắng nghe gồm submit, input.",
+   "caption": "Phần JavaScript. Mỗi trường có hàm kiểm tra riêng: tên không rỗng, email đúng biểu thức chính quy, mật khẩu đủ tám ký tự, xác nhận trùng khớp. Sự kiện input kiểm tra lại ngay khi gõ, sự kiện submit chặn mặc định và chỉ báo thành công khi tất cả hợp…",
+   "lang": "js",
+   "code": "    const oHoTen = document.getElementById(\"ho-ten\");\n    const oEmail = document.getElementById(\"email\");\n    const oMatKhau = document.getElementById(\"mat-khau\");\n    const oXacNhan = document.getElementById(\"xac-nhan\");\n\n    function datTrangThai(inputEl, tbId, hopLe, thongDiepLoi) {\n       const tbEl = document.getElementById(tbId);\n       inputEl.classList.toggle(\"ok\", hopLe);\n       inputEl.classList.toggle(\"loi\", !hopLe);\n\n        tbEl.className = \"tb \" + (hopLe ? \"ok\" : \"loi\");\n        tbEl.textContent = hopLe ? \"3 Hợp lệ\" : `✗ ${thongDiepLoi}`;\n        return hopLe;\n    }\n\n    function kiemTraTatCa() {\n        const kqTen = datTrangThai(\n             oHoTen, \"tb-ho-ten\",\n             oHoTen.value.trim().length > 0,\n             \"Họ và tên không được để trống\"\n        );\n\n        const mauEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n        const kqEmail = datTrangThai(\n             oEmail, \"tb-email\",\n             mauEmail.test(oEmail.value.trim()),\n             \"Email không hợp lệ (thiếu tên miền)\"\n        );\n\n        const kqMatKhau = datTrangThai(\n             oMatKhau, \"tb-mat-khau\",\n             oMatKhau.value.length >= 6,\n             \"Mật khẩu phải có ít nhất 6 ký tự\"\n        );\n\n        const kqXacNhan = datTrangThai(\n             oXacNhan, \"tb-xac-nhan\",\n             oXacNhan.value.length >= 6 && oXacNhan.value === oMatKhau.value,\n             \"Xác nhận mật khẩu chưa khớp hoặc dưới 6 ký tự\"\n        );\n\n        return kqTen && kqEmail && kqMatKhau && kqXacNhan;\n    }\n\n    document.getElementById(\"form-dk\").addEventListener(\"submit\", (e) => {\n        e.preventDefault();\n        kiemTraTatCa();\n    });\n\n    [oHoTen, oEmail, oMatKhau, oXacNhan].forEach((input) => {\n       input.addEventListener(\"input\", kiemTraTatCa);\n    });\n\n    // Hiển thị trạng thái kiểm tra ban đầu đúng như hình minh hoạ\n    datTrangThai(oHoTen, \"tb-ho-ten\", true, \"\");\n    datTrangThai(oEmail, \"tb-email\", false, \"Email không hợp lệ (thiếu tên miền)\");\n    datTrangThai(oMatKhau, \"tb-mat-khau\", false, \"Mật khẩu phải có ít nhất 6 ký tự\");\n    datTrangThai(oXacNhan, \"tb-xac-nhan\", true, \"\");",
+   "marks": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7,
+    16
+   ],
+   "annotation": "Xử lý sự kiện và cập nhật DOM"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 181.617,
+   "dur": 19,
+   "narration": "Chạy thử: bấm đăng ký với dữ liệu sai, các dòng lỗi hiện ra. Sửa email đúng định dạng, nhập mật khẩu và xác nhận khớp, bấm đăng ký, form báo thành công.",
+   "caption": "Chạy thử: bấm đăng ký với dữ liệu sai, các dòng lỗi hiện ra. Sửa email đúng định dạng, nhập mật khẩu và xác nhận khớp, bấm đăng ký, form báo thành công.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "click",
+     "selector": "#form-dk button[type=submit]"
+    },
+    {
+     "t": 3.4,
+     "type": "fill",
+     "selector": "#email",
+     "value": "an.nv@tlu.edu.vn"
+    },
+    {
+     "t": 5,
+     "type": "fill",
+     "selector": "#mat-khau",
+     "value": "12345678"
+    },
+    {
+     "t": 6.6,
+     "type": "fill",
+     "selector": "#xac-nhan",
+     "value": "12345678"
+    },
+    {
+     "t": 8.2,
+     "type": "click",
+     "selector": "#form-dk button[type=submit]"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 200.617,
+   "dur": 42.036,
+   "narration": "Tổng kết bài 17. Tạo dự án exercise 17 form validation, tệp chính index.html, khi nộp đổi tên thành bai17.html. Giải thích ý nghĩa thuộc tính novalidate trên thẻ form (tắt bong bóng cảnh báo mặc định của trình duyệt để nhường quyền hiển thị thông báo tùy chỉnh bằng JavaScript) và phân tích biểu thức chính quy /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.. Lỗi thường gặp: Dùng toán tử || hoặc dừng hàm ngay ở lỗi đầu tiên (if (!kqTen) return,) khiến các ô bị sai phía dưới không hiện thông báo lỗi đồng thời.",
+   "caption": "Tổng kết bài 17. Tạo dự án exercise 17 form validation, tệp chính index.html, khi nộp đổi tên thành bai17.html. Giải thích ý nghĩa thuộc tính novalidate trên thẻ form (tắt bong bóng cảnh báo mặc định của trình duyệt để nhường quyền hiển thị thông…",
+   "points": [
+    "Tạo dự án exercise-17-form-validation, tệp chính index.html, khi nộp đổi tên thành bai17.html.",
+    "Giải thích ý nghĩa thuộc tính novalidate trên thẻ <form> (tắt bong bóng cảnh báo mặc định của trình duyệt để nhường quyền hiển thị thông báo tùy chỉnh bằng JavaScript) và phân tích biểu thức chính quy /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.",
+    "Lỗi thường gặp: Dùng toán tử || hoặc dừng hàm ngay ở lỗi đầu tiên (if (!kqTen) return;) khiến các ô bị sai phía dưới không hiện thông báo lỗi đồng thời. Hiệu Ứng Nâng Cao Thông tin ngày học Số lượng bài thực hành: 7 bài (Bài 18 – Bài 24) Thời lượng…"
+   ],
+   "heading": "Bài 17 — điều cần nhớ"
+  }
+ ]
+}

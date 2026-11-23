@@ -1,4 +1,4 @@
-/* FrontLab — luyện tập: 40 tình huống, một tình huống cho mỗi bài */
+/* FrontLab — luyện tập: một tình huống cho mỗi bài (44) */
 (function () {
   "use strict";
   const D = window.FRONTLAB;
@@ -331,6 +331,30 @@
       "Cải thiện đầu tiên nào hợp lý?", "Dự án",
       ["Debounce ô tìm kiếm để chỉ gọi sau khi ngừng gõ", "Tăng kích thước ảnh kết quả", "Gọi API dày hơn để phản hồi nhanh", "Bỏ kiểm tra response.ok"], 0,
       "Debounce gom các lần gõ liên tiếp thành một yêu cầu. Kết quả lệch thứ tự còn cần xử lý race condition, thường bằng AbortController hoặc bỏ qua phản hồi cũ.",
-      { kind: "table", headers: ["Cách làm", "Số yêu cầu"], rows: [["Mỗi phím", "8 yêu cầu"], ["Debounce 300ms", "1 yêu cầu"]], activeRow: 1, caption: "Gom lần gõ liên tiếp" })
+      { kind: "table", headers: ["Cách làm", "Số yêu cầu"], rows: [["Mỗi phím", "8 yêu cầu"], ["Debounce 300ms", "1 yêu cầu"]], activeRow: 1, caption: "Gom lần gõ liên tiếp" }),
+    item("ui-bootstrap-grid", "bootstrap-grid", "Mấy thẻ một hàng?",
+      "Lưới ba thẻ dùng class col-12 col-md-6 col-lg-4 trong một row. Cửa sổ rộng 800px.",
+      "Ở 800px, mỗi hàng có bao nhiêu thẻ?", "Bootstrap grid",
+      ["2 thẻ", "1 thẻ", "3 thẻ", "4 thẻ"], 0,
+      "800px vượt md (768px) nhưng chưa tới lg (992px), nên col-md-6 áp dụng: mỗi thẻ 6/12 cột, tức hai thẻ một hàng.",
+      { kind: "layout", type: "grid", columns: 2, gap: 12, items: ["Thẻ 1", "Thẻ 2"], caption: "md: hai thẻ một hàng" }),
+    item("ui-bootstrap-toggle", "bootstrap-components", "Nút menu điều khiển gì?",
+      "Navbar có button.navbar-toggler với data-bs-toggle=\"collapse\" và data-bs-target=\"#menu\". Khối menu có id=\"menu\".",
+      "Điều gì xảy ra khi bấm nút trên màn hình nhỏ?", "Bootstrap component",
+      ["Menu .collapse mở/đóng nhờ bundle Bootstrap", "Trang tải lại vì thiếu preventDefault", "Menu biến mất vĩnh viễn", "Không có gì xảy ra vì phải tự viết JavaScript"], 0,
+      "Bundle đọc data-bs-toggle và data-bs-target để bật/tắt đúng khối collapse. Không cần viết addEventListener cho hành vi chuẩn này.",
+      { kind: "flow", steps: [{ label: "Bấm toggler" }, { label: "data-bs-target" }, { label: "#menu" }, { label: "mở/đóng" }], active: [2], caption: "Data attribute nối nút với menu" }),
+    item("ui-tailwind-utility", "tailwind-utilities", "Đọc chuỗi utility",
+      "Một nút dùng class rounded-lg bg-teal-600 px-4 py-2 text-white hover:bg-teal-700.",
+      "Cách hiểu nào đúng về các class này?", "Tailwind utility",
+      ["Mỗi class là một utility nhỏ, ghép lại tạo component", "Tất cả class nằm trong bootstrap.min.css", "Chỉ class cuối cùng có tác dụng", "Phải viết thêm CSS cho nút mới hiển thị"], 0,
+      "Tailwind cung cấp utility một nhiệm vụ; ghép nhiều class trong HTML thay vì viết CSS riêng. hover:bg-teal-700 chỉ đổi màu khi rê chuột.",
+      { kind: "table", headers: ["Class", "Sinh ra"], rows: [["px-4", "padding-inline 1rem"], ["bg-teal-600", "màu nền"], ["hover:bg-teal-700", "màu khi hover"]], activeRow: 2, caption: "Mỗi class một nhiệm vụ" }),
+    item("ui-tailwind-breakpoint", "tailwind-responsive", "Lưới ở 700px",
+      "Lưới dùng grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3. Cửa sổ rộng 700px.",
+      "Ở 700px, lưới có bao nhiêu cột?", "Tailwind responsive",
+      ["1 cột", "2 cột", "3 cột", "4 cột"], 0,
+      "md của Tailwind là 768px. Ở 700px chưa đạt md nên chỉ grid-cols-1 áp dụng; lưới giữ một cột.",
+      { kind: "layout", type: "grid", columns: 1, gap: 16, items: ["Thẻ 1", "Thẻ 2"], caption: "Dưới md: một cột" })
   ];
 })();

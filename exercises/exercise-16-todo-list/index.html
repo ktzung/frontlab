@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 16 - Danh sách việc cần làm (To-do List)</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         padding: 32px 16px;
+         font-family: Arial, "Segoe UI", sans-serif;
+         background: #f6f7fb;
+         display: flex;
+         justify-content: center;
+    }
+
+    .ung-dung {
+         width: min(600px, 100%);
+         background: #ffffff;
+         border-radius: 12px;
+         box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+         overflow: hidden;
+
+    }
+
+    header {
+        background: #6d28d9;
+        color: #ffffff;
+        padding: 18px 24px;
+    }
+
+    header h1 { margin: 0; font-size: 20px; }
+    header p    { margin: 4px 0 0; font-size: 13px; opacity: 0.85; }
+
+    .thanh-nhap {
+        display: flex;
+        gap: 10px;
+        padding: 18px 24px;
+        border-bottom: 1px solid #ede9fe;
+    }
+
+    .thanh-nhap input {
+        flex: 1;
+        padding: 11px 14px;
+        border: 1px solid #d8d3e8;
+        border-radius: 8px;
+        font: inherit;
+        font-size: 14px;
+    }
+
+    .thanh-nhap button {
+        background: #6d28d9;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        padding: 0 20px;
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 8px 24px 12px;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 0;
+        border-bottom: 1px dashed #ede9fe;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .o-kiem {
+        width: 18px;
+        height: 18px;
+        border: 2px solid #a78bfa;
+        border-radius: 5px;
+        flex: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        font-size: 12px;
+    }
+
+    li.done .o-kiem {
+        background: #6d28d9;
+        border-color: #6d28d9;
+    }
+
+    .ten-viec { flex: 1; }
+
+    li.done .ten-viec {
+
+         text-decoration: line-through;
+         color: #9ca3af;
+    }
+
+    .nut-xoa {
+         background: #fde2e2;
+         color: #b91c1c;
+         border: none;
+         border-radius: 6px;
+         padding: 5px 12px;
+         font-size: 13px;
+         cursor: pointer;
+    }
+
+    .chan-trang {
+         padding: 12px 24px 18px;
+         font-size: 13px;
+         color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <article class="ung-dung">
+    <header>
+         <h1>Danh sách việc cần làm</h1>
+         <p>Thêm việc mới, đánh dấu hoàn thành hoặc xoá — tất cả bằng JavaScript.</p>
+    </header>
+
+    <form class="thanh-nhap" id="form-them">
+        <input type="text" id="o-nhap" value="Hoàn thành bài tập Lập trình Web" placeholder="Nhập công việc cần làm...">
+         <button type="submit">Thêm</button>
+    </form>
+
+    <ul id="danh-sach"></ul>
+
+    <div class="chan-trang" id="thong-ke">Còn 2 việc chưa hoàn thành</div>
+
+  </article>
+
+  <script>
+    let danhSachViec = [
+         { id: 1, ten: "Đọc chương HTML5 cơ bản", xong: true },
+         { id: 2, ten: "Làm bài tập CSS Grid", xong: false },
+         { id: 3, ten: "Quay video OBS nộp bài", xong: false }
+    ];
+
+    const ulEl = document.getElementById("danh-sach");
+    const thongKeEl = document.getElementById("thong-ke");
+    const oNhap = document.getElementById("o-nhap");
+
+    function veDanhSach() {
+         ulEl.innerHTML = "";
+         danhSachViec.forEach((viec) => {
+           const li = document.createElement("li");
+           if (viec.xong) li.classList.add("done");
+
+           const oKiem = document.createElement("div");
+           oKiem.className = "o-kiem";
+           oKiem.textContent = viec.xong ? "✓" : "";
+
+           const span = document.createElement("span");
+           span.className = "ten-viec";
+           span.textContent = viec.ten;
+
+           const nutXoa = document.createElement("button");
+           nutXoa.type = "button";
+           nutXoa.className = "nut-xoa";
+           nutXoa.textContent = "Xoá";
+           nutXoa.addEventListener("click", (e) => {
+             e.stopPropagation();
+             danhSachViec = danhSachViec.filter((muc) => muc.id !== viec.id);
+             veDanhSach();
+           });
+
+           li.addEventListener("click", () => {
+
+              viec.xong = !viec.xong;
+              veDanhSach();
+          });
+
+          li.append(oKiem, span, nutXoa);
+          ulEl.appendChild(li);
+        });
+
+        const chuaXong = danhSachViec.filter((v) => !v.xong).length;
+        thongKeEl.textContent = `Còn ${chuaXong} việc chưa hoàn thành`;
+    }
+
+    document.getElementById("form-them").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const tenMoi = oNhap.value.trim();
+        if (!tenMoi) return;
+        danhSachViec.push({ id: Date.now(), ten: tenMoi, xong: false });
+        oNhap.value = "";
+        veDanhSach();
+    });
+
+    veDanhSach();
+  </script>
+</body>
+</html>

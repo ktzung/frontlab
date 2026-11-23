@@ -1,0 +1,20 @@
+{
+ "num": 30,
+ "slug": "admin-dashboard",
+ "steps": [
+  {
+   "label": "Thiết lập bố cục 2 cột aside + main",
+   "text": "Tạo <div class=\"container-fluid\"><div class=\"row min-vh-100\">. Cột bên trái là <aside class=\"bg-dark text-white p-3\" style=\"width: 230px;\">, cột bên phải là <main class= \"col p-4\">. •"
+  },
+  {
+   "label": "Xây dựng 4 thẻ KPI với .progress",
+   "text": "Tạo <div class=\"row g-3 mb-4\"> chứa 4 khối <div class=\"col-md-3\">. Trong mỗi .card-body, hiển thị nhãn .text-muted.small, con số lớn h3.fw-bold, và thanh <div class=\"progress mt-2\" style=\"height: 6px;\">. •"
+  },
+  {
+   "label": "Xây dựng danh sách .list-group-flush",
+   "text": "Tạo .card.shadow-sm chứa .card-header.bg-white.fw-bold và ul.list-group.list-group-flush. Mỗi thẻ li.list-group-item dùng .d-flex.justify-content-between. align-items-center để căn tên chương sang trái và .badge sang phải."
+  }
+ ],
+ "highlight": "",
+ "mistake": ""
+}

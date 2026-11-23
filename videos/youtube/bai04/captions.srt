@@ -1,0 +1,136 @@
+1
+00:00:00,650 --> 00:00:01,687
+Chào các bạn.
+
+2
+00:00:01,737 --> 00:00:07,956
+Đây là video hướng dẫn bài thực hành số 4, Trang giới thiệu thành phố Đà Nẵng.
+
+3
+00:00:08,006 --> 00:00:19,726
+Chúng ta sẽ cùng tạo dự án exercise 04 da nang city với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:19,776 --> 00:00:26,554
+Luyện cách đặt ảnh banner, chữ nổi trên ảnh và giữ bố cục đọc tốt ở nhiều kích thước.
+
+5
+00:00:26,604 --> 00:00:27,640
+Cùng bắt đầu.
+
+6
+00:00:27,990 --> 00:00:31,680
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:31,730 --> 00:00:33,415
+Bài gồm 2 phần chính.
+
+8
+00:00:33,465 --> 00:00:36,834
+Kỹ thuật ngắt dòng trong h1 không dùng br.
+
+9
+00:00:36,884 --> 00:00:41,777
+Bọc dòng phụ Thành phố đáng sống trong thẻ span bên trong h1.
+
+10
+00:00:41,827 --> 00:00:52,335
+Trong CSS, đặt h1 span display: block, font-size: 0.7em, để dòng phụ tự động xuống hàng và có cỡ chữ bằng 70 phần trăm dòng chính..
+
+11
+00:00:52,385 --> 00:00:55,272
+Cắt khung ảnh ngang bằng object-fit.
+
+12
+00:00:55,322 --> 00:00:59,173
+cover: Ảnh chụp thực tế thường có chiều cao lớn.
+
+13
+00:00:59,223 --> 00:01:11,495
+Khi đặt width: 100 phần trăm, max-height: 280 pixel, object-fit: cover, , trình duyệt giữ nguyên độ nét và tỉ lệ khung hình của ảnh mà không bị bẹp hình.
+
+14
+00:01:11,695 --> 00:01:13,307
+Bước một, tạo dự án.
+
+15
+00:01:13,357 --> 00:01:17,465
+Mở terminal và chạy mkdir exercise 04 da nang city.
+
+16
+00:01:17,515 --> 00:01:25,651
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+17
+00:01:25,701 --> 00:01:33,272
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+18
+00:01:33,322 --> 00:01:36,706
+Trong dự án, tệp chính luôn là index.html.
+
+19
+00:01:36,756 --> 00:01:42,233
+Khi nộp theo quy định của học phần, các em đổi tên thành bai04.html.
+
+20
+00:01:42,533 --> 00:01:43,872
+Mở tệp index.html.
+
+21
+00:01:43,922 --> 00:01:54,258
+Trang dùng header chứa ảnh banner và tiêu đề thành phố, main chứa các đoạn giới thiệu, figure cho ảnh minh họa và footer thông tin liên hệ.
+
+22
+00:01:54,308 --> 00:01:57,133
+Bố cục một cột tập trung vào nội dung.
+
+23
+00:01:57,183 --> 00:01:59,860
+Các thẻ ngữ nghĩa chính gồm article.
+
+24
+00:02:00,260 --> 00:02:02,281
+Chuyển sang phần CSS.
+
+25
+00:02:02,331 --> 00:02:08,777
+Banner dùng object-fit cover, chữ trắng có bóng đổ để nổi trên ảnh.
+
+26
+00:02:08,827 --> 00:02:12,579
+Đoạn mở dùng first-letter làm drop cap.
+
+27
+00:02:12,629 --> 00:02:21,577
+Thanh phụ và liên kết dùng màu xanh và đỏ của thành phố, media query giảm cỡ chữ trên mobile.
+
+28
+00:02:21,627 --> 00:02:25,956
+Bảng màu chính gồm #ffffff, #1565C0, #C62828.
+
+29
+00:02:26,306 --> 00:02:31,805
+Chạy thử: banner Đà Nẵng hiển thị tràn chiều ngang, tiêu đề trắng nổi bật.
+
+30
+00:02:31,855 --> 00:02:38,321
+Cuộn xuống phần giới thiệu, sau đó thu nhỏ cửa sổ để kiểm tra bố cục một cột và cỡ chữ.
+
+31
+00:02:46,806 --> 00:02:47,988
+Tổng kết bài 4.
+
+32
+00:02:48,038 --> 00:02:55,205
+Tạo dự án exercise 04 da nang city, tệp chính index.html, khi nộp đổi tên thành bai04.html.
+
+33
+00:02:55,255 --> 00:03:07,070
+Giải thích sự khác biệt khi có và không có object-fit: cover trên bức ảnh banner, và cách dùng text-transform: uppercase để tự động viết hoa tiêu đề..
+
+34
+00:03:07,120 --> 00:03:19,250
+Lỗi thường gặp: Quên display: flow-root (hoặc clear: both) khi đoạn văn quá ngắn khiến thanh.thanh-phu bị vướng vào chữ cái first-letter đang float: left.
+

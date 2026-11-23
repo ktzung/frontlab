@@ -1,0 +1,30 @@
+{
+ "id": "bai22",
+ "num": 22,
+ "title": "Bài 22 – Chuyển đổi giao diện Sáng / Tối với CSS Variables | Hướng dẫn Frontend từng bước",
+ "chapter": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-22-light-dark-theme",
+ "submitFile": "bai22.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "CSS Variables",
+  "Transition"
+ ],
+ "duration": 217,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "light-dark-theme"
+ ],
+ "youtubeId": ""
+}

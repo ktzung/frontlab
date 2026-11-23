@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 05 - Công ty Hoa tươi Nhân Ái</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         padding: 32px 16px;
+         font-family: Georgia, "Times New Roman", serif;
+         background: #ffffff;
+         display: flex;
+
+        justify-content: center;
+    }
+
+    .bai-viet {
+        width: min(800px, 100%);
+    }
+
+    .bai-viet h1 {
+        margin: 0 0 22px;
+        text-align: center;
+        color: #C2185B;
+        font-size: 26px;
+    }
+
+    .bo-cuc-2-cot {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 24px;
+        align-items: start;
+    }
+
+    .bo-cuc-2-cot img {
+        width: 100%;
+        border-radius: 8px;
+        display: block;
+    }
+
+    .nhan-muc {
+        background: #FFC0CB;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 4px 10px;
+        display: inline-block;
+        margin: 0 0 12px;
+    }
+
+    ul {
+        margin: 0 0 18px;
+
+         padding-left: 22px;
+         line-height: 1.9;
+    }
+
+    .ds-vuong { list-style-type: square; }
+    .ds-tron      { list-style-type: circle; }
+
+    .ban-quyen {
+         display: block;
+         margin-top: 20px;
+         text-align: center;
+         color: #0000EE;
+         text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+         .bo-cuc-2-cot {
+             grid-template-columns: 1fr;
+         }
+         .bo-cuc-2-cot img {
+             max-width: 220px;
+             margin: 0 auto;
+         }
+    }
+  </style>
+</head>
+<body>
+  <article class="bai-viet">
+    <h1>Công ty Hoa tươi Nhân Ái</h1>
+
+    <div class="bo-cuc-2-cot">
+         <img src="assets/Rose.gif" alt="Hoa hồng Nhân Ái">
+
+         <section>
+             <h2 class="nhan-muc">1. Giới thiệu</h2>
+             <ul class="ds-vuong">
+               <li>Thành lập ngày 25/05/2007</li>
+               <li>Chuyên cung cấp các loại hoa tươi</li>
+
+             <li>Có trên 20 cửa hàng bán lẻ tại TP.HCM</li>
+             <li>Nhận kết giỏ hoa theo yêu cầu của khách hàng</li>
+          </ul>
+
+          <h2 class="nhan-muc">2. Liên hệ</h2>
+          <ul class="ds-tron">
+             <li>Điện thoại: 84-08-8351056</li>
+             <li>Địa chỉ: 227 Nguyễn Văn Cừ, Quận 5, TP.HCM</li>
+          </ul>
+
+          <a class="ban-quyen" href="https://hoatuoinhanai.example.com">
+             &copy; Copyright: Công ty Hoa tươi Nhân Ái
+          </a>
+      </section>
+    </div>
+  </article>
+</body>
+</html>

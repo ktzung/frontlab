@@ -1,0 +1,27 @@
+{
+ "id": "bai11",
+ "num": 11,
+ "title": "Bài 11 – Thư viện ảnh danh thắng Việt Nam | Hướng dẫn Frontend từng bước",
+ "chapter": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-11-vietnam-gallery",
+ "submitFile": "bai11.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 215,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "vietnam-gallery"
+ ],
+ "youtubeId": ""
+}

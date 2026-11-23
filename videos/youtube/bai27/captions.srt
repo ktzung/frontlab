@@ -1,0 +1,160 @@
+1
+00:00:00,650 --> 00:00:01,785
+Chào các bạn.
+
+2
+00:00:01,835 --> 00:00:10,129
+Đây là video hướng dẫn bài thực hành số 27, Trang sản phẩm du lịch với Card, Modal & Accordion.
+
+3
+00:00:10,179 --> 00:00:24,847
+Chúng ta sẽ cùng tạo dự án exercise 27 travel showcase với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:24,897 --> 00:00:31,882
+Bài luyện component Bootstrap có tương tác: card, modal dùng chung và accordion.
+
+5
+00:00:31,932 --> 00:00:33,067
+Cùng bắt đầu.
+
+6
+00:00:33,417 --> 00:00:37,162
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:37,212 --> 00:00:38,922
+Bài gồm 3 phần chính.
+
+8
+00:00:38,972 --> 00:00:41,170
+Dựng lưới 3 thẻ.card.h-100.
+
+9
+00:00:41,220 --> 00:00:46,756
+Sử dụng.col-sm-6.col-lg-4 để đạt khả năng đáp ứng 3 cấp độ màn hình.
+
+10
+00:00:46,806 --> 00:00:56,738
+Trên mỗi nút Chi tiết, gắn thêm thuộc tính data-title và data-info để truyền thông tin riêng của từng địa danh vào Modal..
+
+11
+00:00:56,788 --> 00:00:58,986
+Dựng cấu trúc.accordion#ac.
+
+12
+00:00:59,036 --> 00:01:01,153
+Mỗi.accordion-item gồm h2.
+
+13
+00:01:01,203 --> 00:01:08,367
+accordion-header > button.accordion-button và khối nội dung.accordion-collapse.collapse.
+
+14
+00:01:08,417 --> 00:01:16,233
+Mục đầu tiên có thêm lớp.show ở phần nội dung, còn mục thứ hai có thêm lớp.collapsed ở nút bấm..
+
+15
+00:01:16,283 --> 00:01:20,679
+Dựng.modal.fade#md và lắng nghe sự kiện show.bs.modal.
+
+16
+00:01:20,729 --> 00:01:33,023
+Sử dụng sự kiện chuẩn show.bs.modal của Bootstrap 5 (event.relatedTarget) để lấy tên địa danh và thông tin từ nút vừa bấm, cập nhật vào.modal-title và.
+
+17
+00:01:33,073 --> 00:01:33,768
+modal-body.
+
+18
+00:01:33,968 --> 00:01:35,595
+Bước một, tạo dự án.
+
+19
+00:01:35,645 --> 00:01:40,039
+Mở terminal và chạy mkdir exercise 27 travel showcase.
+
+20
+00:01:40,089 --> 00:01:48,305
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+21
+00:01:48,355 --> 00:01:56,003
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+22
+00:01:56,053 --> 00:01:59,470
+Trong dự án, tệp chính luôn là index.html.
+
+23
+00:01:59,520 --> 00:02:05,052
+Khi nộp theo quy định của học phần, các em đổi tên thành bai27.html.
+
+24
+00:02:05,352 --> 00:02:06,800
+Mở tệp index.html.
+
+25
+00:02:06,850 --> 00:02:11,275
+Ba card điểm đến có nút Xem chi tiết mở cùng một modal.
+
+26
+00:02:11,325 --> 00:02:14,302
+Modal chứa tiêu đề, thân và nút đóng.
+
+27
+00:02:14,352 --> 00:02:18,778
+Bên dưới là accordion hai mục giới thiệu và lịch trình.
+
+28
+00:02:19,178 --> 00:02:20,908
+Chuyển sang phần CSS.
+
+29
+00:02:20,958 --> 00:02:25,983
+Card dùng h-100 và shadow-sm, ảnh card-img-top cao đồng nhất.
+
+30
+00:02:26,033 --> 00:02:32,788
+Modal và accordion dùng component Bootstrap, chỉ tinh chỉnh bo góc và khoảng cách.
+
+31
+00:02:32,838 --> 00:02:35,309
+Media query do grid đảm nhiệm.
+
+32
+00:02:35,709 --> 00:02:36,894
+Phần Bootstrap.
+
+33
+00:02:36,944 --> 00:02:45,630
+Bootstrap bundle bắt sự kiện show.bs.modal để đọc data-* trên nút được bấm và đổ nội dung tương ứng vào modal.
+
+34
+00:02:45,680 --> 00:02:48,838
+Collapse của accordion tự xử lý đóng mở.
+
+35
+00:02:49,288 --> 00:02:55,334
+Chạy thử: bấm Xem chi tiết ở card đầu, modal mở với đúng thông tin điểm đến.
+
+36
+00:02:55,384 --> 00:03:00,316
+Đóng modal rồi mở mục thứ hai của accordion để xem lịch trình.
+
+37
+00:03:08,288 --> 00:03:09,654
+Tổng kết bài 27.
+
+38
+00:03:09,704 --> 00:03:17,729
+Tạo dự án exercise 27 travel showcase, tệp chính index.html, khi nộp đổi tên thành bai27.html.
+
+39
+00:03:17,779 --> 00:03:24,609
+Bài luyện component Bootstrap có tương tác: card, modal dùng chung và accordion.
+
+40
+00:03:24,659 --> 00:03:29,952
+Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.
+

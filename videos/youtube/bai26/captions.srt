@@ -1,0 +1,160 @@
+1
+00:00:00,650 --> 00:00:01,813
+Chào các bạn.
+
+2
+00:00:01,863 --> 00:00:09,826
+Đây là video hướng dẫn bài thực hành số 26, Form đăng ký CLB Lập trình Web với Bootstrap.
+
+3
+00:00:09,876 --> 00:00:24,548
+Chúng ta sẽ cùng tạo dự án exercise 26 club signup với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:24,598 --> 00:00:32,292
+Bài luyện form Bootstrap kết hợp validation JavaScript và phản hồi trạng thái rõ ràng.
+
+5
+00:00:32,342 --> 00:00:33,506
+Cùng bắt đầu.
+
+6
+00:00:33,856 --> 00:00:37,478
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:37,528 --> 00:00:39,181
+Bài gồm 3 phần chính.
+
+8
+00:00:39,231 --> 00:00:41,121
+Tạo khung.card căn giữa.
+
+9
+00:00:41,171 --> 00:00:51,643
+Đặt.card.shadow-sm.mx-auto với style=max-width: 720 pixel bên trong.container.py-4 để biểu mẫu có độ rộng vừa mắt trên màn hình lớn..
+
+10
+00:00:51,693 --> 00:00:53,504
+Chia lưới form.row.g-3.
+
+11
+00:00:53,554 --> 00:00:59,302
+Biến chính thẻ form thành một hàng lưới (row) với khoảng cách 1rem (g-3).
+
+12
+00:00:59,352 --> 00:01:04,628
+Nhờ đó, các thẻ div và div bên trong tự động căn chỉnh thẳng hàng..
+
+13
+00:01:04,678 --> 00:01:07,985
+Thiết lập Radio & Checkbox với form-check.
+
+14
+00:01:08,035 --> 00:01:19,166
+Mỗi nút radio hoặc checkbox cần bọc trong.form-check, thẻ input đi kèm label có id khớp với for để người dùng bấm vào chữ cũng chọn được nút..
+
+15
+00:01:19,366 --> 00:01:21,032
+Bước một, tạo dự án.
+
+16
+00:01:21,082 --> 00:01:25,247
+Mở terminal và chạy mkdir exercise 26 club signup.
+
+17
+00:01:25,297 --> 00:01:33,710
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+18
+00:01:33,760 --> 00:01:38,091
+Sau đó di chuyển vào thư mục, và tạo tệp index.html.
+
+19
+00:01:38,141 --> 00:01:41,640
+Trong dự án, tệp chính luôn là index.html.
+
+20
+00:01:41,690 --> 00:01:47,354
+Khi nộp theo quy định của học phần, các em đổi tên thành bai26.html.
+
+21
+00:01:47,654 --> 00:01:49,190
+Mở tệp index.html.
+
+22
+00:01:49,240 --> 00:01:54,615
+Form dùng row g-3, các cột col-md-6 để hai trường nằm một hàng.
+
+23
+00:01:54,665 --> 00:02:02,941
+Có họ tên, mã sinh viên, email, select lớp, radio kỹ năng, textarea mục tiêu và checkbox cam kết.
+
+24
+00:02:02,991 --> 00:02:05,892
+Thông báo kết quả là alert ẩn sẵn.
+
+25
+00:02:05,942 --> 00:02:08,758
+Các thẻ ngữ nghĩa chính gồm form.
+
+26
+00:02:09,108 --> 00:02:10,810
+Chuyển sang phần CSS.
+
+27
+00:02:10,860 --> 00:02:15,155
+Chỉ cần vài quy tắc tùy biến cho card và khoảng cách.
+
+28
+00:02:15,205 --> 00:02:21,527
+Còn lại dùng form-control, form-select, form-check, btn-success của Bootstrap.
+
+29
+00:02:21,577 --> 00:02:24,008
+Media query do grid đảm nhiệm.
+
+30
+00:02:24,408 --> 00:02:25,553
+Phần Bootstrap.
+
+31
+00:02:25,603 --> 00:02:34,298
+Sự kiện submit chặn mặc định, kiểm tra các trường bắt buộc, hiện alert thành công và vô hiệu hóa nút gửi tạm thời.
+
+32
+00:02:34,348 --> 00:02:38,543
+Sự kiện reset ẩn alert và khôi phục trạng thái ban đầu.
+
+33
+00:02:38,593 --> 00:02:41,721
+Sự kiện được lắng nghe gồm submit, reset.
+
+34
+00:02:42,121 --> 00:02:48,436
+Chạy thử: nhập họ tên, mã sinh viên, email, chọn lớp và kỹ năng, bấm đăng ký.
+
+35
+00:02:48,486 --> 00:02:51,028
+Alert xanh xác nhận thành công.
+
+36
+00:02:51,078 --> 00:02:54,441
+Bấm nhập lại để xóa form và ẩn thông báo.
+
+37
+00:03:01,121 --> 00:03:02,530
+Tổng kết bài 26.
+
+38
+00:03:02,580 --> 00:03:10,507
+Tạo dự án exercise 26 club signup, tệp chính index.html, khi nộp đổi tên thành bai26.html.
+
+39
+00:03:10,557 --> 00:03:18,133
+Bài luyện form Bootstrap kết hợp validation JavaScript và phản hồi trạng thái rõ ràng.
+
+40
+00:03:18,183 --> 00:03:23,644
+Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.
+

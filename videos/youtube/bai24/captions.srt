@@ -1,0 +1,144 @@
+1
+00:00:00,650 --> 00:00:01,740
+Chào các bạn.
+
+2
+00:00:01,790 --> 00:00:09,925
+Đây là video hướng dẫn bài thực hành số 24, Bảng giá dịch vụ 3 gói chuyên nghiệp (Pricing Table).
+
+3
+00:00:09,975 --> 00:00:23,898
+Chúng ta sẽ cùng tạo dự án exercise 24 pricing table với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:23,948 --> 00:00:31,831
+Bài luyện bảng giá chuyên nghiệp: phân cấp thị giác, nhấn gói chính và hiệu ứng hover tinh tế.
+
+5
+00:00:31,881 --> 00:00:32,971
+Cùng bắt đầu.
+
+6
+00:00:33,321 --> 00:00:37,155
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:37,205 --> 00:00:38,955
+Bài gồm 2 phần chính.
+
+8
+00:00:39,005 --> 00:00:43,506
+Tạo điểm nhấn thị giác (Visual Hierarchy) cho gói.hot.
+
+9
+00:00:43,556 --> 00:01:03,474
+Trong thiết kế giao diện thương mại điện tử và SaaS, gói khuyên dùng ở giữa luôn được làm nổi bật bằng 3 yếu tố kết hợp: (1) Viền đậm màu nhấn 2 pixel solid #4f46 e5, (2) Dịch chuyển lên trên 10 pixel bằng transform: translateY(-10 pixel).
+
+10
+00:01:03,524 --> 00:01:07,857
+Đẩy nút bấm xuống đáy thẻ đều nhau bằng Flexbox dọc.
+
+11
+00:01:07,907 --> 00:01:24,325
+Đặt display: flex, flex-direction: column, trên.goi và flex: 1 trên danh sách ul để dù gói Pro có 4 dòng quyền lợi còn hai gói bên cạnh chỉ có 3 dòng, các nút bấm ở đáy cả 3 thẻ vẫn nằm thẳng hàng.
+
+12
+00:01:24,625 --> 00:01:26,295
+Bước một, tạo dự án.
+
+13
+00:01:26,345 --> 00:01:30,687
+Mở terminal và chạy mkdir exercise 24 pricing table.
+
+14
+00:01:30,737 --> 00:01:39,169
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+15
+00:01:39,219 --> 00:01:43,561
+Sau đó di chuyển vào thư mục, và tạo tệp index.html.
+
+16
+00:01:43,611 --> 00:01:47,118
+Trong dự án, tệp chính luôn là index.html.
+
+17
+00:01:47,168 --> 00:01:52,845
+Khi nộp theo quy định của học phần, các em đổi tên thành bai24.html.
+
+18
+00:01:53,145 --> 00:01:54,628
+Mở tệp index.html.
+
+19
+00:01:54,678 --> 00:02:00,771
+Trang có tiêu đề chuyên đề và ba card gói dịch vụ: Basic, Pro, Enterprise.
+
+20
+00:02:00,821 --> 00:02:05,927
+Mỗi card gồm tên gói, giá, danh sách quyền lợi và nút đăng ký.
+
+21
+00:02:05,977 --> 00:02:08,035
+Gói Pro được làm nổi bật.
+
+22
+00:02:08,085 --> 00:02:11,544
+Các thẻ ngữ nghĩa chính gồm main, article.
+
+23
+00:02:11,894 --> 00:02:14,066
+Chuyển sang phần CSS.
+
+24
+00:02:14,116 --> 00:02:21,768
+Grid ba cột đều nhau, card trắng bo góc, gói Pro có viền và nhãn phổ biến.
+
+25
+00:02:21,818 --> 00:02:23,886
+Giá lớn, đơn vị nhỏ.
+
+26
+00:02:23,936 --> 00:02:27,142
+Hover card nâng nhẹ và đổ bóng.
+
+27
+00:02:27,192 --> 00:02:31,122
+Media query xếp ba card thành một cột.
+
+28
+00:02:31,172 --> 00:02:37,686
+Bảng màu chính gồm #eef2ff, #f8fafc, #1e293b, #64748b, #ffffff.
+
+29
+00:02:37,986 --> 00:02:39,406
+Phần Bootstrap.
+
+30
+00:02:39,956 --> 00:02:44,255
+Chạy thử: ba gói xếp cạnh nhau, gói Pro nổi bật ở giữa.
+
+31
+00:02:44,305 --> 00:02:47,431
+Rê chuột lên card để thấy hiệu ứng nâng.
+
+32
+00:02:47,481 --> 00:02:50,139
+Thu nhỏ màn hình, các gói xếp dọc.
+
+33
+00:02:58,956 --> 00:03:00,359
+Tổng kết bài 24.
+
+34
+00:03:00,409 --> 00:03:08,477
+Tạo dự án exercise 24 pricing table, tệp chính index.html, khi nộp đổi tên thành bai24.html.
+
+35
+00:03:08,527 --> 00:03:24,312
+Giải thích vì sao dùng transform: translateY(-10 pixel) để nhấc gói.hot lên cao thay vì dùng margin-top: -10 pixel (transform không làm xô lệch dòng lưới của các phần tử lân cận)..
+
+36
+00:03:24,362 --> 00:03:38,656
+Lỗi thường gặp: Trên màn hình điện thoại (1 cột), quên tắt transform: translateY(-10 pixel) khiến thẻ gói Pro ở giữa trồi lên đè sát vào đáy thẻ Starter phía trên.
+

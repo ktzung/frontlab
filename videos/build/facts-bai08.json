@@ -1,0 +1,16 @@
+{
+ "num": 8,
+ "slug": "what-where-portal",
+ "steps": [
+  {
+   "label": "Thiết lập hệ thống liên kết neo (Anchor Links) trong cùng trang",
+   "text": "Gắn id=\"top\" cho thẻ <header> đầu trang, và gắn id=\"tinh-yeu\", id=\"suc-khoe\", id=\"am-thuc\", id=\"am-nhac\" cho từng thẻ <section class=\"chuyen-muc\">. Ở menu bên trái, thẻ <a href=\"#suc-khoe\">Sức khỏe</a> sẽ cuộn thẳng đến chuyên mục tương ứng. Thêm html { scroll-behavior: smooth; } để hiệu ứng cuộn trang mượt mà. •"
+  },
+  {
+   "label": "Dàn bố cục 2 cấp bằng CSS Grid",
+   "text": "Cấp 1 chia trang thành 210px 1fr (Menu trái và Main phải). Cấp 2 bên trong mỗi bài viết .bai-nho chia thành 1fr 140px (Nội dung chữ bên trái và Ảnh minh họa bên phải)."
+  }
+ ],
+ "highlight": "Bấm trực tiếp vào các mục trên menu trái và nút “Về đầu trang” để demo liên kết neo #id, đồng thời chỉ ra cấu trúc Grid lồng nhau (Grid khung chính và Grid từng bài viết). •",
+ "mistake": "Viết href=\"tinh-yeu\" thiếu dấu # ở đầu khiến trình duyệt tìm tệp tinh-yeu và báo lỗi 404 File Not Found."
+}

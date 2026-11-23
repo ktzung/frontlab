@@ -1,0 +1,16 @@
+{
+ "num": 16,
+ "slug": "todo-list",
+ "steps": [
+  {
+   "label": "Thiết kế mô hình dữ liệu (State) và hàm render()",
+   "text": "Khởi tạo mảng danhSachViec chứa 3 công việc mẫu, mỗi phần tử là một đối tượng { id, ten, xong }. Mỗi khi người dùng thêm, xóa hoặc đổi trạng thái, ta cập nhật mảng danhSachViec rồi gọi hàm veDanhSach() để cập nhật lại DOM và đếm số việc có !viec.xong. •"
+  },
+  {
+   "label": "Phân biệt sự kiện bấm Đánh dấu và bấm nút Xoá",
+   "text": "Khi người dùng bấm vào nút .nut-xoa, ta xóa phần tử khỏi mảng theo id. Khi bấm vào phần còn lại của thẻ <li>, ta đảo ngược giá trị boolean viec.xong = !viec.xong."
+  }
+ ],
+ "highlight": "Giải thích vì sao phải gọi e. stopPropagation() bên trong sự kiện click của nút Xoá (để sự kiện click không nổi bọt lên thẻ <li> cha) và cách dùng filter() để đếm số việc chưa hoàn thành. •",
+ "mistake": "Dùng innerHTML += ... kèm chuỗi nội suy trực tiếp từ dữ liệu người dùng nhập mà không qua textContent, dễ gây lỗi hiển thị nếu tên công việc chứa ký tự < hoặc >."
+}

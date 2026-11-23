@@ -1,0 +1,161 @@
+{
+ "id": "bai08",
+ "num": 8,
+ "title": "Cổng thông tin chuyên mục “Ai? Cái gì? Ở đâu?”",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-08-what-where-portal",
+ "submitFile": "bai08.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 208.05,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 28.973,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 8, Cổng thông tin chuyên mục Ai? Cái gì? Ở đâu?. Chúng ta sẽ cùng tạo dự án exercise 08 what where portal với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài tổng hợp bố cục portal nhiều cột, lặp article và xử lý ảnh nổi trong từng bài. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 8, Cổng thông tin chuyên mục Ai? Cái gì? Ở đâu?. Chúng ta sẽ cùng tạo dự án exercise 08 what where portal với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 29.473,
+   "dur": 45.366,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Thiết lập hệ thống liên kết neo (Anchor Links) trong cùng trang. Gắn id=top cho thẻ header đầu trang, và gắn id=tinh-yeu, id=suc-khoe, id=am-thuc, id=am-nhac cho từng thẻ section. Ở menu bên trái, thẻ a Sức khỏe sẽ cuộn thẳng đến chuyên mục tương ứng. Dàn bố cục 2 cấp bằng CSS Grid. Cấp 1 chia trang thành 210 pixel 1fr (Menu trái và Main phải). Cấp 2 bên trong mỗi bài viết.bai-nho chia thành 1fr 140 pixel (Nội dung chữ bên trái và Ảnh minh họa bên phải).",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Thiết lập hệ thống liên kết neo (Anchor Links) trong cùng trang. Gắn id=top cho thẻ header đầu trang, và gắn id=tinh-yeu, id=suc-khoe, id=am-thuc, id=am-nhac cho từng thẻ section.…",
+   "points": [
+    "Thiết lập hệ thống liên kết neo (Anchor Links) trong cùng trang — Gắn id=\"top\" cho thẻ <header> đầu trang, và gắn id=\"tinh-yeu\", id=\"suc-khoe\", id=\"am-thuc\", id=\"am-nhac\" cho từng thẻ <section class=\"chuyen-muc\">. Ở menu bên trái, thẻ <a href=\"#suc-khoe\">Sức khỏe</a> sẽ cuộn thẳng đến chuyên mục tương ứng. Thêm html {…",
+    "Dàn bố cục 2 cấp bằng CSS Grid — Cấp 1 chia trang thành 210px 1fr (Menu trái và Main phải). Cấp 2 bên trong mỗi bài viết .bai-nho chia thành 1fr 140px (Nội dung chữ bên trái và Ảnh minh họa bên phải)."
+   ],
+   "heading": "Bài 08 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 74.84,
+   "dur": 30.965,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 08 what where portal. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai08.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 08 what where portal. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-08-what-where-portal",
+     "out": "✔ đã tạo thư mục exercise-08-what-where-portal"
+    },
+    {
+     "cmd": "cd exercise-08-what-where-portal",
+     "out": "→ đang ở ~/frontlab/exercise-08-what-where-portal"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 105.805,
+   "dur": 22.311,
+   "narration": "Mở tệp index.html. Trang mô phỏng cổng thông tin: header lớn, nav chuyên mục bên trái, main chứa nhiều article theo chủ đề, mỗi bài có tiêu đề, mô tả và ảnh minh họa. Cấu trúc lặp lại giúp dễ quét nội dung. Các thẻ ngữ nghĩa chính gồm header, nav, main, section, article.",
+   "caption": "Mở tệp index.html. Trang mô phỏng cổng thông tin: header lớn, nav chuyên mục bên trái, main chứa nhiều article theo chủ đề, mỗi bài có tiêu đề, mô tả và ảnh minh họa. Cấu trúc lặp lại giúp dễ quét nội dung. Các thẻ ngữ nghĩa chính gồm header, nav,…",
+   "lang": "html",
+   "code": "  <div class=\"trang-tin\" id=\"top\">\n    <header class=\"dau-trang\">\n         <h1>Ai? Cái gì? Ở đâu? …</h1>\n    </header>\n\n    <div class=\"khung-chinh\">\n         <nav aria-label=\"Chuyên mục\">\n           <h2>Chuyên mục</h2>\n           <a href=\"#tinh-yeu\">Tình yêu và gia đình</a>\n           <a href=\"#suc-khoe\">Sức khỏe</a>\n           <a href=\"#du-lich\">Du lịch</a>\n           <a href=\"#am-thuc\">Ẩm thực</a>\n           <a href=\"#am-nhac\">Âm nhạc</a>\n         </nav>\n\n         <main>\n           <section class=\"chuyen-muc\" id=\"tinh-yeu\">\n             <h2 class=\"thanh-cm\">Tình yêu và gia đình</h2>\n             <article class=\"bai-nho\">\n              <div>\n                  <h3>Trầu cau</h3>\n                  <p>Tình yêu là gì? Là ta yêu một người mỗi ngày trong một năm. Mỗi năm trong một đời người…</p>\n              </div>\n              <img src=\"assets/traucau.jpg\" alt=\"Trầu cau\">\n             </article>\n             <article class=\"bai-nho\">\n              <div>\n\n              <h3>Xây dựng hạnh phúc gia đình qua những bữa cơm hàng ngày</h3>\n              <p>Nói đến hạnh phúc gia đình chúng ta thường mô tả bằng những từ thật đẹp đẽ và được thể hiện qua những giá trị đạo đức đáng trân trọng…</p>\n            </div>\n            <img src=\"assets/comtrua.jpg\" alt=\"Bữa cơm gia đình\">\n          </article>\n          <a class=\"ve-dau-trang\" href=\"#top\">&#8593; Về đầu trang</a>\n        </section>\n\n        <section class=\"chuyen-muc\" id=\"suc-khoe\">\n          <h2 class=\"thanh-cm\">Sức khỏe</h2>\n          <article class=\"bai-nho\">\n            <div>\n              <h3>10 lời khuyên trong dinh dưỡng</h3>\n              <p>Cơ thể chúng ta cần nhiều chất dinh dưỡng từ nhiều nguồn lương thực khác nhau…</p>\n            </div>\n            <img src=\"assets/Suc_khoe_03.jpg\" alt=\"Dinh dưỡng hợp lý\">\n          </article>\n          <article class=\"bai-nho\">\n            <div>\n              <h3>Làm sao để bỏ thuốc lá?</h3>\n              <p>Sức khoẻ của chính bạn. Không hút thuốc lá tức là giảm thiểu đáng kể rủi ro mắc các loại bệnh ung thư…</p>\n            </div>\n            <img src=\"assets/nosmoke.jpg\" alt=\"Không hút thuốc lá\">\n          </article>\n          <a class=\"ve-dau-trang\" href=\"#top\">&#8593; Về đầu trang</a>\n        </section>\n\n        <section class=\"chuyen-muc\" id=\"am-thuc\">\n          <h2 class=\"thanh-cm\">Ẩm thực</h2>\n          <article class=\"bai-nho\">\n            <div>\n              <h3>Các món ăn dân dã</h3>\n              <p>Các món ăn mới trong tuần · Chuyên mục dạy nấu ăn · Món ngon Hà Nội · Các món ăn dân dã ở miền Tây.</p>\n\n              </div>\n              <img src=\"assets/Am_thuc.jpg\" alt=\"Các món ăn dân dã\">\n             </article>\n             <a class=\"ve-dau-trang\" href=\"#top\">&#8593; Về đầu trang</a>\n           </section>\n\n           <section class=\"chuyen-muc\" id=\"am-nhac\">\n             <h2 class=\"thanh-cm\">Âm nhạc</h2>\n             <article class=\"bai-nho\">\n              <div>\n                <h3>Nhạc thiếu nhi</h3>\n               <p>Nắng sân trường · Mẹ yêu không nào · Ba bà đi bán lợn con.</p>\n              </div>\n              <img src=\"assets/nhac_thieu_nhi.jpg\" alt=\"Nhạc thiếu nhi\">\n             </article>\n             <article class=\"bai-nho\">\n              <div>\n                <h3>Dân ca</h3>\n                <p>Bèo dạt mây trôi · Mười thương · Lý cây bông.</p>\n              </div>\n              <img src=\"assets/Nhac_dan_ca.jpg\" alt=\"Dân ca Việt Nam\">\n             </article>\n             <a class=\"ve-dau-trang\" href=\"#top\">&#8593; Về đầu trang</a>\n           </section>\n      </main>\n    </div>\n  </div>",
+   "marks": [
+    2,
+    14,
+    24,
+    35,
+    45,
+    56,
+    67
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 128.116,
+   "dur": 27.114,
+   "narration": "Chuyển sang phần CSS. Bố cục Grid ba vùng: sidebar trái, nội dung giữa, quảng cáo phải. Bài viết dùng ảnh float phải, đường kẻ chấm phân tách. Bảng màu xanh công vụ, media query ẩn cột quảng cáo và xếp sidebar lên đầu. Bảng màu chính gồm #eef3f8, #ffffff, #1668C1, #f7fafd, #dce6f2.",
+   "caption": "Chuyển sang phần CSS. Bố cục Grid ba vùng: sidebar trái, nội dung giữa, quảng cáo phải. Bài viết dùng ảnh float phải, đường kẻ chấm phân tách. Bảng màu xanh công vụ, media query ẩn cột quảng cáo và xếp sidebar lên đầu. Bảng màu chính gồm #eef3f8,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n    html { scroll-behavior: smooth; }\n\n    body {\n         margin: 0;\n         padding: 24px 16px;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         background: #eef3f8;\n         display: flex;\n         justify-content: center;\n    }\n\n    .trang-tin {\n         width: min(1040px, 100%);\n         background: #ffffff;\n         box-shadow: 0 0 26px rgba(0, 0, 0, 0.1);\n    }\n\n    .dau-trang {\n         padding: 14px 22px;\n         border-bottom: 3px solid #1668C1;\n    }\n\n    .dau-trang h1 {\n         margin: 0;\n         color: #1668C1;\n         font-size: 26px;\n    }\n\n    .khung-chinh {\n        display: grid;\n        grid-template-columns: 210px 1fr;\n    }\n\n    nav {\n        background: #f7fafd;\n        border-right: 1px solid #dce6f2;\n        padding: 16px;\n    }\n\n    nav h2 {\n        font-size: 11px;\n        letter-spacing: 1px;\n        text-transform: uppercase;\n        color: #888888;\n        margin: 0 0 8px;\n    }\n\n    nav a {\n        display: block;\n        color: #1668C1;\n        text-decoration: none;\n        padding: 6px 0;\n        font-size: 14px;\n    }\n\n    nav a:hover { text-decoration: underline; }\n\n    main { padding: 18px 22px; }\n\n    .chuyen-muc { margin-bottom: 18px; }\n\n    .thanh-cm {\n        background: #1668C1;\n        color: #ffffff;\n        padding: 7px 12px;\n        border-radius: 3px;\n\n        font-size: 16px;\n        margin: 0 0 12px;\n    }\n\n    .bai-nho {\n        display: grid;\n        grid-template-columns: 1fr 140px;\n        gap: 16px;\n        align-items: start;\n        padding: 12px 0;\n        border-bottom: 1px dashed #dce6f2;\n    }\n\n    .bai-nho img {\n        width: 100%;\n        border-radius: 6px;\n        display: block;\n    }\n\n    .bai-nho h3 {\n        color: #1668C1;\n        font-size: 15px;\n        margin: 0 0 6px;\n    }\n\n    .bai-nho p {\n        margin: 0;\n        font-size: 13.5px;\n        line-height: 1.55;\n        color: #333333;\n    }\n\n    .ve-dau-trang {\n        display: block;\n        text-align: right;\n        font-size: 12.5px;\n        color: #1668C1;\n        margin-top: 6px;\n\n         text-decoration: none;\n    }\n\n    @media (max-width: 720px) {\n         .khung-chinh { grid-template-columns: 1fr; }\n         nav { border-right: none; border-bottom: 1px solid #dce6f2; }\n    }",
+   "marks": [
+    9,
+    31,
+    32,
+    57,
+    74,
+    75,
+    111
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 155.23,
+   "dur": 20.5,
+   "narration": "Chạy thử cổng thông tin: menu chuyên mục bên trái, danh sách bài ở giữa. Cuộn qua các chủ đề. Thu nhỏ màn hình, cột quảng cáo được ẩn và nội dung chuyển thành một cột.",
+   "caption": "Chạy thử cổng thông tin: menu chuyên mục bên trái, danh sách bài ở giữa. Cuộn qua các chủ đề. Thu nhỏ màn hình, cột quảng cáo được ẩn và nội dung chuyển thành một cột.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.45
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 175.73,
+   "dur": 32.319,
+   "narration": "Tổng kết bài 8. Tạo dự án exercise 08 what where portal, tệp chính index.html, khi nộp đổi tên thành bai08.html. Bấm trực tiếp vào các mục trên menu trái và nút Về đầu trang để demo liên kết neo #id, đồng thời chỉ ra cấu trúc Grid lồng nhau (Grid khung chính và Grid từng bài viết).. Lỗi thường gặp: Viết href=tinh-yeu thiếu dấu # ở đầu khiến trình duyệt tìm tệp tinh-yeu và báo lỗi 404 File Not Found.",
+   "caption": "Tổng kết bài 8. Tạo dự án exercise 08 what where portal, tệp chính index.html, khi nộp đổi tên thành bai08.html. Bấm trực tiếp vào các mục trên menu trái và nút Về đầu trang để demo liên kết neo #id, đồng thời chỉ ra cấu trúc Grid lồng nhau (Grid…",
+   "points": [
+    "Tạo dự án exercise-08-what-where-portal, tệp chính index.html, khi nộp đổi tên thành bai08.html.",
+    "Bấm trực tiếp vào các mục trên menu trái và nút “Về đầu trang” để demo liên kết neo #id, đồng thời chỉ ra cấu trúc Grid lồng nhau (Grid khung chính và Grid từng bài viết).",
+    "Lỗi thường gặp: Viết href=\"tinh-yeu\" thiếu dấu # ở đầu khiến trình duyệt tìm tệp tinh-yeu và báo lỗi 404 File Not Found."
+   ],
+   "heading": "Bài 08 — điều cần nhớ"
+  }
+ ]
+}

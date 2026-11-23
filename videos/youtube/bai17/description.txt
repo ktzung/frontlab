@@ -1,0 +1,18 @@
+Kiểm tra dữ liệu biểu mẫu bằng JavaScript (Form Validation) — hướng dẫn giải từng bước (Lập trình tương tác với JavaScript).
+
+Dự án: exercise-17-form-validation/index.html (khi nộp đổi tên thành bai17.html).
+Công nghệ: HTML5, CSS3, JavaScript, DOM, Flexbox, Events.
+
+Chương:
+00:00 Mở đầu
+00:33 Yêu cầu
+01:25 Tạo dự án
+01:53 Cấu trúc HTML
+02:11 Định dạng CSS
+02:34 JavaScript
+03:01 Chạy thử
+03:20 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

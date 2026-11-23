@@ -1,0 +1,17 @@
+Trang chương trình khuyến mãi dầu gội Double Rich — hướng dẫn giải từng bước (HTML5 cơ bản & thẻ ngữ nghĩa).
+
+Dự án: exercise-07-double-rich-promotion/index.html (khi nộp đổi tên thành bai07.html).
+Công nghệ: HTML5, CSS3, Flexbox, CSS Grid, Responsive.
+
+Chương:
+00:00 Mở đầu
+00:30 Yêu cầu
+01:18 Tạo dự án
+01:49 Cấu trúc HTML
+02:08 Định dạng CSS
+02:34 Chạy thử
+02:55 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #BàiTậpThựcHành

@@ -1,0 +1,16 @@
+{
+ "num": 4,
+ "slug": "da-nang-city",
+ "steps": [
+  {
+   "label": "Kỹ thuật ngắt dòng trong <h1> không dùng <br>",
+   "text": "Bọc dòng phụ “Thành phố đáng sống” trong thẻ <span> bên trong <h1>. Trong CSS, đặt h1 span { display: block; font-size: 0.7em; } để dòng phụ tự động xuống hàng và có cỡ chữ bằng 70% dòng chính. •"
+  },
+  {
+   "label": "Cắt khung ảnh ngang bằng object-fit",
+   "text": "cover: Ảnh chụp thực tế thường có chiều cao lớn. Khi đặt width: 100%; max-height: 280px; object-fit: cover;, trình duyệt giữ nguyên độ nét và tỉ lệ khung hình của ảnh mà không bị bẹp hình."
+  }
+ ],
+ "highlight": "Giải thích sự khác biệt khi có và không có object-fit: cover trên bức ảnh banner, và cách dùng text-transform: uppercase để tự động viết hoa tiêu đề. •",
+ "mistake": "Quên display: flow-root (hoặc clear: both) khi đoạn văn quá ngắn khiến thanh .thanh-phu bị vướng vào chữ cái ::first-letter đang float: left."
+}

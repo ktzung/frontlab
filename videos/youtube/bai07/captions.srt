@@ -1,0 +1,132 @@
+1
+00:00:00,650 --> 00:00:01,642
+Chào các bạn.
+
+2
+00:00:01,692 --> 00:00:08,786
+Đây là video hướng dẫn bài thực hành số 7, Trang chương trình khuyến mãi dầu gội Double Rich.
+
+3
+00:00:08,836 --> 00:00:20,737
+Chúng ta sẽ cùng tạo dự án exercise 07 double rich promotion với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:20,787 --> 00:00:29,178
+Bài luyện bố cục khuyến mãi nổi bật, phân cấp thị giác bằng màu đỏ và vàng, và giữ thông tin điều kiện dễ đọc.
+
+5
+00:00:29,228 --> 00:00:30,220
+Cùng bắt đầu.
+
+6
+00:00:30,570 --> 00:00:34,814
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:34,864 --> 00:00:36,802
+Bài gồm 2 phần chính.
+
+8
+00:00:36,852 --> 00:00:40,728
+Tổ chức phần đầu gồm 2 dải màu tương phản.
+
+9
+00:00:40,778 --> 00:00:51,574
+Đặt header nền đỏ thẫm (#C8102E) chứa h1 , ngay bên dưới là div nền hồng phấn (#FBE3E8) chứa khẩu hiệu chương trình..
+
+10
+00:00:51,624 --> 00:00:56,699
+Tạo vạch ngăn cách dọc bằng CSS Grid hoặc border-right.
+
+11
+00:00:56,749 --> 00:01:18,525
+Cách thanh lịch nhất là khai báo.than-bai có 3 cột grid-template-columns: 1fr 1 pixel 1fr, gap: 22 pixel, và dùng phần tử giả.than-bai before content: , background: #e0e0e0, grid-column: 2, (hoặc đặt border-right: 1 pixel solid #e0e0e0.
+
+12
+00:01:18,825 --> 00:01:20,422
+Bước một, tạo dự án.
+
+13
+00:01:20,472 --> 00:01:25,262
+Mở terminal và chạy mkdir exercise 07 double rich promotion.
+
+14
+00:01:25,312 --> 00:01:33,377
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+15
+00:01:33,427 --> 00:01:40,932
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+16
+00:01:40,982 --> 00:01:44,336
+Trong dự án, tệp chính luôn là index.html.
+
+17
+00:01:44,386 --> 00:01:49,815
+Khi nộp theo quy định của học phần, các em đổi tên thành bai07.html.
+
+18
+00:01:50,115 --> 00:01:51,501
+Mở tệp index.html.
+
+19
+00:01:51,551 --> 00:02:00,941
+Trang khuyến mãi gồm header đỏ, khối hero giới thiệu chương trình, ảnh sản phẩm, danh sách quà tặng và điều kiện tham gia.
+
+20
+00:02:00,991 --> 00:02:04,532
+Thông tin nổi bật dùng các khối section riêng.
+
+21
+00:02:04,582 --> 00:02:08,661
+Các thẻ ngữ nghĩa chính gồm article, header, section.
+
+22
+00:02:09,061 --> 00:02:11,074
+Chuyển sang phần CSS.
+
+23
+00:02:11,124 --> 00:02:17,930
+Bố cục Grid hai cột cho ảnh và nội dung, nền đỏ trắng theo thương hiệu.
+
+24
+00:02:17,980 --> 00:02:22,389
+Giá và nhãn khuyến mãi dùng chữ đậm, nền vàng.
+
+25
+00:02:22,439 --> 00:02:28,286
+Media query đưa ảnh lên trước và giảm khoảng đệm trên mobile.
+
+26
+00:02:28,336 --> 00:02:34,374
+Bảng màu chính gồm #eceff1, #ffffff, #C8102E, #FBE3E8, #e0e0e0.
+
+27
+00:02:34,724 --> 00:02:39,811
+Chạy thử: khối khuyến mãi đỏ nổi bật, ảnh sản phẩm bên cạnh nội dung.
+
+28
+00:02:39,861 --> 00:02:42,588
+Cuộn xuống xem quà tặng và điều kiện.
+
+29
+00:02:42,638 --> 00:02:46,324
+Thu nhỏ màn hình, ảnh chuyển lên trên, chữ vẫn rõ.
+
+30
+00:02:55,224 --> 00:02:56,454
+Tổng kết bài 7.
+
+31
+00:02:56,504 --> 00:03:04,699
+Tạo dự án exercise 07 double rich promotion, tệp chính index.html, khi nộp đổi tên thành bai07.html.
+
+32
+00:03:04,749 --> 00:03:14,829
+Giải thích cách kết hợp grid-template-columns: 1fr 1 pixel 1fr ở cấp cha và float: right cho ảnh sản phẩm bên trong cột 1..
+
+33
+00:03:14,879 --> 00:03:26,106
+Lỗi thường gặp: Đặt ảnh float: right ở ngoài thẻ section cột 1 khiến bức ảnh bị coi là một ô thứ 3 trong CSS Grid và làm vỡ bố cục 2 cột.
+

@@ -1,0 +1,185 @@
+{
+ "id": "bai16",
+ "num": 16,
+ "title": "Ứng dụng Quản lý danh sách việc cần làm (To-do List)",
+ "chapter": 2,
+ "chapterName": "Lập trình tương tác với JavaScript",
+ "project": "exercise-16-todo-list",
+ "submitFile": "bai16.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "Events"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 216.58,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 32.01,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 16, Ứng dụng Quản lý danh sách việc cần làm (To-do List). Chúng ta sẽ cùng tạo dự án exercise 16 todo list với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện quản lý trạng thái bằng mảng, render lại danh sách và xử lý nhiều sự kiện trên phần tử động. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 16, Ứng dụng Quản lý danh sách việc cần làm (To-do List). Chúng ta sẽ cùng tạo dự án exercise 16 todo list với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 32.51,
+   "dur": 33.194,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Thiết kế mô hình dữ liệu (State) và hàm render(). Khởi tạo mảng danhSachViec chứa 3 công việc mẫu, mỗi phần tử là một đối tượng id, ten, xong. Phân biệt sự kiện bấm Đánh dấu và bấm nút Xoá. Khi người dùng bấm vào nút.nut-xoa, ta xóa phần tử khỏi mảng theo id. Khi bấm vào phần còn lại của thẻ li , ta đảo ngược giá trị boolean viec.xong = !viec.xong.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Thiết kế mô hình dữ liệu (State) và hàm render(). Khởi tạo mảng danhSachViec chứa 3 công việc mẫu, mỗi phần tử là một đối tượng id, ten, xong. Phân biệt sự kiện bấm Đánh dấu và bấm…",
+   "points": [
+    "Thiết kế mô hình dữ liệu (State) và hàm render() — Khởi tạo mảng danhSachViec chứa 3 công việc mẫu, mỗi phần tử là một đối tượng { id, ten, xong }. Mỗi khi người dùng thêm, xóa hoặc đổi trạng thái, ta cập nhật mảng danhSachViec rồi gọi hàm veDanhSach() để cập nhật lại DOM và đếm số việc có !viec.xong.",
+    "Phân biệt sự kiện bấm Đánh dấu và bấm nút Xoá — Khi người dùng bấm vào nút .nut-xoa, ta xóa phần tử khỏi mảng theo id. Khi bấm vào phần còn lại của thẻ <li>, ta đảo ngược giá trị boolean viec.xong = !viec.xong."
+   ],
+   "heading": "Bài 16 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 65.704,
+   "dur": 27.266,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 16 todo list. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai16.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 16 todo list. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-16-todo-list",
+     "out": "✔ đã tạo thư mục exercise-16-todo-list"
+    },
+    {
+     "cmd": "cd exercise-16-todo-list",
+     "out": "→ đang ở ~/frontlab/exercise-16-todo-list"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 92.971,
+   "dur": 19.05,
+   "narration": "Mở tệp index.html. Trang có form thêm việc với ô nhập và nút, danh sách ul rỗng để JavaScript đổ dữ liệu, và dòng thống kê số việc chưa xong. Mỗi việc được sinh thành li có nút xóa. Các thẻ ngữ nghĩa chính gồm article, header, form.",
+   "caption": "Mở tệp index.html. Trang có form thêm việc với ô nhập và nút, danh sách ul rỗng để JavaScript đổ dữ liệu, và dòng thống kê số việc chưa xong. Mỗi việc được sinh thành li có nút xóa. Các thẻ ngữ nghĩa chính gồm article, header, form.",
+   "lang": "html",
+   "code": "  <article class=\"ung-dung\">\n    <header>\n         <h1>Danh sách việc cần làm</h1>\n         <p>Thêm việc mới, đánh dấu hoàn thành hoặc xoá — tất cả bằng JavaScript.</p>\n    </header>\n\n    <form class=\"thanh-nhap\" id=\"form-them\">\n        <input type=\"text\" id=\"o-nhap\" value=\"Hoàn thành bài tập Lập trình Web\" placeholder=\"Nhập công việc cần làm...\">\n         <button type=\"submit\">Thêm</button>\n    </form>\n\n    <ul id=\"danh-sach\"></ul>\n\n    <div class=\"chan-trang\" id=\"thong-ke\">Còn 2 việc chưa hoàn thành</div>\n\n  </article>",
+   "marks": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    8,
+    9
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 112.021,
+   "dur": 25.082,
+   "narration": "Chuyển sang phần CSS. Danh sách dạng card trắng, việc đã xong có màu xám và gạch ngang. Nút xóa chỉ hiện rõ khi rê chuột. Bảng màu tím, nền sáng, media query giảm đệm và cỡ chữ trên mobile. Bảng màu chính gồm #f6f7fb, #ffffff, #6d28d9, #ede9fe, #d8d3e8.",
+   "caption": "Chuyển sang phần CSS. Danh sách dạng card trắng, việc đã xong có màu xám và gạch ngang. Nút xóa chỉ hiện rõ khi rê chuột. Bảng màu tím, nền sáng, media query giảm đệm và cỡ chữ trên mobile. Bảng màu chính gồm #f6f7fb, #ffffff, #6d28d9, #ede9fe,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         background: #f6f7fb;\n         display: flex;\n         justify-content: center;\n    }\n\n    .ung-dung {\n         width: min(600px, 100%);\n         background: #ffffff;\n         border-radius: 12px;\n         box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);\n         overflow: hidden;\n\n    }\n\n    header {\n        background: #6d28d9;\n        color: #ffffff;\n        padding: 18px 24px;\n    }\n\n    header h1 { margin: 0; font-size: 20px; }\n    header p    { margin: 4px 0 0; font-size: 13px; opacity: 0.85; }\n\n    .thanh-nhap {\n        display: flex;\n        gap: 10px;\n        padding: 18px 24px;\n        border-bottom: 1px solid #ede9fe;\n    }\n\n    .thanh-nhap input {\n        flex: 1;\n        padding: 11px 14px;\n        border: 1px solid #d8d3e8;\n        border-radius: 8px;\n        font: inherit;\n        font-size: 14px;\n    }\n\n    .thanh-nhap button {\n        background: #6d28d9;\n        color: #ffffff;\n        border: none;\n        border-radius: 8px;\n        padding: 0 20px;\n        font: inherit;\n        font-size: 14px;\n        font-weight: 600;\n        cursor: pointer;\n    }\n\n    ul {\n        list-style: none;\n        margin: 0;\n        padding: 8px 24px 12px;\n    }\n\n    li {\n        display: flex;\n        align-items: center;\n        gap: 12px;\n        padding: 11px 0;\n        border-bottom: 1px dashed #ede9fe;\n        font-size: 14px;\n        cursor: pointer;\n    }\n\n    .o-kiem {\n        width: 18px;\n        height: 18px;\n        border: 2px solid #a78bfa;\n        border-radius: 5px;\n        flex: none;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        color: #ffffff;\n        font-size: 12px;\n    }\n\n    li.done .o-kiem {\n        background: #6d28d9;\n        border-color: #6d28d9;\n    }\n\n    .ten-viec { flex: 1; }\n\n    li.done .ten-viec {\n\n         text-decoration: line-through;\n         color: #9ca3af;\n    }\n\n    .nut-xoa {\n         background: #fde2e2;\n         color: #b91c1c;\n         border: none;\n         border-radius: 6px;\n         padding: 5px 12px;\n         font-size: 13px;\n         cursor: pointer;\n    }\n\n    .chan-trang {\n         padding: 12px 24px 18px;\n         font-size: 13px;\n         color: #6b7280;\n    }",
+   "marks": [
+    8,
+    31,
+    65,
+    80
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "JavaScript",
+   "start": 137.104,
+   "dur": 22.969,
+   "narration": "Phần JavaScript. Mảng danh sách việc là nguồn dữ liệu. Hàm vẽ lại danh sách xóa nội dung cũ rồi tạo từng li, gắn sự kiện click để đổi trạng thái và nút xóa để lọc khỏi mảng. Sau mỗi thay đổi, hàm đếm lại số việc chưa hoàn thành. Các hàm chính là veDanhSach. Sự kiện được lắng nghe gồm click, submit.",
+   "caption": "Phần JavaScript. Mảng danh sách việc là nguồn dữ liệu. Hàm vẽ lại danh sách xóa nội dung cũ rồi tạo từng li, gắn sự kiện click để đổi trạng thái và nút xóa để lọc khỏi mảng. Sau mỗi thay đổi, hàm đếm lại số việc chưa hoàn thành. Các hàm chính là…",
+   "lang": "js",
+   "code": "    let danhSachViec = [\n         { id: 1, ten: \"Đọc chương HTML5 cơ bản\", xong: true },\n         { id: 2, ten: \"Làm bài tập CSS Grid\", xong: false },\n         { id: 3, ten: \"Quay video OBS nộp bài\", xong: false }\n    ];\n\n    const ulEl = document.getElementById(\"danh-sach\");\n    const thongKeEl = document.getElementById(\"thong-ke\");\n    const oNhap = document.getElementById(\"o-nhap\");\n\n    function veDanhSach() {\n         ulEl.innerHTML = \"\";\n         danhSachViec.forEach((viec) => {\n           const li = document.createElement(\"li\");\n           if (viec.xong) li.classList.add(\"done\");\n\n           const oKiem = document.createElement(\"div\");\n           oKiem.className = \"o-kiem\";\n           oKiem.textContent = viec.xong ? \"✓\" : \"\";\n\n           const span = document.createElement(\"span\");\n           span.className = \"ten-viec\";\n           span.textContent = viec.ten;\n\n           const nutXoa = document.createElement(\"button\");\n           nutXoa.type = \"button\";\n           nutXoa.className = \"nut-xoa\";\n           nutXoa.textContent = \"Xoá\";\n           nutXoa.addEventListener(\"click\", (e) => {\n             e.stopPropagation();\n             danhSachViec = danhSachViec.filter((muc) => muc.id !== viec.id);\n             veDanhSach();\n           });\n\n           li.addEventListener(\"click\", () => {\n\n              viec.xong = !viec.xong;\n              veDanhSach();\n          });\n\n          li.append(oKiem, span, nutXoa);\n          ulEl.appendChild(li);\n        });\n\n        const chuaXong = danhSachViec.filter((v) => !v.xong).length;\n        thongKeEl.textContent = `Còn ${chuaXong} việc chưa hoàn thành`;\n    }\n\n    document.getElementById(\"form-them\").addEventListener(\"submit\", (e) => {\n        e.preventDefault();\n        const tenMoi = oNhap.value.trim();\n        if (!tenMoi) return;\n        danhSachViec.push({ id: Date.now(), ten: tenMoi, xong: false });\n        oNhap.value = \"\";\n        veDanhSach();\n    });\n\n    veDanhSach();",
+   "marks": [
+    7,
+    8,
+    9,
+    11,
+    29,
+    35,
+    49
+   ],
+   "annotation": "Xử lý sự kiện và cập nhật DOM"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 160.073,
+   "dur": 19,
+   "narration": "Chạy thử: nhập việc Ôn tập CSS Grid rồi thêm. Bấm vào việc đầu tiên để đánh dấu xong, số việc chưa hoàn thành giảm. Bấm xóa ở một việc để loại khỏi danh sách.",
+   "caption": "Chạy thử: nhập việc Ôn tập CSS Grid rồi thêm. Bấm vào việc đầu tiên để đánh dấu xong, số việc chưa hoàn thành giảm. Bấm xóa ở một việc để loại khỏi danh sách.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "fill",
+     "selector": "#o-nhap",
+     "value": "Ôn tập CSS Grid"
+    },
+    {
+     "t": 2.4,
+     "type": "click",
+     "selector": "#form-them button[type=submit]"
+    },
+    {
+     "t": 4.2,
+     "type": "click",
+     "selector": "#danh-sach li:first-child"
+    },
+    {
+     "t": 6.4,
+     "type": "click",
+     "selector": "#danh-sach li:last-child .nut-xoa"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 179.073,
+   "dur": 37.509,
+   "narration": "Tổng kết bài 16. Tạo dự án exercise 16 todo list, tệp chính index.html, khi nộp đổi tên thành bai16.html. Giải thích vì sao phải gọi e. stopPropagation() bên trong sự kiện click của nút Xoá (để sự kiện click không nổi bọt lên thẻ li cha) và cách dùng filter() để đếm số việc chưa hoàn thành.. Lỗi thường gặp: Dùng innerHTML += kèm chuỗi nội suy trực tiếp từ dữ liệu người dùng nhập mà không qua textContent, dễ gây lỗi hiển thị nếu tên công việc chứa ký tự < hoặc >.",
+   "caption": "Tổng kết bài 16. Tạo dự án exercise 16 todo list, tệp chính index.html, khi nộp đổi tên thành bai16.html. Giải thích vì sao phải gọi e. stopPropagation() bên trong sự kiện click của nút Xoá (để sự kiện click không nổi bọt lên thẻ li cha) và cách…",
+   "points": [
+    "Tạo dự án exercise-16-todo-list, tệp chính index.html, khi nộp đổi tên thành bai16.html.",
+    "Giải thích vì sao phải gọi e. stopPropagation() bên trong sự kiện click của nút Xoá (để sự kiện click không nổi bọt lên thẻ <li> cha) và cách dùng filter() để đếm số việc chưa hoàn thành.",
+    "Lỗi thường gặp: Dùng innerHTML += ... kèm chuỗi nội suy trực tiếp từ dữ liệu người dùng nhập mà không qua textContent, dễ gây lỗi hiển thị nếu tên công việc chứa ký tự < hoặc >."
+   ],
+   "heading": "Bài 16 — điều cần nhớ"
+  }
+ ]
+}

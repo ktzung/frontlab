@@ -1,0 +1,144 @@
+1
+00:00:00,650 --> 00:00:01,722
+Chào các bạn.
+
+2
+00:00:01,772 --> 00:00:08,371
+Đây là video hướng dẫn bài thực hành số 3, Trang giới thiệu Di sản Vịnh Hạ Long.
+
+3
+00:00:08,421 --> 00:00:20,876
+Chúng ta sẽ cùng tạo dự án exercise 03 ha long heritage với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:20,926 --> 00:00:29,009
+Bài tập về hero image, drop cap bằng CSS và cách tổ chức thông tin di sản theo cấu trúc ngữ nghĩa.
+
+5
+00:00:29,059 --> 00:00:30,131
+Cùng bắt đầu.
+
+6
+00:00:30,481 --> 00:00:33,962
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:34,012 --> 00:00:35,600
+Bài gồm 2 phần chính.
+
+8
+00:00:35,650 --> 00:00:38,450
+Phân biệt đoạn Sapo và đoạn thân bài.
+
+9
+00:00:38,500 --> 00:00:40,089
+Đoạn mở đầu có class.
+
+10
+00:00:40,139 --> 00:00:46,797
+sapo không áp dụng hiệu ứng chữ cái đầu rơi, trong khi hai đoạn sau dùng class.than-bai.
+
+11
+00:00:46,847 --> 00:00:56,079
+Nhờ phân tách class rõ ràng, bộ chọn p.than-bai first-letter chỉ tác động lên chữ V và chữ H của hai đoạn nội dung chính..
+
+12
+00:00:56,129 --> 00:00:58,625
+Kỹ thuật tạo Drop Cap chuẩn bằng.
+
+13
+00:00:58,675 --> 00:01:09,798
+:first-letter: Khi gán float: left và font-size: 3rem cho first-letter, chữ cái đầu sẽ tự động chiếm chiều cao tương đương 2 dòng văn bản bên cạnh.
+
+14
+00:01:09,848 --> 00:01:16,305
+Đặt line-height: 0.85 giúp đỉnh chữ cái lớn ngang bằng với mép trên của dòng đầu tiên.
+
+15
+00:01:16,505 --> 00:01:18,124
+Bước một, tạo dự án.
+
+16
+00:01:18,174 --> 00:01:22,627
+Mở terminal và chạy mkdir exercise 03 ha long heritage.
+
+17
+00:01:22,677 --> 00:01:30,854
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+18
+00:01:30,904 --> 00:01:38,514
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+19
+00:01:38,564 --> 00:01:41,964
+Trong dự án, tệp chính luôn là index.html.
+
+20
+00:01:42,014 --> 00:01:47,519
+Khi nộp theo quy định của học phần, các em đổi tên thành bai03.html.
+
+21
+00:01:47,819 --> 00:01:49,299
+Mở tệp index.html.
+
+22
+00:01:49,349 --> 00:01:57,157
+Trang gồm header với ảnh hero, article nội dung, figure chú thích ảnh và aside thông tin nhanh.
+
+23
+00:01:57,207 --> 00:02:03,948
+Tiêu đề chính dùng h1, các mục con h2, thông tin di sản đặt trong danh sách mô tả.
+
+24
+00:02:03,998 --> 00:02:06,957
+Các thẻ ngữ nghĩa chính gồm article.
+
+25
+00:02:07,357 --> 00:02:09,409
+Chuyển sang phần CSS.
+
+26
+00:02:09,459 --> 00:02:14,150
+Ảnh hero dùng object-fit cover để phủ kín khung.
+
+27
+00:02:14,200 --> 00:02:21,040
+Chữ cái đầu của đoạn mở dùng pseudo-element first-letter tạo drop cap.
+
+28
+00:02:21,090 --> 00:02:29,006
+Bảng màu xanh biển, chữ trắng trên hero, media query đổi bố cục aside xuống dưới.
+
+29
+00:02:29,056 --> 00:02:35,213
+Bảng màu chính gồm #7ec8e3, #0a5c8a, #0b3d5c, #ffffff, #1b1b1b.
+
+30
+00:02:35,563 --> 00:02:40,520
+Chạy thử: ảnh hero phủ kín chiều ngang, chữ cái đầu được phóng to.
+
+31
+00:02:40,570 --> 00:02:44,025
+Cuộn xuống xem phần nội dung và hộp thông tin.
+
+32
+00:02:44,075 --> 00:02:49,032
+Thu nhỏ màn hình, hero giữ tỉ lệ và nội dung chuyển thành một cột.
+
+33
+00:02:56,063 --> 00:02:57,300
+Tổng kết bài 3.
+
+34
+00:02:57,350 --> 00:03:05,191
+Tạo dự án exercise 03 ha long heritage, tệp chính index.html, khi nộp đổi tên thành bai03.html.
+
+35
+00:03:05,241 --> 00:03:15,474
+Giải thích cơ chế của pseudo-element first-letter (tự động chọn chữ cái đầu mà không cần bọc thẻ span thủ công trong HTML)..
+
+36
+00:03:15,524 --> 00:03:25,180
+Lỗi thường gặp: Viết p first-letter chung cho mọi thẻ p khiến cả đoạn.sapo cũng bị phóng to chữ cái đầu sai thiết kế.
+

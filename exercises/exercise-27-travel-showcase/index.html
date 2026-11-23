@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 27 - Card, Modal & Accordion Bootstrap 5</title>
+  <link href="../_shared/vendor/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .card-img-top {
+            height: 175px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="bg-light py-4">
+    <div class="container">
+        <h2 class="fw-bold mb-3">Danh lam thắng cảnh</h2>
+
+        <!-- Lưới 3 Card địa danh -->
+        <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+              <div class="card h-100 shadow-sm">
+               <img src="assets/2-son-doong.jpg" class="card-img-top" alt="Hang Sơn Đoòng">
+                <div class="card-body d-flex flex-column">
+                 <h5 class="card-title">Hang Sơn Đoòng</h5>
+                 <p class="card-text text-muted">Hang động tự nhiên lớn nhất thế giới tại Quảng Bình.</p>
+                 <button class="btn btn-danger mt-auto"
+                            data-bs-toggle="modal"
+                            data-bs-target="#md"
+                            data-title="Hang Sơn Đoòng"
+                            data-info="Lịch trình khám phá 4 ngày 3 đêm tại Vườn quốc gia Phong Nha - Kẻ Bàng. Giá vé trọn gói: 5.500.000đ/người.">
+                       Chi tiết
+                 </button>
+                </div>
+              </div>
+
+       </div>
+
+       <div class="col-sm-6 col-lg-4">
+         <div class="card h-100 shadow-sm">
+           <img src="assets/5-mekong.jpg" class="card-img-top" alt="Đồng bằng sông Cửu Long">
+           <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Đồng bằng sông Cửu Long</h5>
+             <p class="card-text text-muted">Chợ nổi, miệt vườn trái cây và văn hóa sông nước miền Tây.</p>
+              <button class="btn btn-danger mt-auto"
+                       data-bs-toggle="modal"
+                       data-bs-target="#md"
+                       data-title="Đồng bằng sông Cửu Long"
+                       data-info="Hành trình Cần Thơ - Chợ nổi Cái Răng - Miệt vườn Mỹ Khánh 2 ngày 1 đêm. Giá vé: 2.500.000đ/người.">
+                  Chi tiết
+              </button>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-sm-6 col-lg-4">
+         <div class="card h-100 shadow-sm">
+           <img src="assets/6-phong-nha.jpg" class="card-img-top" alt="Động Phong Nha">
+           <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Động Phong Nha</h5>
+              <p class="card-text text-muted">Hệ thống thạch nhũ kỳ ảo bên dòng sông Son xanh biếc.</p>
+              <button class="btn btn-danger mt-auto"
+                       data-bs-toggle="modal"
+                       data-bs-target="#md"
+                       data-title="Động Phong Nha"
+                       data-info="Du thuyền trên sông Son khám phá Động Phong Nha & Động Tiên Sơn 3 ngày 2 đêm. Giá vé: 3.600.000đ/người.">
+                  Chi tiết
+              </button>
+
+              </div>
+         </div>
+       </div>
+    </div>
+
+    <!-- Accordion thông tin bổ sung -->
+    <div class="accordion mt-4 shadow-sm" id="ac">
+       <div class="accordion-item">
+         <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#c1" aria-expanded="true">
+               Kinh nghiệm du lịch
+              </button>
+         </h2>
+         <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#ac">
+              <div class="accordion-body">
+               Nên đặt vé trước 2 tuần và chuẩn bị trang phục phù hợp theo mùa.
+              </div>
+         </div>
+       </div>
+
+       <div class="accordion-item">
+         <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c2" aria-expanded="false">
+               Chi phí dự kiến
+              </button>
+         </h2>
+        <div id="c2" class="accordion-collapse collapse" data-bs-parent="#ac">
+              <div class="accordion-body">
+               Chi phí trung bình từ 2.500.000đ đến 5.500.000đ/người.
+              </div>
+         </div>
+       </div>
+    </div>
+
+  </div>
+
+  <!-- Hộp thoại Modal -->
+  <div class="modal fade" id="md" tabindex="-1" aria-hidden="true">
+       <div class="modal-dialog">
+        <div class="modal-content">
+             <div class="modal-header">
+                <h5 class="modal-title" id="mdTitle">Thông tin địa điểm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
+             </div>
+             <div class="modal-body" id="mdBody">
+                Thông tin chi tiết về lịch trình, giá vé và hướng dẫn viên.
+             </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+             </div>
+        </div>
+       </div>
+  </div>
+
+  <script src="../_shared/vendor/bootstrap.bundle.min.js"></script>
+  <script>
+       const modalEl = document.getElementById('md');
+       modalEl.addEventListener('show.bs.modal', function (event) {
+        const btn = event.relatedTarget;
+        if (!btn) return;
+        document.getElementById('mdTitle').textContent = btn.getAttribute('data-title') || 'Thông tin địa điểm';
+        document.getElementById('mdBody').textContent = btn.getAttribute('data-info') || 'Thông tin chi tiết về lịch trình, giá vé và hướng dẫn viên.';
+       });
+  </script>
+</body>
+</html>

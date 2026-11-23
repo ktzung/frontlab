@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 12 - Ứng dụng In lịch</title>
+  <style>
+    :root {
+         --do: #C62828;
+         --xanh: #1565C0;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         min-height: 100vh;
+         padding: 32px 16px;
+         font-family: Georgia, "Times New Roman", serif;
+         background: #eceff1 url("assets/Nen.gif") repeat;
+         display: flex;
+         justify-content: center;
+
+        align-items: flex-start;
+    }
+
+    .khung-bai {
+        width: min(440px, 100%);
+        background: rgba(255, 255, 255, 0.94);
+        border-radius: 10px;
+        padding: 22px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        text-align: center;
+    }
+
+    .to-lich {
+        border: 1px solid #cccccc;
+        border-radius: 8px;
+        padding: 16px;
+        background: #ffffff;
+    }
+
+    .nam      { color: var(--do); font-size: 14px; }
+    .thang { color: var(--xanh); font-size: 18px; margin-top: 2px; }
+    .ngay     { color: var(--do); font-size: 52px; font-weight: 700; line-height: 1.1; margin: 4px 0; }
+    .thu      { color: var(--xanh); font-size: 18px; }
+
+    .chao {
+        margin: 16px 0;
+        color: var(--do);
+        font-style: italic;
+        font-size: 17px;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+
+         border: 2px solid var(--xanh);
+         border-radius: 8px;
+         padding: 16px;
+         font-family: Arial, sans-serif;
+         font-size: 14px;
+    }
+
+    form input {
+         width: 62px;
+         padding: 5px;
+         border: 1px solid #bbbbbb;
+         border-radius: 4px;
+         text-align: center;
+         font: inherit;
+    }
+
+    form button {
+         padding: 7px 14px;
+         border: none;
+         border-radius: 4px;
+         background: #546e7a;
+         color: #ffffff;
+         cursor: pointer;
+         font: inherit;
+    }
+
+    form button:hover { background: #37474f; }
+  </style>
+</head>
+<body>
+  <article class="khung-bai">
+    <div class="to-lich" id="ket-qua">
+         <div class="nam" id="hien-nam">2026</div>
+         <div class="thang" id="hien-thang">Tháng 12</div>
+         <div class="ngay" id="hien-ngay">24</div>
+         <div class="thu" id="hien-thu">Thứ năm</div>
+    </div>
+
+    <p class="chao" id="loi-chao">Chào buổi sáng!</p>
+
+    <form id="form-lich">
+         <label>Ngày <input type="number" id="o-ngay" min="1" max="31" value="24" required></label>
+         <label>Tháng <input type="number" id="o-thang" min="1" max="12" value="12" required></label>
+         <label>Năm <input type="number" id="o-nam" min="1900" max="2200" value="2026" required></label>
+         <button type="submit">In lịch</button>
+    </form>
+  </article>
+
+  <script>
+    const TEN_THU = [
+         "Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư",
+         "Thứ năm", "Thứ sáu", "Thứ bảy"
+    ];
+
+    function layLoiChao(gio) {
+         if (gio < 12) return "Chào buổi sáng!";
+         if (gio < 18) return "Chào buổi chiều!";
+         return "Chào buổi tối!";
+    }
+
+    function capNhatLich(ngay, thang, nam) {
+         const doiTuongNgay = new Date(nam, thang - 1, ngay);
+         document.getElementById("hien-nam").textContent = nam;
+         document.getElementById("hien-thang").textContent = `Tháng ${thang}`;
+         document.getElementById("hien-ngay").textContent = ngay;
+         document.getElementById("hien-thu").textContent = TEN_THU[doiTuongNgay.getDay()];
+         document.getElementById("loi-chao").textContent = layLoiChao(new Date().getHours());
+    }
+
+    document.getElementById("form-lich").addEventListener("submit", (suKien) => {
+
+       suKien.preventDefault();
+       const ngay = Number(document.getElementById("o-ngay").value);
+       const thang = Number(document.getElementById("o-thang").value);
+       const nam = Number(document.getElementById("o-nam").value);
+       capNhatLich(ngay, thang, nam);
+    });
+
+    capNhatLich(24, 12, 2026);
+  </script>
+</body>
+</html>

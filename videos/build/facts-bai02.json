@@ -1,0 +1,20 @@
+{
+ "num": 2,
+ "slug": "china-tour-ad",
+ "steps": [
+  {
+   "label": "Đặt vị trí thẻ <img> khi dùng float",
+   "text": "right: Để các đoạn văn bản tự động chảy bao quanh phía bên trái và phía dưới bức ảnh, thẻ <img src=\"Anh/ Bai02/greatwall.jpg\"> phải được đặt ngay sau thẻ <h1> và phía trước đoạn <p> đầu tiên trong mã HTML. •"
+  },
+  {
+   "label": "Tạo nền vàng mù tạt và xử lý tràn chiều cao (clearfix)",
+   "text": "Sử dụng background: linear-gradient(160deg, #C9A227, #A8861B) trên .banner. Để đề phòng trường hợp ảnh cao hơn phần chữ làm ảnh tràn ra ngoài đáy khung .banner, ta thêm overflow: hidden (hoặc display: flow-root) cho .banner. •"
+  },
+  {
+   "label": "Xử lý Responsive trên màn hình hẹp",
+   "text": "Khi màn hình nhỏ hơn 600 px, ảnh float: right rộng 260px sẽ bóp nghẹt phần chữ bên trái. Ta bổ sung @media (max-width: 600px) để hủy float: none, cho ảnh rộng 100% nằm thành một khối riêng."
+  }
+ ],
+ "highlight": "Chỉ rõ vị trí đặt thẻ <img> trước thẻ <p> đầu tiên để float: right hoạt động đúng, tác dụng của margin: 0 0 14px 18px để tạo khoảng thở bên trái ảnh, và vai trò của display: flow-root. •",
+ "mistake": "Đặt thẻ <img> ở cuối thẻ <article> khiến ảnh bị tụt xuống dưới cùng thay vì nằm ngang hàng với đoạn văn đầu tiên."
+}

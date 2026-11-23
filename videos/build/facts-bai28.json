@@ -1,0 +1,20 @@
+{
+ "num": 28,
+ "slug": "carousel-tabs",
+ "steps": [
+  {
+   "label": "Xây dựng #trinh.carousel.slide",
+   "text": "Thêm data-bs-ride= \"carousel\" vào #trinh nếu muốn trình chiếu tự động chạy khi mở trang. Đặt 3 nút chỉ mục trong .carousel-indicators và 3 khối .carousel-item trong .carousel-inner. •"
+  },
+  {
+   "label": "Thêm nút điều hướng Prev / Next",
+   "text": "Đặt 2 nút .carousel-control-prev và .carousel-control-next có data-bs-target=\"#trinh\" và data-bs-slide=\"prev\" / \"next\". •"
+  },
+  {
+   "label": "Xây dựng ul.nav.nav-pills và .tab-content",
+   "text": "Tạo 3 nút bấm trong ul.nav.nav-pills trỏ tới #t1, #t2, #t3. Bên dưới tạo <div class=\"tab-content bg-white p-3 mt-2 rounded shadow-sm\"> chứa 3 .tab-pane.fade (trong đó #t1 có thêm .show.active)."
+  }
+ ],
+ "highlight": "",
+ "mistake": ""
+}

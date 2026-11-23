@@ -1,0 +1,160 @@
+1
+00:00:00,650 --> 00:00:01,792
+Chào các bạn.
+
+2
+00:00:01,842 --> 00:00:10,102
+Đây là video hướng dẫn bài thực hành số 22, Chuyển đổi giao diện Sáng / Tối với CSS Variables.
+
+3
+00:00:10,152 --> 00:00:25,002
+Chúng ta sẽ cùng tạo dự án exercise 22 light dark theme với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:25,052 --> 00:00:32,696
+Bài luyện CSS Variables và tư duy design token: đổi theme không cần viết lại giao diện.
+
+5
+00:00:32,746 --> 00:00:33,889
+Cùng bắt đầu.
+
+6
+00:00:34,239 --> 00:00:38,146
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:38,196 --> 00:00:39,980
+Bài gồm 2 phần chính.
+
+8
+00:00:40,030 --> 00:00:43,767
+Tách biệt định nghĩa màu và nơi sử dụng màu.
+
+9
+00:00:43,817 --> 00:00:51,037
+Tuyệt đối không gán mã màu cứng (như #ffffff hay #0f172a) trực tiếp vào.the hay body.
+
+10
+00:00:51,087 --> 00:00:57,798
+Thay vào đó, tất cả các phần tử đều dùng background: var(nen), color: var(chu).
+
+11
+00:00:57,848 --> 00:01:01,161
+Thiết kế nút gạt Toggle Switch mượt mà.
+
+12
+00:01:01,211 --> 00:01:07,496
+Ở chế độ Sáng (chưa có.toi), chấm tròn after nằm bên trái (left: 4 pixel).
+
+13
+00:01:07,546 --> 00:01:15,106
+Khi body.toi kích hoạt, ta dịch chấm tròn sang phải bằng transform: translateX(32 pixel).
+
+14
+00:01:15,306 --> 00:01:16,935
+Bước một, tạo dự án.
+
+15
+00:01:16,985 --> 00:01:21,465
+Mở terminal và chạy mkdir exercise 22 light dark theme.
+
+16
+00:01:21,515 --> 00:01:29,741
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+17
+00:01:29,791 --> 00:01:34,026
+Sau đó di chuyển vào thư mục, và tạo tệp index.html.
+
+18
+00:01:34,076 --> 00:01:37,497
+Trong dự án, tệp chính luôn là index.html.
+
+19
+00:01:37,547 --> 00:01:43,085
+Khi nộp theo quy định của học phần, các em đổi tên thành bai22.html.
+
+20
+00:01:43,385 --> 00:01:44,822
+Mở tệp index.html.
+
+21
+00:01:44,872 --> 00:01:51,734
+Trang có nút gạt chuyển theme ở góc phải, tiêu đề, đoạn mô tả và một số card nội dung.
+
+22
+00:01:51,784 --> 00:01:55,534
+Nút có aria-label để hỗ trợ trình đọc màn hình.
+
+23
+00:01:55,584 --> 00:01:58,936
+Các thẻ ngữ nghĩa chính gồm main, article.
+
+24
+00:01:59,336 --> 00:02:01,371
+Chuyển sang phần CSS.
+
+25
+00:02:01,421 --> 00:02:08,882
+Toàn bộ màu khai báo bằng biến CSS trên :root và bộ biến cho data-theme dark.
+
+26
+00:02:08,932 --> 00:02:14,456
+Chuyển theme chỉ cần đổi thuộc tính data-theme trên body.
+
+27
+00:02:14,506 --> 00:02:18,576
+Các khối có transition màu nền và màu chữ.
+
+28
+00:02:18,626 --> 00:02:22,793
+Media query giữ bố cục một cột trên mobile.
+
+29
+00:02:22,843 --> 00:02:28,948
+Bảng màu chính gồm #ffffff, #0f172a, #f1f5f9, #e2e8f0, #2563eb.
+
+30
+00:02:29,248 --> 00:02:30,424
+Phần JavaScript.
+
+31
+00:02:30,474 --> 00:02:38,413
+Sự kiện click trên nút gạt đổi giá trị data-theme giữa light và dark, cập nhật trạng thái nút và dòng mô tả.
+
+32
+00:02:38,463 --> 00:02:42,506
+Cách làm này tách màu khỏi cấu trúc, dễ thêm theme mới.
+
+33
+00:02:42,556 --> 00:02:44,981
+Sự kiện được lắng nghe gồm click.
+
+34
+00:02:45,381 --> 00:02:51,373
+Chạy thử: bấm nút gạt, toàn bộ trang chuyển sang tối với hiệu ứng chuyển màu mượt.
+
+35
+00:02:51,423 --> 00:02:53,396
+Bấm lần nữa để trở về sáng.
+
+36
+00:02:53,446 --> 00:02:56,807
+Thu nhỏ màn hình, nút và nội dung vẫn cân đối.
+
+37
+00:03:04,381 --> 00:03:05,639
+Tổng kết bài 22.
+
+38
+00:03:05,689 --> 00:03:13,154
+Tạo dự án exercise 22 light dark theme, tệp chính index.html, khi nộp đổi tên thành bai22.html.
+
+39
+00:03:13,204 --> 00:03:27,742
+Bấm trực tiếp vào nút gạt để trình diễn hiệu ứng chuyển màu đồng loạt và giải thích vì sao cách dùng var(ten-bien) gọn hơn gấp nhiều lần so với việc viết.toi.the.toi h3.toi p riêng rẽ..
+
+40
+00:03:27,792 --> 00:03:36,593
+Lỗi thường gặp: Viết sai cú pháp biến CSS (thiếu hai dấu gạch ngang ở đầu tên biến hoặc quên hàm var() khi gọi).
+

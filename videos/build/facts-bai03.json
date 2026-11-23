@@ -1,0 +1,16 @@
+{
+ "num": 3,
+ "slug": "ha-long-heritage",
+ "steps": [
+  {
+   "label": "Phân biệt đoạn Sapo và đoạn thân bài",
+   "text": "Đoạn mở đầu có class . sapo không áp dụng hiệu ứng chữ cái đầu rơi, trong khi hai đoạn sau dùng class .than-bai. Nhờ phân tách class rõ ràng, bộ chọn p.than-bai::first-letter chỉ tác động lên chữ V và chữ H của hai đoạn nội dung chính. •"
+  },
+  {
+   "label": "Kỹ thuật tạo Drop Cap chuẩn bằng",
+   "text": ":first-letter: Khi gán float: left và font-size: 3rem cho ::first-letter, chữ cái đầu sẽ tự động chiếm chiều cao tương đương 2 dòng văn bản bên cạnh. Đặt line-height: 0.85 giúp đỉnh chữ cái lớn ngang bằng với mép trên của dòng đầu tiên."
+  }
+ ],
+ "highlight": "Giải thích cơ chế của pseudo-element ::first-letter (tự động chọn chữ cái đầu mà không cần bọc thẻ <span> thủ công trong HTML). •",
+ "mistake": "Viết p::first-letter chung cho mọi thẻ <p> khiến cả đoạn .sapo cũng bị phóng to chữ cái đầu sai thiết kế."
+}

@@ -1,0 +1,140 @@
+1
+00:00:00,650 --> 00:00:01,666
+Chào các bạn.
+
+2
+00:00:01,716 --> 00:00:08,356
+Đây là video hướng dẫn bài thực hành số 5, Trang giới thiệu Công ty Hoa tươi Nhân Ái.
+
+3
+00:00:08,406 --> 00:00:20,438
+Chúng ta sẽ cùng tạo dự án exercise 05 nhan ai flower shop với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:20,488 --> 00:00:29,003
+Bài đầu tiên ghép Grid hai cột với bảng dữ liệu và hệ thống nhãn màu, rất gần bố cục trang doanh nghiệp thật.
+
+5
+00:00:29,053 --> 00:00:30,069
+Cùng bắt đầu.
+
+6
+00:00:30,419 --> 00:00:34,509
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:34,559 --> 00:00:36,427
+Bài gồm 2 phần chính.
+
+8
+00:00:36,477 --> 00:00:40,122
+Thay thế bảng dàn trang cũ bằng CSS Grid.
+
+9
+00:00:40,172 --> 00:00:50,131
+Trong đề bài gốc của thế hệ HTML 4, bố cục ảnh bên trái – chữ bên phải thường bị đặt trong một table 1 hàng 2 ô.
+
+10
+00:00:50,181 --> 00:01:00,407
+Với chuẩn HTML5/CSS3 hiện đại, ta dùng div với display: grid, grid-template-columns: 220 pixel 1fr, gap: 24 pixel..
+
+11
+00:01:00,457 --> 00:01:03,925
+Tạo nhãn tiêu đề nền hồng vừa khít chữ.
+
+12
+00:01:03,975 --> 00:01:13,044
+Mặc định thẻ h2 là phần tử khối (block) nên màu nền sẽ kéo dài hết 100 phần trăm chiều ngang cột phải.
+
+13
+00:01:13,094 --> 00:01:16,918
+Để nền hồng #FFC0CB chỉ bao vừa khít chữ 1.
+
+14
+00:01:16,968 --> 00:01:18,341
+Giới thiệu và 2.
+
+15
+00:01:18,541 --> 00:01:20,136
+Bước một, tạo dự án.
+
+16
+00:01:20,186 --> 00:01:24,813
+Mở terminal và chạy mkdir exercise 05 nhan ai flower shop.
+
+17
+00:01:24,863 --> 00:01:32,921
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+18
+00:01:32,971 --> 00:01:40,470
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+19
+00:01:40,520 --> 00:01:43,871
+Trong dự án, tệp chính luôn là index.html.
+
+20
+00:01:43,921 --> 00:01:49,345
+Khi nộp theo quy định của học phần, các em đổi tên thành bai05.html.
+
+21
+00:01:49,645 --> 00:01:50,986
+Mở tệp index.html.
+
+22
+00:01:51,036 --> 00:02:02,726
+Trang có header thương hiệu, nav liên kết, main chia hai cột: bên trái là bài giới thiệu và danh sách dịch vụ, bên phải là ảnh hoa và bảng thông tin liên hệ.
+
+23
+00:02:02,776 --> 00:02:05,531
+Thông tin công ty dùng table dữ liệu.
+
+24
+00:02:05,581 --> 00:02:08,932
+Các thẻ ngữ nghĩa chính gồm article, section.
+
+25
+00:02:09,332 --> 00:02:11,339
+Chuyển sang phần CSS.
+
+26
+00:02:11,389 --> 00:02:15,307
+Hai cột dùng CSS Grid với tỉ lệ 2 chia 1.
+
+27
+00:02:15,357 --> 00:02:20,805
+Nhãn mục dùng inline-block, danh sách bỏ bullet mặc định.
+
+28
+00:02:20,855 --> 00:02:28,691
+Bảng màu hồng cánh sen, chữ trắng trên tiêu đề, media query gộp hai cột thành một.
+
+29
+00:02:28,741 --> 00:02:33,902
+Bảng màu chính gồm #ffffff, #C2185B, #FFC0CB, #0000EE.
+
+30
+00:02:34,252 --> 00:02:39,905
+Chạy thử trang hoa tươi: cột nội dung bên trái, ảnh và bảng liên hệ bên phải.
+
+31
+00:02:39,955 --> 00:02:45,314
+Thu nhỏ màn hình, Grid tự gộp thành một cột, bảng thông tin vẫn đọc được.
+
+32
+00:02:54,752 --> 00:02:55,955
+Tổng kết bài 5.
+
+33
+00:02:56,005 --> 00:03:03,862
+Tạo dự án exercise 05 nhan ai flower shop, tệp chính index.html, khi nộp đổi tên thành bai05.html.
+
+34
+00:03:03,912 --> 00:03:16,338
+Giải thích tại sao dùng display: inline-block trên.nhan-muc và cách dùng list-style-type: square / circle thay vì thuộc tính HTML type=square đã lỗi thời..
+
+35
+00:03:16,388 --> 00:03:29,216
+Lỗi thường gặp: Dùng padding-left: 0 trên thẻ ul làm mất hoàn toàn các ký hiệu đầu dòng (square/circle) vì dấu chấm đầu dòng của ul nằm trong vùng padding-left.
+

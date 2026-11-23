@@ -1,0 +1,144 @@
+1
+00:00:00,650 --> 00:00:01,677
+Chào các bạn.
+
+2
+00:00:01,727 --> 00:00:08,597
+Đây là video hướng dẫn bài thực hành số 2, Quảng cáo tour du lịch Hành trình Trung Hoa.
+
+3
+00:00:08,647 --> 00:00:20,335
+Chúng ta sẽ cùng tạo dự án exercise 02 china tour ad với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:20,385 --> 00:00:28,124
+Bài học về float, dọn float bằng flow-root và cách kể câu chuyện tour du lịch bằng bố cục báo chí.
+
+5
+00:00:28,174 --> 00:00:29,201
+Cùng bắt đầu.
+
+6
+00:00:29,551 --> 00:00:33,567
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:33,617 --> 00:00:35,450
+Bài gồm 3 phần chính.
+
+8
+00:00:35,500 --> 00:00:38,469
+Đặt vị trí thẻ img khi dùng float.
+
+9
+00:00:38,519 --> 00:00:53,274
+right: Để các đoạn văn bản tự động chảy bao quanh phía bên trái và phía dưới bức ảnh, thẻ img phải được đặt ngay sau thẻ h1 và phía trước đoạn p đầu tiên trong mã HTML..
+
+10
+00:00:53,324 --> 00:00:58,126
+Tạo nền vàng mù tạt và xử lý tràn chiều cao (clearfix).
+
+11
+00:00:58,176 --> 00:01:04,637
+Sử dụng background: linear-gradient(160deg, #C9A227, #A8861B) trên.banner.
+
+12
+00:01:04,687 --> 00:01:17,521
+Để đề phòng trường hợp ảnh cao hơn phần chữ làm ảnh tràn ra ngoài đáy khung.banner, ta thêm overflow: hidden (hoặc display: flow-root) cho.banner..
+
+13
+00:01:17,571 --> 00:01:20,627
+Xử lý Responsive trên màn hình hẹp.
+
+14
+00:01:20,677 --> 00:01:28,710
+Khi màn hình nhỏ hơn 600 px, ảnh float: right rộng 260 pixel sẽ bóp nghẹt phần chữ bên trái.
+
+15
+00:01:28,760 --> 00:01:38,525
+Ta bổ sung @media (max-width: 600 pixel) để hủy float: none, cho ảnh rộng 100 phần trăm nằm thành một khối riêng.
+
+16
+00:01:38,725 --> 00:01:40,337
+Bước một, tạo dự án.
+
+17
+00:01:40,387 --> 00:01:44,578
+Mở terminal và chạy mkdir exercise 02 china tour ad.
+
+18
+00:01:44,628 --> 00:01:52,767
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+19
+00:01:52,817 --> 00:02:00,392
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+20
+00:02:00,442 --> 00:02:03,826
+Trong dự án, tệp chính luôn là index.html.
+
+21
+00:02:03,876 --> 00:02:09,356
+Khi nộp theo quy định của học phần, các em đổi tên thành bai02.html.
+
+22
+00:02:09,656 --> 00:02:11,002
+Mở tệp index.html.
+
+23
+00:02:11,052 --> 00:02:21,442
+Bài dùng article bọc toàn bộ nội dung, ảnh Vạn Lý Trường Thành đặt trước đoạn văn đầu, tiêu đề h1, đoạn sao p và các đoạn mô tả hành trình.
+
+24
+00:02:21,492 --> 00:02:25,380
+Ảnh phải nằm trước nội dung thì float mới chảy đúng.
+
+25
+00:02:25,430 --> 00:02:28,121
+Các thẻ ngữ nghĩa chính gồm article.
+
+26
+00:02:28,521 --> 00:02:30,542
+Chuyển sang phần CSS.
+
+27
+00:02:30,592 --> 00:02:35,019
+Ảnh float sang phải với margin tạo khoảng thở.
+
+28
+00:02:35,069 --> 00:02:41,325
+Article dùng display flow-root để chứa ảnh nổi, tránh tràn khung.
+
+29
+00:02:41,375 --> 00:02:50,038
+Nền vàng gold, chữ nâu đậm, tiêu đề in hoa, media query xếp ảnh lên trên khi màn hình hẹp.
+
+30
+00:02:50,088 --> 00:02:55,285
+Bảng màu chính gồm #f4f4f4, #C9A227, #A8861B, #ffffff.
+
+31
+00:02:55,635 --> 00:03:00,789
+Chạy thử trang quảng cáo: ảnh nằm bên phải, dòng chữ chảy vòng sang trái.
+
+32
+00:03:00,839 --> 00:03:07,475
+Thu nhỏ màn hình, ảnh chuyển lên trên và nội dung xếp thành một cột để dễ đọc trên điện thoại.
+
+33
+00:03:16,135 --> 00:03:17,340
+Tổng kết bài 2.
+
+34
+00:03:17,390 --> 00:03:24,780
+Tạo dự án exercise 02 china tour ad, tệp chính index.html, khi nộp đổi tên thành bai02.html.
+
+35
+00:03:24,830 --> 00:03:40,013
+Chỉ rõ vị trí đặt thẻ img trước thẻ p đầu tiên để float: right hoạt động đúng, tác dụng của margin: 0 0 14 pixel 18 pixel để tạo khoảng thở bên trái ảnh, và vai trò của display: flow-root..
+
+36
+00:03:40,063 --> 00:03:50,105
+Lỗi thường gặp: Đặt thẻ img ở cuối thẻ article khiến ảnh bị tụt xuống dưới cùng thay vì nằm ngang hàng với đoạn văn đầu tiên.
+

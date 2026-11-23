@@ -1,0 +1,28 @@
+{
+ "id": "bai10",
+ "num": 10,
+ "title": "Bài 10 – Trang Biểu mẫu liên hệ khách hàng (HTML5 Form) | Hướng dẫn Frontend từng bước",
+ "chapter": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-10-contact-form",
+ "submitFile": "bai10.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 210,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "contact-form"
+ ],
+ "youtubeId": ""
+}

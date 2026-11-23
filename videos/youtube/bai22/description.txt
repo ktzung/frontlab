@@ -1,0 +1,18 @@
+Chuyển đổi giao diện Sáng / Tối với CSS Variables — hướng dẫn giải từng bước (CSS3 hiện đại — bố cục & hiệu ứng).
+
+Dự án: exercise-22-light-dark-theme/index.html (khi nộp đổi tên thành bai22.html).
+Công nghệ: HTML5, CSS3, JavaScript, DOM, Flexbox, CSS Variables, Transition.
+
+Chương:
+00:00 Mở đầu
+00:34 Yêu cầu
+01:15 Tạo dự án
+01:43 Cấu trúc HTML
+01:59 Định dạng CSS
+02:29 JavaScript
+02:45 Chạy thử
+03:04 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

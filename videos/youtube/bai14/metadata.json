@@ -1,0 +1,27 @@
+{
+ "id": "bai14",
+ "num": 14,
+ "title": "Bài 14 – Trang chuyên đề “6 Kỳ quan thiên nhiên Việt Nam” | Hướng dẫn Frontend từng bước",
+ "chapter": "Lập trình tương tác với JavaScript",
+ "project": "exercise-14-vietnam-wonders",
+ "submitFile": "bai14.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 199,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "vietnam-wonders"
+ ],
+ "youtubeId": ""
+}

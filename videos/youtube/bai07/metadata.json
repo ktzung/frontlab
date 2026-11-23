@@ -1,0 +1,28 @@
+{
+ "id": "bai07",
+ "num": 7,
+ "title": "Bài 07 – Trang chương trình khuyến mãi dầu gội Double Rich | Hướng dẫn Frontend từng bước",
+ "chapter": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-07-double-rich-promotion",
+ "submitFile": "bai07.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 207,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "double-rich-promotion"
+ ],
+ "youtubeId": ""
+}

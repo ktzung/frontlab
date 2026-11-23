@@ -1,0 +1,148 @@
+1
+00:00:00,650 --> 00:00:01,718
+Chào các bạn.
+
+2
+00:00:01,768 --> 00:00:07,683
+Đây là video hướng dẫn bài thực hành số 8, Cổng thông tin chuyên mục Ai?
+
+3
+00:00:07,733 --> 00:00:08,633
+Cái gì?
+
+4
+00:00:08,683 --> 00:00:09,583
+Ở đâu?.
+
+5
+00:00:09,633 --> 00:00:22,119
+Chúng ta sẽ cùng tạo dự án exercise 08 what where portal với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+6
+00:00:22,169 --> 00:00:28,905
+Bài tổng hợp bố cục portal nhiều cột, lặp article và xử lý ảnh nổi trong từng bài.
+
+7
+00:00:28,955 --> 00:00:29,423
+Cùng bắt đầu.
+
+8
+00:00:29,623 --> 00:00:33,588
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+9
+00:00:33,638 --> 00:00:35,448
+Bài gồm 2 phần chính.
+
+10
+00:00:35,498 --> 00:00:41,014
+Thiết lập hệ thống liên kết neo (Anchor Links) trong cùng trang.
+
+11
+00:00:41,064 --> 00:00:50,889
+Gắn id=top cho thẻ header đầu trang, và gắn id=tinh-yeu, id=suc-khoe, id=am-thuc, id=am-nhac cho từng thẻ section.
+
+12
+00:00:50,939 --> 00:00:57,058
+Ở menu bên trái, thẻ a Sức khỏe sẽ cuộn thẳng đến chuyên mục tương ứng.
+
+13
+00:00:57,108 --> 00:00:59,780
+Dàn bố cục 2 cấp bằng CSS Grid.
+
+14
+00:00:59,830 --> 00:01:05,173
+Cấp 1 chia trang thành 210 pixel 1fr (Menu trái và Main phải).
+
+15
+00:01:05,223 --> 00:01:14,790
+Cấp 2 bên trong mỗi bài viết.bai-nho chia thành 1fr 140 pixel (Nội dung chữ bên trái và Ảnh minh họa bên phải).
+
+16
+00:01:14,990 --> 00:01:16,586
+Bước một, tạo dự án.
+
+17
+00:01:16,636 --> 00:01:21,107
+Mở terminal và chạy mkdir exercise 08 what where portal.
+
+18
+00:01:21,157 --> 00:01:29,220
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+19
+00:01:29,270 --> 00:01:36,774
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+20
+00:01:36,824 --> 00:01:40,177
+Trong dự án, tệp chính luôn là index.html.
+
+21
+00:01:40,227 --> 00:01:45,655
+Khi nộp theo quy định của học phần, các em đổi tên thành bai08.html.
+
+22
+00:01:45,955 --> 00:01:47,417
+Mở tệp index.html.
+
+23
+00:01:47,467 --> 00:01:59,403
+Trang mô phỏng cổng thông tin: header lớn, nav chuyên mục bên trái, main chứa nhiều article theo chủ đề, mỗi bài có tiêu đề, mô tả và ảnh minh họa.
+
+24
+00:01:59,453 --> 00:02:02,619
+Cấu trúc lặp lại giúp dễ quét nội dung.
+
+25
+00:02:02,669 --> 00:02:07,866
+Các thẻ ngữ nghĩa chính gồm header, nav, main, section, article.
+
+26
+00:02:08,266 --> 00:02:10,272
+Chuyển sang phần CSS.
+
+27
+00:02:10,322 --> 00:02:16,533
+Bố cục Grid ba vùng: sidebar trái, nội dung giữa, quảng cáo phải.
+
+28
+00:02:16,583 --> 00:02:21,743
+Bài viết dùng ảnh float phải, đường kẻ chấm phân tách.
+
+29
+00:02:21,793 --> 00:02:28,960
+Bảng màu xanh công vụ, media query ẩn cột quảng cáo và xếp sidebar lên đầu.
+
+30
+00:02:29,010 --> 00:02:35,030
+Bảng màu chính gồm #eef3f8, #ffffff, #1668C1, #f7fafd, #dce6f2.
+
+31
+00:02:35,380 --> 00:02:40,667
+Chạy thử cổng thông tin: menu chuyên mục bên trái, danh sách bài ở giữa.
+
+32
+00:02:40,717 --> 00:02:42,185
+Cuộn qua các chủ đề.
+
+33
+00:02:42,235 --> 00:02:47,595
+Thu nhỏ màn hình, cột quảng cáo được ẩn và nội dung chuyển thành một cột.
+
+34
+00:02:55,880 --> 00:02:57,057
+Tổng kết bài 8.
+
+35
+00:02:57,107 --> 00:03:04,643
+Tạo dự án exercise 08 what where portal, tệp chính index.html, khi nộp đổi tên thành bai08.html.
+
+36
+00:03:04,693 --> 00:03:18,037
+Bấm trực tiếp vào các mục trên menu trái và nút Về đầu trang để demo liên kết neo #id, đồng thời chỉ ra cấu trúc Grid lồng nhau (Grid khung chính và Grid từng bài viết)..
+
+37
+00:03:18,087 --> 00:03:27,349
+Lỗi thường gặp: Viết href=tinh-yeu thiếu dấu # ở đầu khiến trình duyệt tìm tệp tinh-yeu và báo lỗi 404 File Not Found.
+

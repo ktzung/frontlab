@@ -1,0 +1,174 @@
+{
+ "id": "bai22",
+ "num": 22,
+ "title": "Chuyển đổi giao diện Sáng / Tối với CSS Variables",
+ "chapter": 3,
+ "chapterName": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-22-light-dark-theme",
+ "submitFile": "bai22.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "CSS Variables",
+  "Transition"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 217.29,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 33.589,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 22, Chuyển đổi giao diện Sáng / Tối với CSS Variables. Chúng ta sẽ cùng tạo dự án exercise 22 light dark theme với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện CSS Variables và tư duy design token: đổi theme không cần viết lại giao diện. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 22, Chuyển đổi giao diện Sáng / Tối với CSS Variables. Chúng ta sẽ cùng tạo dự án exercise 22 light dark theme với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript,…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 34.089,
+   "dur": 41.067,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tách biệt định nghĩa màu và nơi sử dụng màu. Tuyệt đối không gán mã màu cứng (như #ffffff hay #0f172a) trực tiếp vào.the hay body. Thay vào đó, tất cả các phần tử đều dùng background: var(nen), color: var(chu). Thiết kế nút gạt Toggle Switch mượt mà. Ở chế độ Sáng (chưa có.toi), chấm tròn after nằm bên trái (left: 4 pixel). Khi body.toi kích hoạt, ta dịch chấm tròn sang phải bằng transform: translateX(32 pixel).",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tách biệt định nghĩa màu và nơi sử dụng màu. Tuyệt đối không gán mã màu cứng (như #ffffff hay #0f172a) trực tiếp vào.the hay body. Thay vào đó, tất cả các phần tử đều dùng…",
+   "points": [
+    "Tách biệt định nghĩa màu và nơi sử dụng màu — Tuyệt đối không gán mã màu cứng (như #ffffff hay #0f172a) trực tiếp vào .the hay body. Thay vào đó, tất cả các phần tử đều dùng background: var(--nen), color: var(-- chu). Khi document.body.classList.toggle(\"toi\") được gọi, toàn bộ 5 biến màu đổi giá trị đồng…",
+    "Thiết kế nút gạt Toggle Switch mượt mà — Ở chế độ Sáng (chưa có .toi), chấm tròn ::after nằm bên trái (left: 4px). Khi body.toi kích hoạt, ta dịch chấm tròn sang phải bằng transform: translateX(32px)."
+   ],
+   "heading": "Bài 22 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 75.156,
+   "dur": 28.079,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 22 light dark theme. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai22.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 22 light dark theme. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-22-light-dark-theme",
+     "out": "✔ đã tạo thư mục exercise-22-light-dark-theme"
+    },
+    {
+     "cmd": "cd exercise-22-light-dark-theme",
+     "out": "→ đang ở ~/frontlab/exercise-22-light-dark-theme"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 103.235,
+   "dur": 15.951,
+   "narration": "Mở tệp index.html. Trang có nút gạt chuyển theme ở góc phải, tiêu đề, đoạn mô tả và một số card nội dung. Nút có aria-label để hỗ trợ trình đọc màn hình. Các thẻ ngữ nghĩa chính gồm main, article.",
+   "caption": "Mở tệp index.html. Trang có nút gạt chuyển theme ở góc phải, tiêu đề, đoạn mô tả và một số card nội dung. Nút có aria-label để hỗ trợ trình đọc màn hình. Các thẻ ngữ nghĩa chính gồm main, article.",
+   "lang": "html",
+   "code": "  <main class=\"khung-bai\">\n    <div class=\"thanh-dau\">\n        <h1>Chế độ Tối / Sáng</h1>\n        <button type=\"button\" class=\"cong-gat\" id=\"nut-gat\" aria-label=\"Bật tắt chế độ tối\"></button>\n    </div>\n\n    <article class=\"the\">\n\n      <h3>Biến CSS (CSS Variables)</h3>\n      <p>Toàn bộ màu sắc được khai báo trong <code>:root</code> và ghi đè bằng class <code>.toi</code>.</p>\n    </article>\n\n    <article class=\"the\">\n      <h3>Chuyển đổi bằng JavaScript</h3>\n      <p>Nút gạt thêm/bỏ class <code>.toi</code> trên <code>&lt;body&gt;</code> — mọi thành phần tự đổi màu.</p>\n    </article>\n\n    <article class=\"the\">\n      <h3>Chuyển màu mượt</h3>\n      <p>Dùng <code>transition</code> để màu nền và chữ chuyển dần, không bị giật.</p>\n    </article>\n\n    <p class=\"trang-thai\" id=\"trang-thai\">Đây là giao diện ở chế độ TỐI (đang bật).</p>\n  </main>",
+   "marks": [
+    1,
+    3,
+    4,
+    7,
+    11,
+    13,
+    16
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 119.186,
+   "dur": 29.912,
+   "narration": "Chuyển sang phần CSS. Toàn bộ màu khai báo bằng biến CSS trên :root và bộ biến cho data-theme dark. Chuyển theme chỉ cần đổi thuộc tính data-theme trên body. Các khối có transition màu nền và màu chữ. Media query giữ bố cục một cột trên mobile. Bảng màu chính gồm #ffffff, #0f172a, #f1f5f9, #e2e8f0, #2563eb.",
+   "caption": "Chuyển sang phần CSS. Toàn bộ màu khai báo bằng biến CSS trên :root và bộ biến cho data-theme dark. Chuyển theme chỉ cần đổi thuộc tính data-theme trên body. Các khối có transition màu nền và màu chữ. Media query giữ bố cục một cột trên mobile. Bảng…",
+   "lang": "css",
+   "code": "    :root {\n         --nen: #ffffff;\n         --chu: #0f172a;\n         --the: #f1f5f9;\n         --vien: #e2e8f0;\n         --nhan: #2563eb;\n    }\n\n    body.toi {\n         --nen: #0f172a;\n         --chu: #e2e8f0;\n         --the: #1e293b;\n         --vien: #334155;\n         --nhan: #60a5fa;\n    }\n\n    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 28px 16px;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         background: var(--nen);\n         color: var(--chu);\n         transition: background 0.3s ease, color 0.3s ease;\n    }\n\n    .khung-bai {\n         max-width: 900px;\n\n        margin: 0 auto;\n    }\n\n    .thanh-dau {\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n        margin-bottom: 22px;\n    }\n\n    .thanh-dau h1 { margin: 0; font-size: 24px; }\n\n    .cong-gat {\n        width: 64px;\n        height: 32px;\n        border-radius: 999px;\n        background: var(--nhan);\n        border: none;\n        position: relative;\n        cursor: pointer;\n        padding: 0;\n    }\n\n    .cong-gat::after {\n        content: \"\";\n        position: absolute;\n        top: 4px;\n        left: 4px;\n        width: 24px;\n        height: 24px;\n        border-radius: 50%;\n        background: #ffffff;\n        transition: transform 0.25s ease;\n    }\n\n    body.toi .cong-gat::after {\n        transform: translateX(32px);\n    }\n\n    .the {\n        background: var(--the);\n        border: 1px solid var(--vien);\n        border-radius: 10px;\n        padding: 18px 20px;\n        margin-bottom: 14px;\n        transition: background 0.3s ease, border-color 0.3s ease;\n    }\n\n    .the h3 {\n        margin: 0 0 8px;\n        color: var(--nhan);\n        font-size: 16px;\n    }\n\n    .the p {\n        margin: 0;\n        font-size: 14px;\n        line-height: 1.7;\n    }\n\n    .trang-thai {\n        font-size: 13px;\n        opacity: 0.75;\n        margin-top: 16px;\n    }",
+   "marks": [
+    1,
+    23,
+    24,
+    25,
+    35,
+    47,
+    63
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "JavaScript",
+   "start": 149.098,
+   "dur": 16.133,
+   "narration": "Phần JavaScript. Sự kiện click trên nút gạt đổi giá trị data-theme giữa light và dark, cập nhật trạng thái nút và dòng mô tả. Cách làm này tách màu khỏi cấu trúc, dễ thêm theme mới. Sự kiện được lắng nghe gồm click.",
+   "caption": "Phần JavaScript. Sự kiện click trên nút gạt đổi giá trị data-theme giữa light và dark, cập nhật trạng thái nút và dòng mô tả. Cách làm này tách màu khỏi cấu trúc, dễ thêm theme mới. Sự kiện được lắng nghe gồm click.",
+   "lang": "js",
+   "code": "    const nutGat = document.getElementById(\"nut-gat\");\n    const trangThai = document.getElementById(\"trang-thai\");\n\n    nutGat.addEventListener(\"click\", () => {\n      const dangToi = document.body.classList.toggle(\"toi\");\n      trangThai.textContent = dangToi\n             ? \"Đây là giao diện ở chế độ TỐI (đang bật).\"\n             : \"Đây là giao diện ở chế độ SÁNG (đang bật).\";\n    });",
+   "marks": [
+    1,
+    2,
+    4
+   ],
+   "annotation": "Xử lý sự kiện và cập nhật DOM"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 165.231,
+   "dur": 19,
+   "narration": "Chạy thử: bấm nút gạt, toàn bộ trang chuyển sang tối với hiệu ứng chuyển màu mượt. Bấm lần nữa để trở về sáng. Thu nhỏ màn hình, nút và nội dung vẫn cân đối.",
+   "caption": "Chạy thử: bấm nút gạt, toàn bộ trang chuyển sang tối với hiệu ứng chuyển màu mượt. Bấm lần nữa để trở về sáng. Thu nhỏ màn hình, nút và nội dung vẫn cân đối.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "click",
+     "selector": "#nut-gat"
+    },
+    {
+     "t": 4,
+     "type": "click",
+     "selector": "#nut-gat"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 184.231,
+   "dur": 33.062,
+   "narration": "Tổng kết bài 22. Tạo dự án exercise 22 light dark theme, tệp chính index.html, khi nộp đổi tên thành bai22.html. Bấm trực tiếp vào nút gạt để trình diễn hiệu ứng chuyển màu đồng loạt và giải thích vì sao cách dùng var(ten-bien) gọn hơn gấp nhiều lần so với việc viết.toi.the.toi h3.toi p riêng rẽ.. Lỗi thường gặp: Viết sai cú pháp biến CSS (thiếu hai dấu gạch ngang ở đầu tên biến hoặc quên hàm var() khi gọi).",
+   "caption": "Tổng kết bài 22. Tạo dự án exercise 22 light dark theme, tệp chính index.html, khi nộp đổi tên thành bai22.html. Bấm trực tiếp vào nút gạt để trình diễn hiệu ứng chuyển màu đồng loạt và giải thích vì sao cách dùng var(ten-bien) gọn hơn gấp nhiều lần…",
+   "points": [
+    "Tạo dự án exercise-22-light-dark-theme, tệp chính index.html, khi nộp đổi tên thành bai22.html.",
+    "Bấm trực tiếp vào nút gạt để trình diễn hiệu ứng chuyển màu đồng loạt và giải thích vì sao cách dùng var(--ten-bien) gọn hơn gấp nhiều lần so với việc viết .toi .the, .toi h3, .toi p riêng rẽ.",
+    "Lỗi thường gặp: Viết sai cú pháp biến CSS (thiếu hai dấu gạch ngang -- ở đầu tên biến hoặc quên hàm var(...) khi gọi)."
+   ],
+   "heading": "Bài 22 — điều cần nhớ"
+  }
+ ]
+}

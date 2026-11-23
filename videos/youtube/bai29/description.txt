@@ -1,0 +1,18 @@
+Bảng dữ liệu sinh viên & Phân trang — hướng dẫn giải từng bước (Thiết kế responsive với Bootstrap 5).
+
+Dự án: exercise-29-student-pagination/index.html (khi nộp đổi tên thành bai29.html).
+Công nghệ: HTML5, CSS3, Bootstrap 5, Flexbox.
+
+Chương:
+00:00 Mở đầu
+00:31 Yêu cầu
+01:14 Tạo dự án
+01:43 Cấu trúc trang
+02:02 Tùy biến CSS
+02:18 Bootstrap
+02:32 Chạy thử
+02:51 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

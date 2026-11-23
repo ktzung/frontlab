@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 25 - Trang du lịch với Navbar & Grid</title>
+  <link href="../_shared/vendor/bootstrap.min.css" rel="stylesheet">
+  <style>
+       .card-img-top {
+           height: 180px;
+           object-fit: cover;
+       }
+  </style>
+</head>
+<body class="bg-light">
+  <!-- Thanh điều hướng Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+       <div class="container">
+           <a class="navbar-brand fw-bold" href="#">CSE.TLU Travel</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Mở menu">
+               <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="menu">
+               <ul class="navbar-nav ms-auto">
+                 <li class="nav-item"><a class="nav-link active" href="#">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Điểm đến</a></li>
+                 <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
+
+           </ul>
+       </div>
+    </div>
+  </nav>
+
+  <!-- Nội dung chính -->
+  <div class="container py-4">
+    <!-- Khối Hero -->
+    <div class="p-4 mb-4 bg-white rounded-3 shadow-sm">
+       <h1 class="display-6 fw-bold">Khám phá Việt Nam</h1>
+       <p class="text-muted mb-0">Giao diện sử dụng Bootstrap Navbar và Grid 12 cột</p>
+    </div>
+
+    <!-- Hệ thống lưới 12 cột: 3 cột x col-md-4 = 12 -->
+    <div class="row g-4">
+       <div class="col-md-4">
+           <div class="card h-100 shadow-sm">
+             <img src="assets/1-vinh-ha-long.jpg" class="card-img-top" alt="Vịnh Hạ Long">
+             <div class="card-body">
+              <h5 class="card-title">Vịnh Hạ Long</h5>
+              <p class="card-text text-muted">Kỳ quan thiên nhiên thế giới với hàng nghìn đảo đá vôi.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm">Xem thêm</a>
+             </div>
+           </div>
+       </div>
+
+       <div class="col-md-4">
+           <div class="card h-100 shadow-sm">
+             <img src="assets/3-thac-ban-gioc.jpg" class="card-img-top" alt="Thác Bản Giốc">
+             <div class="card-body">
+              <h5 class="card-title">Thác Bản Giốc</h5>
+              <p class="card-text text-muted">Thác nước hùng vĩ bậc nhất vùng biên giới phía Bắc.</p>
+              <a href="#" class="btn btn-outline-primary btn-sm">Xem thêm</a>
+
+                </div>
+           </div>
+        </div>
+
+        <div class="col-md-4">
+           <div class="card h-100 shadow-sm">
+                <img src="assets/4-fansipan.jpg" class="card-img-top" alt="Đỉnh Fansipan">
+                <div class="card-body">
+                 <h5 class="card-title">Đỉnh Fansipan</h5>
+                 <p class="card-text text-muted">Nóc nhà Đông Dương giữa biển mây Tây Bắc.</p>
+                 <a href="#" class="btn btn-outline-primary btn-sm">Xem thêm</a>
+                </div>
+           </div>
+        </div>
+       </div>
+  </div>
+
+  <!-- Chân trang -->
+  <footer class="bg-dark text-white text-center py-3 mt-4">
+       © 2026 CSE.TLU - Bootstrap 5
+  </footer>
+
+  <script src="../_shared/vendor/bootstrap.bundle.min.js"></script>
+</body>
+</html>

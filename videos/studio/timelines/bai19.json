@@ -1,0 +1,158 @@
+{
+ "id": "bai19",
+ "num": 19,
+ "title": "Trang địa danh “Mũi Né – Huyền bí và quyến rũ”",
+ "chapter": 3,
+ "chapterName": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-19-mui-ne-travel",
+ "submitFile": "bai19.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 186.59,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 28.706,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 19, Trang địa danh Mũi Né – Huyền bí và quyến rũ. Chúng ta sẽ cùng tạo dự án exercise 19 mui ne travel với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài luyện hero ảnh nền, lớp phủ gradient và bố cục nội dung du lịch có aside. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 19, Trang địa danh Mũi Né – Huyền bí và quyến rũ. Chúng ta sẽ cùng tạo dự án exercise 19 mui ne travel với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 29.206,
+   "dur": 27.164,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Kỹ thuật tạo bóng đổ chữ 2 lớp (text-shadow). Thuộc tính text-shadow cho phép khai báo nhiều lớp bóng cách nhau bằng dấu phẩy. Căn đỉnh ảnh và tiêu đề bằng align-items. start: Trên.bai-viet, đặt align-items: start để bức ảnh bên trái không bị kéo giãn chiều cao theo cột chữ bên phải.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Kỹ thuật tạo bóng đổ chữ 2 lớp (text-shadow). Thuộc tính text-shadow cho phép khai báo nhiều lớp bóng cách nhau bằng dấu phẩy. Căn đỉnh ảnh và tiêu đề bằng align-items. start:…",
+   "points": [
+    "Kỹ thuật tạo bóng đổ chữ 2 lớp (text-shadow) — Thuộc tính text-shadow cho phép khai báo nhiều lớp bóng cách nhau bằng dấu phẩy. Khi viết text-shadow: 1px 1px 0 #fff, 2px 2px 4px rgba(0,0,0,0.25);, lớp thứ nhất tạo viền sáng trắng 1px sát mép chữ, lớp thứ hai tạo bóng mờ phía sau giúp chữ vàng #C9A227 nổi…",
+    "Căn đỉnh ảnh và tiêu đề bằng align-items — start: Trên .bai-viet, đặt align-items: start để bức ảnh bên trái không bị kéo giãn chiều cao theo cột chữ bên phải."
+   ],
+   "heading": "Bài 19 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 56.37,
+   "dur": 30.931,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 19 mui ne travel. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai19.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 19 mui ne travel. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh,…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-19-mui-ne-travel",
+     "out": "✔ đã tạo thư mục exercise-19-mui-ne-travel"
+    },
+    {
+     "cmd": "cd exercise-19-mui-ne-travel",
+     "out": "→ đang ở ~/frontlab/exercise-19-mui-ne-travel"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 87.301,
+   "dur": 16.775,
+   "narration": "Mở tệp index.html. Trang có header ảnh nền Mũi Né, tiêu đề lớn, đoạn mở đầu drop cap và các khối giới thiệu điểm đến. Thông tin nhanh đặt trong aside cạnh nội dung. Các thẻ ngữ nghĩa chính gồm article, section.",
+   "caption": "Mở tệp index.html. Trang có header ảnh nền Mũi Né, tiêu đề lớn, đoạn mở đầu drop cap và các khối giới thiệu điểm đến. Thông tin nhanh đặt trong aside cạnh nội dung. Các thẻ ngữ nghĩa chính gồm article, section.",
+   "lang": "html",
+   "code": "  <article class=\"bai-viet\">\n    <img src=\"assets/muine.jpg\" alt=\"Đồi cát bay Mũi Né\">\n\n      <section>\n        <h1>Mũi Né – Huyền bí và quyến rũ</h1>\n        <div class=\"noi-dung\">\n           <p>\n             Biển và cát là những gì mà <span class=\"nhan-do\">Phan Thiết</span> hào hiệp ban tặng cho du khách.\n            Phan Thiết nằm trong vùng nhiệt đới, ít chịu ảnh hưởng gió mùa đông bắc, khí hậu nóng và khô,\n             lượng mưa trung bình chỉ 800–1.150 mm — ít nhất khu vực Nam Bộ.\n           </p>\n           <p>\n             Từ nhiều năm qua, đồi cát Mũi Né là đề tài quen thuộc của các cuộc thi ảnh nghệ thuật, là biểu\n             tượng của vùng đất Bình Thuận. Bờ biển <span class=\"nhan-do\">Hòn Rơm</span> sạch và đẹp, nước trong xanh,\n             sóng chạy dưới chân những hàng dừa mát rượi.\n           </p>\n        </div>\n      </section>\n    </article>",
+   "marks": [
+    1,
+    2,
+    4,
+    5,
+    18,
+    19
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 104.076,
+   "dur": 27.254,
+   "narration": "Chuyển sang phần CSS. Ảnh nền header phủ tối bằng lớp gradient, chữ trắng. Drop cap bằng first-letter. Bố cục main cộng aside dùng Grid, tông vàng cát và cam. Media query đưa aside xuống dưới và giảm chiều cao hero. Bảng màu chính gồm #ffffff, #C9A227, #E07B00, #C62828.",
+   "caption": "Chuyển sang phần CSS. Ảnh nền header phủ tối bằng lớp gradient, chữ trắng. Drop cap bằng first-letter. Bố cục main cộng aside dùng Grid, tông vàng cát và cam. Media query đưa aside xuống dưới và giảm chiều cao hero. Bảng màu chính gồm #ffffff,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n         font-family: Georgia, \"Times New Roman\", serif;\n         background: #ffffff;\n         display: flex;\n         justify-content: center;\n    }\n\n    .bai-viet {\n         width: min(880px, 100%);\n         display: grid;\n         grid-template-columns: 300px 1fr;\n         gap: 28px;\n         align-items: start;\n    }\n\n    .bai-viet img {\n         width: 100%;\n         border-radius: 8px;\n         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);\n\n         display: block;\n    }\n\n    .bai-viet h1 {\n         margin: 0 0 16px;\n         color: #C9A227;\n         font-size: 28px;\n         text-shadow: 1px 1px 0 #ffffff, 2px 2px 4px rgba(0, 0, 0, 0.25);\n    }\n\n    .noi-dung {\n         border: 2px dashed #E07B00;\n         border-radius: 8px;\n         padding: 20px;\n    }\n\n    .noi-dung p {\n         margin: 0 0 14px;\n         line-height: 1.85;\n         text-align: justify;\n    }\n\n    .noi-dung p:last-child { margin-bottom: 0; }\n\n    .nhan-do {\n         color: #C62828;\n         font-weight: 700;\n    }\n\n    @media (max-width: 680px) {\n         .bai-viet { grid-template-columns: 1fr; }\n    }",
+   "marks": [
+    8,
+    14,
+    15,
+    54,
+    55
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 131.329,
+   "dur": 20.5,
+   "narration": "Chạy thử: hero Mũi Né với lớp phủ tối giúp chữ nổi rõ. Cuộn xuống phần nội dung và aside. Thu nhỏ màn hình, aside xuống dưới, hero thấp lại.",
+   "caption": "Chạy thử: hero Mũi Né với lớp phủ tối giúp chữ nổi rõ. Cuộn xuống phần nội dung và aside. Thu nhỏ màn hình, aside xuống dưới, hero thấp lại.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.45
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 151.829,
+   "dur": 34.757,
+   "narration": "Tổng kết bài 19. Tạo dự án exercise 19 mui ne travel, tệp chính index.html, khi nộp đổi tên thành bai19.html. Giải thích 4 tham số của text-shadow: offset-x offset-y blur-radius color và phân biệt các kiểu đường viền solid (nét liền), dashed (nét gạch đứt), dotted (nét chấm).. Lỗi thường gặp: Quên xóa margin-bottom ở đoạn p bên trong.noi-dung khiến khoảng đệm dưới đáy khung nét đứt bị dày gấp đôi khoảng đệm trên đỉnh.",
+   "caption": "Tổng kết bài 19. Tạo dự án exercise 19 mui ne travel, tệp chính index.html, khi nộp đổi tên thành bai19.html. Giải thích 4 tham số của text-shadow: offset-x offset-y blur-radius color và phân biệt các kiểu đường viền solid (nét liền), dashed (nét…",
+   "points": [
+    "Tạo dự án exercise-19-mui-ne-travel, tệp chính index.html, khi nộp đổi tên thành bai19.html.",
+    "Giải thích 4 tham số của text-shadow: offset-x offset-y blur-radius color và phân biệt các kiểu đường viền solid (nét liền), dashed (nét gạch đứt), dotted (nét chấm).",
+    "Lỗi thường gặp: Quên xóa margin-bottom ở đoạn <p:last-child> bên trong .noi-dung khiến khoảng đệm dưới đáy khung nét đứt bị dày gấp đôi khoảng đệm trên đỉnh."
+   ],
+   "heading": "Bài 19 — điều cần nhớ"
+  }
+ ]
+}

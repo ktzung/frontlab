@@ -7,10 +7,10 @@ window.FRONTLAB = {
       name: "Thiết kế giao diện",
       short: "UI & CSS",
       kicker: "LỘ TRÌNH 01",
-      blurb: "Từ cấu trúc HTML, hệ thống CSS đến flexbox, grid, responsive và design system — nhìn giao diện thay đổi ngay khi thuộc tính đổi.",
+      blurb: "Từ cấu trúc HTML, hệ thống CSS đến flexbox, grid, responsive, design system và framework như Bootstrap, Tailwind — nhìn giao diện thay đổi ngay khi thuộc tính đổi.",
       outcome: "Tự tay dựng giao diện rõ thứ bậc, dễ đọc, truy cập được và chạy tốt trên nhiều kích thước màn hình.",
       tone: "teal",
-      modules: ["design-foundation", "design-media", "design-css", "design-layout", "design-craft"]
+      modules: ["design-foundation", "design-media", "design-css", "design-layout", "design-craft", "design-frameworks"]
     },
     {
       id: "code",
@@ -65,6 +65,14 @@ window.FRONTLAB = {
       lessons: ["positioning", "transitions-animation", "design-system", "design-project"]
     },
     {
+      id: "design-frameworks",
+      track: "design",
+      num: "06",
+      title: "Framework giao diện",
+      blurb: "Bootstrap 5 và TailwindCSS: dùng hệ lưới, utility và component có sẵn để dựng giao diện nhanh, nhất quán.",
+      lessons: ["bootstrap-grid", "bootstrap-components", "tailwind-utilities", "tailwind-responsive"]
+    },
+    {
       id: "code-foundation",
       track: "code",
       num: "01",
@@ -110,6 +118,6 @@ window.FRONTLAB = {
   cheatsheets: [],
   meta: {
     autoplayMs: 7200,
-    totalLessons: 40
+    totalLessons: 44
   }
 };

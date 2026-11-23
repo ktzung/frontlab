@@ -1,0 +1,201 @@
+{
+ "id": "bai12",
+ "num": 12,
+ "title": "Ứng dụng In lịch tờ theo Ngày – Tháng – Năm",
+ "chapter": 2,
+ "chapterName": "Lập trình tương tác với JavaScript",
+ "project": "exercise-12-print-calendar",
+ "submitFile": "bai12.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "CSS Variables",
+  "Events"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 241.31,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 32.66,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 12, Ứng dụng In lịch tờ theo Ngày – Tháng – Năm. Chúng ta sẽ cùng tạo dự án exercise 12 print calendar với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài đầu của chương JavaScript: làm quen Date, xử lý submit và cập nhật DOM mà không tải lại trang. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 12, Ứng dụng In lịch tờ theo Ngày – Tháng – Năm. Chúng ta sẽ cùng tạo dự án exercise 12 print calendar với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 33.16,
+   "dur": 46.179,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Lưu ý quan trọng về chỉ số tháng trong new Date(). Trong JavaScript, tham số tháng (monthIndex) của hàm tạo new Date(nam, thang - 1, ngay) được đánh số từ 0 (Tháng 1) đến 11 (Tháng 12). Lấy tên Thứ tiếng Việt bằng Intl.DateTimeFormat (hoặc mảng tên thứ). Ta có thể dùng mảng const TEN_THU = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'] kết hợp ngayDate. getDay(), hoặc dùng chuẩn quốc tế hóa new Intl.DateTimeFormat('vi-VN', weekday: 'long').format(ngayDate).",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Lưu ý quan trọng về chỉ số tháng trong new Date(). Trong JavaScript, tham số tháng (monthIndex) của hàm tạo new Date(nam, thang - 1, ngay) được đánh số từ 0 (Tháng 1) đến 11 (Tháng…",
+   "points": [
+    "Lưu ý quan trọng về chỉ số tháng trong new Date() — Trong JavaScript, tham số tháng (monthIndex) của hàm tạo new Date(nam, thang - 1, ngay) được đánh số từ 0 (Tháng 1) đến 11 (Tháng 12). Do đó khi đọc giá trị thang từ ô <input> (1–12), ta bắt buộc phải trừ đi 1 (thang - 1) trước khi truyền vào new Date().",
+    "Lấy tên Thứ tiếng Việt bằng Intl.DateTimeFormat (hoặc mảng tên thứ) — Ta có thể dùng mảng const TEN_THU = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'] kết hợp ngayDate. getDay(), hoặc dùng chuẩn quốc tế hóa new Intl.DateTimeFormat('vi-VN', { weekday: 'long' }).format(ngayDate)."
+   ],
+   "heading": "Bài 12 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 79.339,
+   "dur": 30.919,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 12 print calendar. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai12.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 12 print calendar. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh,…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-12-print-calendar",
+     "out": "✔ đã tạo thư mục exercise-12-print-calendar"
+    },
+    {
+     "cmd": "cd exercise-12-print-calendar",
+     "out": "→ đang ở ~/frontlab/exercise-12-print-calendar"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 110.258,
+   "dur": 18.365,
+   "narration": "Mở tệp index.html. Trang gồm khối tờ lịch với bốn dòng năm, tháng, ngày, thứ, dòng lời chào theo giờ, và form nhập ngày tháng năm. Các vùng có id để JavaScript cập nhật trực tiếp. Các thẻ ngữ nghĩa chính gồm article, form.",
+   "caption": "Mở tệp index.html. Trang gồm khối tờ lịch với bốn dòng năm, tháng, ngày, thứ, dòng lời chào theo giờ, và form nhập ngày tháng năm. Các vùng có id để JavaScript cập nhật trực tiếp. Các thẻ ngữ nghĩa chính gồm article, form.",
+   "lang": "html",
+   "code": "  <article class=\"khung-bai\">\n    <div class=\"to-lich\" id=\"ket-qua\">\n         <div class=\"nam\" id=\"hien-nam\">2026</div>\n         <div class=\"thang\" id=\"hien-thang\">Tháng 12</div>\n         <div class=\"ngay\" id=\"hien-ngay\">24</div>\n         <div class=\"thu\" id=\"hien-thu\">Thứ năm</div>\n    </div>\n\n    <p class=\"chao\" id=\"loi-chao\">Chào buổi sáng!</p>\n\n    <form id=\"form-lich\">\n         <label>Ngày <input type=\"number\" id=\"o-ngay\" min=\"1\" max=\"31\" value=\"24\" required></label>\n         <label>Tháng <input type=\"number\" id=\"o-thang\" min=\"1\" max=\"12\" value=\"12\" required></label>\n         <label>Năm <input type=\"number\" id=\"o-nam\" min=\"1900\" max=\"2200\" value=\"2026\" required></label>\n         <button type=\"submit\">In lịch</button>\n    </form>\n  </article>",
+   "marks": [
+    1,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 128.624,
+   "dur": 28.438,
+   "narration": "Chuyển sang phần CSS. Tờ lịch nền trắng, số ngày rất lớn màu đỏ, tháng và thứ màu xanh. Form có viền xanh hai pixel, các ô nhập số gọn trong một hàng. Nền giấy lặp từ ảnh, media query xếp các ô nhập dọc trên mobile. Bảng màu chính gồm #C62828, #1565C0, #eceff1, #cccccc, #ffffff.",
+   "caption": "Chuyển sang phần CSS. Tờ lịch nền trắng, số ngày rất lớn màu đỏ, tháng và thứ màu xanh. Form có viền xanh hai pixel, các ô nhập số gọn trong một hàng. Nền giấy lặp từ ảnh, media query xếp các ô nhập dọc trên mobile. Bảng màu chính gồm #C62828,…",
+   "lang": "css",
+   "code": "    :root {\n         --do: #C62828;\n         --xanh: #1565C0;\n    }\n\n    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         min-height: 100vh;\n         padding: 32px 16px;\n         font-family: Georgia, \"Times New Roman\", serif;\n         background: #eceff1 url(\"assets/Nen.gif\") repeat;\n         display: flex;\n         justify-content: center;\n\n        align-items: flex-start;\n    }\n\n    .khung-bai {\n        width: min(440px, 100%);\n        background: rgba(255, 255, 255, 0.94);\n        border-radius: 10px;\n        padding: 22px;\n        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);\n        text-align: center;\n    }\n\n    .to-lich {\n        border: 1px solid #cccccc;\n        border-radius: 8px;\n        padding: 16px;\n        background: #ffffff;\n    }\n\n    .nam      { color: var(--do); font-size: 14px; }\n    .thang { color: var(--xanh); font-size: 18px; margin-top: 2px; }\n    .ngay     { color: var(--do); font-size: 52px; font-weight: 700; line-height: 1.1; margin: 4px 0; }\n    .thu      { color: var(--xanh); font-size: 18px; }\n\n    .chao {\n        margin: 16px 0;\n        color: var(--do);\n        font-style: italic;\n        font-size: 17px;\n    }\n\n    form {\n        display: flex;\n        flex-wrap: wrap;\n        gap: 10px;\n        align-items: center;\n        justify-content: center;\n\n         border: 2px solid var(--xanh);\n         border-radius: 8px;\n         padding: 16px;\n         font-family: Arial, sans-serif;\n         font-size: 14px;\n    }\n\n    form input {\n         width: 62px;\n         padding: 5px;\n         border: 1px solid #bbbbbb;\n         border-radius: 4px;\n         text-align: center;\n         font: inherit;\n    }\n\n    form button {\n         padding: 7px 14px;\n         border: none;\n         border-radius: 4px;\n         background: #546e7a;\n         color: #ffffff;\n         cursor: pointer;\n         font: inherit;\n    }\n\n    form button:hover { background: #37474f; }",
+   "marks": [
+    1,
+    14,
+    36,
+    37,
+    38,
+    39,
+    43
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "JavaScript",
+   "start": 157.061,
+   "dur": 31.249,
+   "narration": "Phần JavaScript. Khi submit, sự kiện được chặn mặc định bằng preventDefault. Hàm tạo đối tượng Date với tháng trừ một vì JavaScript đếm tháng từ không. Tên thứ lấy từ mảng hoặc Intl.DateTimeFormat với locale tiếng Việt. Lời chào chia theo giờ: trước mười hai giờ là sáng, trước mười tám giờ là chiều, còn lại là tối. Các hàm chính là layLoiChao, capNhatLich. Sự kiện được lắng nghe gồm submit.",
+   "caption": "Phần JavaScript. Khi submit, sự kiện được chặn mặc định bằng preventDefault. Hàm tạo đối tượng Date với tháng trừ một vì JavaScript đếm tháng từ không. Tên thứ lấy từ mảng hoặc Intl.DateTimeFormat với locale tiếng Việt. Lời chào chia theo giờ: trước…",
+   "lang": "js",
+   "code": "    const TEN_THU = [\n         \"Chủ nhật\", \"Thứ hai\", \"Thứ ba\", \"Thứ tư\",\n         \"Thứ năm\", \"Thứ sáu\", \"Thứ bảy\"\n    ];\n\n    function layLoiChao(gio) {\n         if (gio < 12) return \"Chào buổi sáng!\";\n         if (gio < 18) return \"Chào buổi chiều!\";\n         return \"Chào buổi tối!\";\n    }\n\n    function capNhatLich(ngay, thang, nam) {\n         const doiTuongNgay = new Date(nam, thang - 1, ngay);\n         document.getElementById(\"hien-nam\").textContent = nam;\n         document.getElementById(\"hien-thang\").textContent = `Tháng ${thang}`;\n         document.getElementById(\"hien-ngay\").textContent = ngay;\n         document.getElementById(\"hien-thu\").textContent = TEN_THU[doiTuongNgay.getDay()];\n         document.getElementById(\"loi-chao\").textContent = layLoiChao(new Date().getHours());\n    }\n\n    document.getElementById(\"form-lich\").addEventListener(\"submit\", (suKien) => {\n\n       suKien.preventDefault();\n       const ngay = Number(document.getElementById(\"o-ngay\").value);\n       const thang = Number(document.getElementById(\"o-thang\").value);\n       const nam = Number(document.getElementById(\"o-nam\").value);\n       capNhatLich(ngay, thang, nam);\n    });\n\n    capNhatLich(24, 12, 2026);",
+   "marks": [
+    6,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "annotation": "Xử lý sự kiện và cập nhật DOM"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 188.311,
+   "dur": 19,
+   "narration": "Chạy thử: đổi ngày về mùng một tháng một năm hai nghìn không trăm hai mươi sáu, bấm In lịch. Tờ lịch cập nhật ngay thứ trong tuần và lời chào, trang không bị tải lại.",
+   "caption": "Chạy thử: đổi ngày về mùng một tháng một năm hai nghìn không trăm hai mươi sáu, bấm In lịch. Tờ lịch cập nhật ngay thứ trong tuần và lời chào, trang không bị tải lại.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "fill",
+     "selector": "#o-ngay",
+     "value": "1"
+    },
+    {
+     "t": 2.2,
+     "type": "fill",
+     "selector": "#o-thang",
+     "value": "1"
+    },
+    {
+     "t": 3.4,
+     "type": "fill",
+     "selector": "#o-nam",
+     "value": "2026"
+    },
+    {
+     "t": 4.6,
+     "type": "click",
+     "selector": "#form-lich button[type=submit]"
+    },
+    {
+     "t": 7,
+     "type": "scroll",
+     "value": 0.2
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 207.311,
+   "dur": 34.002,
+   "narration": "Tổng kết bài 12. Tạo dự án exercise 12 print calendar, tệp chính index.html, khi nộp đổi tên thành bai12.html. Giải thích vì sao trong new Date(nam, thang - 1, ngay) phải lấy thang - 1, và vì sao doiTuong Ngay.getDay() trả về 0 cho Chủ nhật chứ không phải Thứ hai.. Lỗi thường gặp: Quên gọi suKien.preventDefault() trong hàm xử lý submit, khiến mỗi lần bấm nút In lịch trang web lại tự tải lại và quay về ngày mặc định.",
+   "caption": "Tổng kết bài 12. Tạo dự án exercise 12 print calendar, tệp chính index.html, khi nộp đổi tên thành bai12.html. Giải thích vì sao trong new Date(nam, thang - 1, ngay) phải lấy thang - 1, và vì sao doiTuong Ngay.getDay() trả về 0 cho Chủ nhật chứ…",
+   "points": [
+    "Tạo dự án exercise-12-print-calendar, tệp chính index.html, khi nộp đổi tên thành bai12.html.",
+    "Giải thích vì sao trong new Date(nam, thang - 1, ngay) phải lấy thang - 1, và vì sao doiTuong Ngay.getDay() trả về 0 cho Chủ nhật chứ không phải Thứ hai.",
+    "Lỗi thường gặp: Quên gọi suKien.preventDefault() trong hàm xử lý submit, khiến mỗi lần bấm nút “In lịch” trang web lại tự tải lại và quay về ngày mặc định."
+   ],
+   "heading": "Bài 12 — điều cần nhớ"
+  }
+ ]
+}

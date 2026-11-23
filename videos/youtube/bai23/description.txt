@@ -1,0 +1,17 @@
+Thư viện ảnh nghệ thuật với hiệu ứng Hover Zoom — hướng dẫn giải từng bước (CSS3 hiện đại — bố cục & hiệu ứng).
+
+Dự án: exercise-23-hover-zoom-gallery/index.html (khi nộp đổi tên thành bai23.html).
+Công nghệ: HTML5, CSS3, CSS Grid, Responsive, Transition.
+
+Chương:
+00:00 Mở đầu
+00:32 Yêu cầu
+01:21 Tạo dự án
+01:53 Cấu trúc HTML
+02:08 Định dạng CSS
+02:34 Chạy thử
+02:53 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #BàiTậpThựcHành

@@ -1,0 +1,178 @@
+{
+ "id": "bai24",
+ "num": 24,
+ "title": "Bảng giá dịch vụ 3 gói chuyên nghiệp (Pricing Table)",
+ "chapter": 3,
+ "chapterName": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-24-pricing-table",
+ "submitFile": "bai24.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive",
+  "Transition"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 219.36,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 32.671,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 24, Bảng giá dịch vụ 3 gói chuyên nghiệp (Pricing Table). Chúng ta sẽ cùng tạo dự án exercise 24 pricing table với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện bảng giá chuyên nghiệp: phân cấp thị giác, nhấn gói chính và hiệu ứng hover tinh tế. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 24, Bảng giá dịch vụ 3 gói chuyên nghiệp (Pricing Table). Chúng ta sẽ cùng tạo dự án exercise 24 pricing table với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript,…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 33.171,
+   "dur": 51.304,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tạo điểm nhấn thị giác (Visual Hierarchy) cho gói.hot. Trong thiết kế giao diện thương mại điện tử và SaaS, gói khuyên dùng ở giữa luôn được làm nổi bật bằng 3 yếu tố kết hợp: (1) Viền đậm màu nhấn 2 pixel solid #4f46 e5, (2) Dịch chuyển lên trên 10 pixel bằng transform: translateY(-10 pixel). Đẩy nút bấm xuống đáy thẻ đều nhau bằng Flexbox dọc. Đặt display: flex, flex-direction: column, trên.goi và flex: 1 trên danh sách ul để dù gói Pro có 4 dòng quyền lợi còn hai gói bên cạnh chỉ có 3 dòng, các nút bấm ở đáy cả 3 thẻ vẫn nằm thẳng hàng.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tạo điểm nhấn thị giác (Visual Hierarchy) cho gói.hot. Trong thiết kế giao diện thương mại điện tử và SaaS, gói khuyên dùng ở giữa luôn được làm nổi bật bằng 3 yếu tố kết hợp: (1)…",
+   "points": [
+    "Tạo điểm nhấn thị giác (Visual Hierarchy) cho gói .hot — Trong thiết kế giao diện thương mại điện tử và SaaS, gói khuyên dùng ở giữa luôn được làm nổi bật bằng 3 yếu tố kết hợp: (1) Viền đậm màu nhấn 2px solid #4f46 e5, (2) Dịch chuyển lên trên 10px bằng transform: translateY(-10px), và (3) Nút hành động chính…",
+    "Đẩy nút bấm xuống đáy thẻ đều nhau bằng Flexbox dọc — Đặt display: flex; flex-direction: column; trên .goi và flex: 1 trên danh sách <ul> để dù gói Pro có 4 dòng quyền lợi còn hai gói bên cạnh chỉ có 3 dòng, các nút bấm ở đáy cả 3 thẻ vẫn nằm thẳng hàng."
+   ],
+   "heading": "Bài 24 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 84.475,
+   "dur": 28.52,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 24 pricing table. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai24.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 24 pricing table. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-24-pricing-table",
+     "out": "✔ đã tạo thư mục exercise-24-pricing-table"
+    },
+    {
+     "cmd": "cd exercise-24-pricing-table",
+     "out": "→ đang ở ~/frontlab/exercise-24-pricing-table"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 112.995,
+   "dur": 18.749,
+   "narration": "Mở tệp index.html. Trang có tiêu đề chuyên đề và ba card gói dịch vụ: Basic, Pro, Enterprise. Mỗi card gồm tên gói, giá, danh sách quyền lợi và nút đăng ký. Gói Pro được làm nổi bật. Các thẻ ngữ nghĩa chính gồm main, article.",
+   "caption": "Mở tệp index.html. Trang có tiêu đề chuyên đề và ba card gói dịch vụ: Basic, Pro, Enterprise. Mỗi card gồm tên gói, giá, danh sách quyền lợi và nút đăng ký. Gói Pro được làm nổi bật. Các thẻ ngữ nghĩa chính gồm main, article.",
+   "lang": "html",
+   "code": "  <main class=\"khung-bai\">\n    <h1>Bảng giá khoá học</h1>\n    <p class=\"mo-ta\">Chọn gói phù hợp — hiệu ứng chuyển động và làm nổi bật gói phổ biến.</p>\n\n    <div class=\"luoi-gia\">\n         <article class=\"goi\">\n           <span class=\"nhan\">CƠ BẢN</span>\n           <h2>Starter</h2>\n           <div class=\"muc-gia\">0<span> đ</span></div>\n           <ul>\n             <li>12 bài HTML/CSS</li>\n             <li>Video hướng dẫn</li>\n             <li>Hỗ trợ qua email</li>\n           </ul>\n           <a class=\"nut-chon\" href=\"#\">Bắt đầu</a>\n         </article>\n\n      <article class=\"goi hot\">\n          <span class=\"nhan\">PHỔ BIẾN NHẤT</span>\n          <h2>Pro</h2>\n          <div class=\"muc-gia\">499<span> k/tháng</span></div>\n          <ul>\n             <li>30 bài HTML/CSS/JS</li>\n             <li>Bootstrap 5</li>\n             <li>Chấm bài + phản hồi</li>\n             <li>Hỗ trợ 1-1</li>\n          </ul>\n          <a class=\"nut-chon\" href=\"#\">Đăng ký ngay</a>\n      </article>\n\n      <article class=\"goi\">\n          <span class=\"nhan\">NÂNG CAO</span>\n          <h2>Team</h2>\n          <div class=\"muc-gia\">1.2<span> tr/tháng</span></div>\n          <ul>\n             <li>Mọi quyền lợi gói Pro</li>\n             <li>Dự án nhóm</li>\n             <li>Mentor riêng</li>\n          </ul>\n          <a class=\"nut-chon\" href=\"#\">Liên hệ</a>\n      </article>\n    </div>\n  </main>",
+   "marks": [
+    1,
+    2,
+    6,
+    8,
+    16,
+    18,
+    20
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 131.744,
+   "dur": 26.093,
+   "narration": "Chuyển sang phần CSS. Grid ba cột đều nhau, card trắng bo góc, gói Pro có viền và nhãn phổ biến. Giá lớn, đơn vị nhỏ. Hover card nâng nhẹ và đổ bóng. Media query xếp ba card thành một cột. Bảng màu chính gồm #eef2ff, #f8fafc, #1e293b, #64748b, #ffffff.",
+   "caption": "Chuyển sang phần CSS. Grid ba cột đều nhau, card trắng bo góc, gói Pro có viền và nhãn phổ biến. Giá lớn, đơn vị nhỏ. Hover card nâng nhẹ và đổ bóng. Media query xếp ba card thành một cột. Bảng màu chính gồm #eef2ff, #f8fafc, #1e293b, #64748b,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         min-height: 100vh;\n         padding: 36px 16px;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         background: linear-gradient(160deg, #eef2ff, #f8fafc);\n    }\n\n    .khung-bai {\n         max-width: 1000px;\n         margin: 0 auto;\n    }\n\n    .khung-bai h1 {\n         text-align: center;\n         font-size: 28px;\n         margin: 0 0 6px;\n         color: #1e293b;\n    }\n\n    .mo-ta {\n         text-align: center;\n         color: #64748b;\n         margin: 0 0 34px;\n\n        font-size: 15px;\n    }\n\n    .luoi-gia {\n        display: grid;\n        grid-template-columns: repeat(3, 1fr);\n        gap: 20px;\n        align-items: stretch;\n    }\n\n    .goi {\n        background: #ffffff;\n        border: 1px solid #e2e8f0;\n        border-radius: 14px;\n        padding: 26px 22px;\n        text-align: center;\n        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);\n        display: flex;\n        flex-direction: column;\n        transition: transform 0.25s ease, box-shadow 0.25s ease;\n    }\n\n    .goi:hover {\n        transform: translateY(-4px);\n    }\n\n    .goi.hot {\n        border: 2px solid #4f46e5;\n        transform: translateY(-10px);\n        box-shadow: 0 18px 40px rgba(79, 70, 229, 0.22);\n    }\n\n    .nhan {\n        align-self: center;\n        display: inline-block;\n        background: #eef2ff;\n        color: #4338ca;\n        border-radius: 999px;\n\n        padding: 4px 14px;\n        font-size: 12px;\n        font-weight: 700;\n        letter-spacing: 0.5px;\n        margin-bottom: 12px;\n    }\n\n    .goi h2 {\n        margin: 0 0 6px;\n        font-size: 18px;\n        color: #334155;\n    }\n\n    .muc-gia {\n        font-size: 36px;\n        font-weight: 800;\n        color: #1e293b;\n    }\n\n    .muc-gia span {\n        font-size: 14px;\n        font-weight: 400;\n        color: #64748b;\n    }\n\n    .goi ul {\n        list-style: none;\n        padding: 0;\n        margin: 16px 0 22px;\n        font-size: 14px;\n        color: #475569;\n        line-height: 2;\n        flex: 1;\n    }\n\n    .nut-chon {\n        display: block;\n        padding: 12px;\n\n         border-radius: 8px;\n         text-decoration: none;\n         font-weight: 700;\n         font-size: 15px;\n         background: #f1f5f9;\n         color: #334155;\n    }\n\n    .goi.hot .nut-chon {\n         background: #4f46e5;\n         color: #ffffff;\n    }\n\n    @media (max-width: 768px) {\n         .luoi-gia { grid-template-columns: 1fr; }\n         .goi.hot { transform: none; }\n    }",
+   "marks": [
+    32,
+    33,
+    45,
+    47,
+    50,
+    119,
+    120
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 157.836,
+   "dur": 1.969,
+   "narration": "Phần Bootstrap.",
+   "caption": "Phần Bootstrap.",
+   "lang": "html",
+   "code": "  <main class=\"khung-bai\">\n    <h1>Bảng giá khoá học</h1>\n    <p class=\"mo-ta\">Chọn gói phù hợp — hiệu ứng chuyển động và làm nổi bật gói phổ biến.</p>\n\n    <div class=\"luoi-gia\">\n         <article class=\"goi\">\n           <span class=\"nhan\">CƠ BẢN</span>\n           <h2>Starter</h2>\n           <div class=\"muc-gia\">0<span> đ</span></div>\n           <ul>\n             <li>12 bài HTML/CSS</li>\n             <li>Video hướng dẫn</li>\n             <li>Hỗ trợ qua email</li>\n           </ul>\n           <a class=\"nut-chon\" href=\"#\">Bắt đầu</a>\n         </article>\n\n      <article class=\"goi hot\">\n          <span class=\"nhan\">PHỔ BIẾN NHẤT</span>\n          <h2>Pro</h2>\n          <div class=\"muc-gia\">499<span> k/tháng</span></div>\n          <ul>\n             <li>30 bài HTML/CSS/JS</li>\n             <li>Bootstrap 5</li>\n             <li>Chấm bài + phản hồi</li>\n             <li>Hỗ trợ 1-1</li>\n          </ul>\n          <a class=\"nut-chon\" href=\"#\">Đăng ký ngay</a>\n      </article>\n\n      <article class=\"goi\">\n          <span class=\"nhan\">NÂNG CAO</span>\n          <h2>Team</h2>\n          <div class=\"muc-gia\">1.2<span> tr/tháng</span></div>\n          <ul>\n             <li>Mọi quyền lợi gói Pro</li>\n             <li>Dự án nhóm</li>\n             <li>Mentor riêng</li>\n          </ul>\n          <a class=\"nut-chon\" href=\"#\">Liên hệ</a>\n      </article>\n    </div>\n  </main>",
+   "marks": [
+    1,
+    2,
+    6,
+    8,
+    16,
+    18,
+    20
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 159.806,
+   "dur": 19,
+   "narration": "Chạy thử: ba gói xếp cạnh nhau, gói Pro nổi bật ở giữa. Rê chuột lên card để thấy hiệu ứng nâng. Thu nhỏ màn hình, các gói xếp dọc.",
+   "caption": "Chạy thử: ba gói xếp cạnh nhau, gói Pro nổi bật ở giữa. Rê chuột lên card để thấy hiệu ứng nâng. Thu nhỏ màn hình, các gói xếp dọc.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "hover",
+     "selector": ".goi:nth-child(2)"
+    },
+    {
+     "t": 3.5,
+     "type": "scroll",
+     "value": 0.3
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 178.806,
+   "dur": 40.55,
+   "narration": "Tổng kết bài 24. Tạo dự án exercise 24 pricing table, tệp chính index.html, khi nộp đổi tên thành bai24.html. Giải thích vì sao dùng transform: translateY(-10 pixel) để nhấc gói.hot lên cao thay vì dùng margin-top: -10 pixel (transform không làm xô lệch dòng lưới của các phần tử lân cận).. Lỗi thường gặp: Trên màn hình điện thoại (1 cột), quên tắt transform: translateY(-10 pixel) khiến thẻ gói Pro ở giữa trồi lên đè sát vào đáy thẻ Starter phía trên.",
+   "caption": "Tổng kết bài 24. Tạo dự án exercise 24 pricing table, tệp chính index.html, khi nộp đổi tên thành bai24.html. Giải thích vì sao dùng transform: translateY(-10 pixel) để nhấc gói.hot lên cao thay vì dùng margin-top: -10 pixel (transform không làm xô…",
+   "points": [
+    "Tạo dự án exercise-24-pricing-table, tệp chính index.html, khi nộp đổi tên thành bai24.html.",
+    "Giải thích vì sao dùng transform: translateY(-10px) để nhấc gói .hot lên cao thay vì dùng margin-top: -10px (transform không làm xô lệch dòng lưới của các phần tử lân cận).",
+    "Lỗi thường gặp: Trên màn hình điện thoại (1 cột), quên tắt transform: translateY(-10px) khiến thẻ gói Pro ở giữa trồi lên đè sát vào đáy thẻ Starter phía trên. Chương 4: Thiết Kế Giao Diện Responsive Với Bootstrap 5 Mục tiêu chương: Nhúng và cấu…"
+   ],
+   "heading": "Bài 24 — điều cần nhớ"
+  }
+ ]
+}

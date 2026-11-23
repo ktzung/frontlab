@@ -1,0 +1,164 @@
+1
+00:00:00,650 --> 00:00:01,707
+Chào các bạn.
+
+2
+00:00:01,757 --> 00:00:09,642
+Đây là video hướng dẫn bài thực hành số 16, Ứng dụng Quản lý danh sách việc cần làm (To-do List).
+
+3
+00:00:09,692 --> 00:00:22,861
+Chúng ta sẽ cùng tạo dự án exercise 16 todo list với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:22,911 --> 00:00:31,203
+Bài luyện quản lý trạng thái bằng mảng, render lại danh sách và xử lý nhiều sự kiện trên phần tử động.
+
+5
+00:00:31,253 --> 00:00:32,310
+Cùng bắt đầu.
+
+6
+00:00:32,660 --> 00:00:36,296
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:36,346 --> 00:00:38,006
+Bài gồm 2 phần chính.
+
+8
+00:00:38,056 --> 00:00:41,929
+Thiết kế mô hình dữ liệu (State) và hàm render().
+
+9
+00:00:41,979 --> 00:00:49,251
+Khởi tạo mảng danhSachViec chứa 3 công việc mẫu, mỗi phần tử là một đối tượng id, ten, xong.
+
+10
+00:00:49,301 --> 00:00:52,936
+Phân biệt sự kiện bấm Đánh dấu và bấm nút Xoá.
+
+11
+00:00:52,986 --> 00:00:58,440
+Khi người dùng bấm vào nút.nut-xoa, ta xóa phần tử khỏi mảng theo id.
+
+12
+00:00:58,490 --> 00:01:05,604
+Khi bấm vào phần còn lại của thẻ li , ta đảo ngược giá trị boolean viec.xong = !viec.xong.
+
+13
+00:01:05,854 --> 00:01:07,468
+Bước một, tạo dự án.
+
+14
+00:01:07,518 --> 00:01:11,393
+Mở terminal và chạy mkdir exercise 16 todo list.
+
+15
+00:01:11,443 --> 00:01:19,595
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+16
+00:01:19,645 --> 00:01:23,842
+Sau đó di chuyển vào thư mục, và tạo tệp index.html.
+
+17
+00:01:23,892 --> 00:01:27,282
+Trong dự án, tệp chính luôn là index.html.
+
+18
+00:01:27,332 --> 00:01:32,821
+Khi nộp theo quy định của học phần, các em đổi tên thành bai16.html.
+
+19
+00:01:33,121 --> 00:01:34,575
+Mở tệp index.html.
+
+20
+00:01:34,625 --> 00:01:44,481
+Trang có form thêm việc với ô nhập và nút, danh sách ul rỗng để JavaScript đổ dữ liệu, và dòng thống kê số việc chưa xong.
+
+21
+00:01:44,531 --> 00:01:47,682
+Mỗi việc được sinh thành li có nút xóa.
+
+22
+00:01:47,732 --> 00:01:51,771
+Các thẻ ngữ nghĩa chính gồm article, header, form.
+
+23
+00:01:52,171 --> 00:01:54,240
+Chuyển sang phần CSS.
+
+24
+00:01:54,290 --> 00:02:00,694
+Danh sách dạng card trắng, việc đã xong có màu xám và gạch ngang.
+
+25
+00:02:00,744 --> 00:02:03,995
+Nút xóa chỉ hiện rõ khi rê chuột.
+
+26
+00:02:04,045 --> 00:02:10,647
+Bảng màu tím, nền sáng, media query giảm đệm và cỡ chữ trên mobile.
+
+27
+00:02:10,697 --> 00:02:16,904
+Bảng màu chính gồm #f6f7fb, #ffffff, #6d28d9, #ede9fe, #d8d3e8.
+
+28
+00:02:17,254 --> 00:02:18,474
+Phần JavaScript.
+
+29
+00:02:18,524 --> 00:02:21,345
+Mảng danh sách việc là nguồn dữ liệu.
+
+30
+00:02:21,395 --> 00:02:30,393
+Hàm vẽ lại danh sách xóa nội dung cũ rồi tạo từng li, gắn sự kiện click để đổi trạng thái và nút xóa để lọc khỏi mảng.
+
+31
+00:02:30,443 --> 00:02:34,561
+Sau mỗi thay đổi, hàm đếm lại số việc chưa hoàn thành.
+
+32
+00:02:34,611 --> 00:02:36,746
+Các hàm chính là veDanhSach.
+
+33
+00:02:36,796 --> 00:02:39,923
+Sự kiện được lắng nghe gồm click, submit.
+
+34
+00:02:40,223 --> 00:02:43,691
+Chạy thử: nhập việc Ôn tập CSS Grid rồi thêm.
+
+35
+00:02:43,741 --> 00:02:49,058
+Bấm vào việc đầu tiên để đánh dấu xong, số việc chưa hoàn thành giảm.
+
+36
+00:02:49,108 --> 00:02:52,345
+Bấm xóa ở một việc để loại khỏi danh sách.
+
+37
+00:02:59,223 --> 00:03:00,487
+Tổng kết bài 16.
+
+38
+00:03:00,537 --> 00:03:07,491
+Tạo dự án exercise 16 todo list, tệp chính index.html, khi nộp đổi tên thành bai16.html.
+
+39
+00:03:07,541 --> 00:03:09,833
+Giải thích vì sao phải gọi e.
+
+40
+00:03:09,883 --> 00:03:22,210
+stopPropagation() bên trong sự kiện click của nút Xoá (để sự kiện click không nổi bọt lên thẻ li cha) và cách dùng filter() để đếm số việc chưa hoàn thành..
+
+41
+00:03:22,260 --> 00:03:35,931
+Lỗi thường gặp: Dùng innerHTML += kèm chuỗi nội suy trực tiếp từ dữ liệu người dùng nhập mà không qua textContent, dễ gây lỗi hiển thị nếu tên công việc chứa ký tự < hoặc >.
+

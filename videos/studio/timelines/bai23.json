@@ -1,0 +1,161 @@
+{
+ "id": "bai23",
+ "num": 23,
+ "title": "Thư viện ảnh nghệ thuật với hiệu ứng Hover Zoom",
+ "chapter": 3,
+ "chapterName": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-23-hover-zoom-gallery",
+ "submitFile": "bai23.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "CSS Grid",
+  "Responsive",
+  "Transition"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 210.64,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 31.629,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 23, Thư viện ảnh nghệ thuật với hiệu ứng Hover Zoom. Chúng ta sẽ cùng tạo dự án exercise 23 hover zoom gallery với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài luyện hiệu ứng hover bằng transform, overflow hidden và transition — không cần JavaScript. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 23, Thư viện ảnh nghệ thuật với hiệu ứng Hover Zoom. Chúng ta sẽ cùng tạo dự án exercise 23 hover zoom gallery với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 32.129,
+   "dur": 49.094,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Nguyên tắc Cha relative + overflow. hidden, Con absolute: Đặt position: relative, overflow: hidden, trên.o-anh. Nhờ đó.lop-phu với position: absolute, inset: auto 0 0 0, (tương đương left: 0, right: 0, bottom: 0,) sẽ bám chặt vào đáy bức ảnh, và khi img phóng to scale(1. Đặt transition trên trạng thái gốc của.o-anh img. Đặt transition: transform 0.4s ease ngay trong rule.o-anh img (thay vì chỉ đặt trong :hover) để cả lúc đưa chuột vào lẫn lúc rút chuột ra ảnh đều co giãn mượt mà.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Nguyên tắc Cha relative + overflow. hidden, Con absolute: Đặt position: relative, overflow: hidden, trên.o-anh. Nhờ đó.lop-phu với position: absolute, inset: auto 0 0 0, (tương…",
+   "points": [
+    "Nguyên tắc “Cha relative + overflow — hidden, Con absolute”: Đặt position: relative; overflow: hidden; trên .o-anh. Nhờ đó, .lop-phu với position: absolute; inset: auto 0 0 0; (tương đương left: 0; right: 0; bottom: 0;) sẽ bám chặt vào đáy bức ảnh, và khi img phóng to scale(1. 12), phần rìa ảnh…",
+    "Đặt transition trên trạng thái gốc của .o-anh img — Đặt transition: transform 0.4s ease ngay trong rule .o-anh img (thay vì chỉ đặt trong :hover) để cả lúc đưa chuột vào lẫn lúc rút chuột ra ảnh đều co giãn mượt mà."
+   ],
+   "heading": "Bài 23 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 81.223,
+   "dur": 31.952,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 23 hover zoom gallery. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai23.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 23 hover zoom gallery. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-23-hover-zoom-gallery",
+     "out": "✔ đã tạo thư mục exercise-23-hover-zoom-gallery"
+    },
+    {
+     "cmd": "cd exercise-23-hover-zoom-gallery",
+     "out": "→ đang ở ~/frontlab/exercise-23-hover-zoom-gallery"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 113.176,
+   "dur": 15.428,
+   "narration": "Mở tệp index.html. Thư viện gồm các figure, mỗi figure có ảnh và lớp chú thích. Ảnh nằm trong khung overflow hidden để hiệu ứng phóng không tràn ra ngoài. Các thẻ ngữ nghĩa chính gồm main, figure.",
+   "caption": "Mở tệp index.html. Thư viện gồm các figure, mỗi figure có ảnh và lớp chú thích. Ảnh nằm trong khung overflow hidden để hiệu ứng phóng không tràn ra ngoài. Các thẻ ngữ nghĩa chính gồm main, figure.",
+   "lang": "html",
+   "code": "  <main class=\"khung-bai\">\n    <h1>Thư viện ảnh — Hiệu ứng Hover</h1>\n    <p class=\"mo-ta\">Rê chuột lên ảnh để thấy hiệu ứng phóng to (zoom) và lớp phủ chú thích.</p>\n\n    <div class=\"luoi-anh\">\n         <figure class=\"o-anh\">\n           <img src=\"assets/1-vinh-ha-long.jpg\" alt=\"Vịnh Hạ Long\">\n           <figcaption class=\"lop-phu\">Vịnh Hạ Long</figcaption>\n         </figure>\n         <figure class=\"o-anh\">\n           <img src=\"assets/2-son-doong.jpg\" alt=\"Hang Sơn Đoòng\">\n           <figcaption class=\"lop-phu\">Hang Sơn Đoòng</figcaption>\n         </figure>\n         <figure class=\"o-anh\">\n           <img src=\"assets/3-thac-ban-gioc.jpg\" alt=\"Thác Bản Giốc\">\n           <figcaption class=\"lop-phu\">Thác Bản Giốc</figcaption>\n         </figure>\n         <figure class=\"o-anh\">\n           <img src=\"assets/4-fansipan.jpg\" alt=\"Đỉnh Fansipan\">\n           <figcaption class=\"lop-phu\">Fansipan</figcaption>\n         </figure>\n         <figure class=\"o-anh\">\n           <img src=\"assets/5-mekong.jpg\" alt=\"Đồng bằng sông Cửu Long\">\n\n          <figcaption class=\"lop-phu\">Đồng bằng sông Cửu Long</figcaption>\n      </figure>\n      <figure class=\"o-anh\">\n          <img src=\"assets/6-phong-nha.jpg\" alt=\"Động Phong Nha\">\n          <figcaption class=\"lop-phu\">Động Phong Nha</figcaption>\n      </figure>\n    </div>\n  </main>",
+   "marks": [
+    1,
+    7,
+    10,
+    13,
+    16,
+    19,
+    22
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 128.604,
+   "dur": 25.837,
+   "narration": "Chuyển sang phần CSS. Grid ba cột, ảnh phủ kín ô. Khi hover, ảnh phóng nhẹ bằng transform scale và lớp phủ tối hiện lên cùng chú thích. Transition mượt. Bảng màu tối giản trắng đen. Media query giảm số cột. Bảng màu chính gồm #f8fafc, #0f172a, #64748b, #ffffff.",
+   "caption": "Chuyển sang phần CSS. Grid ba cột, ảnh phủ kín ô. Khi hover, ảnh phóng nhẹ bằng transform scale và lớp phủ tối hiện lên cùng chú thích. Transition mượt. Bảng màu tối giản trắng đen. Media query giảm số cột. Bảng màu chính gồm #f8fafc, #0f172a,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         background: #f8fafc;\n    }\n\n    .khung-bai {\n         max-width: 1000px;\n         margin: 0 auto;\n    }\n\n    .khung-bai h1 {\n         text-align: center;\n         font-size: 26px;\n         margin: 0 0 4px;\n         color: #0f172a;\n    }\n\n    .mo-ta {\n         text-align: center;\n         color: #64748b;\n\n        font-size: 14px;\n        margin: 0 0 26px;\n    }\n\n    .luoi-anh {\n        display: grid;\n        grid-template-columns: repeat(3, 1fr);\n        gap: 16px;\n    }\n\n    .o-anh {\n        margin: 0;\n        position: relative;\n        border-radius: 12px;\n        overflow: hidden;\n        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);\n        cursor: pointer;\n    }\n\n    .o-anh img {\n        width: 100%;\n        height: 180px;\n        object-fit: cover;\n        display: block;\n        transform: scale(1.02);\n        transition: transform 0.4s ease;\n    }\n\n    .o-anh:hover img {\n        transform: scale(1.12);\n    }\n\n    .lop-phu {\n        position: absolute;\n        inset: auto 0 0 0;\n        padding: 12px 14px 10px;\n        color: #ffffff;\n        font-size: 14px;\n\n         font-weight: 600;\n         background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));\n    }\n\n    @media (max-width: 768px) {\n         .luoi-anh { grid-template-columns: repeat(2, 1fr); }\n    }\n\n    @media (max-width: 480px) {\n         .luoi-anh { grid-template-columns: 1fr; }\n    }",
+   "marks": [
+    31,
+    32,
+    51,
+    54,
+    69,
+    70,
+    73
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 154.441,
+   "dur": 19,
+   "narration": "Chạy thử: rê chuột qua từng ảnh, ảnh phóng nhẹ và chú thích hiện lên. Thu nhỏ màn hình, lưới giảm cột nhưng hiệu ứng vẫn hoạt động.",
+   "caption": "Chạy thử: rê chuột qua từng ảnh, ảnh phóng nhẹ và chú thích hiện lên. Thu nhỏ màn hình, lưới giảm cột nhưng hiệu ứng vẫn hoạt động.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "hover",
+     "selector": "figure:nth-child(2)"
+    },
+    {
+     "t": 3.5,
+     "type": "hover",
+     "selector": "figure:nth-child(4)"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 173.441,
+   "dur": 37.195,
+   "narration": "Tổng kết bài 23. Tạo dự án exercise 23 hover zoom gallery, tệp chính index.html, khi nộp đổi tên thành bai23.html. Rê chuột qua từng ảnh trên trình duyệt để demo hiệu ứng scale(1.12) và giải thích nếu bỏ overflow: hidden trên.o-anh thì ảnh sẽ tràn đè lên các ô bên cạnh như thế nào.. Lỗi thường gặp: Đặt :hover lên thẻ img thay vì.o-anh:hover img, khiến khi chuột di chuyển vào vùng chữ.lop-phu ở đáy ảnh thì hiệu ứng zoom bị mất đột ngột.",
+   "caption": "Tổng kết bài 23. Tạo dự án exercise 23 hover zoom gallery, tệp chính index.html, khi nộp đổi tên thành bai23.html. Rê chuột qua từng ảnh trên trình duyệt để demo hiệu ứng scale(1.12) và giải thích nếu bỏ overflow: hidden trên.o-anh thì ảnh sẽ tràn…",
+   "points": [
+    "Tạo dự án exercise-23-hover-zoom-gallery, tệp chính index.html, khi nộp đổi tên thành bai23.html.",
+    "Rê chuột qua từng ảnh trên trình duyệt để demo hiệu ứng scale(1.12) và giải thích nếu bỏ overflow: hidden trên .o-anh thì ảnh sẽ tràn đè lên các ô bên cạnh như thế nào.",
+    "Lỗi thường gặp: Đặt :hover lên thẻ <img> thay vì .o-anh:hover img, khiến khi chuột di chuyển vào vùng chữ .lop-phu ở đáy ảnh thì hiệu ứng zoom bị mất đột ngột."
+   ],
+   "heading": "Bài 23 — điều cần nhớ"
+  }
+ ]
+}

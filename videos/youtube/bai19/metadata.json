@@ -1,0 +1,28 @@
+{
+ "id": "bai19",
+ "num": 19,
+ "title": "Bài 19 – Trang địa danh “Mũi Né – Huyền bí và quyến rũ” | Hướng dẫn Frontend từng bước",
+ "chapter": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-19-mui-ne-travel",
+ "submitFile": "bai19.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 187,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "mui-ne-travel"
+ ],
+ "youtubeId": ""
+}

@@ -76,6 +76,7 @@
   const PROGRESS_KEY = "frontlab-progress-v1";
   const THEME_KEY = "frontlab-theme";
   const SPEED_KEY = "frontlab-speed";
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   let progress = loadProgress();
 
   function loadProgress() {
@@ -289,6 +290,8 @@
     if (parts[0] === "practice" && parts[1]) return { name: "practice-detail", id: parts[1] };
     if (parts[0] === "practice") return { name: "practice" };
     if (parts[0] === "cheatsheets") return { name: "cheatsheets" };
+    if (parts[0] === "videos" && parts[1]) return { name: "videos", id: parts[1] };
+    if (parts[0] === "videos") return { name: "videos" };
     if (parts[0] === "lab") return { name: "lab" };
     return { name: "home" };
   }
@@ -332,6 +335,7 @@
     if (route.name === "practice") renderPracticeList();
     else if (route.name === "practice-detail") renderPracticeDetail(route.id);
     else if (route.name === "cheatsheets") renderCheatsheets();
+    else if (route.name === "videos") renderVideos(route.id);
     else if (route.name === "lab") renderLab();
     else renderHome();
     updateChrome();
@@ -377,10 +381,10 @@
           </div>
           <div class="hero-note">${icon("check")} Mô phỏng chạy trong trình duyệt. Tiến độ lưu trên máy bạn.</div>
           <div class="hero-stats">
-            <div class="hero-stat"><b>40</b><span>bài học</span></div>
+            <div class="hero-stat"><b>${Object.keys(LESSONS).length}</b><span>bài học</span></div>
             <div class="hero-stat"><b>${steps}+</b><span>bước mô phỏng</span></div>
             <div class="hero-stat"><b>${totalPractice}</b><span>tình huống</span></div>
-            <div class="hero-stat"><b>2</b><span>lộ trình</span></div>
+            <div class="hero-stat"><b>${VIDEOS.length}</b><span>video bài giải</span></div>
           </div>
         </div>
         <div class="hero-visual fe-hero">
@@ -461,6 +465,21 @@
         </div>
       </section>
 
+      <section class="video-promo">
+        <div>
+          <div class="eyebrow">THƯ VIỆN VIDEO</div>
+          <h2>30 bài thực hành,<br>giải từng bước.</h2>
+          <p>Tạo dự án, đặt tên chuẩn tiếng Anh, viết HTML/CSS/JavaScript rồi chạy thử — mỗi video có phân tích yêu cầu, lời giảng và mốc nội dung để tua nhanh.</p>
+          <a class="btn btn-lime" href="#/videos">Xem thư viện video ${icon("arrow")}</a>
+        </div>
+        <div class="video-promo-strip" aria-hidden="true">
+          ${["bai01", "bai02", "bai03"].map((id) => {
+            const v = videoById[id];
+            return v ? `<a class="video-promo-shot" href="#/videos/${v.id}"><img src="${esc(v.poster)}" alt="" loading="lazy"><span>BÀI ${pad(v.num)}</span></a>` : "";
+          }).join("")}
+        </div>
+      </section>
+
       <section class="lab-promo">
         <div>
           <div class="eyebrow">PHÒNG LAB</div>
@@ -517,6 +536,27 @@
     if (lesson.file) return lesson.file;
     const ext = lesson.lang === "css" ? "css" : lesson.lang === "html" ? "html" : lesson.lang === "jsx" ? "jsx" : "js";
     return `${lesson.id}.${ext}`;
+  }
+  const CONTEXTS = window.FRONTLAB_CONTEXT || {};
+  function contextHTML(lesson) {
+    const entry = CONTEXTS[lesson.id];
+    if (!entry || !entry.blocks || !entry.blocks.length) return "";
+    const files = entry.blocks.map((b) => b.file).join(" + ");
+    const label = entry.blocks.some((b) => b.lang === "css") ? "MÃ ĐI KÈM" : "HTML ĐI KÈM";
+    return `<details class="code-context" open>
+      <summary class="code-context-head">
+        <span class="code-context-kicker">${icon("code")} ${label}</span>
+        <span class="code-context-files">${esc(files)}</span>
+        <span class="code-context-caret">${icon("next")}</span>
+      </summary>
+      <div class="code-context-body">
+        ${entry.note ? `<p class="code-context-note">${esc(entry.note)}</p>` : ""}
+        ${entry.blocks.map((block) => `<div class="code-context-block">
+          <div class="code-context-file"><span>${esc(block.file)}</span><span>${esc(langLabel(block.lang))}</span></div>
+          <div class="code-context-scroll">${R.codeHTML(block.code, 0, [], { lang: block.lang, compact: true })}</div>
+        </div>`).join("")}
+      </div>
+    </details>`;
   }
   function sceneMetric(scene) {
     if (!scene) return "—";
@@ -590,6 +630,7 @@
       ${metricsHTML(lesson, step, scene)}
       <div class="stage-workbench">
         <div class="code-panel">
+          ${contextHTML(lesson)}
           <div class="code-panel-head"><span class="code-file">${esc(file)}</span><span class="code-lang">${esc(langLabel(lesson.lang))}</span></div>
           <div class="code-scroll" id="codeScroll">${R.codeHTML(code, step.line || 1, step.mark || [], { lang: lesson.lang })}</div>
         </div>
@@ -1134,6 +1175,217 @@
   }
 
   /* ----------------------------------------------------------
+     Video library
+     ---------------------------------------------------------- */
+  const VDATA = window.FRONTLAB_VIDEOS || { chapters: [], videos: [] };
+  const VIDEOS = VDATA.videos || [];
+  const videoById = {};
+  VIDEOS.forEach((v) => { videoById[v.id] = v; });
+
+  function fmtClock(seconds) {
+    const s = Math.max(0, Math.round(Number(seconds) || 0));
+    return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  }
+  function fmtLong(seconds) {
+    const mins = Math.round((Number(seconds) || 0) / 60);
+    const h = Math.floor(mins / 60);
+    return h ? `${h} giờ ${String(mins % 60).padStart(2, "0")} phút` : `${mins} phút`;
+  }
+  function videoTotalDuration() {
+    return VIDEOS.reduce((sum, v) => sum + (v.duration || 0), 0);
+  }
+
+  function videoCardHTML(v) {
+    return `<a class="video-card" href="#/videos/${v.id}">
+      <div class="video-thumb">
+        <img src="${esc(v.poster)}" alt="Ảnh bìa video bài ${v.num}: ${esc(v.title)}" loading="lazy" decoding="async" onerror="this.classList.add('is-missing')">
+        <span class="video-thumb-play" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M7 4.5 15 10l-8 5.5z" fill="currentColor"/></svg></span>
+        <span class="video-dur">${fmtClock(v.duration)}</span>
+      </div>
+      <div class="video-card-body">
+        <div class="video-ep">BÀI ${pad(v.num)}</div>
+        <h3>${esc(v.title)}</h3>
+        <div class="video-card-tech">${(v.tech || []).slice(0, 3).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
+      </div>
+    </a>`;
+  }
+
+  function jumpToTop() {
+    const root = document.documentElement;
+    const previous = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    root.scrollTop = 0;
+    document.body.scrollTop = 0;
+    root.style.scrollBehavior = previous;
+  }
+
+  function renderVideos(id) {
+    document.body.dataset.view = "videos";
+    const video = id ? videoById[id] : null;
+    if (id && !video) {
+      document.title = "Không tìm thấy video — FrontLab";
+      view.innerHTML = `<div class="home"><div class="missing-box">
+        <div class="eyebrow">KHÔNG TÌM THẤY</div>
+        <h1>Video này chưa tồn tại</h1>
+        <p>Đường dẫn có thể đã cũ. Quay về thư viện video để chọn bài khác.</p>
+        <a class="btn btn-primary" href="#/videos">Về thư viện video</a>
+      </div></div>`;
+      jumpToTop();
+      return;
+    }
+    if (video) {
+      document.title = `Video bài ${pad(video.num)} — FrontLab`;
+      renderVideoDetail(video);
+      jumpToTop();
+      return;
+    }
+    document.title = "Thư viện video — FrontLab";
+    view.innerHTML = `<div class="mode-page">
+      <div class="mode-head">
+        <div>
+          <div class="eyebrow">THƯ VIỆN VIDEO</div>
+          <h1>Giải từng bước 30 bài thực hành</h1>
+          <p>Mỗi video đi trọn một bài: đọc yêu cầu, tạo dự án với tên chuẩn tiếng Anh, viết mã theo từng tệp và chạy thử kết quả. Video có lời giảng tiếng Việt và mốc nội dung để tua nhanh.</p>
+        </div>
+        <div class="mode-head-right"><span class="pill pill-blue">${VIDEOS.length} video</span><span class="pill">${fmtLong(videoTotalDuration())}</span></div>
+      </div>
+      <div class="video-standard">
+        <div class="video-standard-item"><span class="video-standard-num">01</span><div><b>Thư mục dự án</b><code>exercise-NN-slug</code></div></div>
+        <div class="video-standard-item"><span class="video-standard-num">02</span><div><b>Tệp mã nguồn</b><code>index.html</code></div></div>
+        <div class="video-standard-item"><span class="video-standard-num">03</span><div><b>Tệp nộp bài</b><code>baiNN.html</code></div></div>
+      </div>
+      ${(VDATA.chapters || []).map((chapter, ci) => {
+        const items = chapter.ids.map((vid) => videoById[vid]).filter(Boolean);
+        if (!items.length) return "";
+        return `<section class="video-chapter-section">
+          <div class="section-head compact">
+            <div><div class="eyebrow">CHƯƠNG ${String(ci + 1).padStart(2, "0")}</div><h2>${esc(chapter.name)}</h2></div>
+            <span class="pill">${items.length} video</span>
+          </div>
+          <div class="video-grid">${items.map(videoCardHTML).join("")}</div>
+        </section>`;
+      }).join("")}
+    </div>`;
+    jumpToTop();
+  }
+
+  function videoPlayerHTML(v) {
+    if (v.youtubeId) {
+      return `<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${esc(v.youtubeId)}?rel=0" title="Bài ${pad(v.num)} — ${esc(v.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+    }
+    return `<div class="video-pending" id="videoPending">
+      <img src="${esc(v.poster)}" alt="Ảnh bìa video bài ${pad(v.num)}" onerror="this.classList.add('is-missing')">
+      <div class="video-pending-body">
+        <span class="video-pending-badge">CHỜ PHÁT HÀNH</span>
+        <h2>Video sẽ phát tại đây khi lên YouTube</h2>
+        <p>Bản dựng dài ${fmtClock(v.duration)} đã hoàn tất cùng phụ đề, mô tả và ảnh bìa. Mở bằng máy chủ nội bộ để xem ngay tệp trong <code>videos/media/</code>.</p>
+      </div>
+    </div>`;
+  }
+
+  function mountLocalVideo(v) {
+    if (!window.fetch || location.protocol === "file:") return;
+    fetch(v.media, { method: "HEAD", cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) return;
+        const type = res.headers.get("content-type") || "";
+        if (type && !/video|octet-stream/.test(type)) return;
+        if (state.route.name !== "videos" || state.route.id !== v.id) return;
+        const stage = $("#videoStage");
+        if (!stage || !$("#videoPending")) return;
+        stage.innerHTML = `<video id="videoPlayer" controls playsinline preload="metadata" poster="${esc(v.poster)}"><source src="${esc(v.media)}" type="video/mp4">Trình duyệt không hỗ trợ video.</video>`;
+      })
+      .catch(() => {});
+  }
+
+  function seekVideo(t) {
+    const video = $("#videoPlayer");
+    if (video) {
+      const range = video.seekable;
+      const canSeek = range && range.length && range.end(range.length - 1) >= t - 1;
+      if (!canSeek) {
+        toast("Máy chủ tĩnh này không hỗ trợ tua video — phát trên YouTube để dùng mốc nội dung");
+        return;
+      }
+      video.currentTime = Math.max(0, t);
+      const played = video.play();
+      if (played && played.catch) played.catch(() => {});
+      return;
+    }
+    const v = state.route.name === "videos" ? videoById[state.route.id] : null;
+    const iframe = $("#videoStage iframe");
+    if (iframe && v && v.youtubeId) {
+      iframe.src = `https://www.youtube-nocookie.com/embed/${esc(v.youtubeId)}?rel=0&start=${Math.floor(t)}&autoplay=1`;
+      return;
+    }
+    toast("Video chưa phát hành — mốc nội dung sẽ có trên YouTube");
+  }
+
+  function copyText(text, message) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => toast(message || "Đã copy")).catch(() => toast("Không copy được"));
+    } else {
+      toast("Trình duyệt không hỗ trợ copy");
+    }
+  }
+
+  function renderVideoDetail(v) {
+    const index = VIDEOS.indexOf(v);
+    const prev = index > 0 ? VIDEOS[index - 1] : null;
+    const next = index < VIDEOS.length - 1 ? VIDEOS[index + 1] : null;
+    const chapter = VDATA.chapters.find((c) => c.ids.includes(v.id));
+    const projectCmd = `mkdir ${v.project} && cd ${v.project}`;
+    const submitCmd = `cp index.html ${v.submitFile}`;
+    view.innerHTML = `<div class="mode-page video-detail">
+      <a class="video-back" href="#/videos">${icon("prev")} Thư viện video</a>
+      <div class="video-head">
+        <div>
+          <div class="eyebrow">BÀI ${pad(v.num)}${chapter ? " · " + esc(chapter.name.toUpperCase()) : ""}</div>
+          <h1>${esc(v.title)}</h1>
+          <div class="video-meta">
+            <span class="pill">${icon("play")} ${fmtClock(v.duration)}</span>
+            <span class="pill">Nộp: ${esc(v.submitFile)}</span>
+            ${(v.tech || []).map((t) => `<span class="pill">${esc(t)}</span>`).join("")}
+          </div>
+        </div>
+      </div>
+      <div class="video-layout">
+        <div class="video-main">
+          <div class="video-stage" id="videoStage">${videoPlayerHTML(v)}</div>
+          <div class="video-note">
+            <b>Phân tích và giảng giải:</b> video đọc yêu cầu, giải thích tiêu chí, rồi dựng dự án từ đầu — không chỉ dán code. Dùng các mốc bên dưới để xem lại đúng đoạn.
+          </div>
+          <div class="video-chapter-card">
+            <div class="video-chapter-head"><h2>Mốc nội dung</h2><span class="pill">${v.scenes.length} mốc</span></div>
+            <ol class="video-chapters">
+              ${v.scenes.map((s, i) => `<li><button type="button" data-action="video-chapter" data-t="${s.t}"><span class="vc-time">${fmtClock(s.t)}</span><span class="vc-label">${esc(s.label)}</span><span class="vc-index">${String(i + 1).padStart(2, "0")}</span></button></li>`).join("")}
+            </ol>
+          </div>
+        </div>
+        <aside class="video-side">
+          <div class="side-card">
+            <h3>DỰ ÁN &amp; NỘP BÀI</h3>
+            <div class="video-cmd"><span>1 · Tạo dự án</span><code>${esc(projectCmd)}</code><button type="button" data-action="copy-video-cmd" data-copy="${esc(projectCmd)}">Copy</button></div>
+            <div class="video-cmd"><span>2 · Tệp chuẩn</span><code>index.html</code></div>
+            <div class="video-cmd"><span>3 · Nộp bài</span><code>${esc(submitCmd)}</code><button type="button" data-action="copy-video-cmd" data-copy="${esc(submitCmd)}">Copy</button></div>
+            <a class="btn btn-ghost video-sample-link" href="exercises/${esc(v.project)}/index.html" target="_blank" rel="noopener">Mở dự án mẫu ${icon("arrow")}</a>
+          </div>
+          <div class="side-card">
+            <h3>BỘ KỸ THUẬT</h3>
+            <div class="video-tech">${(v.tech || []).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
+            <p class="video-side-note">Thư mục <code>${esc(v.project)}</code> nằm trong <code>exercises/</code> của FrontLab.</p>
+          </div>
+          <nav class="video-pager" aria-label="Video trước và sau">
+            ${prev ? `<a href="#/videos/${prev.id}"><span>${icon("prev")} Video trước</span><b>Bài ${pad(prev.num)} · ${esc(prev.title)}</b></a>` : "<span></span>"}
+            ${next ? `<a class="is-next" href="#/videos/${next.id}"><span>Video sau ${icon("next")}</span><b>Bài ${pad(next.num)} · ${esc(next.title)}</b></a>` : ""}
+          </nav>
+        </aside>
+      </div>
+    </div>`;
+    mountLocalVideo(v);
+  }
+
+  /* ----------------------------------------------------------
      Search
      ---------------------------------------------------------- */
   let searchIndex = null;
@@ -1168,6 +1420,15 @@
         sub: trackById[card.track] ? trackById[card.track].short : "",
         href: "#/cheatsheets",
         text: normalize([card.title, card.subtitle, (card.items || []).map((item) => `${item.label} ${item.code} ${item.note || ""}`).join(" ")].join(" "))
+      });
+    });
+    VIDEOS.forEach((v) => {
+      searchIndex.push({
+        type: "Video",
+        title: `Bài ${pad(v.num)} — ${v.title}`,
+        sub: `${v.chapterName} · ${fmtClock(v.duration)} · ${v.project}`,
+        href: `#/videos/${v.id}`,
+        text: normalize([v.title, v.chapterName, v.project, v.submitFile, (v.tech || []).join(" "), "video hướng dẫn"].join(" "))
       });
     });
     return searchIndex;
@@ -1269,6 +1530,8 @@
     if (action === "copy-code") { copyCode(); return; }
     if (action === "fullscreen") { toggleFullscreen(); return; }
     if (action === "answer-practice") { answerPractice(el.dataset.option); return; }
+    if (action === "video-chapter") { seekVideo(Number(el.dataset.t)); return; }
+    if (action === "copy-video-cmd") { copyText(el.dataset.copy, "Đã copy lệnh"); return; }
     if (action === "lab-mode") {
       state.lab.mode = el.dataset.mode;
       renderLab();
@@ -1280,7 +1543,7 @@
       const actionEl = event.target.closest("[data-action]");
       if (!actionEl) return;
       const action = actionEl.dataset.action;
-      if (action && ["start-track", "select-track", "toggle-play", "replay", "prev-step", "next-step", "cycle-speed", "copy-code", "fullscreen", "answer-practice", "lab-mode"].includes(action)) {
+      if (action && ["start-track", "select-track", "toggle-play", "replay", "prev-step", "next-step", "cycle-speed", "copy-code", "fullscreen", "answer-practice", "lab-mode", "video-chapter", "copy-video-cmd"].includes(action)) {
         event.preventDefault();
         handleAction(action, actionEl);
       }

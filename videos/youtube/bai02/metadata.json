@@ -1,0 +1,27 @@
+{
+ "id": "bai02",
+ "num": 2,
+ "title": "Bài 02 – Quảng cáo tour du lịch “Hành trình Trung Hoa” | Hướng dẫn Frontend từng bước",
+ "chapter": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-02-china-tour-ad",
+ "submitFile": "bai02.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "Responsive"
+ ],
+ "duration": 231,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "china-tour-ad"
+ ],
+ "youtubeId": ""
+}

@@ -1,0 +1,132 @@
+1
+00:00:00,650 --> 00:00:01,711
+Chào các bạn.
+
+2
+00:00:01,761 --> 00:00:09,433
+Đây là video hướng dẫn bài thực hành số 18, Bài viết Bông điên điển & Danh sách ẩm thực 2 cột.
+
+3
+00:00:09,483 --> 00:00:21,890
+Chúng ta sẽ cùng tạo dự án exercise 18 dien dien feature với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:21,940 --> 00:00:29,286
+Bài luyện bố cục bài viết biên tập: ảnh lớn, sapo, nội dung nhiều cột và danh sách món ăn.
+
+5
+00:00:29,336 --> 00:00:30,397
+Cùng bắt đầu.
+
+6
+00:00:30,747 --> 00:00:34,487
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:34,537 --> 00:00:36,244
+Bài gồm 2 phần chính.
+
+8
+00:00:36,294 --> 00:00:37,194
+Dùng.
+
+9
+00:00:37,244 --> 00:00:52,286
+first-of-type first-letter để chỉ phóng to chữ đầu đoạn 1: Khác với Bài 03 và Bài 04 (phóng to chữ đầu mọi đoạn), ở Bài 18 chỉ đoạn mở đầu có chữ M rơi lớn, còn đoạn 2 viết bình thường.
+
+10
+00:00:52,336 --> 00:00:55,832
+Chia danh sách ul thành 2 cột bằng columns.
+
+11
+00:00:55,882 --> 00:01:07,509
+2: Thay vì tách thủ công thành 2 thẻ ul riêng biệt, ta giữ nguyên 1 thẻ ul duy nhất chứa 7 thẻ li và khai báo columns: 2, column-gap: 32 pixel.
+
+12
+00:01:07,559 --> 00:01:13,702
+Trình duyệt tự động phân bổ 4 dòng đầu sang cột trái và 3 dòng sau sang cột phải.
+
+13
+00:01:13,902 --> 00:01:15,514
+Bước một, tạo dự án.
+
+14
+00:01:15,564 --> 00:01:20,077
+Mở terminal và chạy mkdir exercise 18 dien dien feature.
+
+15
+00:01:20,127 --> 00:01:28,267
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+16
+00:01:28,317 --> 00:01:35,892
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+17
+00:01:35,942 --> 00:01:39,327
+Trong dự án, tệp chính luôn là index.html.
+
+18
+00:01:39,377 --> 00:01:44,858
+Khi nộp theo quy định của học phần, các em đổi tên thành bai18.html.
+
+19
+00:01:45,158 --> 00:01:46,582
+Mở tệp index.html.
+
+20
+00:01:46,632 --> 00:01:56,288
+Trang gồm article giới thiệu bông điên điển với ảnh lớn, sapo và các đoạn văn, bên dưới là danh sách ẩm thực chia hai cột.
+
+21
+00:01:56,338 --> 00:01:59,821
+Mỗi món là một mục có tiêu đề và mô tả ngắn.
+
+22
+00:01:59,871 --> 00:02:03,274
+Các thẻ ngữ nghĩa chính gồm article, aside.
+
+23
+00:02:03,674 --> 00:02:05,660
+Chuyển sang phần CSS.
+
+24
+00:02:05,710 --> 00:02:12,047
+Hai cột dùng Grid với gap đều, tiêu đề mục màu cam, gạch chân vàng.
+
+25
+00:02:12,097 --> 00:02:15,218
+Ảnh bo góc, chú thích in nghiêng.
+
+26
+00:02:15,268 --> 00:02:21,699
+Bảng màu kem, cam, xanh lá, media query gộp danh sách thành một cột.
+
+27
+00:02:21,749 --> 00:02:26,856
+Bảng màu chính gồm #fffdf7, #E65100, #2E7D32, #f4fbf4.
+
+28
+00:02:27,206 --> 00:02:32,913
+Chạy thử: bài viết hiển thị ảnh lớn và sapo, danh sách món ăn chia hai cột.
+
+29
+00:02:32,963 --> 00:02:37,224
+Thu nhỏ màn hình, danh sách gộp thành một cột để dễ đọc.
+
+30
+00:02:47,706 --> 00:02:48,986
+Tổng kết bài 18.
+
+31
+00:02:49,036 --> 00:02:56,713
+Tạo dự án exercise 18 dien dien feature, tệp chính index.html, khi nộp đổi tên thành bai18.html.
+
+32
+00:02:56,763 --> 00:03:10,198
+Giải thích sự khác nhau giữa columns: 2 (tự động chia dòng văn bản/danh sách theo chiều dọc trước rồi sang cột kế) và display: grid (xếp từng phần tử theo hàng ngang)..
+
+33
+00:03:10,248 --> 00:03:24,643
+Lỗi thường gặp: Dùng display: grid, grid-template-columns: 1fr 1fr, cho ul khiến thứ tự đọc các món ăn bị nhảy ngang trái–phải thay vì đọc từ trên xuống ở cột 1 rồi mới sang cột 2.
+

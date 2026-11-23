@@ -1,0 +1,159 @@
+{
+ "id": "bai07",
+ "num": 7,
+ "title": "Trang chương trình khuyến mãi dầu gội Double Rich",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-07-double-rich-promotion",
+ "submitFile": "bai07.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 206.81,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 29.92,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 7, Trang chương trình khuyến mãi dầu gội Double Rich. Chúng ta sẽ cùng tạo dự án exercise 07 double rich promotion với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài luyện bố cục khuyến mãi nổi bật, phân cấp thị giác bằng màu đỏ và vàng, và giữ thông tin điều kiện dễ đọc. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 7, Trang chương trình khuyến mãi dầu gội Double Rich. Chúng ta sẽ cùng tạo dự án exercise 07 double rich promotion với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 30.42,
+   "dur": 48.255,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tổ chức phần đầu gồm 2 dải màu tương phản. Đặt header nền đỏ thẫm (#C8102E) chứa h1 , ngay bên dưới là div nền hồng phấn (#FBE3E8) chứa khẩu hiệu chương trình.. Tạo vạch ngăn cách dọc bằng CSS Grid hoặc border-right. Cách thanh lịch nhất là khai báo.than-bai có 3 cột grid-template-columns: 1fr 1 pixel 1fr, gap: 22 pixel, và dùng phần tử giả.than-bai before content: , background: #e0e0e0, grid-column: 2, (hoặc đặt border-right: 1 pixel solid #e0e0e0.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tổ chức phần đầu gồm 2 dải màu tương phản. Đặt header nền đỏ thẫm (#C8102E) chứa h1 , ngay bên dưới là div nền hồng phấn (#FBE3E8) chứa khẩu hiệu chương trình.. Tạo vạch ngăn cách…",
+   "points": [
+    "Tổ chức phần đầu gồm 2 dải màu tương phản — Đặt <header> nền đỏ thẫm (#C8102E) chứa <h1>, ngay bên dưới là <div class=\"dai-phu\"> nền hồng phấn (#FBE3E8) chứa khẩu hiệu chương trình.",
+    "Tạo vạch ngăn cách dọc bằng CSS Grid hoặc border-right — Cách thanh lịch nhất là khai báo .than-bai có 3 cột grid-template-columns: 1fr 1px 1fr; gap: 22px; và dùng phần tử giả .than-bai::before { content: \"\"; background: #e0e0e0; grid-column: 2; } (hoặc đặt border-right: 1px solid #e0e0e0; padding-right: 22px; cho…"
+   ],
+   "heading": "Bài 07 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 78.675,
+   "dur": 31.291,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 07 double rich promotion. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai07.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 07 double rich promotion. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-07-double-rich-promotion",
+     "out": "✔ đã tạo thư mục exercise-07-double-rich-promotion"
+    },
+    {
+     "cmd": "cd exercise-07-double-rich-promotion",
+     "out": "→ đang ở ~/frontlab/exercise-07-double-rich-promotion"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 109.965,
+   "dur": 18.946,
+   "narration": "Mở tệp index.html. Trang khuyến mãi gồm header đỏ, khối hero giới thiệu chương trình, ảnh sản phẩm, danh sách quà tặng và điều kiện tham gia. Thông tin nổi bật dùng các khối section riêng. Các thẻ ngữ nghĩa chính gồm article, header, section.",
+   "caption": "Mở tệp index.html. Trang khuyến mãi gồm header đỏ, khối hero giới thiệu chương trình, ảnh sản phẩm, danh sách quà tặng và điều kiện tham gia. Thông tin nổi bật dùng các khối section riêng. Các thẻ ngữ nghĩa chính gồm article, header, section.",
+   "lang": "html",
+   "code": "  <article class=\"khung-km\">\n    <header>\n         <h1>Công nghệ dầu gội dưỡng tóc mới</h1>\n    </header>\n    <div class=\"dai-phu\">TỎA SÁNG CÙNG DOUBLE RICH</div>\n\n    <div class=\"than-bai\">\n         <section>\n           <img class=\"anh-sp\" src=\"assets/DoubleRich.jpg\" alt=\"Dầu gội Double Rich\">\n\n           <h3>&#9633; Sản phẩm khuyến mãi</h3>\n           <ul>\n               <li>Dầu gội Double Rich mới 200ml, 400ml có tem khuyến mãi.</li>\n           </ul>\n\n           <h3>&#9633; Đối tượng tham gia</h3>\n           <ul>\n            <li>Áp dụng cho tất cả người tiêu dùng cuối cùng mua sản phẩm khuyến mãi.</li>\n               <li>Không áp dụng cho nhân viên, nhà phân phối, đại lý và các cá nhân kinh doanh sản phẩm của công ty.</li>\n           </ul>\n         </section>\n\n         <section>\n           <h3>&#9633; Cách thức nhận giải</h3>\n           <ul>\n               <li>\n                <strong>Giải khuyến khích:</strong> đổi quà tại cửa hàng bán lẻ toàn quốc,\n                từ 15/06/2005 đến 17h ngày 12/08/2005.\n               </li>\n               <li>\n\n                <strong>Giải đặc biệt, nhất, nhì:</strong> cắt mã vạch trên chai dầu gội,\n                gửi kèm phiếu trúng thưởng về văn phòng công ty trước ngày 31/07/2005 (theo dấu bưu điện).\n               </li>\n           </ul>\n       </section>\n      </div>\n    </article>",
+   "marks": [
+    1,
+    2,
+    3,
+    4,
+    8,
+    9,
+    21
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 128.911,
+   "dur": 25.663,
+   "narration": "Chuyển sang phần CSS. Bố cục Grid hai cột cho ảnh và nội dung, nền đỏ trắng theo thương hiệu. Giá và nhãn khuyến mãi dùng chữ đậm, nền vàng. Media query đưa ảnh lên trước và giảm khoảng đệm trên mobile. Bảng màu chính gồm #eceff1, #ffffff, #C8102E, #FBE3E8, #e0e0e0.",
+   "caption": "Chuyển sang phần CSS. Bố cục Grid hai cột cho ảnh và nội dung, nền đỏ trắng theo thương hiệu. Giá và nhãn khuyến mãi dùng chữ đậm, nền vàng. Media query đưa ảnh lên trước và giảm khoảng đệm trên mobile. Bảng màu chính gồm #eceff1, #ffffff, #C8102E,…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n\n        font-family: Arial, \"Segoe UI\", sans-serif;\n        background: #eceff1;\n        display: flex;\n        justify-content: center;\n    }\n\n    .khung-km {\n        width: min(860px, 100%);\n        background: #ffffff;\n        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);\n        border-radius: 4px;\n        overflow: hidden;\n    }\n\n    header {\n        background: #C8102E;\n        color: #ffffff;\n        text-align: center;\n        padding: 14px;\n    }\n\n    header h1 {\n        margin: 0;\n        font-size: 22px;\n    }\n\n    .dai-phu {\n        background: #FBE3E8;\n        color: #C8102E;\n        text-align: center;\n        font-weight: 700;\n        padding: 7px;\n        letter-spacing: 0.5px;\n    }\n\n    .than-bai {\n        display: grid;\n        grid-template-columns: 1fr 1px 1fr;\n\n        gap: 22px;\n        padding: 22px;\n    }\n\n    .than-bai::before {\n        content: \"\";\n        background: #e0e0e0;\n        grid-column: 2;\n        grid-row: 1;\n    }\n\n    .anh-sp {\n        float: right;\n        width: 180px;\n        margin: 0 0 10px 16px;\n    }\n\n    h3 {\n        color: #C8102E;\n        font-size: 15px;\n        margin: 0 0 8px;\n    }\n\n    ul {\n        margin: 0 0 16px;\n        padding-left: 18px;\n        font-size: 14px;\n        line-height: 1.65;\n        color: #333333;\n    }\n\n    @media (max-width: 680px) {\n        .than-bai {\n            grid-template-columns: 1fr;\n        }\n        .than-bai::before {\n            display: none;\n        }\n\n    }",
+   "marks": [
+    9,
+    43,
+    44,
+    77,
+    79
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 154.574,
+   "dur": 20.5,
+   "narration": "Chạy thử: khối khuyến mãi đỏ nổi bật, ảnh sản phẩm bên cạnh nội dung. Cuộn xuống xem quà tặng và điều kiện. Thu nhỏ màn hình, ảnh chuyển lên trên, chữ vẫn rõ.",
+   "caption": "Chạy thử: khối khuyến mãi đỏ nổi bật, ảnh sản phẩm bên cạnh nội dung. Cuộn xuống xem quà tặng và điều kiện. Thu nhỏ màn hình, ảnh chuyển lên trên, chữ vẫn rõ.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.5
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 175.074,
+   "dur": 31.732,
+   "narration": "Tổng kết bài 7. Tạo dự án exercise 07 double rich promotion, tệp chính index.html, khi nộp đổi tên thành bai07.html. Giải thích cách kết hợp grid-template-columns: 1fr 1 pixel 1fr ở cấp cha và float: right cho ảnh sản phẩm bên trong cột 1.. Lỗi thường gặp: Đặt ảnh float: right ở ngoài thẻ section cột 1 khiến bức ảnh bị coi là một ô thứ 3 trong CSS Grid và làm vỡ bố cục 2 cột.",
+   "caption": "Tổng kết bài 7. Tạo dự án exercise 07 double rich promotion, tệp chính index.html, khi nộp đổi tên thành bai07.html. Giải thích cách kết hợp grid-template-columns: 1fr 1 pixel 1fr ở cấp cha và float: right cho ảnh sản phẩm bên trong cột 1.. Lỗi…",
+   "points": [
+    "Tạo dự án exercise-07-double-rich-promotion, tệp chính index.html, khi nộp đổi tên thành bai07.html.",
+    "Giải thích cách kết hợp grid-template-columns: 1fr 1px 1fr ở cấp cha và float: right cho ảnh sản phẩm bên trong cột 1.",
+    "Lỗi thường gặp: Đặt ảnh float: right ở ngoài thẻ <section> cột 1 khiến bức ảnh bị coi là một ô thứ 3 trong CSS Grid và làm vỡ bố cục 2 cột."
+   ],
+   "heading": "Bài 07 — điều cần nhớ"
+  }
+ ]
+}

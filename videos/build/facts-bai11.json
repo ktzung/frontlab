@@ -1,0 +1,16 @@
+{
+ "num": 11,
+ "slug": "vietnam-gallery",
+ "steps": [
+  {
+   "label": "Xóa margin mặc định của thẻ <figure>",
+   "text": "Theo User-Agent Stylesheet của trình duyệt, thẻ <figure> mặc định có margin: 1em 40px. Nếu không đặt figure { margin: 0; }, các ô trong lưới CSS Grid sẽ bị co nhỏ và lệch lề. •"
+  },
+  {
+   "label": "Loại bỏ khe hở 4px dưới đáy thẻ <img>",
+   "text": "Thẻ <img> mặc định có display: inline nên trình duyệt chừa một khe hở nhỏ dưới chân ảnh (cho chân chữ g, y, p). Đặt display: block trên figure img giúp ảnh khít hoàn toàn với phần <figcaption> bên dưới."
+  }
+ ],
+ "highlight": "Giải thích ý nghĩa ngữ nghĩa của cặp thẻ <figure> / <figcaption> đối với công cụ tìm kiếm (SEO) và trình đọc màn hình, cùng lý do phải đặt figure { margin: 0; }. •",
+ "mistake": "Quên overflow: hidden trên thẻ <figure> khiến 2 góc trên của bức ảnh <img> vẫn nhọn vuông góc dù <figure> đã có border-radius: 10px. JavaScript Thông tin ngày học Số lượng bài thực hành: 6 bài (Bài 12 – Bài 17) · Thời lượng gợi ý: 5 – 6 giờ thực hành · Cần biết trước: Cú pháp cơ bản của JavaScript (biến const/let, hàm, câu lệnh điều kiện if/else, mảng) và cấu trúc HTML5/CSS3 ở Chương 1. Sau chương thực hành này, bạn có thể: 1. Khởi tạo và khai thác đối tượng Date kết hợp Intl.DateTimeFormat( 'vi-VN') để tính thứ trong tuần, giờ hệ thống và hiển thị lời chào tự động theo buổi. 2. Sử dụng bộ định thời setInterval(fn, 1000) để cập nhật giao diện đồng hồ số thời gian thực mỗi giây. 3. Lắng nghe sự kiện người dùng (addEventListener với submit, click, input, keydown) và thao tác trực tiếp trên cây DOM (getElementById, querySelectorAll, createElement, classList.toggle) mà không cần tải lại trang. 4. Xây dựng ứng dụng Máy tính bỏ túi, ứng dụng Quản lý danh sách công việc (To-do List) và hệ thống Kiểm tra dữ liệu biểu mẫu (Form Validation) bằng Biểu thức chính quy (RegExp). Bảng thuật ngữ kỹ thuật cốt lõi Chương 2 Nghĩa chuẩn CNTT & Ứng Thuật ngữ tiếng Anh Phiên âm bồi dụng trong Chương 2 DOM Manipulation Đom ma-níp-piu-lây-sần Thao tác cây DOM: đọc/ghi nội dung, thay đổi thuộc tính hoặc thêm/xóa phần tử HTML bằng JS Event Listener I-ven lít-xần-nơ Bộ lắng nghe sự kiện (click, submit, input) gắn vào phần tử giao diện preventDefault() Pờ-ri-ven đi-phôn Ngăn hành vi mặc định của trình duyệt (chặn <form> tự tải lại trang khi bấm nút Submit) setInterval Xét in-tơ-vồ Hàm hẹn giờ lặp: gọi đi gọi lại một hàm sau mỗi khoảng mili-giây cố định (Bài 13) State Management X-tết ma-nịt-mần Quản lý trạng thái dữ liệu (mảng công việc hoặc phép tính đang nhập) và vẽ lại giao diện Regular Expression Rê-giu-lơ ích-x-pờ-rét-sần Biểu thức chính quy (Regex): mẫu kiểm tra định dạng chuỗi như Email, Số điện thoại (Bài 17)"
+}

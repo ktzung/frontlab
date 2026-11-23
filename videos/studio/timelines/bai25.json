@@ -1,0 +1,167 @@
+{
+ "id": "bai25",
+ "num": 25,
+ "title": "Trang du lịch với Navbar & Grid (Bootstrap 5)",
+ "chapter": 4,
+ "chapterName": "Thiết kế responsive với Bootstrap 5",
+ "project": "exercise-25-bootstrap-travel",
+ "submitFile": "bai25.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 228.43,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 34.68,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 25, Trang du lịch với Navbar & Grid (Bootstrap 5). Chúng ta sẽ cùng tạo dự án exercise 25 bootstrap travel với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài đầu của Bootstrap: làm quen navbar, grid 12 cột và utility class thay cho CSS tự viết. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 25, Trang du lịch với Navbar & Grid (Bootstrap 5). Chúng ta sẽ cùng tạo dự án exercise 25 bootstrap travel với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 35.18,
+   "dur": 64.001,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Nhúng Bootstrap 5.3 CSS & JS Bundle. Trong thẻ head , nhúng tệp CSS từ CDN https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/ bootstrap.min.css. Trước thẻ đóng , nhúng bootstrap.bundle.min. Xây dựng Navbar chuẩn Bootstrap 5. Tạo nav. Nút bấm.navbar-toggler cần có hai thuộc tính data-bs-toggle=collapse và data-bs-target=#menu trỏ đúng tới id=menu của khối.collapse.navbar-collapse.. Thiết lập Hero Banner và Lưới 3 cột.col-md-4. Mở div. Đặt khối Hero ở trên, tiếp theo là div chứa 3 khối div..",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Nhúng Bootstrap 5.3 CSS & JS Bundle. Trong thẻ head , nhúng tệp CSS từ CDN https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/ bootstrap.min.css. Trước thẻ đóng , nhúng…",
+   "points": [
+    "Nhúng Bootstrap 5.3 CSS & JS Bundle — Trong thẻ <head>, nhúng tệp CSS từ CDN https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/ bootstrap.min.css. Trước thẻ đóng </body>, nhúng bootstrap.bundle.min. js (bản bundle đã tích hợp Popper.js) để nút .navbar-toggler đóng/mở được menu trên điện thoại.",
+    "Xây dựng Navbar chuẩn Bootstrap 5 — Tạo <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">. Nút bấm .navbar-toggler cần có hai thuộc tính data-bs-toggle=\"collapse\" và data-bs-target=\"#menu\" trỏ đúng tới id=\"menu\" của khối .collapse.navbar-collapse.",
+    "Thiết lập Hero Banner và Lưới 3 cột .col-md-4 — Mở <div class= \"container py-4\">. Đặt khối Hero ở trên, tiếp theo là <div class=\"row g-4\"> chứa 3 khối <div class=\"col-md-4\">."
+   ],
+   "heading": "Bài 25 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 99.181,
+   "dur": 31.65,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 25 bootstrap travel. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai25.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 25 bootstrap travel. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-25-bootstrap-travel",
+     "out": "✔ đã tạo thư mục exercise-25-bootstrap-travel"
+    },
+    {
+     "cmd": "cd exercise-25-bootstrap-travel",
+     "out": "→ đang ở ~/frontlab/exercise-25-bootstrap-travel"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc trang",
+   "start": 130.831,
+   "dur": 19.584,
+   "narration": "Mở tệp index.html. Trang dùng navbar expand-lg với brand, nút toggler và menu ba mục. Hero nằm trong container, bên dưới là row g-4 chứa ba card col-md-4 cho ba điểm đến. Footer nền tối. Các thẻ ngữ nghĩa chính gồm nav, footer.",
+   "caption": "Mở tệp index.html. Trang dùng navbar expand-lg với brand, nút toggler và menu ba mục. Hero nằm trong container, bên dưới là row g-4 chứa ba card col-md-4 cho ba điểm đến. Footer nền tối. Các thẻ ngữ nghĩa chính gồm nav, footer.",
+   "lang": "html",
+   "code": "  <!-- Thanh điều hướng Bootstrap Navbar -->\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n       <div class=\"container\">\n           <a class=\"navbar-brand fw-bold\" href=\"#\">CSE.TLU Travel</a>\n           <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#menu\" aria-controls=\"menu\" aria-expanded=\"false\" aria-label=\"Mở menu\">\n               <span class=\"navbar-toggler-icon\"></span>\n           </button>\n           <div class=\"collapse navbar-collapse\" id=\"menu\">\n               <ul class=\"navbar-nav ms-auto\">\n                 <li class=\"nav-item\"><a class=\"nav-link active\" href=\"#\">Trang chủ</a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Điểm đến</a></li>\n                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Liên hệ</a></li>\n\n           </ul>\n       </div>\n    </div>\n  </nav>\n\n  <!-- Nội dung chính -->\n  <div class=\"container py-4\">\n    <!-- Khối Hero -->\n    <div class=\"p-4 mb-4 bg-white rounded-3 shadow-sm\">\n       <h1 class=\"display-6 fw-bold\">Khám phá Việt Nam</h1>\n       <p class=\"text-muted mb-0\">Giao diện sử dụng Bootstrap Navbar và Grid 12 cột</p>\n    </div>\n\n    <!-- Hệ thống lưới 12 cột: 3 cột x col-md-4 = 12 -->\n    <div class=\"row g-4\">\n       <div class=\"col-md-4\">\n           <div class=\"card h-100 shadow-sm\">\n             <img src=\"assets/1-vinh-ha-long.jpg\" class=\"card-img-top\" alt=\"Vịnh Hạ Long\">\n             <div class=\"card-body\">\n              <h5 class=\"card-title\">Vịnh Hạ Long</h5>\n              <p class=\"card-text text-muted\">Kỳ quan thiên nhiên thế giới với hàng nghìn đảo đá vôi.</p>\n              <a href=\"#\" class=\"btn btn-outline-primary btn-sm\">Xem thêm</a>\n             </div>\n           </div>\n       </div>\n\n       <div class=\"col-md-4\">\n           <div class=\"card h-100 shadow-sm\">\n             <img src=\"assets/3-thac-ban-gioc.jpg\" class=\"card-img-top\" alt=\"Thác Bản Giốc\">\n             <div class=\"card-body\">\n              <h5 class=\"card-title\">Thác Bản Giốc</h5>\n              <p class=\"card-text text-muted\">Thác nước hùng vĩ bậc nhất vùng biên giới phía Bắc.</p>\n              <a href=\"#\" class=\"btn btn-outline-primary btn-sm\">Xem thêm</a>\n\n                </div>\n           </div>\n        </div>\n\n        <div class=\"col-md-4\">\n           <div class=\"card h-100 shadow-sm\">\n                <img src=\"assets/4-fansipan.jpg\" class=\"card-img-top\" alt=\"Đỉnh Fansipan\">\n                <div class=\"card-body\">\n                 <h5 class=\"card-title\">Đỉnh Fansipan</h5>\n                 <p class=\"card-text text-muted\">Nóc nhà Đông Dương giữa biển mây Tây Bắc.</p>\n                 <a href=\"#\" class=\"btn btn-outline-primary btn-sm\">Xem thêm</a>\n                </div>\n           </div>\n        </div>\n       </div>\n  </div>\n\n  <!-- Chân trang -->\n  <footer class=\"bg-dark text-white text-center py-3 mt-4\">\n       © 2026 CSE.TLU - Bootstrap 5\n  </footer>",
+   "marks": [
+    2,
+    7,
+    11,
+    28,
+    32,
+    41,
+    45
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Tùy biến CSS",
+   "start": 150.416,
+   "dur": 19.086,
+   "narration": "Chuyển sang phần CSS. Chỉ cần một quy tắc nhỏ cho card-img-top: cao 180 pixel và object-fit cover. Các thành phần còn lại dùng utility Bootstrap như shadow-sm, rounded-3, text-muted, btn-outline-primary.",
+   "caption": "Chuyển sang phần CSS. Chỉ cần một quy tắc nhỏ cho card-img-top: cao 180 pixel và object-fit cover. Các thành phần còn lại dùng utility Bootstrap như shadow-sm, rounded-3, text-muted, btn-outline-primary.",
+   "lang": "css",
+   "code": "       .card-img-top {\n           height: 180px;\n           object-fit: cover;\n       }",
+   "marks": [],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 169.501,
+   "dur": 15.135,
+   "narration": "Phần Bootstrap. Bootstrap bundle xử lý nút thu gọn menu trên mobile mà không cần viết JavaScript riêng. Grid mười hai cột tự chuyển từ ba cột sang một cột khi màn hình nhỏ hơn breakpoint md.",
+   "caption": "Phần Bootstrap. Bootstrap bundle xử lý nút thu gọn menu trên mobile mà không cần viết JavaScript riêng. Grid mười hai cột tự chuyển từ ba cột sang một cột khi màn hình nhỏ hơn breakpoint md.",
+   "lang": "html",
+   "code": "  <!-- Thanh điều hướng Bootstrap Navbar -->\n  <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">\n       <div class=\"container\">\n           <a class=\"navbar-brand fw-bold\" href=\"#\">CSE.TLU Travel</a>\n           <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#menu\" aria-controls=\"menu\" aria-expanded=\"false\" aria-label=\"Mở menu\">\n               <span class=\"navbar-toggler-icon\"></span>\n           </button>\n           <div class=\"collapse navbar-collapse\" id=\"menu\">\n               <ul class=\"navbar-nav ms-auto\">\n                 <li class=\"nav-item\"><a class=\"nav-link active\" href=\"#\">Trang chủ</a></li>\n                <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Điểm đến</a></li>\n                 <li class=\"nav-item\"><a class=\"nav-link\" href=\"#\">Liên hệ</a></li>\n\n           </ul>\n       </div>\n    </div>\n  </nav>\n\n  <!-- Nội dung chính -->\n  <div class=\"container py-4\">\n    <!-- Khối Hero -->\n    <div class=\"p-4 mb-4 bg-white rounded-3 shadow-sm\">\n       <h1 class=\"display-6 fw-bold\">Khám phá Việt Nam</h1>\n       <p class=\"text-muted mb-0\">Giao diện sử dụng Bootstrap Navbar và Grid 12 cột</p>\n    </div>\n\n    <!-- Hệ thống lưới 12 cột: 3 cột x col-md-4 = 12 -->\n    <div class=\"row g-4\">\n       <div class=\"col-md-4\">\n           <div class=\"card h-100 shadow-sm\">\n             <img src=\"assets/1-vinh-ha-long.jpg\" class=\"card-img-top\" alt=\"Vịnh Hạ Long\">\n             <div class=\"card-body\">\n              <h5 class=\"card-title\">Vịnh Hạ Long</h5>\n              <p class=\"card-text text-muted\">Kỳ quan thiên nhiên thế giới với hàng nghìn đảo đá vôi.</p>\n              <a href=\"#\" class=\"btn btn-outline-primary btn-sm\">Xem thêm</a>\n             </div>\n           </div>\n       </div>\n\n       <div class=\"col-md-4\">\n           <div class=\"card h-100 shadow-sm\">\n             <img src=\"assets/3-thac-ban-gioc.jpg\" class=\"card-img-top\" alt=\"Thác Bản Giốc\">\n             <div class=\"card-body\">\n              <h5 class=\"card-title\">Thác Bản Giốc</h5>\n              <p class=\"card-text text-muted\">Thác nước hùng vĩ bậc nhất vùng biên giới phía Bắc.</p>\n              <a href=\"#\" class=\"btn btn-outline-primary btn-sm\">Xem thêm</a>\n\n                </div>\n           </div>\n        </div>\n\n        <div class=\"col-md-4\">\n           <div class=\"card h-100 shadow-sm\">\n                <img src=\"assets/4-fansipan.jpg\" class=\"card-img-top\" alt=\"Đỉnh Fansipan\">\n                <div class=\"card-body\">\n                 <h5 class=\"card-title\">Đỉnh Fansipan</h5>\n                 <p class=\"card-text text-muted\">Nóc nhà Đông Dương giữa biển mây Tây Bắc.</p>\n                 <a href=\"#\" class=\"btn btn-outline-primary btn-sm\">Xem thêm</a>\n                </div>\n           </div>\n        </div>\n       </div>\n  </div>\n\n  <!-- Chân trang -->\n  <footer class=\"bg-dark text-white text-center py-3 mt-4\">\n       © 2026 CSE.TLU - Bootstrap 5\n  </footer>",
+   "marks": [
+    2,
+    7,
+    11,
+    28,
+    32,
+    41,
+    45
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 184.636,
+   "dur": 19,
+   "narration": "Chạy thử: navbar xanh với ba mục, hero và ba card điểm đến. Thu nhỏ màn hình, menu thu gọn thành nút hamburger và ba card xếp dọc.",
+   "caption": "Chạy thử: navbar xanh với ba mục, hero và ba card điểm đến. Thu nhỏ màn hình, menu thu gọn thành nút hamburger và ba card xếp dọc.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.4
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 203.636,
+   "dur": 24.789,
+   "narration": "Tổng kết bài 25. Tạo dự án exercise 25 bootstrap travel, tệp chính index.html, khi nộp đổi tên thành bai25.html. Bài đầu của Bootstrap: làm quen navbar, grid 12 cột và utility class thay cho CSS tự viết. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.",
+   "caption": "Tổng kết bài 25. Tạo dự án exercise 25 bootstrap travel, tệp chính index.html, khi nộp đổi tên thành bai25.html. Bài đầu của Bootstrap: làm quen navbar, grid 12 cột và utility class thay cho CSS tự viết. Lỗi thường gặp: quên kiểm tra lại giao diện…",
+   "points": [
+    "Tạo dự án exercise-25-bootstrap-travel, tệp chính index.html, khi nộp đổi tên thành bai25.html.",
+    "Bài đầu của Bootstrap: làm quen navbar, grid 12 cột và utility class thay cho CSS tự viết.",
+    "Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ."
+   ],
+   "heading": "Bài 25 — điều cần nhớ"
+  }
+ ]
+}

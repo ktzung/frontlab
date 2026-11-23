@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 07 - Khuyến mãi dầu gội Double Rich</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         padding: 32px 16px;
+
+        font-family: Arial, "Segoe UI", sans-serif;
+        background: #eceff1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .khung-km {
+        width: min(860px, 100%);
+        background: #ffffff;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    header {
+        background: #C8102E;
+        color: #ffffff;
+        text-align: center;
+        padding: 14px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    .dai-phu {
+        background: #FBE3E8;
+        color: #C8102E;
+        text-align: center;
+        font-weight: 700;
+        padding: 7px;
+        letter-spacing: 0.5px;
+    }
+
+    .than-bai {
+        display: grid;
+        grid-template-columns: 1fr 1px 1fr;
+
+        gap: 22px;
+        padding: 22px;
+    }
+
+    .than-bai::before {
+        content: "";
+        background: #e0e0e0;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .anh-sp {
+        float: right;
+        width: 180px;
+        margin: 0 0 10px 16px;
+    }
+
+    h3 {
+        color: #C8102E;
+        font-size: 15px;
+        margin: 0 0 8px;
+    }
+
+    ul {
+        margin: 0 0 16px;
+        padding-left: 18px;
+        font-size: 14px;
+        line-height: 1.65;
+        color: #333333;
+    }
+
+    @media (max-width: 680px) {
+        .than-bai {
+            grid-template-columns: 1fr;
+        }
+        .than-bai::before {
+            display: none;
+        }
+
+    }
+  </style>
+</head>
+<body>
+  <article class="khung-km">
+    <header>
+         <h1>Công nghệ dầu gội dưỡng tóc mới</h1>
+    </header>
+    <div class="dai-phu">TỎA SÁNG CÙNG DOUBLE RICH</div>
+
+    <div class="than-bai">
+         <section>
+           <img class="anh-sp" src="assets/DoubleRich.jpg" alt="Dầu gội Double Rich">
+
+           <h3>&#9633; Sản phẩm khuyến mãi</h3>
+           <ul>
+               <li>Dầu gội Double Rich mới 200ml, 400ml có tem khuyến mãi.</li>
+           </ul>
+
+           <h3>&#9633; Đối tượng tham gia</h3>
+           <ul>
+            <li>Áp dụng cho tất cả người tiêu dùng cuối cùng mua sản phẩm khuyến mãi.</li>
+               <li>Không áp dụng cho nhân viên, nhà phân phối, đại lý và các cá nhân kinh doanh sản phẩm của công ty.</li>
+           </ul>
+         </section>
+
+         <section>
+           <h3>&#9633; Cách thức nhận giải</h3>
+           <ul>
+               <li>
+                <strong>Giải khuyến khích:</strong> đổi quà tại cửa hàng bán lẻ toàn quốc,
+                từ 15/06/2005 đến 17h ngày 12/08/2005.
+               </li>
+               <li>
+
+                <strong>Giải đặc biệt, nhất, nhì:</strong> cắt mã vạch trên chai dầu gội,
+                gửi kèm phiếu trúng thưởng về văn phòng công ty trước ngày 31/07/2005 (theo dấu bưu điện).
+               </li>
+           </ul>
+       </section>
+      </div>
+    </article>
+</body>
+</html>

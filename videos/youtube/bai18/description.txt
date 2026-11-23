@@ -1,0 +1,17 @@
+Bài viết “Bông điên điển” & Danh sách ẩm thực 2 cột — hướng dẫn giải từng bước (CSS3 hiện đại — bố cục & hiệu ứng).
+
+Dự án: exercise-18-dien-dien-feature/index.html (khi nộp đổi tên thành bai18.html).
+Công nghệ: HTML5, CSS3, Flexbox, CSS Grid, Responsive.
+
+Chương:
+00:00 Mở đầu
+00:30 Yêu cầu
+01:13 Tạo dự án
+01:45 Cấu trúc HTML
+02:03 Định dạng CSS
+02:27 Chạy thử
+02:47 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #BàiTậpThựcHành

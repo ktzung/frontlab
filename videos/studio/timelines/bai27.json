@@ -1,0 +1,183 @@
+{
+ "id": "bai27",
+ "num": 27,
+ "title": "Trang sản phẩm du lịch với Card, Modal & Accordion",
+ "chapter": 4,
+ "chapterName": "Thiết kế responsive với Bootstrap 5",
+ "project": "exercise-27-travel-showcase",
+ "submitFile": "bai27.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Events"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 210.65,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 32.767,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 27, Trang sản phẩm du lịch với Card, Modal & Accordion. Chúng ta sẽ cùng tạo dự án exercise 27 travel showcase với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện component Bootstrap có tương tác: card, modal dùng chung và accordion. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 27, Trang sản phẩm du lịch với Card, Modal & Accordion. Chúng ta sẽ cùng tạo dự án exercise 27 travel showcase với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript,…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 33.267,
+   "dur": 60.551,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Dựng lưới 3 thẻ.card.h-100. Sử dụng.col-sm-6.col-lg-4 để đạt khả năng đáp ứng 3 cấp độ màn hình. Trên mỗi nút Chi tiết, gắn thêm thuộc tính data-title và data-info để truyền thông tin riêng của từng địa danh vào Modal.. Dựng cấu trúc.accordion#ac. Mỗi.accordion-item gồm h2. accordion-header > button.accordion-button và khối nội dung.accordion-collapse.collapse. Mục đầu tiên có thêm lớp.show ở phần nội dung, còn mục thứ hai có thêm lớp.collapsed ở nút bấm.. Dựng.modal.fade#md và lắng nghe sự kiện show.bs.modal. Sử dụng sự kiện chuẩn show.bs.modal của Bootstrap 5 (event.relatedTarget) để lấy tên địa danh và thông tin từ nút vừa bấm, cập nhật vào.modal-title và. modal-body.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Dựng lưới 3 thẻ.card.h-100. Sử dụng.col-sm-6.col-lg-4 để đạt khả năng đáp ứng 3 cấp độ màn hình. Trên mỗi nút Chi tiết, gắn thêm thuộc tính data-title và data-info để truyền thông…",
+   "points": [
+    "Dựng lưới 3 thẻ .card.h-100 — Sử dụng .col-sm-6.col-lg-4 để đạt khả năng đáp ứng 3 cấp độ màn hình. Trên mỗi nút “Chi tiết”, gắn thêm thuộc tính data-title và data-info để truyền thông tin riêng của từng địa danh vào Modal.",
+    "Dựng cấu trúc .accordion#ac — Mỗi .accordion-item gồm h2. accordion-header > button.accordion-button và khối nội dung .accordion-collapse.collapse. Mục đầu tiên có thêm lớp .show ở phần nội dung, còn mục thứ hai có thêm lớp .collapsed ở nút bấm.",
+    "Dựng .modal.fade#md và lắng nghe sự kiện show.bs.modal — Sử dụng sự kiện chuẩn show.bs.modal của Bootstrap 5 (event.relatedTarget) để lấy tên địa danh và thông tin từ nút vừa bấm, cập nhật vào .modal-title và . modal-body."
+   ],
+   "heading": "Bài 27 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 93.818,
+   "dur": 31.383,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 27 travel showcase. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai27.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 27 travel showcase. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh,…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-27-travel-showcase",
+     "out": "✔ đã tạo thư mục exercise-27-travel-showcase"
+    },
+    {
+     "cmd": "cd exercise-27-travel-showcase",
+     "out": "→ đang ở ~/frontlab/exercise-27-travel-showcase"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc trang",
+   "start": 125.202,
+   "dur": 13.826,
+   "narration": "Mở tệp index.html. Ba card điểm đến có nút Xem chi tiết mở cùng một modal. Modal chứa tiêu đề, thân và nút đóng. Bên dưới là accordion hai mục giới thiệu và lịch trình.",
+   "caption": "Mở tệp index.html. Ba card điểm đến có nút Xem chi tiết mở cùng một modal. Modal chứa tiêu đề, thân và nút đóng. Bên dưới là accordion hai mục giới thiệu và lịch trình.",
+   "lang": "html",
+   "code": "    <div class=\"container\">\n        <h2 class=\"fw-bold mb-3\">Danh lam thắng cảnh</h2>\n\n        <!-- Lưới 3 Card địa danh -->\n        <div class=\"row g-4\">\n            <div class=\"col-sm-6 col-lg-4\">\n              <div class=\"card h-100 shadow-sm\">\n               <img src=\"assets/2-son-doong.jpg\" class=\"card-img-top\" alt=\"Hang Sơn Đoòng\">\n                <div class=\"card-body d-flex flex-column\">\n                 <h5 class=\"card-title\">Hang Sơn Đoòng</h5>\n                 <p class=\"card-text text-muted\">Hang động tự nhiên lớn nhất thế giới tại Quảng Bình.</p>\n                 <button class=\"btn btn-danger mt-auto\"\n                            data-bs-toggle=\"modal\"\n                            data-bs-target=\"#md\"\n                            data-title=\"Hang Sơn Đoòng\"\n                            data-info=\"Lịch trình khám phá 4 ngày 3 đêm tại Vườn quốc gia Phong Nha - Kẻ Bàng. Giá vé trọn gói: 5.500.000đ/người.\">\n                       Chi tiết\n                 </button>\n                </div>\n              </div>\n\n       </div>\n\n       <div class=\"col-sm-6 col-lg-4\">\n         <div class=\"card h-100 shadow-sm\">\n           <img src=\"assets/5-mekong.jpg\" class=\"card-img-top\" alt=\"Đồng bằng sông Cửu Long\">\n           <div class=\"card-body d-flex flex-column\">\n              <h5 class=\"card-title\">Đồng bằng sông Cửu Long</h5>\n             <p class=\"card-text text-muted\">Chợ nổi, miệt vườn trái cây và văn hóa sông nước miền Tây.</p>\n              <button class=\"btn btn-danger mt-auto\"\n                       data-bs-toggle=\"modal\"\n                       data-bs-target=\"#md\"\n                       data-title=\"Đồng bằng sông Cửu Long\"\n                       data-info=\"Hành trình Cần Thơ - Chợ nổi Cái Răng - Miệt vườn Mỹ Khánh 2 ngày 1 đêm. Giá vé: 2.500.000đ/người.\">\n                  Chi tiết\n              </button>\n           </div>\n         </div>\n       </div>\n\n       <div class=\"col-sm-6 col-lg-4\">\n         <div class=\"card h-100 shadow-sm\">\n           <img src=\"assets/6-phong-nha.jpg\" class=\"card-img-top\" alt=\"Động Phong Nha\">\n           <div class=\"card-body d-flex flex-column\">\n              <h5 class=\"card-title\">Động Phong Nha</h5>\n              <p class=\"card-text text-muted\">Hệ thống thạch nhũ kỳ ảo bên dòng sông Son xanh biếc.</p>\n              <button class=\"btn btn-danger mt-auto\"\n                       data-bs-toggle=\"modal\"\n                       data-bs-target=\"#md\"\n                       data-title=\"Động Phong Nha\"\n                       data-info=\"Du thuyền trên sông Son khám phá Động Phong Nha & Động Tiên Sơn 3 ngày 2 đêm. Giá vé: 3.600.000đ/người.\">\n                  Chi tiết\n              </button>\n\n              </div>\n         </div>\n       </div>\n    </div>\n\n    <!-- Accordion thông tin bổ sung -->\n    <div class=\"accordion mt-4 shadow-sm\" id=\"ac\">\n       <div class=\"accordion-item\">\n         <h2 class=\"accordion-header\">\n              <button class=\"accordion-button\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#c1\" aria-expanded=\"true\">\n               Kinh nghiệm du lịch\n              </button>\n         </h2>\n         <div id=\"c1\" class=\"accordion-collapse collapse show\" data-bs-parent=\"#ac\">\n              <div class=\"accordion-body\">\n               Nên đặt vé trước 2 tuần và chuẩn bị trang phục phù hợp theo mùa.\n              </div>\n         </div>\n       </div>\n\n       <div class=\"accordion-item\">\n         <h2 class=\"accordion-header\">\n              <button class=\"accordion-button collapsed\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#c2\" aria-expanded=\"false\">\n               Chi phí dự kiến\n              </button>\n         </h2>\n        <div id=\"c2\" class=\"accordion-collapse collapse\" data-bs-parent=\"#ac\">\n              <div class=\"accordion-body\">\n               Chi phí trung bình từ 2.500.000đ đến 5.500.000đ/người.\n              </div>\n         </div>\n       </div>\n    </div>\n\n  </div>\n\n  <!-- Hộp thoại Modal -->\n  <div class=\"modal fade\" id=\"md\" tabindex=\"-1\" aria-hidden=\"true\">\n       <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n             <div class=\"modal-header\">\n                <h5 class=\"modal-title\" id=\"mdTitle\">Thông tin địa điểm</h5>\n                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Đóng\"></button>\n             </div>\n             <div class=\"modal-body\" id=\"mdBody\">\n                Thông tin chi tiết về lịch trình, giá vé và hướng dẫn viên.\n             </div>\n             <div class=\"modal-footer\">\n                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Đóng</button>\n             </div>\n        </div>\n       </div>\n  </div>",
+   "marks": [
+    2,
+    11,
+    28,
+    44,
+    63,
+    76,
+    93
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Tùy biến CSS",
+   "start": 139.028,
+   "dur": 16.531,
+   "narration": "Chuyển sang phần CSS. Card dùng h-100 và shadow-sm, ảnh card-img-top cao đồng nhất. Modal và accordion dùng component Bootstrap, chỉ tinh chỉnh bo góc và khoảng cách. Media query do grid đảm nhiệm.",
+   "caption": "Chuyển sang phần CSS. Card dùng h-100 và shadow-sm, ảnh card-img-top cao đồng nhất. Modal và accordion dùng component Bootstrap, chỉ tinh chỉnh bo góc và khoảng cách. Media query do grid đảm nhiệm.",
+   "lang": "css",
+   "code": "        .card-img-top {\n            height: 175px;\n            object-fit: cover;\n        }",
+   "marks": [],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 155.559,
+   "dur": 13.579,
+   "narration": "Phần Bootstrap. Bootstrap bundle bắt sự kiện show.bs.modal để đọc data-* trên nút được bấm và đổ nội dung tương ứng vào modal. Collapse của accordion tự xử lý đóng mở.",
+   "caption": "Phần Bootstrap. Bootstrap bundle bắt sự kiện show.bs.modal để đọc data-* trên nút được bấm và đổ nội dung tương ứng vào modal. Collapse của accordion tự xử lý đóng mở.",
+   "lang": "html",
+   "code": "    <div class=\"container\">\n        <h2 class=\"fw-bold mb-3\">Danh lam thắng cảnh</h2>\n\n        <!-- Lưới 3 Card địa danh -->\n        <div class=\"row g-4\">\n            <div class=\"col-sm-6 col-lg-4\">\n              <div class=\"card h-100 shadow-sm\">\n               <img src=\"assets/2-son-doong.jpg\" class=\"card-img-top\" alt=\"Hang Sơn Đoòng\">\n                <div class=\"card-body d-flex flex-column\">\n                 <h5 class=\"card-title\">Hang Sơn Đoòng</h5>\n                 <p class=\"card-text text-muted\">Hang động tự nhiên lớn nhất thế giới tại Quảng Bình.</p>\n                 <button class=\"btn btn-danger mt-auto\"\n                            data-bs-toggle=\"modal\"\n                            data-bs-target=\"#md\"\n                            data-title=\"Hang Sơn Đoòng\"\n                            data-info=\"Lịch trình khám phá 4 ngày 3 đêm tại Vườn quốc gia Phong Nha - Kẻ Bàng. Giá vé trọn gói: 5.500.000đ/người.\">\n                       Chi tiết\n                 </button>\n                </div>\n              </div>\n\n       </div>\n\n       <div class=\"col-sm-6 col-lg-4\">\n         <div class=\"card h-100 shadow-sm\">\n           <img src=\"assets/5-mekong.jpg\" class=\"card-img-top\" alt=\"Đồng bằng sông Cửu Long\">\n           <div class=\"card-body d-flex flex-column\">\n              <h5 class=\"card-title\">Đồng bằng sông Cửu Long</h5>\n             <p class=\"card-text text-muted\">Chợ nổi, miệt vườn trái cây và văn hóa sông nước miền Tây.</p>\n              <button class=\"btn btn-danger mt-auto\"\n                       data-bs-toggle=\"modal\"\n                       data-bs-target=\"#md\"\n                       data-title=\"Đồng bằng sông Cửu Long\"\n                       data-info=\"Hành trình Cần Thơ - Chợ nổi Cái Răng - Miệt vườn Mỹ Khánh 2 ngày 1 đêm. Giá vé: 2.500.000đ/người.\">\n                  Chi tiết\n              </button>\n           </div>\n         </div>\n       </div>\n\n       <div class=\"col-sm-6 col-lg-4\">\n         <div class=\"card h-100 shadow-sm\">\n           <img src=\"assets/6-phong-nha.jpg\" class=\"card-img-top\" alt=\"Động Phong Nha\">\n           <div class=\"card-body d-flex flex-column\">\n              <h5 class=\"card-title\">Động Phong Nha</h5>\n              <p class=\"card-text text-muted\">Hệ thống thạch nhũ kỳ ảo bên dòng sông Son xanh biếc.</p>\n              <button class=\"btn btn-danger mt-auto\"\n                       data-bs-toggle=\"modal\"\n                       data-bs-target=\"#md\"\n                       data-title=\"Động Phong Nha\"\n                       data-info=\"Du thuyền trên sông Son khám phá Động Phong Nha & Động Tiên Sơn 3 ngày 2 đêm. Giá vé: 3.600.000đ/người.\">\n                  Chi tiết\n              </button>\n\n              </div>\n         </div>\n       </div>\n    </div>\n\n    <!-- Accordion thông tin bổ sung -->\n    <div class=\"accordion mt-4 shadow-sm\" id=\"ac\">\n       <div class=\"accordion-item\">\n         <h2 class=\"accordion-header\">\n              <button class=\"accordion-button\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#c1\" aria-expanded=\"true\">\n               Kinh nghiệm du lịch\n              </button>\n         </h2>\n         <div id=\"c1\" class=\"accordion-collapse collapse show\" data-bs-parent=\"#ac\">\n              <div class=\"accordion-body\">\n               Nên đặt vé trước 2 tuần và chuẩn bị trang phục phù hợp theo mùa.\n              </div>\n         </div>\n       </div>\n\n       <div class=\"accordion-item\">\n         <h2 class=\"accordion-header\">\n              <button class=\"accordion-button collapsed\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#c2\" aria-expanded=\"false\">\n               Chi phí dự kiến\n              </button>\n         </h2>\n        <div id=\"c2\" class=\"accordion-collapse collapse\" data-bs-parent=\"#ac\">\n              <div class=\"accordion-body\">\n               Chi phí trung bình từ 2.500.000đ đến 5.500.000đ/người.\n              </div>\n         </div>\n       </div>\n    </div>\n\n  </div>\n\n  <!-- Hộp thoại Modal -->\n  <div class=\"modal fade\" id=\"md\" tabindex=\"-1\" aria-hidden=\"true\">\n       <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n             <div class=\"modal-header\">\n                <h5 class=\"modal-title\" id=\"mdTitle\">Thông tin địa điểm</h5>\n                <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Đóng\"></button>\n             </div>\n             <div class=\"modal-body\" id=\"mdBody\">\n                Thông tin chi tiết về lịch trình, giá vé và hướng dẫn viên.\n             </div>\n             <div class=\"modal-footer\">\n                <button type=\"button\" class=\"btn btn-secondary\" data-bs-dismiss=\"modal\">Đóng</button>\n             </div>\n        </div>\n       </div>\n  </div>",
+   "marks": [
+    2,
+    11,
+    28,
+    44,
+    63,
+    76,
+    93
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 169.138,
+   "dur": 19,
+   "narration": "Chạy thử: bấm Xem chi tiết ở card đầu, modal mở với đúng thông tin điểm đến. Đóng modal rồi mở mục thứ hai của accordion để xem lịch trình.",
+   "caption": "Chạy thử: bấm Xem chi tiết ở card đầu, modal mở với đúng thông tin điểm đến. Đóng modal rồi mở mục thứ hai của accordion để xem lịch trình.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.25
+    },
+    {
+     "t": 2.2,
+     "type": "click",
+     "selector": "[data-bs-target=\"#md\"]"
+    },
+    {
+     "t": 5,
+     "type": "click",
+     "selector": "#md .btn-close"
+    },
+    {
+     "t": 6.6,
+     "type": "click",
+     "selector": "#ac .accordion-button:nth-child(1)"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 188.138,
+   "dur": 22.514,
+   "narration": "Tổng kết bài 27. Tạo dự án exercise 27 travel showcase, tệp chính index.html, khi nộp đổi tên thành bai27.html. Bài luyện component Bootstrap có tương tác: card, modal dùng chung và accordion. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.",
+   "caption": "Tổng kết bài 27. Tạo dự án exercise 27 travel showcase, tệp chính index.html, khi nộp đổi tên thành bai27.html. Bài luyện component Bootstrap có tương tác: card, modal dùng chung và accordion. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn…",
+   "points": [
+    "Tạo dự án exercise-27-travel-showcase, tệp chính index.html, khi nộp đổi tên thành bai27.html.",
+    "Bài luyện component Bootstrap có tương tác: card, modal dùng chung và accordion.",
+    "Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ."
+   ],
+   "heading": "Bài 27 — điều cần nhớ"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+ "id": "bai12",
+ "num": 12,
+ "title": "Bài 12 – Ứng dụng In lịch tờ theo Ngày – Tháng – Năm | Hướng dẫn Frontend từng bước",
+ "chapter": "Lập trình tương tác với JavaScript",
+ "project": "exercise-12-print-calendar",
+ "submitFile": "bai12.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "CSS Variables",
+  "Events"
+ ],
+ "duration": 241,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "print-calendar"
+ ],
+ "youtubeId": ""
+}

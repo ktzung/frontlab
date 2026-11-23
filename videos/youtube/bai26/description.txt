@@ -1,0 +1,18 @@
+Form đăng ký CLB Lập trình Web với Bootstrap — hướng dẫn giải từng bước (Thiết kế responsive với Bootstrap 5).
+
+Dự án: exercise-26-club-signup/index.html (khi nộp đổi tên thành bai26.html).
+Công nghệ: HTML5, CSS3, Bootstrap 5, Events.
+
+Chương:
+00:00 Mở đầu
+00:33 Yêu cầu
+01:19 Tạo dự án
+01:47 Cấu trúc trang
+02:08 Tùy biến CSS
+02:24 Bootstrap
+02:41 Chạy thử
+03:00 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

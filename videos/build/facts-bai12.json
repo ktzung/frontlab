@@ -1,0 +1,16 @@
+{
+ "num": 12,
+ "slug": "print-calendar",
+ "steps": [
+  {
+   "label": "Lưu ý quan trọng về chỉ số tháng trong new Date()",
+   "text": "Trong JavaScript, tham số tháng (monthIndex) của hàm tạo new Date(nam, thang - 1, ngay) được đánh số từ 0 (Tháng 1) đến 11 (Tháng 12). Do đó khi đọc giá trị thang từ ô <input> (1–12), ta bắt buộc phải trừ đi 1 (thang - 1) trước khi truyền vào new Date(). •"
+  },
+  {
+   "label": "Lấy tên Thứ tiếng Việt bằng Intl.DateTimeFormat (hoặc mảng tên thứ)",
+   "text": "Ta có thể dùng mảng const TEN_THU = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'] kết hợp ngayDate. getDay(), hoặc dùng chuẩn quốc tế hóa new Intl.DateTimeFormat('vi-VN', { weekday: 'long' }).format(ngayDate)."
+  }
+ ],
+ "highlight": "Giải thích vì sao trong new Date(nam, thang - 1, ngay) phải lấy thang - 1, và vì sao doiTuong Ngay.getDay() trả về 0 cho Chủ nhật chứ không phải Thứ hai. •",
+ "mistake": "Quên gọi suKien.preventDefault() trong hàm xử lý submit, khiến mỗi lần bấm nút “In lịch” trang web lại tự tải lại và quay về ngày mặc định."
+}

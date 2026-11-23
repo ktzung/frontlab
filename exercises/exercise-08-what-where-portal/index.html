@@ -1,0 +1,216 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 08 - Trang tin Ai? Cái gì? Ở đâu?</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+         margin: 0;
+         padding: 24px 16px;
+         font-family: Arial, "Segoe UI", sans-serif;
+         background: #eef3f8;
+         display: flex;
+         justify-content: center;
+    }
+
+    .trang-tin {
+         width: min(1040px, 100%);
+         background: #ffffff;
+         box-shadow: 0 0 26px rgba(0, 0, 0, 0.1);
+    }
+
+    .dau-trang {
+         padding: 14px 22px;
+         border-bottom: 3px solid #1668C1;
+    }
+
+    .dau-trang h1 {
+         margin: 0;
+         color: #1668C1;
+         font-size: 26px;
+    }
+
+    .khung-chinh {
+        display: grid;
+        grid-template-columns: 210px 1fr;
+    }
+
+    nav {
+        background: #f7fafd;
+        border-right: 1px solid #dce6f2;
+        padding: 16px;
+    }
+
+    nav h2 {
+        font-size: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #888888;
+        margin: 0 0 8px;
+    }
+
+    nav a {
+        display: block;
+        color: #1668C1;
+        text-decoration: none;
+        padding: 6px 0;
+        font-size: 14px;
+    }
+
+    nav a:hover { text-decoration: underline; }
+
+    main { padding: 18px 22px; }
+
+    .chuyen-muc { margin-bottom: 18px; }
+
+    .thanh-cm {
+        background: #1668C1;
+        color: #ffffff;
+        padding: 7px 12px;
+        border-radius: 3px;
+
+        font-size: 16px;
+        margin: 0 0 12px;
+    }
+
+    .bai-nho {
+        display: grid;
+        grid-template-columns: 1fr 140px;
+        gap: 16px;
+        align-items: start;
+        padding: 12px 0;
+        border-bottom: 1px dashed #dce6f2;
+    }
+
+    .bai-nho img {
+        width: 100%;
+        border-radius: 6px;
+        display: block;
+    }
+
+    .bai-nho h3 {
+        color: #1668C1;
+        font-size: 15px;
+        margin: 0 0 6px;
+    }
+
+    .bai-nho p {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.55;
+        color: #333333;
+    }
+
+    .ve-dau-trang {
+        display: block;
+        text-align: right;
+        font-size: 12.5px;
+        color: #1668C1;
+        margin-top: 6px;
+
+         text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+         .khung-chinh { grid-template-columns: 1fr; }
+         nav { border-right: none; border-bottom: 1px solid #dce6f2; }
+    }
+  </style>
+</head>
+<body>
+  <div class="trang-tin" id="top">
+    <header class="dau-trang">
+         <h1>Ai? Cái gì? Ở đâu? …</h1>
+    </header>
+
+    <div class="khung-chinh">
+         <nav aria-label="Chuyên mục">
+           <h2>Chuyên mục</h2>
+           <a href="#tinh-yeu">Tình yêu và gia đình</a>
+           <a href="#suc-khoe">Sức khỏe</a>
+           <a href="#du-lich">Du lịch</a>
+           <a href="#am-thuc">Ẩm thực</a>
+           <a href="#am-nhac">Âm nhạc</a>
+         </nav>
+
+         <main>
+           <section class="chuyen-muc" id="tinh-yeu">
+             <h2 class="thanh-cm">Tình yêu và gia đình</h2>
+             <article class="bai-nho">
+              <div>
+                  <h3>Trầu cau</h3>
+                  <p>Tình yêu là gì? Là ta yêu một người mỗi ngày trong một năm. Mỗi năm trong một đời người…</p>
+              </div>
+              <img src="assets/traucau.jpg" alt="Trầu cau">
+             </article>
+             <article class="bai-nho">
+              <div>
+
+              <h3>Xây dựng hạnh phúc gia đình qua những bữa cơm hàng ngày</h3>
+              <p>Nói đến hạnh phúc gia đình chúng ta thường mô tả bằng những từ thật đẹp đẽ và được thể hiện qua những giá trị đạo đức đáng trân trọng…</p>
+            </div>
+            <img src="assets/comtrua.jpg" alt="Bữa cơm gia đình">
+          </article>
+          <a class="ve-dau-trang" href="#top">&#8593; Về đầu trang</a>
+        </section>
+
+        <section class="chuyen-muc" id="suc-khoe">
+          <h2 class="thanh-cm">Sức khỏe</h2>
+          <article class="bai-nho">
+            <div>
+              <h3>10 lời khuyên trong dinh dưỡng</h3>
+              <p>Cơ thể chúng ta cần nhiều chất dinh dưỡng từ nhiều nguồn lương thực khác nhau…</p>
+            </div>
+            <img src="assets/Suc_khoe_03.jpg" alt="Dinh dưỡng hợp lý">
+          </article>
+          <article class="bai-nho">
+            <div>
+              <h3>Làm sao để bỏ thuốc lá?</h3>
+              <p>Sức khoẻ của chính bạn. Không hút thuốc lá tức là giảm thiểu đáng kể rủi ro mắc các loại bệnh ung thư…</p>
+            </div>
+            <img src="assets/nosmoke.jpg" alt="Không hút thuốc lá">
+          </article>
+          <a class="ve-dau-trang" href="#top">&#8593; Về đầu trang</a>
+        </section>
+
+        <section class="chuyen-muc" id="am-thuc">
+          <h2 class="thanh-cm">Ẩm thực</h2>
+          <article class="bai-nho">
+            <div>
+              <h3>Các món ăn dân dã</h3>
+              <p>Các món ăn mới trong tuần · Chuyên mục dạy nấu ăn · Món ngon Hà Nội · Các món ăn dân dã ở miền Tây.</p>
+
+              </div>
+              <img src="assets/Am_thuc.jpg" alt="Các món ăn dân dã">
+             </article>
+             <a class="ve-dau-trang" href="#top">&#8593; Về đầu trang</a>
+           </section>
+
+           <section class="chuyen-muc" id="am-nhac">
+             <h2 class="thanh-cm">Âm nhạc</h2>
+             <article class="bai-nho">
+              <div>
+                <h3>Nhạc thiếu nhi</h3>
+               <p>Nắng sân trường · Mẹ yêu không nào · Ba bà đi bán lợn con.</p>
+              </div>
+              <img src="assets/nhac_thieu_nhi.jpg" alt="Nhạc thiếu nhi">
+             </article>
+             <article class="bai-nho">
+              <div>
+                <h3>Dân ca</h3>
+                <p>Bèo dạt mây trôi · Mười thương · Lý cây bông.</p>
+              </div>
+              <img src="assets/Nhac_dan_ca.jpg" alt="Dân ca Việt Nam">
+             </article>
+             <a class="ve-dau-trang" href="#top">&#8593; Về đầu trang</a>
+           </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

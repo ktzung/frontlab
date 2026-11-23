@@ -1,0 +1,17 @@
+Trang thơ “Bốn mùa” — hướng dẫn giải từng bước (HTML5 cơ bản & thẻ ngữ nghĩa).
+
+Dự án: exercise-01-four-seasons-poem/index.html (khi nộp đổi tên thành bai01.html).
+Công nghệ: HTML5, CSS3, Flexbox, CSS Variables.
+
+Chương:
+00:00 Mở đầu
+00:29 Yêu cầu
+01:25 Tạo dự án
+01:53 Cấu trúc HTML
+02:15 Định dạng CSS
+02:50 Chạy thử
+03:10 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #BàiTậpThựcHành

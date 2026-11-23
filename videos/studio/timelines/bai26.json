@@ -1,0 +1,198 @@
+{
+ "id": "bai26",
+ "num": 26,
+ "title": "Form đăng ký CLB Lập trình Web với Bootstrap",
+ "chapter": 4,
+ "chapterName": "Thiết kế responsive với Bootstrap 5",
+ "project": "exercise-26-club-signup",
+ "submitFile": "bai26.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Events"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html"
+ ],
+ "total": 204.34,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 33.206,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 26, Form đăng ký CLB Lập trình Web với Bootstrap. Chúng ta sẽ cùng tạo dự án exercise 26 club signup với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện form Bootstrap kết hợp validation JavaScript và phản hồi trạng thái rõ ràng. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 26, Form đăng ký CLB Lập trình Web với Bootstrap. Chúng ta sẽ cùng tạo dự án exercise 26 club signup với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 33.706,
+   "dur": 45.51,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Tạo khung.card căn giữa. Đặt.card.shadow-sm.mx-auto với style=max-width: 720 pixel bên trong.container.py-4 để biểu mẫu có độ rộng vừa mắt trên màn hình lớn.. Chia lưới form.row.g-3. Biến chính thẻ form thành một hàng lưới (row) với khoảng cách 1rem (g-3). Nhờ đó, các thẻ div và div bên trong tự động căn chỉnh thẳng hàng.. Thiết lập Radio & Checkbox với form-check. Mỗi nút radio hoặc checkbox cần bọc trong.form-check, thẻ input đi kèm label có id khớp với for để người dùng bấm vào chữ cũng chọn được nút..",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Tạo khung.card căn giữa. Đặt.card.shadow-sm.mx-auto với style=max-width: 720 pixel bên trong.container.py-4 để biểu mẫu có độ rộng vừa mắt trên màn hình lớn.. Chia lưới…",
+   "points": [
+    "Tạo khung .card căn giữa — Đặt .card.shadow-sm.mx-auto với style=\"max-width: 720px\" bên trong .container.py-4 để biểu mẫu có độ rộng vừa mắt trên màn hình lớn.",
+    "Chia lưới form.row.g-3 — Biến chính thẻ <form id=\"frmClb\" class= \"row g-3\"> thành một hàng lưới (row) với khoảng cách 1rem (g-3). Nhờ đó, các thẻ <div class=\"col-md-6\"> và <div class=\"col-12\"> bên trong tự động căn chỉnh thẳng hàng.",
+    "Thiết lập Radio & Checkbox với form-check — Mỗi nút radio hoặc checkbox cần bọc trong .form-check, thẻ <input class=\"form-check-input\"> đi kèm <label class=\"form-check-label\" for=\"...\"> có id khớp với for để người dùng bấm vào chữ cũng chọn được nút."
+   ],
+   "heading": "Bài 26 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 79.216,
+   "dur": 28.288,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 26 club signup. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai26.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 26 club signup. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-26-club-signup",
+     "out": "✔ đã tạo thư mục exercise-26-club-signup"
+    },
+    {
+     "cmd": "cd exercise-26-club-signup",
+     "out": "→ đang ở ~/frontlab/exercise-26-club-signup"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc trang",
+   "start": 107.504,
+   "dur": 21.454,
+   "narration": "Mở tệp index.html. Form dùng row g-3, các cột col-md-6 để hai trường nằm một hàng. Có họ tên, mã sinh viên, email, select lớp, radio kỹ năng, textarea mục tiêu và checkbox cam kết. Thông báo kết quả là alert ẩn sẵn. Các thẻ ngữ nghĩa chính gồm form.",
+   "caption": "Mở tệp index.html. Form dùng row g-3, các cột col-md-6 để hai trường nằm một hàng. Có họ tên, mã sinh viên, email, select lớp, radio kỹ năng, textarea mục tiêu và checkbox cam kết. Thông báo kết quả là alert ẩn sẵn. Các thẻ ngữ nghĩa chính gồm form.",
+   "lang": "html",
+   "code": "  <div class=\"container\">\n       <div class=\"card shadow-sm mx-auto\" style=\"max-width: 720px;\">\n         <div class=\"card-header bg-success text-white fw-bold fs-5\">\n           Đăng ký Câu lạc bộ Lập trình Web\n         </div>\n         <div class=\"card-body p-4\">\n           <form id=\"frmClb\" class=\"row g-3\">\n\n           <!-- Hàng 1: Họ tên & Mã SV -->\n           <div class=\"col-md-6\">\n            <label for=\"hoTen\" class=\"form-label fw-semibold\">Họ và tên</label>\n              <input type=\"text\" id=\"hoTen\" class=\"form-control\" placeholder=\"Nguyễn Văn A\" required>\n           </div>\n           <div class=\"col-md-6\">\n              <label for=\"maSv\" class=\"form-label fw-semibold\">Mã sinh viên</label>\n              <input type=\"text\" id=\"maSv\" class=\"form-control\" placeholder=\"2251172001\" required>\n           </div>\n\n           <!-- Hàng 2: Email & Lớp -->\n           <div class=\"col-md-6\">\n              <label for=\"email\" class=\"form-label fw-semibold\">Email</label>\n              <input type=\"email\" id=\"email\" class=\"form-control\" placeholder=\"sv@tlu.edu.vn\" required>\n           </div>\n           <div class=\"col-md-6\">\n              <label for=\"lop\" class=\"form-label fw-semibold\">Lớp</label>\n              <select id=\"lop\" class=\"form-select\">\n                <option value=\"64KTPM1\">64KTPM1</option>\n                <option value=\"64KTPM2\">64KTPM2</option>\n                <option value=\"64CNTT1\">64CNTT1</option>\n                <option value=\"64HTTT1\">64HTTT1</option>\n              </select>\n           </div>\n\n           <!-- Hàng 3: Kỹ năng yêu thích (Radio inline) -->\n           <div class=\"col-12\">\n              <label class=\"form-label fw-semibold d-block\">Kỹ năng yêu thích</label>\n              <div class=\"form-check form-check-inline\">\n                <input class=\"form-check-input\" type=\"radio\" name=\"kn\" id=\"kn1\" value=\"HTML5 / CSS3\" checked>\n                <label class=\"form-check-label\" for=\"kn1\">HTML5 / CSS3</label>\n              </div>\n\n              <div class=\"form-check form-check-inline\">\n                <input class=\"form-check-input\" type=\"radio\" name=\"kn\" id=\"kn2\" value=\"JavaScript\">\n                <label class=\"form-check-label\" for=\"kn2\">JavaScript</label>\n              </div>\n              <div class=\"form-check form-check-inline\">\n                <input class=\"form-check-input\" type=\"radio\" name=\"kn\" id=\"kn3\" value=\"Bootstrap 5\">\n                <label class=\"form-check-label\" for=\"kn3\">Bootstrap 5</label>\n              </div>\n           </div>\n\n           <!-- Hàng 4: Mục tiêu tham gia -->\n           <div class=\"col-12\">\n              <label for=\"mucTieu\" class=\"form-label fw-semibold\">Mục tiêu tham gia</label>\n              <textarea id=\"mucTieu\" class=\"form-control\" rows=\"3\" placeholder=\"Giới thiệu ngắn gọn về bản thân...\"></textarea>\n           </div>\n\n           <!-- Hàng 5: Checkbox cam kết -->\n           <div class=\"col-12\">\n              <div class=\"form-check\">\n                <input class=\"form-check-input\" type=\"checkbox\" id=\"ck\" checked required>\n                <label class=\"form-check-label\" for=\"ck\">\n                       Tôi cam kết tham gia đầy đủ các buổi sinh hoạt CLB\n                </label>\n              </div>\n           </div>\n\n           <!-- Hàng 6: Nút bấm -->\n           <div class=\"col-12 text-end\">\n              <button type=\"reset\" class=\"btn btn-secondary me-2\">Nhập lại</button>\n            <button type=\"submit\" class=\"btn btn-success\">Đăng ký ngay</button>\n           </div>\n         </form>\n\n             <!-- Hộp thông báo kết quả -->\n             <div id=\"ketQua\" class=\"alert alert-success mt-3 mb-0 d-none\" role=\"alert\"></div>\n       </div>\n      </div>\n    </div>",
+   "marks": [
+    2,
+    11,
+    20,
+    26,
+    39,
+    47,
+    59
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Tùy biến CSS",
+   "start": 128.958,
+   "dur": 15.301,
+   "narration": "Chuyển sang phần CSS. Chỉ cần vài quy tắc tùy biến cho card và khoảng cách. Còn lại dùng form-control, form-select, form-check, btn-success của Bootstrap. Media query do grid đảm nhiệm.",
+   "caption": "Chuyển sang phần CSS. Chỉ cần vài quy tắc tùy biến cho card và khoảng cách. Còn lại dùng form-control, form-select, form-check, btn-success của Bootstrap. Media query do grid đảm nhiệm.",
+   "lang": "css",
+   "code": "",
+   "marks": [],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 144.258,
+   "dur": 17.712,
+   "narration": "Phần Bootstrap. Sự kiện submit chặn mặc định, kiểm tra các trường bắt buộc, hiện alert thành công và vô hiệu hóa nút gửi tạm thời. Sự kiện reset ẩn alert và khôi phục trạng thái ban đầu. Sự kiện được lắng nghe gồm submit, reset.",
+   "caption": "Phần Bootstrap. Sự kiện submit chặn mặc định, kiểm tra các trường bắt buộc, hiện alert thành công và vô hiệu hóa nút gửi tạm thời. Sự kiện reset ẩn alert và khôi phục trạng thái ban đầu. Sự kiện được lắng nghe gồm submit, reset.",
+   "lang": "html",
+   "code": "  <div class=\"container\">\n       <div class=\"card shadow-sm mx-auto\" style=\"max-width: 720px;\">\n         <div class=\"card-header bg-success text-white fw-bold fs-5\">\n           Đăng ký Câu lạc bộ Lập trình Web\n         </div>\n         <div class=\"card-body p-4\">\n           <form id=\"frmClb\" class=\"row g-3\">\n\n           <!-- Hàng 1: Họ tên & Mã SV -->\n           <div class=\"col-md-6\">\n            <label for=\"hoTen\" class=\"form-label fw-semibold\">Họ và tên</label>\n              <input type=\"text\" id=\"hoTen\" class=\"form-control\" placeholder=\"Nguyễn Văn A\" required>\n           </div>\n           <div class=\"col-md-6\">\n              <label for=\"maSv\" class=\"form-label fw-semibold\">Mã sinh viên</label>\n              <input type=\"text\" id=\"maSv\" class=\"form-control\" placeholder=\"2251172001\" required>\n           </div>\n\n           <!-- Hàng 2: Email & Lớp -->\n           <div class=\"col-md-6\">\n              <label for=\"email\" class=\"form-label fw-semibold\">Email</label>\n              <input type=\"email\" id=\"email\" class=\"form-control\" placeholder=\"sv@tlu.edu.vn\" required>\n           </div>\n           <div class=\"col-md-6\">\n              <label for=\"lop\" class=\"form-label fw-semibold\">Lớp</label>\n              <select id=\"lop\" class=\"form-select\">\n                <option value=\"64KTPM1\">64KTPM1</option>\n                <option value=\"64KTPM2\">64KTPM2</option>\n                <option value=\"64CNTT1\">64CNTT1</option>\n                <option value=\"64HTTT1\">64HTTT1</option>\n              </select>\n           </div>\n\n           <!-- Hàng 3: Kỹ năng yêu thích (Radio inline) -->\n           <div class=\"col-12\">\n              <label class=\"form-label fw-semibold d-block\">Kỹ năng yêu thích</label>\n              <div class=\"form-check form-check-inline\">\n                <input class=\"form-check-input\" type=\"radio\" name=\"kn\" id=\"kn1\" value=\"HTML5 / CSS3\" checked>\n                <label class=\"form-check-label\" for=\"kn1\">HTML5 / CSS3</label>\n              </div>\n\n              <div class=\"form-check form-check-inline\">\n                <input class=\"form-check-input\" type=\"radio\" name=\"kn\" id=\"kn2\" value=\"JavaScript\">\n                <label class=\"form-check-label\" for=\"kn2\">JavaScript</label>\n              </div>\n              <div class=\"form-check form-check-inline\">\n                <input class=\"form-check-input\" type=\"radio\" name=\"kn\" id=\"kn3\" value=\"Bootstrap 5\">\n                <label class=\"form-check-label\" for=\"kn3\">Bootstrap 5</label>\n              </div>\n           </div>\n\n           <!-- Hàng 4: Mục tiêu tham gia -->\n           <div class=\"col-12\">\n              <label for=\"mucTieu\" class=\"form-label fw-semibold\">Mục tiêu tham gia</label>\n              <textarea id=\"mucTieu\" class=\"form-control\" rows=\"3\" placeholder=\"Giới thiệu ngắn gọn về bản thân...\"></textarea>\n           </div>\n\n           <!-- Hàng 5: Checkbox cam kết -->\n           <div class=\"col-12\">\n              <div class=\"form-check\">\n                <input class=\"form-check-input\" type=\"checkbox\" id=\"ck\" checked required>\n                <label class=\"form-check-label\" for=\"ck\">\n                       Tôi cam kết tham gia đầy đủ các buổi sinh hoạt CLB\n                </label>\n              </div>\n           </div>\n\n           <!-- Hàng 6: Nút bấm -->\n           <div class=\"col-12 text-end\">\n              <button type=\"reset\" class=\"btn btn-secondary me-2\">Nhập lại</button>\n            <button type=\"submit\" class=\"btn btn-success\">Đăng ký ngay</button>\n           </div>\n         </form>\n\n             <!-- Hộp thông báo kết quả -->\n             <div id=\"ketQua\" class=\"alert alert-success mt-3 mb-0 d-none\" role=\"alert\"></div>\n       </div>\n      </div>\n    </div>",
+   "marks": [
+    2,
+    11,
+    20,
+    26,
+    39,
+    47,
+    59
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 161.971,
+   "dur": 19,
+   "narration": "Chạy thử: nhập họ tên, mã sinh viên, email, chọn lớp và kỹ năng, bấm đăng ký. Alert xanh xác nhận thành công. Bấm nhập lại để xóa form và ẩn thông báo.",
+   "caption": "Chạy thử: nhập họ tên, mã sinh viên, email, chọn lớp và kỹ năng, bấm đăng ký. Alert xanh xác nhận thành công. Bấm nhập lại để xóa form và ẩn thông báo.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "fill",
+     "selector": "#hoTen",
+     "value": "Nguyễn Văn An"
+    },
+    {
+     "t": 2.2,
+     "type": "fill",
+     "selector": "#maSv",
+     "value": "2251172001"
+    },
+    {
+     "t": 3.4,
+     "type": "fill",
+     "selector": "#email",
+     "value": "an.nv@tlu.edu.vn"
+    },
+    {
+     "t": 4.6,
+     "type": "select",
+     "selector": "#lop",
+     "value": "64KTPM1"
+    },
+    {
+     "t": 5.8,
+     "type": "fill",
+     "selector": "#mucTieu",
+     "value": "Xây dựng giao diện responsive"
+    },
+    {
+     "t": 7.2,
+     "type": "click",
+     "selector": "#frmClb button[type=submit]"
+    },
+    {
+     "t": 9.4,
+     "type": "click",
+     "selector": "#frmClb button[type=reset]"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 180.971,
+   "dur": 23.373,
+   "narration": "Tổng kết bài 26. Tạo dự án exercise 26 club signup, tệp chính index.html, khi nộp đổi tên thành bai26.html. Bài luyện form Bootstrap kết hợp validation JavaScript và phản hồi trạng thái rõ ràng. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.",
+   "caption": "Tổng kết bài 26. Tạo dự án exercise 26 club signup, tệp chính index.html, khi nộp đổi tên thành bai26.html. Bài luyện form Bootstrap kết hợp validation JavaScript và phản hồi trạng thái rõ ràng. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn…",
+   "points": [
+    "Tạo dự án exercise-26-club-signup, tệp chính index.html, khi nộp đổi tên thành bai26.html.",
+    "Bài luyện form Bootstrap kết hợp validation JavaScript và phản hồi trạng thái rõ ràng.",
+    "Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ."
+   ],
+   "heading": "Bài 26 — điều cần nhớ"
+  }
+ ]
+}

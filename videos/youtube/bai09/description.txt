@@ -1,0 +1,18 @@
+Trang Hồ sơ cá nhân trực tuyến (CV Online) — hướng dẫn giải từng bước (HTML5 cơ bản & thẻ ngữ nghĩa).
+
+Dự án: exercise-09-online-cv/index.html (khi nộp đổi tên thành bai09.html).
+Công nghệ: HTML5, CSS3, Bootstrap 5, Flexbox, CSS Grid, Responsive.
+
+Chương:
+00:00 Mở đầu
+00:31 Yêu cầu
+01:16 Tạo dự án
+01:43 Cấu trúc HTML
+02:03 Định dạng CSS
+02:29 Bootstrap
+02:31 Chạy thử
+02:52 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

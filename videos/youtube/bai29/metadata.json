@@ -1,0 +1,27 @@
+{
+ "id": "bai29",
+ "num": 29,
+ "title": "Bài 29 – Bảng dữ liệu sinh viên & Phân trang | Hướng dẫn Frontend từng bước",
+ "chapter": "Thiết kế responsive với Bootstrap 5",
+ "project": "exercise-29-student-pagination",
+ "submitFile": "bai29.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5",
+  "Flexbox"
+ ],
+ "duration": 194,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "student-pagination"
+ ],
+ "youtubeId": ""
+}

@@ -1,0 +1,177 @@
+{
+ "id": "bai28",
+ "num": 28,
+ "title": "Trình chiếu ảnh Carousel & Tabs",
+ "chapter": 4,
+ "chapterName": "Thiết kế responsive với Bootstrap 5",
+ "project": "exercise-28-carousel-tabs",
+ "submitFile": "bai28.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Bootstrap 5"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 195.36,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 30.782,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 28, Trình chiếu ảnh Carousel & Tabs. Chúng ta sẽ cùng tạo dự án exercise 28 carousel tabs với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện hai component tương tác phổ biến: carousel ảnh và tab nội dung. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 28, Trình chiếu ảnh Carousel & Tabs. Chúng ta sẽ cùng tạo dự án exercise 28 carousel tabs với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 31.282,
+   "dur": 49.918,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Xây dựng #trinh.carousel.slide. Thêm data-bs-ride= carousel vào #trinh nếu muốn trình chiếu tự động chạy khi mở trang. Đặt 3 nút chỉ mục trong.carousel-indicators và 3 khối.carousel-item trong.carousel-inner.. Thêm nút điều hướng Prev / Next. Đặt 2 nút.carousel-control-prev và.carousel-control-next có data-bs-target=#trinh và data-bs-slide=prev / next.. Xây dựng ul.nav.nav-pills và.tab-content. Tạo 3 nút bấm trong ul.nav.nav-pills trỏ tới #t1, #t2, #t3. Bên dưới tạo div chứa 3.tab-pane.fade (trong đó #t1 có thêm.show.active).",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Xây dựng #trinh.carousel.slide. Thêm data-bs-ride= carousel vào #trinh nếu muốn trình chiếu tự động chạy khi mở trang. Đặt 3 nút chỉ mục trong.carousel-indicators và 3…",
+   "points": [
+    "Xây dựng #trinh.carousel.slide — Thêm data-bs-ride= \"carousel\" vào #trinh nếu muốn trình chiếu tự động chạy khi mở trang. Đặt 3 nút chỉ mục trong .carousel-indicators và 3 khối .carousel-item trong .carousel-inner.",
+    "Thêm nút điều hướng Prev / Next — Đặt 2 nút .carousel-control-prev và .carousel-control-next có data-bs-target=\"#trinh\" và data-bs-slide=\"prev\" / \"next\".",
+    "Xây dựng ul.nav.nav-pills và .tab-content — Tạo 3 nút bấm trong ul.nav.nav-pills trỏ tới #t1, #t2, #t3. Bên dưới tạo <div class=\"tab-content bg-white p-3 mt-2 rounded shadow-sm\"> chứa 3 .tab-pane.fade (trong đó #t1 có thêm .show.active)."
+   ],
+   "heading": "Bài 28 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 81.199,
+   "dur": 31.581,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 28 carousel tabs. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai28.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 28 carousel tabs. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh,…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-28-carousel-tabs",
+     "out": "✔ đã tạo thư mục exercise-28-carousel-tabs"
+    },
+    {
+     "cmd": "cd exercise-28-carousel-tabs",
+     "out": "→ đang ở ~/frontlab/exercise-28-carousel-tabs"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc trang",
+   "start": 112.78,
+   "dur": 13.768,
+   "narration": "Mở tệp index.html. Trang có carousel ba ảnh với nút trước sau và chấm chỉ mục, bên dưới là nav pills ba tab: Giới thiệu, Lịch trình, Chi phí. Mỗi tab là một tab-pane.",
+   "caption": "Mở tệp index.html. Trang có carousel ba ảnh với nút trước sau và chấm chỉ mục, bên dưới là nav pills ba tab: Giới thiệu, Lịch trình, Chi phí. Mỗi tab là một tab-pane.",
+   "lang": "html",
+   "code": "  <div class=\"container\" style=\"max-width: 900px;\">\n       <!-- Bộ trình chiếu ảnh Carousel -->\n       <div id=\"trinh\" class=\"carousel slide rounded overflow-hidden shadow\" data-bs-ride=\"carousel\">\n           <!-- Chỉ mục 3 slide -->\n           <div class=\"carousel-indicators\">\n             <button type=\"button\" data-bs-target=\"#trinh\" data-bs-slide-to=\"0\" class=\"active\" aria-current=\"true\" aria-label=\"Slide 1\"></button>\n             <button type=\"button\" data-bs-target=\"#trinh\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\"></button>\n             <button type=\"button\" data-bs-target=\"#trinh\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\"></button>\n           </div>\n\n           <!-- Nội dung 3 slide -->\n           <div class=\"carousel-inner\">\n             <div class=\"carousel-item active\">\n                 <img src=\"assets/1-vinh-ha-long.jpg\" class=\"d-block w-100\" alt=\"Vịnh Hạ Long\">\n                 <div class=\"carousel-caption bg-dark bg-opacity-50 rounded\">\n\n              <h5>Vịnh Hạ Long</h5>\n              <p class=\"mb-0\">Kỳ quan thiên nhiên thế giới</p>\n             </div>\n           </div>\n\n           <div class=\"carousel-item\">\n             <img src=\"assets/2-son-doong.jpg\" class=\"d-block w-100\" alt=\"Hang Sơn Đoòng\">\n             <div class=\"carousel-caption bg-dark bg-opacity-50 rounded\">\n              <h5>Hang Sơn Đoòng</h5>\n              <p class=\"mb-0\">Khám phá lòng đất kỳ vĩ</p>\n             </div>\n           </div>\n\n           <div class=\"carousel-item\">\n             <img src=\"assets/3-thac-ban-gioc.jpg\" class=\"d-block w-100\" alt=\"Thác Bản Giốc\">\n             <div class=\"carousel-caption bg-dark bg-opacity-50 rounded\">\n              <h5>Thác Bản Giốc</h5>\n              <p class=\"mb-0\">Vẻ đẹp biên cương Việt Nam</p>\n             </div>\n           </div>\n       </div>\n\n       <!-- Nút điều hướng Trái / Phải -->\n       <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#trinh\" data-bs-slide=\"prev\">\n           <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n           <span class=\"visually-hidden\">Trước</span>\n       </button>\n       <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#trinh\" data-bs-slide=\"next\">\n           <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n           <span class=\"visually-hidden\"> Tiếp</span>\n       </button>\n    </div>\n\n    <!-- Thanh chuyển đổi Nav Pills -->\n\n        <ul class=\"nav nav-pills mt-4\" role=\"tablist\">\n          <li class=\"nav-item\" role=\"presentation\">\n             <button class=\"nav-link active\" data-bs-toggle=\"pill\" data-bs-target=\"#t1\" type=\"button\" role=\"tab\">Giới thiệu</button>\n          </li>\n          <li class=\"nav-item\" role=\"presentation\">\n             <button class=\"nav-link\" data-bs-toggle=\"pill\" data-bs-target=\"#t2\" type=\"button\" role=\"tab\">Lịch trình</button>\n          </li>\n          <li class=\"nav-item\" role=\"presentation\">\n             <button class=\"nav-link\" data-bs-toggle=\"pill\" data-bs-target=\"#t3\" type=\"button\" role=\"tab\">Chi phí</button>\n          </li>\n        </ul>\n\n        <!-- Nội dung các Tab -->\n        <div class=\"tab-content bg-white p-3 mt-2 rounded shadow-sm\">\n          <div class=\"tab-pane fade show active\" id=\"t1\" role=\"tabpanel\">\n           Hành trình khám phá các danh thắng nổi tiếng Việt Nam với dịch vụ tiêu chuẩn 4 sao.\n          </div>\n          <div class=\"tab-pane fade\" id=\"t2\" role=\"tabpanel\">\n           Ngày 1: Hà Nội - Hạ Long. Ngày 2: Quảng Bình - Sơn Đoòng. Ngày 3: Cao Bằng - Bản Giốc.\n          </div>\n          <div class=\"tab-pane fade\" id=\"t3\" role=\"tabpanel\">\n             Trọn gói 4.900.000đ/người (đã bao gồm vé tham quan, khách sạn và xe đưa đón).\n          </div>\n        </div>\n    </div>",
+   "marks": [
+    3,
+    8,
+    15,
+    30,
+    41,
+    47,
+    54
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Tùy biến CSS",
+   "start": 126.548,
+   "dur": 14.477,
+   "narration": "Chuyển sang phần CSS. Carousel bo góc, ảnh cao đồng nhất, chữ trên ảnh có lớp phủ tối. Tab active dùng màu xanh. Chỉ tinh chỉnh vài chi tiết, còn lại là component Bootstrap.",
+   "caption": "Chuyển sang phần CSS. Carousel bo góc, ảnh cao đồng nhất, chữ trên ảnh có lớp phủ tối. Tab active dùng màu xanh. Chỉ tinh chỉnh vài chi tiết, còn lại là component Bootstrap.",
+   "lang": "css",
+   "code": "       .carousel-item img {\n           height: 360px;\n           object-fit: cover;\n       }",
+   "marks": [],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "Bootstrap",
+   "start": 141.025,
+   "dur": 13.254,
+   "narration": "Phần Bootstrap. Bootstrap bundle tự chạy carousel, nút chuyển slide và tab. Không cần viết mã điều khiển thủ công, chỉ cần đúng data-bs-target và data-bs-slide.",
+   "caption": "Phần Bootstrap. Bootstrap bundle tự chạy carousel, nút chuyển slide và tab. Không cần viết mã điều khiển thủ công, chỉ cần đúng data-bs-target và data-bs-slide.",
+   "lang": "html",
+   "code": "  <div class=\"container\" style=\"max-width: 900px;\">\n       <!-- Bộ trình chiếu ảnh Carousel -->\n       <div id=\"trinh\" class=\"carousel slide rounded overflow-hidden shadow\" data-bs-ride=\"carousel\">\n           <!-- Chỉ mục 3 slide -->\n           <div class=\"carousel-indicators\">\n             <button type=\"button\" data-bs-target=\"#trinh\" data-bs-slide-to=\"0\" class=\"active\" aria-current=\"true\" aria-label=\"Slide 1\"></button>\n             <button type=\"button\" data-bs-target=\"#trinh\" data-bs-slide-to=\"1\" aria-label=\"Slide 2\"></button>\n             <button type=\"button\" data-bs-target=\"#trinh\" data-bs-slide-to=\"2\" aria-label=\"Slide 3\"></button>\n           </div>\n\n           <!-- Nội dung 3 slide -->\n           <div class=\"carousel-inner\">\n             <div class=\"carousel-item active\">\n                 <img src=\"assets/1-vinh-ha-long.jpg\" class=\"d-block w-100\" alt=\"Vịnh Hạ Long\">\n                 <div class=\"carousel-caption bg-dark bg-opacity-50 rounded\">\n\n              <h5>Vịnh Hạ Long</h5>\n              <p class=\"mb-0\">Kỳ quan thiên nhiên thế giới</p>\n             </div>\n           </div>\n\n           <div class=\"carousel-item\">\n             <img src=\"assets/2-son-doong.jpg\" class=\"d-block w-100\" alt=\"Hang Sơn Đoòng\">\n             <div class=\"carousel-caption bg-dark bg-opacity-50 rounded\">\n              <h5>Hang Sơn Đoòng</h5>\n              <p class=\"mb-0\">Khám phá lòng đất kỳ vĩ</p>\n             </div>\n           </div>\n\n           <div class=\"carousel-item\">\n             <img src=\"assets/3-thac-ban-gioc.jpg\" class=\"d-block w-100\" alt=\"Thác Bản Giốc\">\n             <div class=\"carousel-caption bg-dark bg-opacity-50 rounded\">\n              <h5>Thác Bản Giốc</h5>\n              <p class=\"mb-0\">Vẻ đẹp biên cương Việt Nam</p>\n             </div>\n           </div>\n       </div>\n\n       <!-- Nút điều hướng Trái / Phải -->\n       <button class=\"carousel-control-prev\" type=\"button\" data-bs-target=\"#trinh\" data-bs-slide=\"prev\">\n           <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n           <span class=\"visually-hidden\">Trước</span>\n       </button>\n       <button class=\"carousel-control-next\" type=\"button\" data-bs-target=\"#trinh\" data-bs-slide=\"next\">\n           <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n           <span class=\"visually-hidden\"> Tiếp</span>\n       </button>\n    </div>\n\n    <!-- Thanh chuyển đổi Nav Pills -->\n\n        <ul class=\"nav nav-pills mt-4\" role=\"tablist\">\n          <li class=\"nav-item\" role=\"presentation\">\n             <button class=\"nav-link active\" data-bs-toggle=\"pill\" data-bs-target=\"#t1\" type=\"button\" role=\"tab\">Giới thiệu</button>\n          </li>\n          <li class=\"nav-item\" role=\"presentation\">\n             <button class=\"nav-link\" data-bs-toggle=\"pill\" data-bs-target=\"#t2\" type=\"button\" role=\"tab\">Lịch trình</button>\n          </li>\n          <li class=\"nav-item\" role=\"presentation\">\n             <button class=\"nav-link\" data-bs-toggle=\"pill\" data-bs-target=\"#t3\" type=\"button\" role=\"tab\">Chi phí</button>\n          </li>\n        </ul>\n\n        <!-- Nội dung các Tab -->\n        <div class=\"tab-content bg-white p-3 mt-2 rounded shadow-sm\">\n          <div class=\"tab-pane fade show active\" id=\"t1\" role=\"tabpanel\">\n           Hành trình khám phá các danh thắng nổi tiếng Việt Nam với dịch vụ tiêu chuẩn 4 sao.\n          </div>\n          <div class=\"tab-pane fade\" id=\"t2\" role=\"tabpanel\">\n           Ngày 1: Hà Nội - Hạ Long. Ngày 2: Quảng Bình - Sơn Đoòng. Ngày 3: Cao Bằng - Bản Giốc.\n          </div>\n          <div class=\"tab-pane fade\" id=\"t3\" role=\"tabpanel\">\n             Trọn gói 4.900.000đ/người (đã bao gồm vé tham quan, khách sạn và xe đưa đón).\n          </div>\n        </div>\n    </div>",
+   "marks": [
+    3,
+    8,
+    15,
+    30,
+    41,
+    47,
+    54
+   ],
+   "annotation": "Navbar, grid và component Bootstrap"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 154.279,
+   "dur": 19,
+   "narration": "Chạy thử: bấm nút next để chuyển sang ảnh thứ hai của carousel. Bấm tab Lịch trình để đổi nội dung bên dưới. Thu nhỏ màn hình, carousel và tab vẫn hoạt động.",
+   "caption": "Chạy thử: bấm nút next để chuyển sang ảnh thứ hai của carousel. Bấm tab Lịch trình để đổi nội dung bên dưới. Thu nhỏ màn hình, carousel và tab vẫn hoạt động.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "click",
+     "selector": ".carousel-control-next"
+    },
+    {
+     "t": 4.2,
+     "type": "click",
+     "selector": "[data-bs-target=\"#t2\"]"
+    },
+    {
+     "t": 6.4,
+     "type": "click",
+     "selector": "[data-bs-target=\"#t3\"]"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 173.279,
+   "dur": 22.084,
+   "narration": "Tổng kết bài 28. Tạo dự án exercise 28 carousel tabs, tệp chính index.html, khi nộp đổi tên thành bai28.html. Bài luyện hai component tương tác phổ biến: carousel ảnh và tab nội dung. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.",
+   "caption": "Tổng kết bài 28. Tạo dự án exercise 28 carousel tabs, tệp chính index.html, khi nộp đổi tên thành bai28.html. Bài luyện hai component tương tác phổ biến: carousel ảnh và tab nội dung. Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.",
+   "points": [
+    "Tạo dự án exercise-28-carousel-tabs, tệp chính index.html, khi nộp đổi tên thành bai28.html.",
+    "Bài luyện hai component tương tác phổ biến: carousel ảnh và tab nội dung.",
+    "Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ."
+   ],
+   "heading": "Bài 28 — điều cần nhớ"
+  }
+ ]
+}

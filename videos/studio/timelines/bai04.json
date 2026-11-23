@@ -1,0 +1,150 @@
+{
+ "id": "bai04",
+ "num": 4,
+ "title": "Trang giới thiệu thành phố Đà Nẵng",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-04-da-nang-city",
+ "submitFile": "bai04.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 199.95,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 27.34,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 4, Trang giới thiệu thành phố Đà Nẵng. Chúng ta sẽ cùng tạo dự án exercise 04 da nang city với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Luyện cách đặt ảnh banner, chữ nổi trên ảnh và giữ bố cục đọc tốt ở nhiều kích thước. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 4, Trang giới thiệu thành phố Đà Nẵng. Chúng ta sẽ cùng tạo dự án exercise 04 da nang city với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Luyện…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 27.84,
+   "dur": 43.705,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Kỹ thuật ngắt dòng trong h1 không dùng br. Bọc dòng phụ Thành phố đáng sống trong thẻ span bên trong h1. Trong CSS, đặt h1 span display: block, font-size: 0.7em, để dòng phụ tự động xuống hàng và có cỡ chữ bằng 70 phần trăm dòng chính.. Cắt khung ảnh ngang bằng object-fit. cover: Ảnh chụp thực tế thường có chiều cao lớn. Khi đặt width: 100 phần trăm, max-height: 280 pixel, object-fit: cover, , trình duyệt giữ nguyên độ nét và tỉ lệ khung hình của ảnh mà không bị bẹp hình.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Kỹ thuật ngắt dòng trong h1 không dùng br. Bọc dòng phụ Thành phố đáng sống trong thẻ span bên trong h1. Trong CSS, đặt h1 span display: block, font-size: 0.7em, để dòng phụ tự…",
+   "points": [
+    "Kỹ thuật ngắt dòng trong <h1> không dùng <br> — Bọc dòng phụ “Thành phố đáng sống” trong thẻ <span> bên trong <h1>. Trong CSS, đặt h1 span { display: block; font-size: 0.7em; } để dòng phụ tự động xuống hàng và có cỡ chữ bằng 70% dòng chính.",
+    "Cắt khung ảnh ngang bằng object-fit — cover: Ảnh chụp thực tế thường có chiều cao lớn. Khi đặt width: 100%; max-height: 280px; object-fit: cover;, trình duyệt giữ nguyên độ nét và tỉ lệ khung hình của ảnh mà không bị bẹp hình."
+   ],
+   "heading": "Bài 04 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 71.545,
+   "dur": 30.838,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 04 da nang city. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai04.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 04 da nang city. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-04-da-nang-city",
+     "out": "✔ đã tạo thư mục exercise-04-da-nang-city"
+    },
+    {
+     "cmd": "cd exercise-04-da-nang-city",
+     "out": "→ đang ở ~/frontlab/exercise-04-da-nang-city"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 102.383,
+   "dur": 17.727,
+   "narration": "Mở tệp index.html. Trang dùng header chứa ảnh banner và tiêu đề thành phố, main chứa các đoạn giới thiệu, figure cho ảnh minh họa và footer thông tin liên hệ. Bố cục một cột tập trung vào nội dung. Các thẻ ngữ nghĩa chính gồm article.",
+   "caption": "Mở tệp index.html. Trang dùng header chứa ảnh banner và tiêu đề thành phố, main chứa các đoạn giới thiệu, figure cho ảnh minh họa và footer thông tin liên hệ. Bố cục một cột tập trung vào nội dung. Các thẻ ngữ nghĩa chính gồm article.",
+   "lang": "html",
+   "code": "    <article class=\"bai-viet\">\n      <h1>Đà Nẵng <span>Thành phố đáng sống</span></h1>\n\n     <img class=\"anh-banner\" src=\"assets/da-nang.jpg\" alt=\"Cầu Rồng Đà Nẵng về đêm\">\n\n      <p>\n          Đà Nẵng nằm bên bờ sông Hàn, nổi bật với những cây cầu độc đáo như Cầu Rồng phun lửa và nước,\n          Cầu Sông Hàn quay giữa đêm. Thành phố còn có <strong>Bà Nà Hills</strong> trên núi cao và\n          <strong>bán đảo Sơn Trà</strong> xanh mát.\n      </p>\n\n      <div class=\"thanh-phu\">Cầu Rồng – biểu tượng sông Hàn</div>\n\n      <p>\n        Mỗi tối cuối tuần, người dân và du khách lại tụ tập hai bên bờ sông để xem Cầu Rồng phun lửa.\n        Ẩm thực miền Trung với mì Quảng, bánh xèo, hải sản tươi ngon càng làm nên sức hút của thành phố\n        đáng sống nhất Việt Nam.\n      </p>\n    </article>",
+   "marks": [
+    1,
+    2,
+    4,
+    19
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 120.11,
+   "dur": 26.046,
+   "narration": "Chuyển sang phần CSS. Banner dùng object-fit cover, chữ trắng có bóng đổ để nổi trên ảnh. Đoạn mở dùng first-letter làm drop cap. Thanh phụ và liên kết dùng màu xanh và đỏ của thành phố, media query giảm cỡ chữ trên mobile. Bảng màu chính gồm #ffffff, #1565C0, #C62828.",
+   "caption": "Chuyển sang phần CSS. Banner dùng object-fit cover, chữ trắng có bóng đổ để nổi trên ảnh. Đoạn mở dùng first-letter làm drop cap. Thanh phụ và liên kết dùng màu xanh và đỏ của thành phố, media query giảm cỡ chữ trên mobile. Bảng màu chính gồm…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         padding: 32px 16px;\n         font-family: Georgia, \"Times New Roman\", serif;\n\n        background: #ffffff;\n        display: flex;\n        justify-content: center;\n    }\n\n    .bai-viet {\n        width: min(800px, 100%);\n    }\n\n    .bai-viet h1 {\n        margin: 0;\n        text-align: center;\n        color: #1565C0;\n        text-transform: uppercase;\n        font-size: 26px;\n        line-height: 1.3;\n    }\n\n    .bai-viet h1 span {\n        display: block;\n        font-size: 0.7em;\n    }\n\n    .anh-banner {\n        display: block;\n        width: 100%;\n        max-height: 280px;\n        object-fit: cover;\n        border-radius: 8px;\n        margin: 16px 0;\n    }\n\n    .bai-viet p {\n        margin: 14px 0;\n        line-height: 1.85;\n        text-align: justify;\n        display: flow-root;\n    }\n\n      .bai-viet p::first-letter {\n          float: left;\n          font-size: 3rem;\n          line-height: 0.85;\n          font-weight: 700;\n          color: #C62828;\n          padding: 0.1rem 0.35rem 0 0;\n      }\n\n      .thanh-phu {\n          background: #1565C0;\n          color: #ffffff;\n          text-align: right;\n          padding: 6px 12px;\n          font-size: 15px;\n          margin: 16px 0;\n          border-radius: 3px;\n      }",
+   "marks": [
+    9
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 146.156,
+   "dur": 20.5,
+   "narration": "Chạy thử: banner Đà Nẵng hiển thị tràn chiều ngang, tiêu đề trắng nổi bật. Cuộn xuống phần giới thiệu, sau đó thu nhỏ cửa sổ để kiểm tra bố cục một cột và cỡ chữ.",
+   "caption": "Chạy thử: banner Đà Nẵng hiển thị tràn chiều ngang, tiêu đề trắng nổi bật. Cuộn xuống phần giới thiệu, sau đó thu nhỏ cửa sổ để kiểm tra bố cục một cột và cỡ chữ.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.45
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 166.656,
+   "dur": 33.294,
+   "narration": "Tổng kết bài 4. Tạo dự án exercise 04 da nang city, tệp chính index.html, khi nộp đổi tên thành bai04.html. Giải thích sự khác biệt khi có và không có object-fit: cover trên bức ảnh banner, và cách dùng text-transform: uppercase để tự động viết hoa tiêu đề.. Lỗi thường gặp: Quên display: flow-root (hoặc clear: both) khi đoạn văn quá ngắn khiến thanh.thanh-phu bị vướng vào chữ cái first-letter đang float: left.",
+   "caption": "Tổng kết bài 4. Tạo dự án exercise 04 da nang city, tệp chính index.html, khi nộp đổi tên thành bai04.html. Giải thích sự khác biệt khi có và không có object-fit: cover trên bức ảnh banner, và cách dùng text-transform: uppercase để tự động viết hoa…",
+   "points": [
+    "Tạo dự án exercise-04-da-nang-city, tệp chính index.html, khi nộp đổi tên thành bai04.html.",
+    "Giải thích sự khác biệt khi có và không có object-fit: cover trên bức ảnh banner, và cách dùng text-transform: uppercase để tự động viết hoa tiêu đề.",
+    "Lỗi thường gặp: Quên display: flow-root (hoặc clear: both) khi đoạn văn quá ngắn khiến thanh .thanh-phu bị vướng vào chữ cái ::first-letter đang float: left."
+   ],
+   "heading": "Bài 04 — điều cần nhớ"
+  }
+ ]
+}

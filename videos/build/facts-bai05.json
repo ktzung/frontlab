@@ -1,0 +1,16 @@
+{
+ "num": 5,
+ "slug": "nhan-ai-flower-shop",
+ "steps": [
+  {
+   "label": "Thay thế bảng dàn trang cũ bằng CSS Grid",
+   "text": "Trong đề bài gốc của thế hệ HTML 4, bố cục ảnh bên trái – chữ bên phải thường bị đặt trong một <table> 1 hàng 2 ô. Với chuẩn HTML5/CSS3 hiện đại, ta dùng <div class=\"bo-cuc-2-cot\"> với display: grid; grid-template-columns: 220px 1fr; gap: 24px;. •"
+  },
+  {
+   "label": "Tạo nhãn tiêu đề nền hồng vừa khít chữ",
+   "text": "Mặc định thẻ <h2> là phần tử khối (block) nên màu nền sẽ kéo dài hết 100% chiều ngang cột phải. Để nền hồng #FFC0CB chỉ bao vừa khít chữ “1. Giới thiệu” và “2. Liên hệ” như hình mẫu, ta đặt display: inline-block; padding: 4px 10px;."
+  }
+ ],
+ "highlight": "Giải thích tại sao dùng display: inline-block trên .nhan-muc và cách dùng list-style-type: square / circle thay vì thuộc tính HTML type=\"square\" đã lỗi thời. •",
+ "mistake": "Dùng padding-left: 0 trên thẻ <ul> làm mất hoàn toàn các ký hiệu đầu dòng (square/circle) vì dấu chấm đầu dòng của <ul> nằm trong vùng padding-left."
+}

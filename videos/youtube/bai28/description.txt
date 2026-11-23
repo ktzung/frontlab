@@ -1,0 +1,18 @@
+Trình chiếu ảnh Carousel & Tabs — hướng dẫn giải từng bước (Thiết kế responsive với Bootstrap 5).
+
+Dự án: exercise-28-carousel-tabs/index.html (khi nộp đổi tên thành bai28.html).
+Công nghệ: HTML5, CSS3, Bootstrap 5.
+
+Chương:
+00:00 Mở đầu
+00:31 Yêu cầu
+01:21 Tạo dự án
+01:52 Cấu trúc trang
+02:06 Tùy biến CSS
+02:21 Bootstrap
+02:34 Chạy thử
+02:53 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

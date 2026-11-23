@@ -1,0 +1,136 @@
+1
+00:00:00,650 --> 00:00:01,801
+Chào các bạn.
+
+2
+00:00:01,851 --> 00:00:09,996
+Đây là video hướng dẫn bài thực hành số 21, Bố cục cổng thông tin 4 vùng với CSS Grid Areas.
+
+3
+00:00:10,046 --> 00:00:23,503
+Chúng ta sẽ cùng tạo dự án exercise 21 portal grid areas với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:23,553 --> 00:00:31,344
+Bài luyện CSS Grid Areas — cách đặt tên vùng giúp bố cục trang lớn dễ đọc và dễ bảo trì.
+
+5
+00:00:31,394 --> 00:00:32,544
+Cùng bắt đầu.
+
+6
+00:00:32,894 --> 00:00:36,856
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:36,906 --> 00:00:38,714
+Bài gồm 2 phần chính.
+
+8
+00:00:38,764 --> 00:00:42,209
+Vẽ bản đồ lưới bằng grid-template-areas.
+
+9
+00:00:42,259 --> 00:00:51,559
+Với bố cục 2 hàng × 3 cột, hàng đầu tiên cả 3 ô đều ghi banner banner banner, hàng thứ hai ghi menu main qc.
+
+10
+00:00:51,609 --> 00:00:56,690
+Cách viết này trực quan như vẽ sơ đồ ASCII ngay trong CSS..
+
+11
+00:00:56,740 --> 00:01:01,046
+Chuyển đổi bản đồ lưới trên màn hình nhỏ (@media).
+
+12
+00:01:01,096 --> 00:01:16,338
+Khi màn hình nhỏ hơn 820 pixel, ta chỉ cần đổi grid-template-columns: 1fr và sửa grid-template-areas thành 4 hàng dọc banner menu main qc mà không phải sửa bất kỳ dòng HTML nào.
+
+13
+00:01:16,588 --> 00:01:18,245
+Bước một, tạo dự án.
+
+14
+00:01:18,295 --> 00:01:22,935
+Mở terminal và chạy mkdir exercise 21 portal grid areas.
+
+15
+00:01:22,985 --> 00:01:31,352
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+16
+00:01:31,402 --> 00:01:39,190
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+17
+00:01:39,240 --> 00:01:42,720
+Trong dự án, tệp chính luôn là index.html.
+
+18
+00:01:42,770 --> 00:01:48,403
+Khi nộp theo quy định của học phần, các em đổi tên thành bai21.html.
+
+19
+00:01:48,703 --> 00:01:50,240
+Mở tệp index.html.
+
+20
+00:01:50,290 --> 00:01:56,609
+Trang chia bốn vùng rõ ràng: header, nav, main và aside quảng cáo, footer.
+
+21
+00:01:56,659 --> 00:02:05,112
+Mỗi vùng có tên trong grid-template-areas, nội dung bên trong là các tiêu đề và danh sách liên kết.
+
+22
+00:02:05,162 --> 00:02:09,687
+Các thẻ ngữ nghĩa chính gồm header, nav, main, aside.
+
+23
+00:02:10,087 --> 00:02:12,404
+Chuyển sang phần CSS.
+
+24
+00:02:12,454 --> 00:02:21,610
+Grid đặt tên vùng bằng grid-template-areas, cột trái 260 pixel, cột phải 220 pixel.
+
+25
+00:02:21,660 --> 00:02:25,962
+Header và footer trải toàn chiều ngang.
+
+26
+00:02:26,012 --> 00:02:28,991
+Bảng màu đỏ đô, trắng, xám.
+
+27
+00:02:29,041 --> 00:02:35,881
+Media query chuyển về một cột và ẩn hoặc đưa aside xuống cuối.
+
+28
+00:02:35,931 --> 00:02:42,881
+Bảng màu chính gồm #eceff1, #ffffff, #C62828, #8E0000, #FFE082.
+
+29
+00:02:43,181 --> 00:02:48,365
+Chạy thử: bốn vùng header, nav, main, aside hiển thị đúng vị trí.
+
+30
+00:02:48,415 --> 00:02:53,918
+Thu nhỏ màn hình, grid chuyển thành một cột và các vùng xếp lần lượt.
+
+31
+00:03:02,181 --> 00:03:03,617
+Tổng kết bài 21.
+
+32
+00:03:03,667 --> 00:03:12,283
+Tạo dự án exercise 21 portal grid areas, tệp chính index.html, khi nộp đổi tên thành bai21.html.
+
+33
+00:03:12,333 --> 00:03:27,143
+Giải thích vì sao frameset bị loại bỏ khỏi HTML5 (gây hại SEO, khó bookmark URL con, không responsive) và cách grid-template-areas giải quyết triệt để bài toán này..
+
+34
+00:03:27,193 --> 00:03:45,143
+Lỗi thường gặp: Viết sai số lượng cột trong một hàng của grid-template-areas (ví dụ hàng 1 chỉ viết 2 từ banner banner trong khi hàng 2 có 3 từ menu main qc), làm toàn bộ khai báo Grid bị vô hiệu hóa.
+

@@ -1,0 +1,20 @@
+{
+ "num": 27,
+ "slug": "travel-showcase",
+ "steps": [
+  {
+   "label": "Dựng lưới 3 thẻ .card.h-100",
+   "text": "Sử dụng .col-sm-6.col-lg-4 để đạt khả năng đáp ứng 3 cấp độ màn hình. Trên mỗi nút “Chi tiết”, gắn thêm thuộc tính data-title và data-info để truyền thông tin riêng của từng địa danh vào Modal. •"
+  },
+  {
+   "label": "Dựng cấu trúc .accordion#ac",
+   "text": "Mỗi .accordion-item gồm h2. accordion-header > button.accordion-button và khối nội dung .accordion-collapse.collapse. Mục đầu tiên có thêm lớp .show ở phần nội dung, còn mục thứ hai có thêm lớp .collapsed ở nút bấm. •"
+  },
+  {
+   "label": "Dựng .modal.fade#md và lắng nghe sự kiện show.bs.modal",
+   "text": "Sử dụng sự kiện chuẩn show.bs.modal của Bootstrap 5 (event.relatedTarget) để lấy tên địa danh và thông tin từ nút vừa bấm, cập nhật vào .modal-title và . modal-body."
+  }
+ ],
+ "highlight": "",
+ "mistake": ""
+}

@@ -1,0 +1,16 @@
+{
+ "num": 22,
+ "slug": "light-dark-theme",
+ "steps": [
+  {
+   "label": "Tách biệt định nghĩa màu và nơi sử dụng màu",
+   "text": "Tuyệt đối không gán mã màu cứng (như #ffffff hay #0f172a) trực tiếp vào .the hay body. Thay vào đó, tất cả các phần tử đều dùng background: var(--nen), color: var(-- chu). Khi document.body.classList.toggle(\"toi\") được gọi, toàn bộ 5 biến màu đổi giá trị đồng loạt. •"
+  },
+  {
+   "label": "Thiết kế nút gạt Toggle Switch mượt mà",
+   "text": "Ở chế độ Sáng (chưa có .toi), chấm tròn ::after nằm bên trái (left: 4px). Khi body.toi kích hoạt, ta dịch chấm tròn sang phải bằng transform: translateX(32px)."
+  }
+ ],
+ "highlight": "Bấm trực tiếp vào nút gạt để trình diễn hiệu ứng chuyển màu đồng loạt và giải thích vì sao cách dùng var(--ten-bien) gọn hơn gấp nhiều lần so với việc viết .toi .the, .toi h3, .toi p riêng rẽ. •",
+ "mistake": "Viết sai cú pháp biến CSS (thiếu hai dấu gạch ngang -- ở đầu tên biến hoặc quên hàm var(...) khi gọi)."
+}

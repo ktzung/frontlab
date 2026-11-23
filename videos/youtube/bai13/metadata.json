@@ -1,0 +1,29 @@
+{
+ "id": "bai13",
+ "num": 13,
+ "title": "Bài 13 – Đồng hồ số điện tử thời gian thực | Hướng dẫn Frontend từng bước",
+ "chapter": "Lập trình tương tác với JavaScript",
+ "project": "exercise-13-digital-clock",
+ "submitFile": "bai13.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "Date & Timer"
+ ],
+ "duration": 231,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "digital-clock"
+ ],
+ "youtubeId": ""
+}

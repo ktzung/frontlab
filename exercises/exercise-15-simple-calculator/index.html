@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Bài 15 - Máy tính đơn giản (JavaScript)</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #1e293b, #0f172a);
+        padding: 24px;
+    }
+
+    .may-tinh {
+        width: 320px;
+        background: #111827;
+        border-radius: 16px;
+        padding: 18px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .man-hinh {
+        background: #022c22;
+        color: #4ade80;
+        border-radius: 10px;
+        padding: 16px 18px;
+        text-align: right;
+        font-family: "Courier New", monospace;
+        margin-bottom: 14px;
+        word-break: break-all;
+    }
+
+    .phep-tinh {
+        font-size: 14px;
+        opacity: 0.75;
+        min-height: 18px;
+
+    }
+
+    .ket-qua {
+         font-size: 34px;
+         font-weight: 700;
+         margin-top: 4px;
+    }
+
+    .luoi-phim {
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         gap: 9px;
+    }
+
+    button {
+         padding: 14px 0;
+         border: none;
+         border-radius: 8px;
+         background: #1f2a37;
+         color: #e5e7eb;
+         font-size: 16px;
+         font-weight: 600;
+         cursor: pointer;
+         transition: filter 0.15s;
+    }
+
+    button:hover { filter: brightness(1.15); }
+    button:active { transform: scale(0.97); }
+
+    .so      { background: #25313f; }
+    .op      { background: #0d6efd; color: #ffffff; }
+    .bang { background: #16a34a; color: #ffffff; }
+    .xoa     { background: #dc2626; color: #ffffff; }
+    .rong { grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <main class="may-tinh" aria-label="Máy tính bỏ túi">
+
+    <div class="man-hinh">
+       <div class="phep-tinh" id="phep-tinh">12 + 8 × 3</div>
+       <div class="ket-qua" id="ket-qua">36</div>
+    </div>
+
+    <div class="luoi-phim" id="ban-phim">
+       <button type="button" class="xoa" data-key="C">C</button>
+       <button type="button" class="op" data-key="()">( )</button>
+       <button type="button" class="op" data-key="%">%</button>
+       <button type="button" class="op" data-key="÷">÷</button>
+
+       <button type="button" class="so" data-key="7">7</button>
+       <button type="button" class="so" data-key="8">8</button>
+       <button type="button" class="so" data-key="9">9</button>
+       <button type="button" class="op" data-key="×">×</button>
+
+       <button type="button" class="so" data-key="4">4</button>
+       <button type="button" class="so" data-key="5">5</button>
+       <button type="button" class="so" data-key="6">6</button>
+       <button type="button" class="op" data-key="−">−</button>
+
+       <button type="button" class="so" data-key="1">1</button>
+       <button type="button" class="so" data-key="2">2</button>
+       <button type="button" class="so" data-key="3">3</button>
+       <button type="button" class="op" data-key="+">+</button>
+
+       <button type="button" class="so rong" data-key="0">0</button>
+       <button type="button" class="so" data-key=".">.</button>
+       <button type="button" class="bang" data-key="=">=</button>
+    </div>
+  </main>
+
+  <script>
+    const elPhepTinh = document.getElementById("phep-tinh");
+    const elKetQua = document.getElementById("ket-qua");
+    let bieuThuc = "";
+
+    function tinhGiaTri(chuoi) {
+
+        const chuanHoa = chuoi
+            .replaceAll("×", "*")
+            .replaceAll("÷", "/")
+            .replaceAll("−", "-")
+            .replaceAll("%", "/100");
+
+        if (!/^[0-9+\-*/.() ]+$/.test(chuanHoa)) {
+            throw new Error("Biểu thức không hợp lệ");
+        }
+        const kq = Function(`"use strict"; return (${chuanHoa})`)();
+        if (!Number.isFinite(kq)) return "Lỗi chia 0";
+        return Number(kq.toFixed(8)).toString();
+    }
+
+    document.getElementById("ban-phim").addEventListener("click", (e) => {
+        const nut = e.target.closest("button");
+        if (!nut) return;
+        const phim = nut.dataset.key;
+
+        if (phim === "C") {
+            bieuThuc = "";
+            elPhepTinh.textContent = "";
+            elKetQua.textContent = "0";
+            return;
+        }
+
+        if (phim === "=") {
+            if (!bieuThuc) return;
+            try {
+                const dapAn = tinhGiaTri(bieuThuc);
+                elPhepTinh.textContent = bieuThuc;
+                elKetQua.textContent = dapAn;
+                bieuThuc = dapAn === "Lỗi chia 0" ? "" : dapAn;
+            } catch {
+                elKetQua.textContent = "Lỗi";
+            }
+            return;
+        }
+
+       if (phim === "()") {
+           const mo = (bieuThuc.match(/\(/g) || []).length;
+           const dong = (bieuThuc.match(/\)/g) || []).length;
+           bieuThuc += mo > dong ? ")" : "(";
+       } else {
+           bieuThuc += phim;
+       }
+
+       elPhepTinh.textContent = bieuThuc;
+       elKetQua.textContent = bieuThuc;
+    });
+  </script>
+</body>
+</html>

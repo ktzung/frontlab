@@ -1,0 +1,24 @@
+{
+ "num": 26,
+ "slug": "club-signup",
+ "steps": [
+  {
+   "label": "Tạo khung .card căn giữa",
+   "text": "Đặt .card.shadow-sm.mx-auto với style=\"max-width: 720px\" bên trong .container.py-4 để biểu mẫu có độ rộng vừa mắt trên màn hình lớn. •"
+  },
+  {
+   "label": "Chia lưới form.row.g-3",
+   "text": "Biến chính thẻ <form id=\"frmClb\" class= \"row g-3\"> thành một hàng lưới (row) với khoảng cách 1rem (g-3). Nhờ đó, các thẻ <div class=\"col-md-6\"> và <div class=\"col-12\"> bên trong tự động căn chỉnh thẳng hàng. •"
+  },
+  {
+   "label": "Thiết lập Radio & Checkbox với form-check",
+   "text": "Mỗi nút radio hoặc checkbox cần bọc trong .form-check, thẻ <input class=\"form-check-input\"> đi kèm <label class=\"form-check-label\" for=\"...\"> có id khớp với for để người dùng bấm vào chữ cũng chọn được nút. •"
+  },
+  {
+   "label": "Bắt sự kiện submit hiển thị kết quả",
+   "text": "Ngăn tải lại trang bằng e. preventDefault(), kiểm tra điều kiện cam kết và hiển thị hộp .alert.alert-success tóm tắt thông tin vừa đăng ký."
+  }
+ ],
+ "highlight": "",
+ "mistake": ""
+}

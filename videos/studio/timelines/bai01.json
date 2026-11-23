@@ -1,0 +1,152 @@
+{
+ "id": "bai01",
+ "num": 1,
+ "title": "Trang thơ “Bốn mùa”",
+ "chapter": 1,
+ "chapterName": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-01-four-seasons-poem",
+ "submitFile": "bai01.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Variables"
+ ],
+ "hasJs": false,
+ "files": [
+  "index.html"
+ ],
+ "total": 226.63,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 29.053,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 1, Trang thơ Bốn mùa. Chúng ta sẽ cùng tạo dự án exercise 01 four seasons poem với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài mở đầu rèn tư duy dùng thẻ ngữ nghĩa thay cho font và center, đồng thời làm quen biến CSS và Flexbox. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 1, Trang thơ Bốn mùa. Chúng ta sẽ cùng tạo dự án exercise 01 four seasons poem với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt. Bài mở đầu rèn tư…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 29.553,
+   "dur": 56.139,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Xây dựng cấu trúc HTML5 ngữ nghĩa. Thay vì dùng các thẻ center và font đã bị loại bỏ khỏi chuẩn HTML5, ta bọc toàn bộ bài thơ trong thẻ article. Khai báo biến màu CSS và dàn khung. Khai báo các mã màu chủ đạo trong :root (do: #D40000, xanh: #0033CC, hong: #FFD9E6, vang-nhat: #FFFDE7) để dễ quản lý. Định dạng đường kẻ hr và màu từng khổ. Mặc định thẻ hr của trình duyệt có hiệu ứng viền chìm 3D (inset). Để tạo đường kẻ phẳng sắc nét màu xanh dương, ta viết border: none, border-top: 1 pixel solid var(xanh), width: 55 phần trăm, margin: 16 pixel auto.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 3 phần chính. Xây dựng cấu trúc HTML5 ngữ nghĩa. Thay vì dùng các thẻ center và font đã bị loại bỏ khỏi chuẩn HTML5, ta bọc toàn bộ bài thơ trong thẻ article. Khai báo biến màu CSS và dàn khung.…",
+   "points": [
+    "Xây dựng cấu trúc HTML5 ngữ nghĩa — Thay vì dùng các thẻ <center> và <font color=\"...\"> đã bị loại bỏ khỏi chuẩn HTML5, ta bọc toàn bộ bài thơ trong thẻ <article class=\"khung-tho\">. Mỗi khổ thơ là một đoạn <p>, còn các câu thơ bên trong cùng một khổ được ngắt dòng bằng <br> (vì ngắt câu thơ là…",
+    "Khai báo biến màu CSS và dàn khung — Khai báo các mã màu chủ đạo trong :root (--do: #D40000, --xanh: #0033CC, --hong: #FFD9E6, --vang-nhat: #FFFDE7) để dễ quản lý. Trên thẻ body, dùng display: flex; justify-content: center; và phông chữ có chân (Georgia, \"Times New Roman\", serif) giúp trang thơ…",
+    "Định dạng đường kẻ <hr> và màu từng khổ — Mặc định thẻ <hr> của trình duyệt có hiệu ứng viền chìm 3D (inset). Để tạo đường kẻ phẳng sắc nét màu xanh dương, ta viết border: none; border-top: 1px solid var(-- xanh); width: 55%; margin: 16px auto."
+   ],
+   "heading": "Bài 01 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 85.692,
+   "dur": 27.94,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 01 four seasons poem. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai01.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 01 four seasons poem. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, và tạo tệp index.html. Trong dự án, tệp…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-01-four-seasons-poem",
+     "out": "✔ đã tạo thư mục exercise-01-four-seasons-poem"
+    },
+    {
+     "cmd": "cd exercise-01-four-seasons-poem",
+     "out": "→ đang ở ~/frontlab/exercise-01-four-seasons-poem"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 113.632,
+   "dur": 21.742,
+   "narration": "Mở tệp index.html. Toàn bộ bài thơ nằm trong thẻ article. Tiêu đề dùng h1, ba khổ thơ là ba đoạn p, mỗi câu ngắt dòng bằng br, giữa các khổ là thẻ hr. Cách này giữ đúng nghĩa của một tác phẩm văn học: article cho cả bài, p cho từng khổ. Các thẻ ngữ nghĩa chính gồm article.",
+   "caption": "Mở tệp index.html. Toàn bộ bài thơ nằm trong thẻ article. Tiêu đề dùng h1, ba khổ thơ là ba đoạn p, mỗi câu ngắt dòng bằng br, giữa các khổ là thẻ hr. Cách này giữ đúng nghĩa của một tác phẩm văn học: article cho cả bài, p cho từng khổ. Các thẻ ngữ…",
+   "lang": "html",
+   "code": "  <article class=\"khung-tho\">\n    <h1>BỐN MÙA</h1>\n\n    <p class=\"kho xanh\">\n         Xuân về hoa nở khắp trời<br>\n         Hạ sang nắng cháy rạng ngời phố quen<br>\n         Thu về lá rụng bên thềm\n    </p>\n\n    <hr>\n\n    <p class=\"kho do\">\n         Đông sang gió lạnh bên em đợi chờ<br>\n         Bốn mùa là bốn giấc mơ<br>\n         Thời gian đi mãi ta chờ đợi ai\n    </p>\n\n    <hr>\n\n    <p class=\"kho xanh\">\n         Một năm rồi lại một năm<br>\n\n      Vẫn còn câu hát thì thầm quê hương<br>\n      Chờ xuân nắng mới soi đường\n    </p>\n  </article>",
+   "marks": [
+    1,
+    2,
+    26
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 135.373,
+   "dur": 34.719,
+   "narration": "Chuyển sang phần CSS. Bốn biến màu khai báo trong :root. Body dùng Flexbox với justify-content center để căn giữa khung thơ rộng tối đa 640 pixel. Tiêu đề có dải nền hồng, chữ đỏ, in hoa. Khổ một và khổ ba màu xanh, khổ giữa màu đỏ. Thẻ hr bỏ viền mặc định, thay bằng border-top xanh rộng 55 phần trăm. Bảng màu chính gồm #D40000, #0033CC, #FFD9E6, #FFFDE7, #9E9E9E.",
+   "caption": "Chuyển sang phần CSS. Bốn biến màu khai báo trong :root. Body dùng Flexbox với justify-content center để căn giữa khung thơ rộng tối đa 640 pixel. Tiêu đề có dải nền hồng, chữ đỏ, in hoa. Khổ một và khổ ba màu xanh, khổ giữa màu đỏ. Thẻ hr bỏ viền…",
+   "lang": "css",
+   "code": "    :root {\n        --do: #D40000;\n        --xanh: #0033CC;\n        --hong: #FFD9E6;\n        --vang-nhat: #FFFDE7;\n        --vien: #9E9E9E;\n    }\n\n    * { box-sizing: border-box; }\n\n    body {\n        margin: 0;\n        padding: 32px 16px;\n        font-family: Georgia, \"Times New Roman\", serif;\n        background: #ffffff;\n        display: flex;\n        justify-content: center;\n    }\n\n    .khung-tho {\n        width: min(640px, 100%);\n        background: var(--vang-nhat);\n        border: 1px solid var(--vien);\n        padding: 24px;\n        text-align: center;\n    }\n\n    .khung-tho h1 {\n        margin: 0 0 20px;\n        font-size: 26px;\n        color: var(--do);\n        background: var(--hong);\n        padding: 6px 0;\n        letter-spacing: 1px;\n    }\n\n    .kho {\n        margin: 0;\n\n         font-style: italic;\n         font-size: 17px;\n         line-height: 1.75;\n    }\n\n    .xanh { color: var(--xanh); }\n    .do      { color: var(--do); }\n\n    hr {\n         width: 55%;\n         margin: 16px auto;\n         border: none;\n         border-top: 1px solid var(--xanh);\n    }",
+   "marks": [
+    1,
+    16,
+    22,
+    23,
+    31,
+    32,
+    45
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 170.093,
+   "dur": 20.5,
+   "narration": "Bây giờ chạy thử. Trang thơ hiển thị đúng khung vàng nhạt, tiêu đề hồng đỏ, hai khổ xanh và khổ giữa đỏ. Khi thu nhỏ cửa sổ xuống kích thước điện thoại, khung thơ co lại theo chiều rộng màn hình nhưng vẫn căn giữa nhờ Flexbox.",
+   "caption": "Bây giờ chạy thử. Trang thơ hiển thị đúng khung vàng nhạt, tiêu đề hồng đỏ, hai khổ xanh và khổ giữa đỏ. Khi thu nhỏ cửa sổ xuống kích thước điện thoại, khung thơ co lại theo chiều rộng màn hình nhưng vẫn căn giữa nhờ Flexbox.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "scroll",
+     "value": 0.5
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    },
+    {
+     "t": 14,
+     "type": "scroll",
+     "value": 0
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 190.593,
+   "dur": 36.034,
+   "narration": "Tổng kết bài 1. Tạo dự án exercise 01 four seasons poem, tệp chính index.html, khi nộp đổi tên thành bai01.html. Giải thích vì sao dùng p kết hợp br cho khổ thơ thay vì tách mỗi dòng thơ thành một thẻ p riêng, và cách dùng border: none, border-top: 1 pixel solid để đổi màu thẻ hr.. Lỗi thường gặp: Sinh viên hay dùng color: #0033CC cho thẻ hr nhưng đường kẻ không đổi màu (vì hr dùng border-top hoặc background-color, không dùng color của văn bản).",
+   "caption": "Tổng kết bài 1. Tạo dự án exercise 01 four seasons poem, tệp chính index.html, khi nộp đổi tên thành bai01.html. Giải thích vì sao dùng p kết hợp br cho khổ thơ thay vì tách mỗi dòng thơ thành một thẻ p riêng, và cách dùng border: none, border-top:…",
+   "points": [
+    "Tạo dự án exercise-01-four-seasons-poem, tệp chính index.html, khi nộp đổi tên thành bai01.html.",
+    "Giải thích vì sao dùng <p> kết hợp <br> cho khổ thơ thay vì tách mỗi dòng thơ thành một thẻ <p> riêng, và cách dùng border: none; border-top: 1px solid ... để đổi màu thẻ <hr>.",
+    "Lỗi thường gặp: Sinh viên hay dùng color: #0033CC cho thẻ <hr> nhưng đường kẻ không đổi màu (vì <hr> dùng border-top hoặc background-color, không dùng color của văn bản)."
+   ],
+   "heading": "Bài 01 — điều cần nhớ"
+  }
+ ]
+}

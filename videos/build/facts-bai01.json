@@ -1,0 +1,20 @@
+{
+ "num": 1,
+ "slug": "four-seasons-poem",
+ "steps": [
+  {
+   "label": "Xây dựng cấu trúc HTML5 ngữ nghĩa",
+   "text": "Thay vì dùng các thẻ <center> và <font color=\"...\"> đã bị loại bỏ khỏi chuẩn HTML5, ta bọc toàn bộ bài thơ trong thẻ <article class=\"khung-tho\">. Mỗi khổ thơ là một đoạn <p>, còn các câu thơ bên trong cùng một khổ được ngắt dòng bằng <br> (vì ngắt câu thơ là ngắt dòng có ý nghĩa nội dung trong cùng một khổ). Giữa các khổ đặt thẻ <hr> biểu thị sự chuyển đoạn. •"
+  },
+  {
+   "label": "Khai báo biến màu CSS và dàn khung",
+   "text": "Khai báo các mã màu chủ đạo trong :root (--do: #D40000, --xanh: #0033CC, --hong: #FFD9E6, --vang-nhat: #FFFDE7) để dễ quản lý. Trên thẻ body, dùng display: flex; justify-content: center; và phông chữ có chân (Georgia, \"Times New Roman\", serif) giúp trang thơ mang phong cách văn học trang nhã. •"
+  },
+  {
+   "label": "Định dạng đường kẻ <hr> và màu từng khổ",
+   "text": "Mặc định thẻ <hr> của trình duyệt có hiệu ứng viền chìm 3D (inset). Để tạo đường kẻ phẳng sắc nét màu xanh dương, ta viết border: none; border-top: 1px solid var(-- xanh); width: 55%; margin: 16px auto;."
+  }
+ ],
+ "highlight": "Giải thích vì sao dùng <p> kết hợp <br> cho khổ thơ thay vì tách mỗi dòng thơ thành một thẻ <p> riêng, và cách dùng border: none; border-top: 1px solid ... để đổi màu thẻ <hr>. •",
+ "mistake": "Sinh viên hay dùng color: #0033CC cho thẻ <hr> nhưng đường kẻ không đổi màu (vì <hr> dùng border-top hoặc background-color, không dùng color của văn bản)."
+}

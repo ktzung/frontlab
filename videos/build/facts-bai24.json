@@ -1,0 +1,16 @@
+{
+ "num": 24,
+ "slug": "pricing-table",
+ "steps": [
+  {
+   "label": "Tạo điểm nhấn thị giác (Visual Hierarchy) cho gói .hot",
+   "text": "Trong thiết kế giao diện thương mại điện tử và SaaS, gói khuyên dùng ở giữa luôn được làm nổi bật bằng 3 yếu tố kết hợp: (1) Viền đậm màu nhấn 2px solid #4f46 e5, (2) Dịch chuyển lên trên 10px bằng transform: translateY(-10px), và (3) Nút hành động chính (CTA) tô màu đặc #4f46e5 chữ trắng tương phản với 2 nút phụ màu xám nhạt hai bên. •"
+  },
+  {
+   "label": "Đẩy nút bấm xuống đáy thẻ đều nhau bằng Flexbox dọc",
+   "text": "Đặt display: flex; flex-direction: column; trên .goi và flex: 1 trên danh sách <ul> để dù gói Pro có 4 dòng quyền lợi còn hai gói bên cạnh chỉ có 3 dòng, các nút bấm ở đáy cả 3 thẻ vẫn nằm thẳng hàng."
+  }
+ ],
+ "highlight": "Giải thích vì sao dùng transform: translateY(-10px) để nhấc gói .hot lên cao thay vì dùng margin-top: -10px (transform không làm xô lệch dòng lưới của các phần tử lân cận). •",
+ "mistake": "Trên màn hình điện thoại (1 cột), quên tắt transform: translateY(-10px) khiến thẻ gói Pro ở giữa trồi lên đè sát vào đáy thẻ Starter phía trên. Chương 4: Thiết Kế Giao Diện Responsive Với Bootstrap 5 Mục tiêu chương: • Nhúng và cấu hình thư viện Bootstrap 5.3 (bootstrap.min.css và bootstrap. bundle.min.js) qua CDN chuẩn. • Làm chủ hệ thống lưới 12 cột (12-Column Responsive Grid System) với các breakpoint col-sm-*, col-md-*, col-lg-* và khoảng cách g-*. • Xây dựng nhanh các thành phần giao diện hiện đại: Navbar, Card, Form Controls, Modal, Accordion, Carousel, Nav Pills / Tabs, Table, Badge, Pagination và Progress Bar. • Thiết kế hoàn chỉnh trang quản trị Admin Dashboard kết hợp Sidebar cố định và khu vực thống kê đa cột."
+}

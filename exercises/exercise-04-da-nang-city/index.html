@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 04 - Đà Nẵng thành phố đáng sống</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         padding: 32px 16px;
+         font-family: Georgia, "Times New Roman", serif;
+
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+    }
+
+    .bai-viet {
+        width: min(800px, 100%);
+    }
+
+    .bai-viet h1 {
+        margin: 0;
+        text-align: center;
+        color: #1565C0;
+        text-transform: uppercase;
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    .bai-viet h1 span {
+        display: block;
+        font-size: 0.7em;
+    }
+
+    .anh-banner {
+        display: block;
+        width: 100%;
+        max-height: 280px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 16px 0;
+    }
+
+    .bai-viet p {
+        margin: 14px 0;
+        line-height: 1.85;
+        text-align: justify;
+        display: flow-root;
+    }
+
+      .bai-viet p::first-letter {
+          float: left;
+          font-size: 3rem;
+          line-height: 0.85;
+          font-weight: 700;
+          color: #C62828;
+          padding: 0.1rem 0.35rem 0 0;
+      }
+
+      .thanh-phu {
+          background: #1565C0;
+          color: #ffffff;
+          text-align: right;
+          padding: 6px 12px;
+          font-size: 15px;
+          margin: 16px 0;
+          border-radius: 3px;
+      }
+    </style>
+</head>
+<body>
+    <article class="bai-viet">
+      <h1>Đà Nẵng <span>Thành phố đáng sống</span></h1>
+
+     <img class="anh-banner" src="assets/da-nang.jpg" alt="Cầu Rồng Đà Nẵng về đêm">
+
+      <p>
+          Đà Nẵng nằm bên bờ sông Hàn, nổi bật với những cây cầu độc đáo như Cầu Rồng phun lửa và nước,
+          Cầu Sông Hàn quay giữa đêm. Thành phố còn có <strong>Bà Nà Hills</strong> trên núi cao và
+          <strong>bán đảo Sơn Trà</strong> xanh mát.
+      </p>
+
+      <div class="thanh-phu">Cầu Rồng – biểu tượng sông Hàn</div>
+
+      <p>
+        Mỗi tối cuối tuần, người dân và du khách lại tụ tập hai bên bờ sông để xem Cầu Rồng phun lửa.
+        Ẩm thực miền Trung với mì Quảng, bánh xèo, hải sản tươi ngon càng làm nên sức hút của thành phố
+        đáng sống nhất Việt Nam.
+      </p>
+    </article>
+</body>
+</html>

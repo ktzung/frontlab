@@ -1,0 +1,18 @@
+Ứng dụng Máy tính bỏ túi đơn giản — hướng dẫn giải từng bước (Lập trình tương tác với JavaScript).
+
+Dự án: exercise-15-simple-calculator/index.html (khi nộp đổi tên thành bai15.html).
+Công nghệ: HTML5, CSS3, JavaScript, DOM, Flexbox, CSS Grid, Transition.
+
+Chương:
+00:00 Mở đầu
+00:31 Yêu cầu
+01:14 Tạo dự án
+01:43 Cấu trúc HTML
+02:00 Định dạng CSS
+02:31 JavaScript
+02:57 Chạy thử
+03:16 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

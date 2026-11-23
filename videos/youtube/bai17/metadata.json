@@ -1,0 +1,29 @@
+{
+ "id": "bai17",
+ "num": 17,
+ "title": "Bài 17 – Kiểm tra dữ liệu biểu mẫu bằng JavaScript (Form Validation) | Hướng dẫn Frontend từng bước",
+ "chapter": "Lập trình tương tác với JavaScript",
+ "project": "exercise-17-form-validation",
+ "submitFile": "bai17.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "Events"
+ ],
+ "duration": 243,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "form-validation"
+ ],
+ "youtubeId": ""
+}

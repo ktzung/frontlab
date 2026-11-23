@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 01 - Trang thơ Bốn mùa</title>
+  <style>
+
+    :root {
+        --do: #D40000;
+        --xanh: #0033CC;
+        --hong: #FFD9E6;
+        --vang-nhat: #FFFDE7;
+        --vien: #9E9E9E;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+        margin: 0;
+        padding: 32px 16px;
+        font-family: Georgia, "Times New Roman", serif;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+    }
+
+    .khung-tho {
+        width: min(640px, 100%);
+        background: var(--vang-nhat);
+        border: 1px solid var(--vien);
+        padding: 24px;
+        text-align: center;
+    }
+
+    .khung-tho h1 {
+        margin: 0 0 20px;
+        font-size: 26px;
+        color: var(--do);
+        background: var(--hong);
+        padding: 6px 0;
+        letter-spacing: 1px;
+    }
+
+    .kho {
+        margin: 0;
+
+         font-style: italic;
+         font-size: 17px;
+         line-height: 1.75;
+    }
+
+    .xanh { color: var(--xanh); }
+    .do      { color: var(--do); }
+
+    hr {
+         width: 55%;
+         margin: 16px auto;
+         border: none;
+         border-top: 1px solid var(--xanh);
+    }
+  </style>
+</head>
+<body>
+  <article class="khung-tho">
+    <h1>BỐN MÙA</h1>
+
+    <p class="kho xanh">
+         Xuân về hoa nở khắp trời<br>
+         Hạ sang nắng cháy rạng ngời phố quen<br>
+         Thu về lá rụng bên thềm
+    </p>
+
+    <hr>
+
+    <p class="kho do">
+         Đông sang gió lạnh bên em đợi chờ<br>
+         Bốn mùa là bốn giấc mơ<br>
+         Thời gian đi mãi ta chờ đợi ai
+    </p>
+
+    <hr>
+
+    <p class="kho xanh">
+         Một năm rồi lại một năm<br>
+
+      Vẫn còn câu hát thì thầm quê hương<br>
+      Chờ xuân nắng mới soi đường
+    </p>
+  </article>
+</body>
+</html>

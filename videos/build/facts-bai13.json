@@ -1,0 +1,16 @@
+{
+ "num": 13,
+ "slug": "digital-clock",
+ "steps": [
+  {
+   "label": "Thuật toán tách một số 0..59 thành 2 ảnh chữ số",
+   "text": "Với một số nguyên n (ví dụ n = 8 hoặc n = 45): – Chữ số hàng chục là Math.floor(n / 10) (với 8 cho 0, với 45 cho 4). – Chữ số hàng đơn vị là n % 10 (với 8 cho 8, với 45 cho 5). Viết hàm haiChuSo Anh(n) trả về 2 thẻ <img src=\"Anh/Bai13/0${chuc}.gif\"><img src=\"Anh/ Bai13/0${donVi}.gif\">. •"
+  },
+  {
+   "label": "Gọi capNhat() ngay lần đầu trước khi setInterval",
+   "text": "Nếu chỉ gọi set Interval(capNhat, 1000), trang web sẽ bị trống trắng trong 1 giây đầu tiên. Do đó ta gọi capNhat() ngay lập tức một lần rồi mới đăng ký setInterval(cap Nhat, 1000)."
+  }
+ ],
+ "highlight": "Giải thích công thức Math. floor(n / 10) và n % 10 để biến một số nguyên bất kỳ thành 2 chữ số (kể cả khi số nhỏ hơn 10 như 05 giây). •",
+ "mistake": "Dùng phép chia thường n / 10 mà quên Math.floor( ), dẫn đến đường dẫn ảnh bị lẻ thập phân như 04.5.gif và ảnh bị lỗi không hiển thị."
+}

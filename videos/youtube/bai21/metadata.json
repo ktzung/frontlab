@@ -1,0 +1,28 @@
+{
+ "id": "bai21",
+ "num": 21,
+ "title": "Bài 21 – Bố cục cổng thông tin 4 vùng với CSS Grid Areas | Hướng dẫn Frontend từng bước",
+ "chapter": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-21-portal-grid-areas",
+ "submitFile": "bai21.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 226,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "portal-grid-areas"
+ ],
+ "youtubeId": ""
+}

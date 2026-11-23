@@ -1,0 +1,178 @@
+{
+ "id": "bai20",
+ "num": 20,
+ "title": "Phòng thí nghiệm hiệu ứng ảnh với CSS3 & SVG Filter",
+ "chapter": 3,
+ "chapterName": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-20-css-image-lab",
+ "submitFile": "bai20.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "Transition",
+  "CSS Filter"
+ ],
+ "hasJs": true,
+ "files": [
+  "index.html",
+  "assets/"
+ ],
+ "total": 237.68,
+ "scenes": [
+  {
+   "type": "intro",
+   "label": "Mở đầu",
+   "start": 0.5,
+   "dur": 33.614,
+   "narration": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 20, Phòng thí nghiệm hiệu ứng ảnh với CSS3 & SVG Filter. Chúng ta sẽ cùng tạo dự án exercise 20 css image lab với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt. Bài luyện filter CSS, SVG filter và kỹ thuật sinh nút điều khiển từ dữ liệu. Cùng bắt đầu.",
+   "caption": "Chào các bạn. Đây là video hướng dẫn bài thực hành số 20, Phòng thí nghiệm hiệu ứng ảnh với CSS3 & SVG Filter. Chúng ta sẽ cùng tạo dự án exercise 20 css image lab với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript,…"
+  },
+  {
+   "type": "brief",
+   "label": "Yêu cầu",
+   "start": 34.114,
+   "dur": 46.188,
+   "narration": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tạo chữ vàng ánh kim bằng -webkit-background-clip. text: Trên.chu-nghe-thuat, khai báo background: linear-gradient(90deg, #d4af37, #f5e6a3, #b8860b), -webkit-background-clip: text, background-clip: text, color: transparent. Kết hợp mảng cấu hình hiệu ứng trong JavaScript. Định nghĩa danh sách 13 hiệu ứng gồm ten, filter, transform. Khi bấm nút, gỡ class.on khỏi nút cũ, thêm.on vào nút vừa bấm, và gán anh.style.filter cùng anh.style.transform.",
+   "caption": "Trước khi viết mã, hãy nắm rõ yêu cầu của bài. Bài gồm 2 phần chính. Tạo chữ vàng ánh kim bằng -webkit-background-clip. text: Trên.chu-nghe-thuat, khai báo background: linear-gradient(90deg, #d4af37, #f5e6a3, #b8860b), -webkit-background-clip: text,…",
+   "points": [
+    "Tạo chữ vàng ánh kim bằng -webkit-background-clip — text: Trên .chu-nghe-thuat, khai báo background: linear-gradient(90deg, #d4af37, #f5e6a3, #b8860b); -webkit-background-clip: text; background-clip: text; color: transparent. Khi màu chữ trong suốt (transparent), dải màu vàng ánh kim ở nền sẽ chỉ hiển thị đúng…",
+    "Kết hợp mảng cấu hình hiệu ứng trong JavaScript — Định nghĩa danh sách 13 hiệu ứng gồm { ten, filter, transform }. Khi bấm nút, gỡ class .on khỏi nút cũ, thêm .on vào nút vừa bấm, và gán anh.style.filter cùng anh.style.transform."
+   ],
+   "heading": "Bài 20 — yêu cầu & tiêu chí"
+  },
+  {
+   "type": "setup",
+   "label": "Tạo dự án",
+   "start": 80.303,
+   "dur": 30.954,
+   "narration": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 20 css image lab. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html. Trong dự án, tệp chính luôn là index.html. Khi nộp theo quy định của học phần, các em đổi tên thành bai20.html.",
+   "caption": "Bước một, tạo dự án. Mở terminal và chạy mkdir exercise 20 css image lab. Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung. Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh,…",
+   "commands": [
+    {
+     "cmd": "mkdir exercise-20-css-image-lab",
+     "out": "✔ đã tạo thư mục exercise-20-css-image-lab"
+    },
+    {
+     "cmd": "cd exercise-20-css-image-lab",
+     "out": "→ đang ở ~/frontlab/exercise-20-css-image-lab"
+    },
+    {
+     "cmd": "mkdir assets",
+     "out": "✔ thư mục assets đã sẵn sàng"
+    },
+    {
+     "cmd": "touch index.html",
+     "out": "✔ tệp index.html được tạo"
+    },
+    {
+     "cmd": "code index.html",
+     "out": "→ mở dự án trong VS Code"
+    }
+   ]
+  },
+  {
+   "type": "code",
+   "label": "Cấu trúc HTML",
+   "start": 111.256,
+   "dur": 15.695,
+   "narration": "Mở tệp index.html. Trang trưng bày một ảnh hoa hồng và một thanh nút được JavaScript sinh từ mảng hiệu ứng. Ảnh có id để áp dụng filter và transform. Có thêm bộ lọc SVG định nghĩa hiệu ứng sóng.",
+   "caption": "Mở tệp index.html. Trang trưng bày một ảnh hoa hồng và một thanh nút được JavaScript sinh từ mảng hiệu ứng. Ảnh có id để áp dụng filter và transform. Có thêm bộ lọc SVG định nghĩa hiệu ứng sóng.",
+   "lang": "html",
+   "code": "    <div class=\"khung-anh\">\n      <img id=\"anh-hoa\" src=\"assets/hoahong.gif\" alt=\"Hoa hồng\">\n      <div class=\"chu-nghe-thuat\">Special For You</div>\n    </div>\n\n    <div class=\"thanh-nut\" id=\"thanh-nut\"></div>\n\n    <svg width=\"0\" height=\"0\" aria-hidden=\"true\" style=\"position:absolute\">\n      <filter id=\"song\">\n          <feTurbulence type=\"turbulence\" baseFrequency=\"0.02 0.06\" numOctaves=\"1\" result=\"nhieu\" />\n          <feDisplacementMap in=\"SourceGraphic\" in2=\"nhieu\" scale=\"10\" />\n      </filter>\n    </svg>",
+   "marks": [
+    2
+   ],
+   "annotation": "Dựng cây DOM bằng thẻ ngữ nghĩa"
+  },
+  {
+   "type": "code",
+   "label": "Định dạng CSS",
+   "start": 126.951,
+   "dur": 31.166,
+   "narration": "Chuyển sang phần CSS. Khung ảnh nền tối, ảnh giữ nguyên kích thước. Thanh nút nằm dưới, nút đang chọn có màu vàng. Hiệu ứng dùng filter như grayscale, sepia, blur, drop-shadow và transform lật ảnh. Media query cho thanh nút xuống dòng. Bảng màu chính gồm #101418, #eeeeee, #1c2226, #d4af37, #f5e6a3.",
+   "caption": "Chuyển sang phần CSS. Khung ảnh nền tối, ảnh giữ nguyên kích thước. Thanh nút nằm dưới, nút đang chọn có màu vàng. Hiệu ứng dùng filter như grayscale, sepia, blur, drop-shadow và transform lật ảnh. Media query cho thanh nút xuống dòng. Bảng màu…",
+   "lang": "css",
+   "code": "    * { box-sizing: border-box; }\n\n    body {\n         margin: 0;\n         min-height: 100vh;\n         background: #101418;\n         color: #eeeeee;\n         font-family: Arial, \"Segoe UI\", sans-serif;\n         display: flex;\n         flex-direction: column;\n         align-items: center;\n         justify-content: center;\n         gap: 18px;\n         padding: 24px;\n    }\n\n    .khung-anh {\n         width: min(320px, 90vw);\n         background: #1c2226;\n         border-radius: 12px;\n         padding: 16px;\n         display: flex;\n         flex-direction: column;\n         align-items: center;\n\n        gap: 10px;\n        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);\n    }\n\n    .khung-anh img {\n        width: 100%;\n        border-radius: 8px;\n        filter: grayscale(1);\n        transition: filter 0.3s ease, transform 0.35s ease;\n    }\n\n    .chu-nghe-thuat {\n        font-size: 22px;\n        font-style: italic;\n        background: linear-gradient(90deg, #d4af37, #f5e6a3, #b8860b);\n        -webkit-background-clip: text;\n        background-clip: text;\n        color: transparent;\n    }\n\n    .thanh-nut {\n        display: flex;\n        flex-wrap: wrap;\n        gap: 6px;\n        justify-content: center;\n        max-width: 620px;\n    }\n\n    .thanh-nut button {\n        padding: 6px 12px;\n        border: 1px solid #3c464d;\n        border-radius: 6px;\n        background: #232b30;\n        color: #dddddd;\n        font-size: 13px;\n        cursor: pointer;\n    }\n\n      .thanh-nut button:hover { border-color: #60a5fa; }\n\n      .thanh-nut button.on {\n          background: #0d6efd;\n          border-color: #0d6efd;\n          color: #ffffff;\n      }",
+   "marks": [
+    9,
+    22,
+    33,
+    34,
+    47,
+    64
+   ],
+   "annotation": "Hệ màu, bố cục và responsive"
+  },
+  {
+   "type": "code",
+   "label": "JavaScript",
+   "start": 158.118,
+   "dur": 21.733,
+   "narration": "Phần JavaScript. Mảng hiệu ứng chứa tên, filter và transform. Vòng lặp tạo từng nút, gắn sự kiện click: bỏ trạng thái chọn ở các nút cũ, thêm cho nút mới, rồi gán filter và transform cho ảnh. Kỹ thuật này tách dữ liệu hiệu ứng khỏi mã giao diện. Sự kiện được lắng nghe gồm click.",
+   "caption": "Phần JavaScript. Mảng hiệu ứng chứa tên, filter và transform. Vòng lặp tạo từng nút, gắn sự kiện click: bỏ trạng thái chọn ở các nút cũ, thêm cho nút mới, rồi gán filter và transform cho ảnh. Kỹ thuật này tách dữ liệu hiệu ứng khỏi mã giao diện. Sự…",
+   "lang": "js",
+   "code": "      const DANH_SACH_HIEU_UNG = [\n          { ten: \"Gray\",           filter: \"grayscale(1)\", transform: \"none\" },\n          { ten: \"Xray\",           filter: \"invert(1) grayscale(1)\", transform: \"none\" },\n          { ten: \"Invert\",         filter: \"invert(1)\", transform: \"none\" },\n          { ten: \"FlipH\",          filter: \"none\", transform: \"scaleX(-1)\" },\n          { ten: \"FlipV\",          filter: \"none\", transform: \"scaleY(-1)\" },\n          { ten: \"Glow\",           filter: \"drop-shadow(0 0 14px #ffd700)\", transform: \"none\" },\n\n           { ten: \"Shadow\",        filter: \"drop-shadow(4px 4px 4px rgba(0,0,0,0.8))\", transform: \"none\" },\n           { ten: \"Bold Shadow\", filter: \"drop-shadow(6px 6px 0 #000000)\", transform: \"none\" },\n           { ten: \"DropShadow\",    filter: \"drop-shadow(8px 10px 6px rgba(0,0,0,0.6))\",transform: \"none\" },\n           { ten: \"Blur\",          filter: \"blur(3px)\", transform: \"none\" },\n           { ten: \"Wave\",          filter: \"url(#song)\", transform: \"skewX(6deg)\" },\n           { ten: \"Mask\",          filter: \"contrast(1.75) sepia(0.35)\", transform: \"none\" },\n           { ten: \"Alpha\",         filter: \"opacity(0.4)\", transform: \"none\" }\n      ];\n\n      const anhHoa = document.getElementById(\"anh-hoa\");\n      const thanhNut = document.getElementById(\"thanh-nut\");\n\n      DANH_SACH_HIEU_UNG.forEach((muc, chiSo) => {\n           const nut = document.createElement(\"button\");\n           nut.type = \"button\";\n           nut.textContent = muc.ten;\n           if (chiSo === 0) nut.classList.add(\"on\");\n\n           nut.addEventListener(\"click\", () => {\n             thanhNut.querySelectorAll(\"button\").forEach((b) => b.classList.remove(\"on\"));\n             nut.classList.add(\"on\");\n             anhHoa.style.filter = muc.filter;\n             anhHoa.style.transform = muc.transform;\n           });\n\n           thanhNut.appendChild(nut);\n      });",
+   "marks": [
+    18,
+    19,
+    27,
+    28
+   ],
+   "annotation": "Xử lý sự kiện và cập nhật DOM"
+  },
+  {
+   "type": "demo",
+   "label": "Chạy thử",
+   "start": 179.85,
+   "dur": 19,
+   "narration": "Chạy thử: bấm nút Glow, ảnh phát sáng vàng, bấm Wave, ảnh nghiêng nhẹ, bấm FlipH, ảnh lật ngang. Mỗi lần chỉ một nút được chọn.",
+   "caption": "Chạy thử: bấm nút Glow, ảnh phát sáng vàng, bấm Wave, ảnh nghiêng nhẹ, bấm FlipH, ảnh lật ngang. Mỗi lần chỉ một nút được chọn.",
+   "actions": [
+    {
+     "t": 1,
+     "type": "click",
+     "selector": "#thanh-nut button:nth-child(10)"
+    },
+    {
+     "t": 3,
+     "type": "click",
+     "selector": "#thanh-nut button:nth-child(13)"
+    },
+    {
+     "t": 5,
+     "type": "click",
+     "selector": "#thanh-nut button:nth-child(3)"
+    },
+    {
+     "t": 8,
+     "type": "resize",
+     "width": 390,
+     "height": 844
+    },
+    {
+     "t": 12.5,
+     "type": "resize",
+     "width": 1280,
+     "height": 800
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "label": "Tổng kết",
+   "start": 198.85,
+   "dur": 38.832,
+   "narration": "Tổng kết bài 20. Tạo dự án exercise 20 css image lab, tệp chính index.html, khi nộp đổi tên thành bai20.html. Giải thích lý do phải thay thế style=filter: progid:DXImageTransform.Microsoft của Internet Explorer cũ bằng CSS3 filter và transform chuẩn W3C.. Lỗi thường gặp: Khi chuyển từ nút FlipH (transform: scaleX(-1)) sang nút Gray (filter: grayscale(1)), nếu quên đặt lại anhHoa.style. transform = none thì bức ảnh vẫn bị lộn ngược.",
+   "caption": "Tổng kết bài 20. Tạo dự án exercise 20 css image lab, tệp chính index.html, khi nộp đổi tên thành bai20.html. Giải thích lý do phải thay thế style=filter: progid:DXImageTransform.Microsoft của Internet Explorer cũ bằng CSS3 filter và transform chuẩn…",
+   "points": [
+    "Tạo dự án exercise-20-css-image-lab, tệp chính index.html, khi nộp đổi tên thành bai20.html.",
+    "Giải thích lý do phải thay thế style=\"filter: progid:DXImageTransform.Microsoft...\" của Internet Explorer cũ bằng CSS3 filter và transform chuẩn W3C.",
+    "Lỗi thường gặp: Khi chuyển từ nút FlipH (transform: scaleX(-1)) sang nút Gray (filter: grayscale(1)), nếu quên đặt lại anhHoa.style. transform = \"none\" thì bức ảnh vẫn bị lộn ngược."
+   ],
+   "heading": "Bài 20 — điều cần nhớ"
+  }
+ ]
+}

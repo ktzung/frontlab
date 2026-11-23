@@ -1,0 +1,16 @@
+{
+ "num": 9,
+ "slug": "online-cv",
+ "steps": [
+  {
+   "label": "Kỹ thuật bo góc khung cha có cột màu sát mép (overflow",
+   "text": "hidden): Khi .the-cv có border-radius: 12px nhưng bên trong có .cot-trai tô nền xanh sát mép, nền xanh của .cot-trai sẽ đè vuông góc lên góc trái trên và trái dưới. Thêm overflow: hidden trên .the-cv giúp cắt gọn nền của các cột con theo đúng đường cong 12px của thẻ cha. •"
+  },
+  {
+   "label": "Dựng Avatar tròn và Chip kỹ năng bằng Flexbox",
+   "text": "Với .avatar, kết hợp width: 110px; height: 110px; border-radius: 50%; cùng bộ ba căn giữa tâm display: flex; align-items: center; justify-content: center;. Với .ky-nang, dùng border-radius: 999px để hai đầu thẻ chip luôn bo tròn hoàn hảo bất kể độ dài chữ."
+  }
+ ],
+ "highlight": "Giải thích cách căn chữ NA chính giữa tâm hình tròn bằng Flexbox và vai trò của overflow: hidden trên thẻ cha .the-cv. •",
+ "mistake": "Chỉ đặt width: 110px mà quên height: 110px trên . avatar, khiến vòng tròn bị biến thành hình bầu dục (ellipse)."
+}

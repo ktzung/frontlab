@@ -1,0 +1,16 @@
+{
+ "num": 7,
+ "slug": "double-rich-promotion",
+ "steps": [
+  {
+   "label": "Tổ chức phần đầu gồm 2 dải màu tương phản",
+   "text": "Đặt <header> nền đỏ thẫm (#C8102E) chứa <h1>, ngay bên dưới là <div class=\"dai-phu\"> nền hồng phấn (#FBE3E8) chứa khẩu hiệu chương trình. •"
+  },
+  {
+   "label": "Tạo vạch ngăn cách dọc bằng CSS Grid hoặc border-right",
+   "text": "Cách thanh lịch nhất là khai báo .than-bai có 3 cột grid-template-columns: 1fr 1px 1fr; gap: 22px; và dùng phần tử giả .than-bai::before { content: \"\"; background: #e0e0e0; grid-column: 2; } (hoặc đặt border-right: 1px solid #e0e0e0; padding-right: 22px; cho cột trái)."
+  }
+ ],
+ "highlight": "Giải thích cách kết hợp grid-template-columns: 1fr 1px 1fr ở cấp cha và float: right cho ảnh sản phẩm bên trong cột 1. •",
+ "mistake": "Đặt ảnh float: right ở ngoài thẻ <section> cột 1 khiến bức ảnh bị coi là một ô thứ 3 trong CSS Grid và làm vỡ bố cục 2 cột."
+}

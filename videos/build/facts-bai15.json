@@ -1,0 +1,16 @@
+{
+ "num": 15,
+ "slug": "simple-calculator",
+ "steps": [
+  {
+   "label": "Lưu trữ biểu thức hiển thị và chuyển đổi ký hiệu toán học",
+   "text": "Trên giao diện, người dùng nhìn thấy các ký hiệu chuẩn toán học ×, ÷, −. Khi bấm nút =, hàm tính toán chuyển đổi: – ×→* – ÷→/ – −→- – % → /100 •"
+  },
+  {
+   "label": "Xử lý nút đóng/mở ngoặc ( ) và kiểm tra biểu thức hợp lệ",
+   "text": "Đếm số ngoặc mở ( và ngoặc đóng ) hiện có trong biểu thức để tự động chèn ( hoặc ). Kiểm tra chuỗi chỉ chứa các ký tự số và toán tử hợp lệ (/^[0-9+\\-*/.() ]+$/ ) trước khi tính giá trị và bắt lỗi bằng try...catch."
+  }
+ ],
+ "highlight": "Giải thích kỹ thuật Ủy quyền sự kiện (Event Delegation) — chỉ gắn 1 addEventListener(\"click\") duy nhất lên #ban-phim thay vì gắn 19 sự kiện riêng lẻ cho 19 nút bấm, và giải thích class .rong { grid-column: span 2; }. •",
+ "mistake": "Không chuyển đổi ký tự ×, ÷, − sang *, /, - trước khi tính toán khiến JavaScript báo lỗi SyntaxError."
+}

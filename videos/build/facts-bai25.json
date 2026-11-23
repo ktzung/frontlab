@@ -1,0 +1,24 @@
+{
+ "num": 25,
+ "slug": "bootstrap-travel",
+ "steps": [
+  {
+   "label": "Nhúng Bootstrap 5.3 CSS & JS Bundle",
+   "text": "Trong thẻ <head>, nhúng tệp CSS từ CDN https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/ bootstrap.min.css. Trước thẻ đóng </body>, nhúng bootstrap.bundle.min. js (bản bundle đã tích hợp Popper.js) để nút .navbar-toggler đóng/mở được menu trên điện thoại. •"
+  },
+  {
+   "label": "Xây dựng Navbar chuẩn Bootstrap 5",
+   "text": "Tạo <nav class=\"navbar navbar-expand-lg navbar-dark bg-primary\">. Nút bấm .navbar-toggler cần có hai thuộc tính data-bs-toggle=\"collapse\" và data-bs-target=\"#menu\" trỏ đúng tới id=\"menu\" của khối .collapse.navbar-collapse. •"
+  },
+  {
+   "label": "Thiết lập Hero Banner và Lưới 3 cột .col-md-4",
+   "text": "Mở <div class= \"container py-4\">. Đặt khối Hero ở trên, tiếp theo là <div class=\"row g-4\"> chứa 3 khối <div class=\"col-md-4\">. •"
+  },
+  {
+   "label": "Định dạng ảnh .card-img-top đồng nhất kích thước",
+   "text": "Các ảnh chụp thực tế thường có tỷ lệ khung hình khác nhau. Thêm quy tắc CSS nhỏ . card-img-top { height: 180px; object-fit: cover; } để cả 3 ảnh luôn phẳng hàng tuyệt đối."
+  }
+ ],
+ "highlight": "",
+ "mistake": ""
+}

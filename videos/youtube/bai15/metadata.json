@@ -1,0 +1,30 @@
+{
+ "id": "bai15",
+ "num": 15,
+ "title": "Bài 15 – Ứng dụng Máy tính bỏ túi đơn giản | Hướng dẫn Frontend từng bước",
+ "chapter": "Lập trình tương tác với JavaScript",
+ "project": "exercise-15-simple-calculator",
+ "submitFile": "bai15.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "CSS Grid",
+  "Transition"
+ ],
+ "duration": 235,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "simple-calculator"
+ ],
+ "youtubeId": ""
+}

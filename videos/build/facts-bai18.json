@@ -1,0 +1,16 @@
+{
+ "num": 18,
+ "slug": "dien-dien-feature",
+ "steps": [
+  {
+   "label": "Dùng",
+   "text": "first-of-type::first-letter để chỉ phóng to chữ đầu đoạn 1: Khác với Bài 03 và Bài 04 (phóng to chữ đầu mọi đoạn), ở Bài 18 chỉ đoạn mở đầu có chữ M rơi lớn, còn đoạn 2 viết bình thường. Bộ chọn .cot-bai p:first-of-type::first-letter giải quyết chính xác yêu cầu này mà không cần gắn thêm class. •"
+  },
+  {
+   "label": "Chia danh sách <ul> thành 2 cột bằng columns",
+   "text": "2: Thay vì tách thủ công thành 2 thẻ <ul> riêng biệt, ta giữ nguyên 1 thẻ <ul> duy nhất chứa 7 thẻ <li> và khai báo columns: 2; column-gap: 32px;. Trình duyệt tự động phân bổ 4 dòng đầu sang cột trái và 3 dòng sau sang cột phải."
+  }
+ ],
+ "highlight": "Giải thích sự khác nhau giữa columns: 2 (tự động chia dòng văn bản/danh sách theo chiều dọc trước rồi sang cột kế) và display: grid (xếp từng phần tử theo hàng ngang). •",
+ "mistake": "Dùng display: grid; grid-template-columns: 1fr 1fr; cho <ul> khiến thứ tự đọc các món ăn bị nhảy ngang trái–phải thay vì đọc từ trên xuống ở cột 1 rồi mới sang cột 2."
+}

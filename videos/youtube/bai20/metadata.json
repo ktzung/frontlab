@@ -1,0 +1,30 @@
+{
+ "id": "bai20",
+ "num": 20,
+ "title": "Bài 20 – Phòng thí nghiệm hiệu ứng ảnh với CSS3 & SVG Filter | Hướng dẫn Frontend từng bước",
+ "chapter": "CSS3 hiện đại — bố cục & hiệu ứng",
+ "project": "exercise-20-css-image-lab",
+ "submitFile": "bai20.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "DOM",
+  "Flexbox",
+  "Transition",
+  "CSS Filter"
+ ],
+ "duration": 238,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "css-image-lab"
+ ],
+ "youtubeId": ""
+}

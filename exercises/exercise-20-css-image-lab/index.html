@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 20 - Hiệu ứng ảnh với CSS3 Filter</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         min-height: 100vh;
+         background: #101418;
+         color: #eeeeee;
+         font-family: Arial, "Segoe UI", sans-serif;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         gap: 18px;
+         padding: 24px;
+    }
+
+    .khung-anh {
+         width: min(320px, 90vw);
+         background: #1c2226;
+         border-radius: 12px;
+         padding: 16px;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+        gap: 10px;
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    .khung-anh img {
+        width: 100%;
+        border-radius: 8px;
+        filter: grayscale(1);
+        transition: filter 0.3s ease, transform 0.35s ease;
+    }
+
+    .chu-nghe-thuat {
+        font-size: 22px;
+        font-style: italic;
+        background: linear-gradient(90deg, #d4af37, #f5e6a3, #b8860b);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .thanh-nut {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+        max-width: 620px;
+    }
+
+    .thanh-nut button {
+        padding: 6px 12px;
+        border: 1px solid #3c464d;
+        border-radius: 6px;
+        background: #232b30;
+        color: #dddddd;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+      .thanh-nut button:hover { border-color: #60a5fa; }
+
+      .thanh-nut button.on {
+          background: #0d6efd;
+          border-color: #0d6efd;
+          color: #ffffff;
+      }
+    </style>
+</head>
+<body>
+    <div class="khung-anh">
+      <img id="anh-hoa" src="assets/hoahong.gif" alt="Hoa hồng">
+      <div class="chu-nghe-thuat">Special For You</div>
+    </div>
+
+    <div class="thanh-nut" id="thanh-nut"></div>
+
+    <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+      <filter id="song">
+          <feTurbulence type="turbulence" baseFrequency="0.02 0.06" numOctaves="1" result="nhieu" />
+          <feDisplacementMap in="SourceGraphic" in2="nhieu" scale="10" />
+      </filter>
+    </svg>
+
+    <script>
+      const DANH_SACH_HIEU_UNG = [
+          { ten: "Gray",           filter: "grayscale(1)", transform: "none" },
+          { ten: "Xray",           filter: "invert(1) grayscale(1)", transform: "none" },
+          { ten: "Invert",         filter: "invert(1)", transform: "none" },
+          { ten: "FlipH",          filter: "none", transform: "scaleX(-1)" },
+          { ten: "FlipV",          filter: "none", transform: "scaleY(-1)" },
+          { ten: "Glow",           filter: "drop-shadow(0 0 14px #ffd700)", transform: "none" },
+
+           { ten: "Shadow",        filter: "drop-shadow(4px 4px 4px rgba(0,0,0,0.8))", transform: "none" },
+           { ten: "Bold Shadow", filter: "drop-shadow(6px 6px 0 #000000)", transform: "none" },
+           { ten: "DropShadow",    filter: "drop-shadow(8px 10px 6px rgba(0,0,0,0.6))",transform: "none" },
+           { ten: "Blur",          filter: "blur(3px)", transform: "none" },
+           { ten: "Wave",          filter: "url(#song)", transform: "skewX(6deg)" },
+           { ten: "Mask",          filter: "contrast(1.75) sepia(0.35)", transform: "none" },
+           { ten: "Alpha",         filter: "opacity(0.4)", transform: "none" }
+      ];
+
+      const anhHoa = document.getElementById("anh-hoa");
+      const thanhNut = document.getElementById("thanh-nut");
+
+      DANH_SACH_HIEU_UNG.forEach((muc, chiSo) => {
+           const nut = document.createElement("button");
+           nut.type = "button";
+           nut.textContent = muc.ten;
+           if (chiSo === 0) nut.classList.add("on");
+
+           nut.addEventListener("click", () => {
+             thanhNut.querySelectorAll("button").forEach((b) => b.classList.remove("on"));
+             nut.classList.add("on");
+             anhHoa.style.filter = muc.filter;
+             anhHoa.style.transform = muc.transform;
+           });
+
+           thanhNut.appendChild(nut);
+      });
+    </script>
+</body>
+</html>

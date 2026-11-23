@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bài 29 - Bảng dữ liệu sinh viên & Phân trang</title>
+  <link href="../_shared/vendor/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-4">
+  <div class="container">
+       <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <!-- Tiêu đề & Badge học kỳ -->
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="fw-bold mb-0">Bảng kết quả học tập</h4>
+            <span class="badge bg-primary fs-6">Học kỳ 2 - 2026</span>
+          </div>
+
+          <!-- Bảng dữ liệu Responsive -->
+          <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+              <thead class="table-dark">
+                   <tr>
+                     <th>#</th>
+                     <th>Mã SV</th>
+                     <th>Họ và tên</th>
+                     <th>Lớp</th>
+                     <th>Điểm TB</th>
+                     <th>Trạng thái</th>
+                   </tr>
+              </thead>
+              <tbody>
+                   <tr>
+                     <td>1</td>
+                     <td>2251172001</td>
+                     <td>Nguyễn Văn An</td>
+                     <td>64KTPM1</td>
+                     <td>8.6</td>
+                     <td><span class="badge text-bg-success">Đạt</span></td>
+                   </tr>
+                   <tr>
+                     <td>2</td>
+
+                    <td>2251172002</td>
+                    <td>Trần Thị Bình</td>
+                    <td>64KTPM1</td>
+                    <td>7.9</td>
+                    <td><span class="badge text-bg-success">Đạt</span></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>2251172003</td>
+                    <td>Lê Hoàng Cường</td>
+                    <td>64KTPM2</td>
+                    <td>6.5</td>
+                    <td><span class="badge text-bg-success">Đạt</span></td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>2251172004</td>
+                    <td>Phạm Minh Dũng</td>
+                    <td>64KTPM2</td>
+                    <td>4.2</td>
+                    <td><span class="badge text-bg-warning">Thi lại</span></td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>2251172005</td>
+                    <td>Hoàng Thu Hà</td>
+                    <td>64CNTT1</td>
+                    <td>9.1</td>
+                    <td><span class="badge text-bg-success">Đạt</span></td>
+                  </tr>
+              </tbody>
+           </table>
+         </div>
+
+         <!-- Thanh phân trang Pagination -->
+         <nav aria-label="Phân trang danh sách sinh viên">
+           <ul class="pagination justify-content-center mb-0" id="pag">
+              <li class="page-item disabled"><a class="page-link" href="#">Trước</a></li>
+
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Sau</a></li>
+             </ul>
+           </nav>
+       </div>
+    </div>
+  </div>
+</body>
+</html>

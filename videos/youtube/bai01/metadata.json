@@ -1,0 +1,27 @@
+{
+ "id": "bai01",
+ "num": 1,
+ "title": "Bài 01 – Trang thơ “Bốn mùa” | Hướng dẫn Frontend từng bước",
+ "chapter": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-01-four-seasons-poem",
+ "submitFile": "bai01.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Variables"
+ ],
+ "duration": 227,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "four-seasons-poem"
+ ],
+ "youtubeId": ""
+}

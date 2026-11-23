@@ -1,0 +1,18 @@
+Trang sản phẩm du lịch với Card, Modal & Accordion — hướng dẫn giải từng bước (Thiết kế responsive với Bootstrap 5).
+
+Dự án: exercise-27-travel-showcase/index.html (khi nộp đổi tên thành bai27.html).
+Công nghệ: HTML5, CSS3, Bootstrap 5, Events.
+
+Chương:
+00:00 Mở đầu
+00:33 Yêu cầu
+01:33 Tạo dự án
+02:05 Cấu trúc trang
+02:19 Tùy biến CSS
+02:35 Bootstrap
+02:49 Chạy thử
+03:08 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript/Bootstrap, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #JavaScript #BàiTậpThựcHành

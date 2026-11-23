@@ -1,0 +1,164 @@
+1
+00:00:00,650 --> 00:00:01,762
+Chào các bạn.
+
+2
+00:00:01,812 --> 00:00:10,710
+Đây là video hướng dẫn bài thực hành số 17, Kiểm tra dữ liệu biểu mẫu bằng JavaScript (Form Validation).
+
+3
+00:00:10,760 --> 00:00:25,134
+Chúng ta sẽ cùng tạo dự án exercise 17 form validation với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:25,184 --> 00:00:32,285
+Bài luyện regex, kiểm tra dữ liệu phía client và phản hồi lỗi ngay tại từng trường.
+
+5
+00:00:32,335 --> 00:00:33,448
+Cùng bắt đầu.
+
+6
+00:00:33,798 --> 00:00:37,993
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:38,043 --> 00:00:39,959
+Bài gồm 2 phần chính.
+
+8
+00:00:40,009 --> 00:00:46,120
+Viết hàm dùng chung datTrangThai(inputEl, tbEl, hopLe, thong Diep).
+
+9
+00:00:46,170 --> 00:00:56,112
+Thay vì lặp lại mã thêm/xóa class cho từng ô, ta viết một hàm nhận vào phần tử input và phần tử thông báo.tb.
+
+10
+00:00:56,162 --> 00:01:05,101
+Nếu hopLe === true, hàm gắn class ok và in 3 Hợp lệ, ngược lại gắn class loi và in ✗ $ thongDiep..
+
+11
+00:01:05,151 --> 00:01:08,070
+Kiểm tra từng quy tắc nghiệp vụ.
+
+12
+00:01:08,120 --> 00:01:11,313
+– Họ tên: hoTen.trim().length >= 2.
+
+13
+00:01:11,363 --> 00:01:16,562
+– Email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()).
+
+14
+00:01:16,612 --> 00:01:19,531
+– Mật khẩu: matKhau.length >= 6.
+
+15
+00:01:19,581 --> 00:01:25,318
+– Xác nhận mật khẩu: xacNhan.length >= 6 && xacNhan === matKhau.
+
+16
+00:01:25,518 --> 00:01:27,153
+Bước một, tạo dự án.
+
+17
+00:01:27,203 --> 00:01:31,618
+Mở terminal và chạy mkdir exercise 17 form validation.
+
+18
+00:01:31,668 --> 00:01:39,926
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+19
+00:01:39,976 --> 00:01:44,227
+Sau đó di chuyển vào thư mục, và tạo tệp index.html.
+
+20
+00:01:44,277 --> 00:01:47,711
+Trong dự án, tệp chính luôn là index.html.
+
+21
+00:01:47,761 --> 00:01:53,321
+Khi nộp theo quy định của học phần, các em đổi tên thành bai17.html.
+
+22
+00:01:53,621 --> 00:01:55,072
+Mở tệp index.html.
+
+23
+00:01:55,122 --> 00:02:03,424
+Form đăng ký gồm họ tên, email, mật khẩu, xác nhận mật khẩu, mỗi trường có một div thông báo lỗi riêng.
+
+24
+00:02:03,474 --> 00:02:08,795
+Form đặt novalidate để JavaScript tự kiểm tra thay vì trình duyệt.
+
+25
+00:02:08,845 --> 00:02:11,505
+Các thẻ ngữ nghĩa chính gồm form.
+
+26
+00:02:11,905 --> 00:02:13,955
+Chuyển sang phần CSS.
+
+27
+00:02:14,005 --> 00:02:20,839
+Trường hợp lệ có viền xanh, không hợp lệ viền đỏ và dòng thông báo đỏ.
+
+28
+00:02:20,889 --> 00:02:24,404
+Nút đăng ký màu cam, card nền trắng.
+
+29
+00:02:24,454 --> 00:02:28,457
+Media query xếp các trường thành một cột.
+
+30
+00:02:28,507 --> 00:02:34,657
+Bảng màu chính gồm #fff7ed, #ffffff, #fed7aa, #c2410c, #6b7280.
+
+31
+00:02:35,007 --> 00:02:36,259
+Phần JavaScript.
+
+32
+00:02:36,309 --> 00:02:46,089
+Mỗi trường có hàm kiểm tra riêng: tên không rỗng, email đúng biểu thức chính quy, mật khẩu đủ tám ký tự, xác nhận trùng khớp.
+
+33
+00:02:46,139 --> 00:02:54,667
+Sự kiện input kiểm tra lại ngay khi gõ, sự kiện submit chặn mặc định và chỉ báo thành công khi tất cả hợp lệ.
+
+34
+00:02:54,717 --> 00:02:58,160
+Các hàm chính là datTrangThai, kiemTraTatCa.
+
+35
+00:02:58,210 --> 00:03:01,417
+Sự kiện được lắng nghe gồm submit, input.
+
+36
+00:03:01,767 --> 00:03:06,305
+Chạy thử: bấm đăng ký với dữ liệu sai, các dòng lỗi hiện ra.
+
+37
+00:03:06,355 --> 00:03:13,236
+Sửa email đúng định dạng, nhập mật khẩu và xác nhận khớp, bấm đăng ký, form báo thành công.
+
+38
+00:03:20,767 --> 00:03:22,105
+Tổng kết bài 17.
+
+39
+00:03:22,155 --> 00:03:30,011
+Tạo dự án exercise 17 form validation, tệp chính index.html, khi nộp đổi tên thành bai17.html.
+
+40
+00:03:30,061 --> 00:03:49,200
+Giải thích ý nghĩa thuộc tính novalidate trên thẻ form (tắt bong bóng cảnh báo mặc định của trình duyệt để nhường quyền hiển thị thông báo tùy chỉnh bằng JavaScript) và phân tích biểu thức chính quy /^[^\s@]+@[^\s@]+\.[^\s@]+$/..
+
+41
+00:03:49,250 --> 00:04:01,954
+Lỗi thường gặp: Dùng toán tử || hoặc dừng hàm ngay ở lỗi đầu tiên (if (!kqTen) return,) khiến các ô bị sai phía dưới không hiện thông báo lỗi đồng thời.
+

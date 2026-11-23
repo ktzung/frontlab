@@ -1,0 +1,164 @@
+1
+00:00:00,650 --> 00:00:01,724
+Chào các bạn.
+
+2
+00:00:01,774 --> 00:00:08,797
+Đây là video hướng dẫn bài thực hành số 30, Bảng điều khiển quản trị Admin Dashboard.
+
+3
+00:00:08,847 --> 00:00:22,729
+Chúng ta sẽ cùng tạo dự án exercise 30 admin dashboard với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, xử lý JavaScript, rồi chạy thử trên trình duyệt.
+
+4
+00:00:22,779 --> 00:00:29,389
+Bài tổng kết chương Bootstrap: dashboard nhiều vùng, KPI, bảng và thanh tiến độ.
+
+5
+00:00:29,439 --> 00:00:30,513
+Cùng bắt đầu.
+
+6
+00:00:30,863 --> 00:00:34,612
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:34,662 --> 00:00:36,374
+Bài gồm 3 phần chính.
+
+8
+00:00:36,424 --> 00:00:39,359
+Thiết lập bố cục 2 cột aside + main.
+
+9
+00:00:39,409 --> 00:00:40,387
+Tạo div div.
+
+10
+00:00:40,437 --> 00:00:44,186
+Cột bên trái là aside , cột bên phải là main..
+
+11
+00:00:44,236 --> 00:00:46,845
+Xây dựng 4 thẻ KPI với.progress.
+
+12
+00:00:46,895 --> 00:00:48,851
+Tạo div chứa 4 khối div.
+
+13
+00:00:48,901 --> 00:00:56,237
+Trong mỗi.card-body, hiển thị nhãn.text-muted.small, con số lớn h3.fw-bold, và thanh div..
+
+14
+00:00:56,287 --> 00:00:59,221
+Xây dựng danh sách.list-group-flush.
+
+15
+00:00:59,271 --> 00:01:06,363
+Tạo.card.shadow-sm chứa.card-header.bg-white.fw-bold và ul.list-group.list-group-flush.
+
+16
+00:01:06,413 --> 00:01:11,548
+Mỗi thẻ li.list-group-item dùng.d-flex.justify-content-between.
+
+17
+00:01:11,598 --> 00:01:16,778
+align-items-center để căn tên chương sang trái và.badge sang phải.
+
+18
+00:01:16,978 --> 00:01:18,597
+Bước một, tạo dự án.
+
+19
+00:01:18,647 --> 00:01:23,017
+Mở terminal và chạy mkdir exercise 30 admin dashboard.
+
+20
+00:01:23,067 --> 00:01:31,241
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+21
+00:01:31,291 --> 00:01:35,499
+Sau đó di chuyển vào thư mục, và tạo tệp index.html.
+
+22
+00:01:35,549 --> 00:01:38,949
+Trong dự án, tệp chính luôn là index.html.
+
+23
+00:01:38,999 --> 00:01:44,502
+Khi nộp theo quy định của học phần, các em đổi tên thành bai30.html.
+
+24
+00:01:44,802 --> 00:01:46,276
+Mở tệp index.html.
+
+25
+00:01:46,326 --> 00:01:55,418
+Dashboard có sidebar dọc với logo và menu, vùng main chứa header, bốn thẻ KPI, bảng bài tập gần đây và tiến độ.
+
+26
+00:01:55,468 --> 00:01:58,663
+Bố cục dùng flex và grid của Bootstrap.
+
+27
+00:01:58,713 --> 00:02:01,989
+Các thẻ ngữ nghĩa chính gồm aside, main.
+
+28
+00:02:02,389 --> 00:02:04,107
+Chuyển sang phần CSS.
+
+29
+00:02:04,157 --> 00:02:08,573
+Sidebar nền tối cố định chiều rộng, main nền xám nhạt.
+
+30
+00:02:08,623 --> 00:02:13,694
+Bốn thẻ KPI dùng col-md-3, mỗi thẻ có số lớn và thanh tiến độ.
+
+31
+00:02:13,744 --> 00:02:16,279
+Bảng gọn, badge trạng thái màu.
+
+32
+00:02:16,329 --> 00:02:20,254
+Media query ẩn hoặc thu gọn sidebar trên mobile.
+
+33
+00:02:20,604 --> 00:02:21,767
+Phần Bootstrap.
+
+34
+00:02:21,817 --> 00:02:29,487
+Các thành phần chủ yếu là HTML và class Bootstrap, thanh tiến độ dùng progress với width phần trăm.
+
+35
+00:02:29,537 --> 00:02:33,954
+Bài tập trung vào bố cục dashboard và phân cấp thông tin.
+
+36
+00:02:34,404 --> 00:02:42,530
+Chạy thử dashboard: sidebar tối bên trái, bốn thẻ KPI phía trên, bảng bài tập và thanh tiến độ bên dưới.
+
+37
+00:02:42,580 --> 00:02:47,034
+Thu nhỏ màn hình, sidebar thu gọn và các thẻ KPI xếp dọc.
+
+38
+00:02:53,404 --> 00:02:54,674
+Tổng kết bài 30.
+
+39
+00:02:54,724 --> 00:03:02,186
+Tạo dự án exercise 30 admin dashboard, tệp chính index.html, khi nộp đổi tên thành bai30.html.
+
+40
+00:03:02,236 --> 00:03:08,587
+Bài tổng kết chương Bootstrap: dashboard nhiều vùng, KPI, bảng và thanh tiến độ.
+
+41
+00:03:08,637 --> 00:03:13,559
+Lỗi thường gặp: quên kiểm tra lại giao diện trên màn hình nhỏ.
+

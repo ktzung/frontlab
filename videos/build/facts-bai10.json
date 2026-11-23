@@ -1,0 +1,16 @@
+{
+ "num": 10,
+ "slug": "contact-form",
+ "steps": [
+  {
+   "label": "Gắn kết <label> với <input> qua thuộc tính for và id",
+   "text": "Mỗi trường nhập liệu đều có <label for=\"ho-ten\"> đi kèm <input id=\"ho-ten\">. Đặc biệt với <input type=\"checkbox\" id=\"dong-y\">, việc gắn <label for=\"dong-y\"> giúp người dùng bấm trực tiếp vào dòng chữ “Tôi đồng ý nhận email phản hồi” cũng tích chọn được ô vuông. •"
+  },
+  {
+   "label": "Lưu ý thuộc tính font",
+   "text": "inherit cho các phần tử Form: Mặc định trình duyệt áp phông chữ riêng (thường là monospace trên <textarea>) và cỡ chữ nhỏ hơn cho <input>, <select>, <textarea>, <button>. Khai báo font: inherit; giúp tất cả ô nhập đồng bộ phông chữ với <body>."
+  }
+ ],
+ "highlight": "Giải thích sự khác biệt giữa <input type=\"email\">, <input type=\"tel\">, <select> và <textarea>, đồng thời bấm thử nút Nhập lại (type=\"reset\") để chứng minh trình duyệt tự khôi phục trạng thái ban đầu của form. •",
+ "mistake": "Dùng rule CSS input { width: 100%; } chung cho mọi <input>, khiến cả <input type=\"checkbox\"> cũng bị kéo giãn rộng 100% và đẩy dòng chữ nhãn lệch khỏi hàng."
+}

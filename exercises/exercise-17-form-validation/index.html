@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 17 - Kiểm tra biểu mẫu bằng JavaScript</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+         margin: 0;
+         padding: 32px 16px;
+         font-family: Arial, "Segoe UI", sans-serif;
+         background: #fff7ed;
+         display: flex;
+         justify-content: center;
+    }
+
+    .the-dk {
+         width: min(560px, 100%);
+         background: #ffffff;
+         border: 1px solid #fed7aa;
+
+        border-radius: 12px;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1);
+        padding: 26px 28px;
+    }
+
+    .the-dk h1 {
+        margin: 0 0 4px;
+        font-size: 21px;
+        color: #c2410c;
+    }
+
+    .dan-nhap {
+        margin: 0 0 20px;
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .nhom-o { margin-bottom: 16px; }
+
+    label {
+        display: block;
+        font-size: 13px;
+        font-weight: 700;
+        color: #374151;
+        margin-bottom: 6px;
+    }
+
+    input {
+        width: 100%;
+        padding: 11px 13px;
+        border-radius: 8px;
+        font: inherit;
+        font-size: 14px;
+        border: 2px solid #e5e7eb;
+    }
+
+    input.loi {
+        border-color: #dc2626;
+
+         background: #fef2f2;
+    }
+
+    input.ok {
+         border-color: #16a34a;
+         background: #ffffff;
+    }
+
+    .tb {
+         margin-top: 6px;
+         font-size: 13px;
+         min-height: 18px;
+    }
+
+    .tb.loi { color: #dc2626; }
+    .tb.ok     { color: #16a34a; }
+
+    button {
+         width: 100%;
+         margin-top: 6px;
+         padding: 12px;
+         border: none;
+         border-radius: 8px;
+         background: #c2410c;
+         color: #ffffff;
+         font: inherit;
+         font-size: 15px;
+         font-weight: 700;
+         cursor: pointer;
+    }
+
+    button:hover { background: #9a3412; }
+  </style>
+</head>
+<body>
+  <form class="the-dk" id="form-dk" novalidate>
+    <h1>Đăng ký tài khoản</h1>
+    <p class="dan-nhap">Dữ liệu được kiểm tra bằng JavaScript trước khi gửi.</p>
+
+    <div class="nhom-o">
+       <label for="ho-ten">Họ và tên</label>
+       <input type="text" id="ho-ten" value="Nguyễn Văn An">
+       <div class="tb" id="tb-ho-ten"></div>
+    </div>
+
+    <div class="nhom-o">
+       <label for="email">Email</label>
+       <input type="email" id="email" value="an.nv@">
+       <div class="tb" id="tb-email"></div>
+    </div>
+
+    <div class="nhom-o">
+       <label for="mat-khau">Mật khẩu</label>
+       <input type="password" id="mat-khau" value="123">
+       <div class="tb" id="tb-mat-khau"></div>
+    </div>
+
+    <div class="nhom-o">
+       <label for="xac-nhan">Xác nhận mật khẩu</label>
+       <input type="password" id="xac-nhan" value="123456">
+       <div class="tb" id="tb-xac-nhan"></div>
+    </div>
+
+    <button type="submit">Đăng ký</button>
+  </form>
+
+  <script>
+    const oHoTen = document.getElementById("ho-ten");
+    const oEmail = document.getElementById("email");
+    const oMatKhau = document.getElementById("mat-khau");
+    const oXacNhan = document.getElementById("xac-nhan");
+
+    function datTrangThai(inputEl, tbId, hopLe, thongDiepLoi) {
+       const tbEl = document.getElementById(tbId);
+       inputEl.classList.toggle("ok", hopLe);
+       inputEl.classList.toggle("loi", !hopLe);
+
+        tbEl.className = "tb " + (hopLe ? "ok" : "loi");
+        tbEl.textContent = hopLe ? "3 Hợp lệ" : `✗ ${thongDiepLoi}`;
+        return hopLe;
+    }
+
+    function kiemTraTatCa() {
+        const kqTen = datTrangThai(
+             oHoTen, "tb-ho-ten",
+             oHoTen.value.trim().length > 0,
+             "Họ và tên không được để trống"
+        );
+
+        const mauEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const kqEmail = datTrangThai(
+             oEmail, "tb-email",
+             mauEmail.test(oEmail.value.trim()),
+             "Email không hợp lệ (thiếu tên miền)"
+        );
+
+        const kqMatKhau = datTrangThai(
+             oMatKhau, "tb-mat-khau",
+             oMatKhau.value.length >= 6,
+             "Mật khẩu phải có ít nhất 6 ký tự"
+        );
+
+        const kqXacNhan = datTrangThai(
+             oXacNhan, "tb-xac-nhan",
+             oXacNhan.value.length >= 6 && oXacNhan.value === oMatKhau.value,
+             "Xác nhận mật khẩu chưa khớp hoặc dưới 6 ký tự"
+        );
+
+        return kqTen && kqEmail && kqMatKhau && kqXacNhan;
+    }
+
+    document.getElementById("form-dk").addEventListener("submit", (e) => {
+        e.preventDefault();
+        kiemTraTatCa();
+    });
+
+    [oHoTen, oEmail, oMatKhau, oXacNhan].forEach((input) => {
+       input.addEventListener("input", kiemTraTatCa);
+    });
+
+    // Hiển thị trạng thái kiểm tra ban đầu đúng như hình minh hoạ
+    datTrangThai(oHoTen, "tb-ho-ten", true, "");
+    datTrangThai(oEmail, "tb-email", false, "Email không hợp lệ (thiếu tên miền)");
+    datTrangThai(oMatKhau, "tb-mat-khau", false, "Mật khẩu phải có ít nhất 6 ký tự");
+    datTrangThai(oXacNhan, "tb-xac-nhan", true, "");
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+Thư viện ảnh danh thắng Việt Nam — hướng dẫn giải từng bước (HTML5 cơ bản & thẻ ngữ nghĩa).
+
+Dự án: exercise-11-vietnam-gallery/index.html (khi nộp đổi tên thành bai11.html).
+Công nghệ: HTML5, CSS3, CSS Grid, Responsive.
+
+Chương:
+00:00 Mở đầu
+00:29 Yêu cầu
+01:13 Tạo dự án
+01:44 Cấu trúc HTML
+02:03 Định dạng CSS
+02:32 Chạy thử
+02:53 Tổng kết
+
+Nội dung: tạo dự án với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, chạy thử và kiểm tra responsive.
+
+#FrontLab #Frontend #HTML5 #CSS3 #BàiTậpThựcHành

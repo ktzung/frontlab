@@ -1,0 +1,16 @@
+{
+ "num": 21,
+ "slug": "portal-grid-areas",
+ "steps": [
+  {
+   "label": "Vẽ bản đồ lưới bằng grid-template-areas",
+   "text": "Với bố cục 2 hàng × 3 cột, hàng đầu tiên cả 3 ô đều ghi \"banner banner banner\", hàng thứ hai ghi \"menu main qc\". Cách viết này trực quan như vẽ sơ đồ ASCII ngay trong CSS. •"
+  },
+  {
+   "label": "Chuyển đổi bản đồ lưới trên màn hình nhỏ (@media)",
+   "text": "Khi màn hình nhỏ hơn 820px, ta chỉ cần đổi grid-template-columns: 1fr và sửa grid-template-areas thành 4 hàng dọc \"banner\" \"menu\" \"main\" \"qc\" mà không phải sửa bất kỳ dòng HTML nào."
+  }
+ ],
+ "highlight": "Giải thích vì sao <frameset> bị loại bỏ khỏi HTML5 (gây hại SEO, khó bookmark URL con, không responsive) và cách grid-template-areas giải quyết triệt để bài toán này. •",
+ "mistake": "Viết sai số lượng cột trong một hàng của grid-template-areas (ví dụ hàng 1 chỉ viết 2 từ \"banner banner\" trong khi hàng 2 có 3 từ \"menu main qc\"), làm toàn bộ khai báo Grid bị vô hiệu hóa."
+}

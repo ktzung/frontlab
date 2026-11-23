@@ -1,0 +1,136 @@
+1
+00:00:00,650 --> 00:00:01,689
+Chào các bạn.
+
+2
+00:00:01,739 --> 00:00:09,011
+Đây là video hướng dẫn bài thực hành số 14, Trang chuyên đề 6 Kỳ quan thiên nhiên Việt Nam.
+
+3
+00:00:09,061 --> 00:00:21,048
+Chúng ta sẽ cùng tạo dự án exercise 14 vietnam wonders với tên tiếng Anh chuẩn, phân tích cấu trúc HTML, định dạng CSS, rồi chạy thử trên trình duyệt.
+
+4
+00:00:21,098 --> 00:00:27,012
+Bài luyện lưới ảnh chuyên đề, giữ tỉ lệ ảnh đồng đều và chú thích rõ ràng.
+
+5
+00:00:27,062 --> 00:00:28,101
+Cùng bắt đầu.
+
+6
+00:00:28,451 --> 00:00:32,094
+Trước khi viết mã, hãy nắm rõ yêu cầu của bài.
+
+7
+00:00:32,144 --> 00:00:33,808
+Bài gồm 2 phần chính.
+
+8
+00:00:33,858 --> 00:00:36,709
+Thiết kế cấu trúc thẻ.the chuẩn mực.
+
+9
+00:00:36,759 --> 00:00:42,858
+Mỗi thẻ article chứa img ở trên cùng, tiếp theo là h2 màu #1b5e20 và p mô tả.
+
+10
+00:00:42,908 --> 00:00:49,165
+Đặt overflow: hidden trên.the để 2 góc trên của ảnh tự bo tròn theo khung thẻ..
+
+11
+00:00:49,215 --> 00:00:54,839
+Ứng dụng mảng dữ liệu kết hợp map() (tùy chọn nâng cao trong Chương 2).
+
+12
+00:00:54,889 --> 00:01:06,532
+Ngoài việc viết tĩnh 6 thẻ HTML, ta có thể lưu danh sách 6 kỳ quan trong mảng đối tượng DANH_SACH_KY_QUAN để dễ dàng lọc hoặc tìm kiếm khi mở rộng.
+
+13
+00:01:06,582 --> 00:01:13,553
+Trong mã mẫu dưới đây, cả cấu trúc HTML tường minh đều được giữ sẵn để hiển thị tức thì.
+
+14
+00:01:13,753 --> 00:01:15,352
+Bước một, tạo dự án.
+
+15
+00:01:15,402 --> 00:01:19,721
+Mở terminal và chạy mkdir exercise 14 vietnam wonders.
+
+16
+00:01:19,771 --> 00:01:27,848
+Tên thư mục viết thường, không dấu, các từ nối bằng dấu gạch ngang, thể hiện đúng số bài và nội dung.
+
+17
+00:01:27,898 --> 00:01:35,416
+Sau đó di chuyển vào thư mục, tạo thêm thư mục assets để chứa hình ảnh, và tạo tệp index.html.
+
+18
+00:01:35,466 --> 00:01:38,825
+Trong dự án, tệp chính luôn là index.html.
+
+19
+00:01:38,875 --> 00:01:44,314
+Khi nộp theo quy định của học phần, các em đổi tên thành bai14.html.
+
+20
+00:01:44,614 --> 00:01:46,109
+Mở tệp index.html.
+
+21
+00:01:46,159 --> 00:01:55,383
+Trang chuyên đề có header xanh, lưới sáu figure cho sáu kỳ quan, mỗi figure gồm ảnh và figcaption tên địa danh.
+
+22
+00:01:55,433 --> 00:01:58,757
+Phần mở đầu dùng đoạn sapo mô tả chủ đề.
+
+23
+00:01:58,807 --> 00:02:02,962
+Các thẻ ngữ nghĩa chính gồm main, header, article.
+
+24
+00:02:03,362 --> 00:02:05,377
+Chuyển sang phần CSS.
+
+25
+00:02:05,427 --> 00:02:12,816
+Grid ba cột, ảnh cao đồng nhất nhờ object-fit cover, chú thích nền vàng nhạt.
+
+26
+00:02:12,866 --> 00:02:15,264
+Bảng màu xanh lá và vàng.
+
+27
+00:02:15,314 --> 00:02:22,127
+Media query giảm còn hai cột rồi một cột, khoảng cách ảnh thu nhỏ theo.
+
+28
+00:02:22,177 --> 00:02:28,222
+Bảng màu chính gồm #f5f7f4, #ffffff, #2E7D32, #FFEB3B, #1b5e20.
+
+29
+00:02:28,572 --> 00:02:32,275
+Chạy thử: sáu kỳ quan xếp thành lưới ba nhân hai.
+
+30
+00:02:32,325 --> 00:02:38,067
+Thu nhỏ màn hình, lưới chuyển về hai cột rồi một cột, ảnh vẫn giữ khung đều.
+
+31
+00:02:49,072 --> 00:02:50,381
+Tổng kết bài 14.
+
+32
+00:02:50,431 --> 00:02:58,119
+Tạo dự án exercise 14 vietnam wonders, tệp chính index.html, khi nộp đổi tên thành bai14.html.
+
+33
+00:02:58,169 --> 00:03:09,130
+Chỉ rõ cách dùng border-bottom: 3 pixel solid #2E7D32 ngay trên thẻ img để tạo dải màu nhấn tách biệt phần ảnh và phần chữ trong thẻ..
+
+34
+00:03:09,180 --> 00:03:18,422
+Lỗi thường gặp: Quên margin: 0 trên đoạn.dan-nhap, khiến khoảng trắng trên/dưới đoạn dẫn nhập bị rộng bất thường.
+

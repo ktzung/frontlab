@@ -1,0 +1,16 @@
+{
+ "num": 14,
+ "slug": "vietnam-wonders",
+ "steps": [
+  {
+   "label": "Thiết kế cấu trúc thẻ .the chuẩn mực",
+   "text": "Mỗi thẻ <article class= \"the\"> chứa <img> ở trên cùng, tiếp theo là <h2> màu #1b5e20 và <p> mô tả. Đặt overflow: hidden trên .the để 2 góc trên của ảnh tự bo tròn theo khung thẻ. •"
+  },
+  {
+   "label": "Ứng dụng mảng dữ liệu kết hợp map() (tùy chọn nâng cao trong Chương 2)",
+   "text": "Ngoài việc viết tĩnh 6 thẻ HTML, ta có thể lưu danh sách 6 kỳ quan trong mảng đối tượng DANH_SACH_KY_QUAN để dễ dàng lọc hoặc tìm kiếm khi mở rộng. Trong mã mẫu dưới đây, cả cấu trúc HTML tường minh đều được giữ sẵn để hiển thị tức thì."
+  }
+ ],
+ "highlight": "Chỉ rõ cách dùng border-bottom: 3px solid #2E7D32 ngay trên thẻ <img> để tạo dải màu nhấn tách biệt phần ảnh và phần chữ trong thẻ. •",
+ "mistake": "Quên margin: 0 trên đoạn .dan-nhap, khiến khoảng trắng trên/dưới đoạn dẫn nhập bị rộng bất thường."
+}

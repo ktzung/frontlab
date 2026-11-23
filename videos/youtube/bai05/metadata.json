@@ -1,0 +1,28 @@
+{
+ "id": "bai05",
+ "num": 5,
+ "title": "Bài 05 – Trang giới thiệu Công ty Hoa tươi Nhân Ái | Hướng dẫn Frontend từng bước",
+ "chapter": "HTML5 cơ bản & thẻ ngữ nghĩa",
+ "project": "exercise-05-nhan-ai-flower-shop",
+ "submitFile": "bai05.html",
+ "tech": [
+  "HTML5",
+  "CSS3",
+  "Flexbox",
+  "CSS Grid",
+  "Responsive"
+ ],
+ "duration": 210,
+ "visibility": "unlisted",
+ "tags": [
+  "FrontLab",
+  "frontend",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
+  "Bootstrap",
+  "bài tập thực hành",
+  "nhan-ai-flower-shop"
+ ],
+ "youtubeId": ""
+}

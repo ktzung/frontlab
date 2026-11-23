@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 30 - Bảng điều khiển quản trị Admin Dashboard</title>
+  <link href="../_shared/vendor/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+  <div class="container-fluid">
+    <div class="row min-vh-100">
+       <!-- Sidebar quản trị bên trái -->
+       <aside class="bg-dark text-white p-3" style="width: 230px;">
+         <h5 class="fw-bold border-bottom pb-2">CSE.TLU Admin</h5>
+         <ul class="nav flex-column gap-1 mt-3">
+           <li class="nav-item">
+              <a class="nav-link active bg-primary text-white rounded" href="#">Tổng quan</a>
+           </li>
+           <li class="nav-item">
+              <a class="nav-link text-white-50" href="#">Sinh viên</a>
+           </li>
+           <li class="nav-item">
+              <a class="nav-link text-white-50" href="#">Bài tập</a>
+           </li>
+           <li class="nav-item">
+              <a class="nav-link text-white-50" href="#">Báo cáo</a>
+           </li>
+         </ul>
+       </aside>
+
+       <!-- Khu vực nội dung chính -->
+       <main class="col p-4">
+         <!-- Header Dashboard -->
+         <div class="d-flex justify-content-between align-items-center mb-4">
+           <h3 class="fw-bold mb-0">Bảng điều khiển học phần Web</h3>
+           <button class="btn btn-primary btn-sm">+ Thêm bài tập</button>
+         </div>
+
+         <!-- 4 Thẻ chỉ số thống kê KPI -->
+         <div class="row g-3 mb-4">
+           <div class="col-md-3">
+              <div class="card shadow-sm border-0">
+                  <div class="card-body">
+                    <div class="text-muted small">Sinh viên</div>
+                    <h3 class="fw-bold text-primary mb-0">128</h3>
+
+                    <div class="progress mt-2" style="height: 6px;">
+                       <div class="progress-bar" style="width: 80%;"></div>
+                    </div>
+                </div>
+              </div>
+           </div>
+
+           <div class="col-md-3">
+              <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <div class="text-muted small">Đã nộp</div>
+                    <h3 class="fw-bold text-success mb-0">96</h3>
+                    <div class="progress mt-2" style="height: 6px;">
+                       <div class="progress-bar bg-success" style="width: 75%;"></div>
+                    </div>
+                </div>
+              </div>
+           </div>
+
+           <div class="col-md-3">
+              <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <div class="text-muted small">Chưa nộp</div>
+                    <h3 class="fw-bold text-warning mb-0">32</h3>
+                    <div class="progress mt-2" style="height: 6px;">
+                       <div class="progress-bar bg-warning" style="width: 25%;"></div>
+                    </div>
+                </div>
+              </div>
+           </div>
+
+           <div class="col-md-3">
+              <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <div class="text-muted small">Điểm TB</div>
+                    <h3 class="fw-bold text-danger mb-0">7.8</h3>
+
+                    <div class="progress mt-2" style="height: 6px;">
+                       <div class="progress-bar bg-danger" style="width: 78%;"></div>
+                    </div>
+                  </div>
+              </div>
+           </div>
+         </div>
+
+         <!-- Card Tiến độ theo chương -->
+         <div class="card shadow-sm border-0">
+           <div class="card-header bg-white fw-bold">
+              Tiến độ theo chương
+           </div>
+           <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="badge text-bg-success">Hoàn thành 100%</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="badge text-bg-primary">Đang học 85%</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="badge text-bg-info">Đang học 70%</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <span class="badge text-bg-warning">Mới mở 50%</span>
+              </li>
+           </ul>
+         </div>
+       </main>
+
+    </div>
+  </div>
+</body>
+</html>
