@@ -9,6 +9,7 @@
   const LESSONS = DATA.lessons;
   const PRACTICE = DATA.practice;
   const CHEATS = DATA.cheatsheets;
+  const PROJECTS = window.FRONTLAB_PROJECTS || [];
 
   const $ = (selector, root) => (root || document).querySelector(selector);
   const $$ = (selector, root) => Array.from((root || document).querySelectorAll(selector));
@@ -292,6 +293,8 @@
     if (parts[0] === "cheatsheets") return { name: "cheatsheets" };
     if (parts[0] === "videos" && parts[1]) return { name: "videos", id: parts[1] };
     if (parts[0] === "videos") return { name: "videos" };
+    if (parts[0] === "projects" && parts[1]) return { name: "project-detail", id: parts[1], stage: parts[2] || "plan" };
+    if (parts[0] === "projects") return { name: "projects" };
     if (parts[0] === "lab") return { name: "lab" };
     return { name: "home" };
   }
@@ -336,13 +339,18 @@
     else if (route.name === "practice-detail") renderPracticeDetail(route.id);
     else if (route.name === "cheatsheets") renderCheatsheets();
     else if (route.name === "videos") renderVideos(route.id);
+    else if (route.name === "projects" && window.FrontProjects) window.FrontProjects.renderList();
+    else if (route.name === "project-detail" && window.FrontProjects) window.FrontProjects.renderDetail(route.id, route.stage);
     else if (route.name === "lab") renderLab();
     else renderHome();
     updateChrome();
   }
 
   function setModeNav(name) {
-    const mode = name === "lesson" ? "learn" : name === "practice-detail" ? "practice" : name;
+    const mode = name === "lesson" ? "learn"
+      : name === "practice-detail" ? "practice"
+      : name === "project-detail" ? "projects"
+      : name;
     $$(".mode-link").forEach((link) => {
       link.classList.toggle("is-active", link.dataset.mode === mode);
     });
@@ -462,6 +470,22 @@
           <a class="mode-card" href="#/lab" style="--mc:var(--violet);--mc-soft:var(--violet-soft)"><span class="mode-icon">${icon("lab")}</span><h3>Frontend Lab</h3><p>Kéo padding, đổi flex-direction, xem hộp và lưới thay đổi tức thì.</p><span class="mode-arrow">Mở phòng lab ${icon("arrow")}</span></a>
           <a class="mode-card" href="#/practice" style="--mc:var(--coral);--mc-soft:var(--coral-soft)"><span class="mode-icon">${icon("practice")}</span><h3>Luyện tập</h3><p>Tình huống thực tế: chọn selector, sửa layout, đọc lỗi JavaScript.</p><span class="mode-arrow">Bắt đầu luyện ${icon("arrow")}</span></a>
           <a class="mode-card" href="#/cheatsheets" style="--mc:var(--green);--mc-soft:var(--green-soft)"><span class="mode-icon">${icon("book")}</span><h3>Cheatsheets</h3><p>Mẫu HTML, CSS, JavaScript, Flexbox, Grid và DOM hay dùng.</p><span class="mode-arrow">Tra nhanh ${icon("arrow")}</span></a>
+        </div>
+      </section>
+
+      <section class="projects-promo">
+        <div>
+          <div class="eyebrow">DỰ ÁN THỰC HÀNH</div>
+          <h2>Tự dựng một sản phẩm,<br>từ HTML đến MockAPI.</h2>
+          <p>Ba dự án mẫu từ đơn giản đến phức tạp. Mỗi dự án có sáu chặng: phân rã bằng chia để trị, dựng HTML từ ngoài vào trong, tô CSS từng thành phần, tạo dữ liệu bằng MockAPI rồi mới viết JavaScript.</p>
+          <a class="btn btn-lime" href="#/projects">Vào ba dự án ${icon("arrow")}</a>
+        </div>
+        <div class="pj-promo-strip">
+          ${PROJECTS.map((project) => `<a class="pj-promo-item" href="#/projects/${project.id}/plan">
+            <span class="pj-promo-no">${pad(project.num)}</span>
+            <span><b>${esc(project.title)}</b><small>${esc(project.level)} · ${project.minutes} phút</small></span>
+            <i aria-hidden="true">→</i>
+          </a>`).join("")}
         </div>
       </section>
 
@@ -1420,6 +1444,15 @@
         sub: trackById[card.track] ? trackById[card.track].short : "",
         href: "#/cheatsheets",
         text: normalize([card.title, card.subtitle, (card.items || []).map((item) => `${item.label} ${item.code} ${item.note || ""}`).join(" ")].join(" "))
+      });
+    });
+    PROJECTS.forEach((project) => {
+      searchIndex.push({
+        type: "Dự án",
+        title: project.title,
+        sub: `${project.level} · ${project.minutes} phút · 6 chặng`,
+        href: `#/projects/${project.id}/plan`,
+        text: normalize([project.title, project.short, project.blurb, (project.tags || []).join(" "), (project.skills || []).join(" "), project.goal].join(" "))
       });
     });
     VIDEOS.forEach((v) => {
