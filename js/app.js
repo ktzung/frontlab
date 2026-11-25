@@ -734,6 +734,7 @@
 
   function renderLesson(lesson, requestedStep) {
     stopPlayer();
+    if (window.CssPlay) window.CssPlay.cleanup();
     state.lesson.id = lesson.id;
     state.lesson.step = clamp(Number(requestedStep) || 1, 1, lesson.steps.length);
     state.lesson.playing = false;
@@ -772,9 +773,14 @@
         </div>
         <aside class="step-panel" id="stepPanel">${stepPanelHTML(lesson, index)}</aside>
       </div>
+      ${lesson.lang === "css" && window.CSS_PLAYGROUND && window.CSS_PLAYGROUND[lesson.id] ? '<div id="cssPlayHost" class="csp-host"></div>' : ""}
     </div>`;
     renderSidebar();
     applyStep(lesson, index, { initial: true });
+    const playHost = document.getElementById("cssPlayHost");
+    if (playHost && window.CssPlay && window.CSS_PLAYGROUND && window.CSS_PLAYGROUND[lesson.id]) {
+      window.CssPlay.mount(playHost, lesson, window.CSS_PLAYGROUND[lesson.id]);
+    }
   }
 
   function applyStep(lesson, requested, opts) {
