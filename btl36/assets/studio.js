@@ -11,7 +11,7 @@
   let KEY = "";
   let store = null;
   let route = { name: "home", id: null, tab: null };
-  let ui = { card: 0, flip: false, quiz: {}, practiceTab: "cards", labStep: 0, labValue: {}, detail: null, matchPick: null, codeStep: 0, tree: "start", dialogueStep: 0, treePath: [], spaceMode: "3d", spaceSel: 0, spaceYaw: -0.42, spacePitch: 0.92, spaceZoom: 1 };
+  let ui = { card: 0, flip: false, quiz: {}, practiceTab: "cards", labStep: 0, labValue: {}, detail: null, matchPick: null, codeStep: 0, tree: "start", dialogueStep: 0, treePath: [], spaceMode: "3d", spaceSel: 0, spaceYaw: -0.42, spacePitch: 0.92, spaceZoom: 1, checks: {} };
 
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
@@ -20,6 +20,7 @@
   const clamp = (n, a, b) => Math.min(b, Math.max(a, n));
   const fmt = (n, d) => Number(n).toLocaleString("vi-VN", { maximumFractionDigits: d == null ? 1 : d });
   const para = (v) => esc(v).replace(/\n/g, "<br>");
+  const rich = (v) => esc(v).replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>").replace(/`([^`]+)`/g, "<code>$1</code>");
   const norm = (s) => String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d");
 
   const ICONS = {
@@ -385,18 +386,165 @@
     const done = store.done[l.id];
     return `<a class="btl-lesson" href="#/learn/${esc(l.id)}">
       <span><h4>${esc(l.title)}</h4><p>${esc(l.summary || "")}</p><span class="btl-lesson-meta"><span class="btl-tag">${l.minutes || 15} phút</span><span class="btl-tag">${esc(l.level || "Cơ bản")}</span>${l.extra ? '<span class="btl-chip warn">Bổ sung</span>' : ""}</span></span>
-      <span class="btl-lesson-side"><span class="btl-chip ${done ? "ok" : "neutral"}">${done ? "Đã học" : "Chưa học"}</span><span class="btl-small btl-muted">${(l.steps || []).length} bước</span></span>
+      <span class="btl-lesson-side"><span class="btl-chip ${done ? "ok" : "neutral"}">${done ? "Đã học" : "Chưa học"}</span><span class="btl-small btl-muted">${l.teach ? (l.teach.sections || []).length + " mục" : (l.steps || []).length + " bước"}</span></span>
     </a>`;
   }
 
+  function teachFigure(fig) {
+    if (!fig || fig.type !== "plot") return "";
+    const W = 640, H = 360, padL = 44, padB = 32;
+    const x0 = fig.xMin != null ? fig.xMin : -3, x1 = fig.xMax != null ? fig.xMax : 3;
+    const y0 = fig.yMin != null ? fig.yMin : -2, y1 = fig.yMax != null ? fig.yMax : 4;
+    const mapX = (x) => padL + (x - x0) / (x1 - x0) * (W - padL - 16);
+    const mapY = (y) => H - padB - (y - y0) / (y1 - y0) * (H - padB - 16);
+    let shade = "";
+    if (fig.shade && (fig.curves || []).length) {
+      const c = fig.curves[0], a = fig.shade.from != null ? fig.shade.from : x0, b = fig.shade.to != null ? fig.shade.to : x1;
+      let d = `M ${mapX(a).toFixed(1)} ${mapY(0).toFixed(1)}`;
+      for (let i = 0; i <= 80; i++) { const x = a + (b - a) * i / 80; d += ` L ${mapX(x).toFixed(1)} ${mapY(clamp(curveY(c.type, c.params || {}, x), y0, y1)).toFixed(1)}`; }
+      d += ` L ${mapX(b).toFixed(1)} ${mapY(0).toFixed(1)} Z`;
+      shade = `<path d="${d}" fill="${esc(fig.shade.color || "var(--a)")}" opacity=".16"/>`;
+    }
+    let curves = "";
+    (fig.curves || []).forEach((c) => {
+      const from = c.from != null ? c.from : x0, to = c.to != null ? c.to : x1;
+      let d = "", pen = false;
+      for (let i = 0; i <= 240; i++) {
+        const x = from + (to - from) * i / 240;
+        const y = curveY(c.type, c.params || {}, x);
+        if (!isFinite(y) || y < y0 - 0.4 || y > y1 + 0.4) { pen = false; continue; }
+        const py = mapY(y);
+        d += (pen ? "L" : "M") + mapX(x).toFixed(1) + " " + py.toFixed(1); pen = true;
+      }
+      curves += `<path d="${d}" fill="none" stroke="${esc(c.color || "var(--a)")}" stroke-width="2.6" stroke-linecap="round"${c.dash ? ' stroke-dasharray="6 5"' : ""}/>`;
+      if (c.label) {
+        const lxAt = c.labelAt != null ? c.labelAt : to;
+        const ly = curveY(c.type, c.params || {}, lxAt);
+        const lx = Math.min(mapX(lxAt), W - 26);
+        const ly2 = Math.min(Math.max(mapY(ly) - 9 + (c.labelDy || 0), 16), H - padB - 6);
+        curves += `<text class="btl-teach-fig-label" x="${lx.toFixed(1)}" y="${ly2.toFixed(1)}" text-anchor="${c.labelAt != null ? "middle" : "end"}" fill="${esc(c.color || "var(--a)")}">${esc(c.label)}</text>`;
+      }
+    });
+    let marks = "";
+    const num = (v) => (Math.abs(v) >= 100 ? String(Math.round(v)) : String(Math.round(v * 10) / 10).replace(".", ","));
+    const nice = (raw) => { const p = Math.pow(10, Math.floor(Math.log10(raw))); const n = raw / p; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10) * p; };
+    const yBase = Math.min(H - padB + 15, Math.max(15, mapY(0) + 15));
+    const stepX = nice((x1 - x0) / 5), stepY = nice((y1 - y0) / 4);
+    for (let x = Math.ceil(x0 / stepX + 1e-9) * stepX; x <= x1 + 1e-9; x += stepX) {
+      if (Math.abs(x) < 1e-9 || mapX(x) < padL + 6) continue;
+      marks += `<text class="btl-teach-fig-num" x="${mapX(x).toFixed(1)}" y="${yBase.toFixed(1)}" text-anchor="middle">${num(x)}</text>`;
+    }
+    for (let y = Math.ceil(y0 / stepY + 1e-9) * stepY; y <= y1 + 1e-9; y += stepY) {
+      if (Math.abs(y) < 1e-9) continue;
+      marks += `<text class="btl-teach-fig-num" x="${(padL - 7).toFixed(1)}" y="${(mapY(y) + 4).toFixed(1)}" text-anchor="end">${num(y)}</text>`;
+    }
+    (fig.vlines || []).forEach((v) => {
+      const px = mapX(v.x);
+      const dup = (fig.points || []).some((p) => Math.abs(p.x - v.x) < 1e-6);
+      marks += `<line x1="${px.toFixed(1)}" y1="${mapY(y0).toFixed(1)}" x2="${px.toFixed(1)}" y2="${mapY(y1).toFixed(1)}" stroke="currentColor" stroke-opacity=".28" stroke-dasharray="4 5"/>${dup || v.label === false ? "" : `<text class="btl-teach-fig-label" x="${px.toFixed(1)}" y="${(mapY(y0) - 6).toFixed(1)}" text-anchor="middle">${esc(v.label || "x = " + fmt(v.x, 1))}</text>`}`;
+    });
+    (fig.hlines || []).forEach((h) => {
+      const py = mapY(h.y);
+      marks += `<line x1="${mapX(x0).toFixed(1)}" y1="${py.toFixed(1)}" x2="${mapX(x1).toFixed(1)}" y2="${py.toFixed(1)}" stroke="currentColor" stroke-opacity=".28" stroke-dasharray="4 5"/><text class="btl-teach-fig-label" x="${(mapX(x0) + 6).toFixed(1)}" y="${(py - 6).toFixed(1)}">${esc(h.label || "y = " + fmt(h.y, 1))}</text>`;
+    });
+    (fig.points || []).forEach((p) => {
+      marks += `<circle cx="${mapX(p.x).toFixed(1)}" cy="${mapY(p.y).toFixed(1)}" r="5" fill="${p.hollow ? "var(--panel)" : esc(p.color || "var(--a2)")}" stroke="${esc(p.color || "var(--a2)")}" stroke-width="2.4"/>`;
+      if (p.label) {
+        const right = p.labelAnchor ? p.labelAnchor === "end" : mapX(p.x) > W * 0.68;
+        const lx = mapX(p.x) + (p.labelDx != null ? p.labelDx : right ? -9 : 9);
+        const ly = Math.min(Math.max(mapY(p.y) + (p.labelDy != null ? p.labelDy : -9), 16), H - padB - 6);
+        marks += `<text class="btl-teach-fig-label" x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="${right ? "end" : "start"}">${esc(p.label)}</text>`;
+      }
+    });
+    const legend = (fig.legend || []).length ? `<div class="btl-teach-legend">${fig.legend.map((x) => `<span><i style="background:${esc(x.color || "var(--a)")}"></i>${rich(x.label || "")}</span>`).join("")}</div>` : "";
+    return `<figure class="btl-teach-fig"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(fig.alt || fig.caption || "Đồ thị minh họa")}">${svgAxes(x0, x1, y0, y1, W, H, mapX, mapY, { sx: stepX, sy: stepY })}${shade}${marks}${curves}</svg>${legend}${fig.caption ? `<figcaption>${rich(fig.caption)}</figcaption>` : ""}</figure>`;
+  }
+  function teachTable(t) {
+    if (!t || !Array.isArray(t.head)) return "";
+    return `<figure class="btl-teach-table"><table><thead><tr>${t.head.map((h) => `<th>${rich(h)}</th>`).join("")}</tr></thead><tbody>${(t.rows || []).map((r) => `<tr>${r.map((c) => `<td>${rich(c)}</td>`).join("")}</tr>`).join("")}</tbody></table>${t.caption ? `<figcaption>${rich(t.caption)}</figcaption>` : ""}</figure>`;
+  }
+  function teachExample(ex) {
+    if (!ex) return "";
+    return `<div class="btl-teach-example"><div class="btl-teach-sub">VÍ DỤ GIẢI TỪNG BƯỚC</div>${ex.title ? `<h3>${rich(ex.title)}</h3>` : ""}<ol>${(ex.steps || []).map((s, i) => `<li><span class="btl-teach-num">${esc(s.label || i + 1)}</span><div>${rich(s.text)}</div></li>`).join("")}</ol>${ex.result ? `<div class="btl-teach-result"><b>Kết quả:</b> ${rich(ex.result)}</div>` : ""}</div>`;
+  }
+  function teachCheck(c, key) {
+    return `<div class="btl-teach-check" data-checkbox="${esc(key)}"><div class="btl-teach-question"><span>KIỂM TRA NHANH</span><p>${rich(c.q)}</p></div><div class="btl-teach-opts">${(c.options || []).map((o, i) => `<button type="button" data-opt="${i}">${rich(o)}</button>`).join("")}</div><p class="btl-teach-feedback" hidden></p></div>`;
+  }
+  function teachArticle(l) {
+    const t = l.teach;
+    let checkTotal = 0;
+    const secs = (t.sections || []).map((sec, si) => {
+      let blocks = "";
+      (sec.paragraphs || []).forEach((p) => { blocks += `<p>${rich(p)}</p>`; });
+      if (sec.figure) blocks += teachFigure(sec.figure);
+      if (sec.formula) blocks += `<div class="btl-formula">${esc(sec.formula)}</div>`;
+      if (sec.table) blocks += teachTable(sec.table);
+      if (sec.example) blocks += teachExample(sec.example);
+      if (sec.pitfall) blocks += `<div class="btl-teach-pitfall"><b>${rich(sec.pitfall.title || "Bẫy thường gặp")}</b><p>${rich(sec.pitfall.text)}</p></div>`;
+      (sec.checks || []).forEach((c, ci) => { checkTotal++; blocks += teachCheck(c, l.id + ":" + si + ":" + ci); });
+      return `<section class="btl-teach-sec" data-sec="${si}" id="btl-sec-${si}"><div class="btl-teach-kicker">${pad(si + 1)} · ${esc(sec.kicker || "NỘI DUNG")}</div><h2>${rich(sec.title || "")}</h2>${blocks}</section>`;
+    }).join("");
+    return `<div class="btl-teach" data-check-total="${checkTotal}">
+      <section class="btl-teach-goals"><div class="btl-kicker">SAU BÀI NÀY BẠN HIỂU</div><ul>${(t.goals || []).map((g) => `<li>${rich(g)}</li>`).join("")}</ul></section>
+      ${t.hook ? `<div class="btl-teach-hook"><span>TÌNH HUỐNG</span><p>${rich(t.hook)}</p></div>` : ""}
+      ${secs}
+      <section class="btl-teach-wrap"><div class="btl-kicker">TÓM LẠI</div>${(t.wrap || []).map((p) => `<p>${rich(p)}</p>`).join("")}${t.bridge ? `<div class="btl-teach-bridge">${rich(t.bridge)}</div>` : ""}</section>
+    </div>`;
+  }
+  function bindTeach(main, l) {
+    const t = l.teach;
+    const map = {};
+    (t.sections || []).forEach((sec, si) => (sec.checks || []).forEach((c, ci) => { map[l.id + ":" + si + ":" + ci] = c; }));
+    $$("[data-checkbox]", main).forEach((box) => {
+      const key = box.dataset.checkbox;
+      const cfg = map[key];
+      const opts = $$("[data-opt]", box);
+      const fb = $(".btl-teach-feedback", box);
+      const paint = () => {
+        const st = ui.checks[key];
+        opts.forEach((b, i) => {
+          b.classList.toggle("is-picked", !!st && st.picked === i);
+          b.classList.toggle("is-right", !!st && st.ok && i === cfg.answer);
+          b.classList.toggle("is-wrong", !!st && !st.ok && st.picked === i);
+          b.disabled = !!st && st.ok;
+        });
+        if (!st) { fb.hidden = true; fb.textContent = ""; return; }
+        fb.hidden = false;
+        fb.className = "btl-teach-feedback " + (st.ok ? "ok" : "warn");
+        fb.textContent = st.ok ? "Chính xác. " + (cfg.explain || "") : "Chưa đúng. Đọc lại đoạn trên rồi chọn lại.";
+      };
+      opts.forEach((b) => b.addEventListener("click", () => {
+        const picked = Number(b.dataset.opt);
+        const st = ui.checks[key];
+        if (st && st.ok) return;
+        ui.checks[key] = { picked, ok: picked === cfg.answer };
+        paint();
+        paintCheckCount(main, l);
+      }));
+      paint();
+    });
+    $$("[data-teach-jump]", main).forEach((b) => b.addEventListener("click", () => {
+      const sec = $('[data-sec="' + b.dataset.teachJump + '"]', main);
+      if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+    }));
+    paintCheckCount(main, l);
+  }
+  function paintCheckCount(main, l) {
+    const box = $("#btlCheckCount", main);
+    if (!box) return;
+    const total = Number($(".btl-teach", main)?.dataset.checkTotal || 0);
+    const ok = Object.keys(ui.checks).filter((k) => k.startsWith(l.id + ":") && ui.checks[k].ok).length;
+    box.textContent = total ? "Đã hiểu " + ok + "/" + total + " câu kiểm tra" : "";
+  }
   function renderLesson(main, id) {
     const l = lessonList().find((x) => x.id === id);
     if (!l) { main.innerHTML = `<div class="btl-page"><div class="btl-wrap"><div class="btl-empty">Bài học không tồn tại. <a href="#/learn">Quay lại danh sách</a>.</div></div></div>`; return; }
     document.title = `${l.title} — ${D.name}`;
+    const teach = l.teach && Array.isArray(l.teach.sections) && l.teach.sections.length ? l.teach : null;
     const steps = l.steps && l.steps.length ? l.steps : [{ title: "Tóm tắt", body: l.summary || "" }];
     if (ui.lessonId !== l.id) { ui.lessonId = l.id; ui.lessonStep = 0; }
-    const s = clamp(ui.lessonStep, 0, steps.length - 1);
-    const step = steps[s];
+    const s = teach ? 0 : clamp(ui.lessonStep, 0, steps.length - 1);
+    const step = teach ? null : steps[s];
     const mi = l.moduleIndex;
     const lessonsOfMod = moduleLessons(mi);
     const pos = lessonsOfMod.findIndex((x) => x.id === l.id);
@@ -413,7 +561,7 @@
           <p class="btl-lead">${esc(l.summary || "")}</p>
           <div class="btl-row" style="margin-top:14px"><span class="btl-tag">${l.minutes || 15} phút</span><span class="btl-tag">${esc(l.level || "Cơ bản")}</span>${done ? '<span class="btl-chip ok">Đã hoàn thành</span>' : ""}</div>
         </div>
-        <div class="btl-steps">${steps.map((st, i) => `<button class="btl-step-btn ${i === s ? "is-on" : ""}" data-step="${i}" type="button">Bước ${i + 1}: ${esc(st.title)}</button>`).join("")}</div>
+        ${teach ? teachArticle(l) : `<div class="btl-steps">${steps.map((st, i) => `<button class="btl-step-btn ${i === s ? "is-on" : ""}" data-step="${i}" type="button">Bước ${i + 1}: ${esc(st.title)}</button>`).join("")}</div>
         <article class="btl-step-panel">
           <div class="btl-kicker">BƯỚC ${s + 1}/${steps.length}</div>
           <h2>${esc(step.title)}</h2>
@@ -425,7 +573,7 @@
             <button class="btl-btn small" type="button" data-step="${s - 1}" ${s === 0 ? "disabled" : ""}>${icon("back")} Bước trước</button>
             <button class="btl-btn small primary" type="button" data-step="${s + 1}" ${s === steps.length - 1 ? "disabled" : ""}>Bước tiếp ${icon("arrow")}</button>
           </div>
-        </article>
+        </article>`}
         ${lifeFor(mi) ? `<section class="btl-life-inline">${lifeCard(mi)}</section>` : ""}
         <div class="btl-row" style="margin-top:22px">
           ${prev ? `<a class="btl-btn" href="#/learn/${esc(prev.id)}">${icon("back")} ${esc(prev.title)}</a>` : ""}
@@ -434,12 +582,17 @@
         </div>
       </div>
       <aside class="btl-aside">
-        <div class="btl-card">
+        ${teach ? `<div class="btl-card">
+          <h3 class="btl-h3" style="font-size:15px">Mục trong bài</h3>
+          <div class="btl-side-list btl-teach-nav">${teach.sections.map((sec, si) => `<button type="button" data-teach-jump="${si}"><span class="dot"></span>${esc(sec.title || "Mục " + (si + 1))}</button>`).join("")}</div>
+          <p class="btl-small btl-muted" id="btlCheckCount" style="margin:10px 0 0"></p>
+          <button class="btl-btn ${done ? "" : "primary"}" id="btlFinish" type="button" style="width:100%;margin-top:14px">${done ? "Bỏ đánh dấu hoàn thành" : "Đánh dấu đã học"} ${done ? "" : icon("check")}</button>
+        </div>` : `<div class="btl-card">
           <h3 class="btl-h3" style="font-size:15px">Tiến độ bài học</h3>
           <div class="btl-bar" style="margin:12px 0 8px"><span style="width:${Math.round((s + 1) / steps.length * 100)}%"></span></div>
           <p class="btl-small btl-muted">Đang ở bước ${s + 1}/${steps.length}</p>
           <button class="btl-btn ${done ? "" : "primary"}" id="btlFinish" type="button" style="width:100%;margin-top:14px">${done ? "Bỏ đánh dấu hoàn thành" : "Đánh dấu đã học"} ${done ? "" : icon("check")}</button>
-        </div>
+        </div>`}
         <div class="btl-card">
           <h3 class="btl-h3" style="font-size:15px">Trong chương này</h3>
           <div class="btl-side-list">${lessonsOfMod.map((x) => `<a href="#/learn/${esc(x.id)}" class="${x.id === l.id ? "is-on" : ""} ${store.done[x.id] ? "done" : ""}"><span class="dot"></span>${esc(x.title)}</a>`).join("")}</div>
@@ -452,7 +605,8 @@
         </div>
       </aside>
     </div></div>`;
-    $$("[data-step]", main).forEach((b) => b.addEventListener("click", () => {
+    if (teach) bindTeach(main, l);
+    else $$("[data-step]", main).forEach((b) => b.addEventListener("click", () => {
       const n = Number(b.dataset.step);
       if (n < 0 || n >= steps.length) return;
       ui.lessonStep = n;
@@ -1019,10 +1173,16 @@
 
   function svgAxes(x0, x1, y0, y1, w, h, mapX, mapY, ticks) {
     let g = "";
-    for (let i = 0; i <= ticks; i++) {
-      const x = x0 + (x1 - x0) * i / ticks;
-      const y = y0 + (y1 - y0) * i / ticks;
-      g += `<line x1="${mapX(x)}" y1="${mapY(y0)}" x2="${mapX(x)}" y2="${mapY(y1)}" stroke="currentColor" stroke-opacity=".12"/><line x1="${mapX(x0)}" y1="${mapY(y)}" x2="${mapX(x1)}" y2="${mapY(y)}" stroke="currentColor" stroke-opacity=".12"/>`;
+    const grid = (x, y) => { g += `<line x1="${mapX(x)}" y1="${mapY(y0)}" x2="${mapX(x)}" y2="${mapY(y1)}" stroke="currentColor" stroke-opacity=".12"/><line x1="${mapX(x0)}" y1="${mapY(y)}" x2="${mapX(x1)}" y2="${mapY(y)}" stroke="currentColor" stroke-opacity=".12"/>`; };
+    if (ticks && typeof ticks === "object") {
+      for (let x = Math.ceil(x0 / ticks.sx + 1e-9) * ticks.sx; x <= x1 + 1e-9; x += ticks.sx) grid(x, y0);
+      for (let y = Math.ceil(y0 / ticks.sy + 1e-9) * ticks.sy; y <= y1 + 1e-9; y += ticks.sy) grid(x0, y);
+    } else {
+      for (let i = 0; i <= ticks; i++) {
+        const x = x0 + (x1 - x0) * i / ticks;
+        const y = y0 + (y1 - y0) * i / ticks;
+        grid(x, y);
+      }
     }
     g += `<line x1="${mapX(x0)}" y1="${mapY(0)}" x2="${mapX(x1)}" y2="${mapY(0)}" stroke="currentColor" stroke-opacity=".5"/><line x1="${mapX(0)}" y1="${mapY(y0)}" x2="${mapX(0)}" y2="${mapY(y1)}" stroke="currentColor" stroke-opacity=".5"/>`;
     return g;
@@ -1035,7 +1195,7 @@
     if (type === "exp") return P("a", 1) * Math.exp(P("k", .4) * x);
     if (type === "log") return P("a", 1) * Math.log(Math.max(1e-4, x)) + P("b", 0);
     if (type === "normal") { const mu = P("mu", 0), sg = Math.max(.12, P("sigma", 1)); return Math.exp(-Math.pow(x - mu, 2) / (2 * sg * sg)); }
-    if (type === "sqrt") return Math.sign(x) * Math.sqrt(Math.abs(x));
+    if (type === "sqrt") return P("a", 1) * Math.sqrt(Math.max(0, x - P("b", 0))) + P("c", 0);
     if (type === "rational") return P("a", 1) / (x - P("b", 0));
     if (type === "tangent") { const a = P("a", 1), b = P("b", 0), x0 = P("x0", 1); const m = 2 * a * x0 + b; return m * (x - x0) + (a * x0 * x0 + b * x0); }
     if (type === "secant") { const a = P("a", 1), b = P("b", 0), x0 = P("x0", 1), dx = Math.max(.2, P("dx", 1)); const y = (x) => a * x * x + b * x; return y(x0) + (y(x0 + dx) - y(x0)) / dx * (x - x0); }
