@@ -386,6 +386,8 @@
         "</a>";
       }).join("") + "</nav>" +
 
+      '<div class="pjs-host" id="pjStageHost"></div>' +
+
       '<div class="pj-workspace">' +
         '<div class="pj-guide">' + guide + fullFiles(project, stage.id) +
           '<nav class="pj-stage-nav">' +
@@ -416,7 +418,14 @@
       "</div>" +
     "</div>";
 
-    bindPreview(project, stage.id);
+    const preview = bindPreview(project, stage.id);
+    if (window.FrontStage) {
+      let firstSync = true;
+      window.FrontStage.mount(project, stage.id, document.getElementById("pjStageHost"), function (uiStage, docStage) {
+        if (firstSync) { firstSync = false; return; }
+        preview.setStage(docStage || uiStage, uiStage);
+      });
+    }
     bindCopy();
     window.scrollTo(0, 0);
   }
@@ -470,17 +479,40 @@
     document.body.removeChild(area);
   }
 
+  function docKey(stage) {
+    if (stage === "html") return "html";
+    if (stage === "css") return "css";
+    return "live";
+  }
+
   function bindPreview(project, stage) {
     const card = document.getElementById("pjPreview");
     const frame = document.getElementById("pjFrame");
     const stageBox = document.getElementById("pjStage");
-    if (!card || !frame || !stageBox) return;
-    const doc = buildDocument(project, stage);
+    if (!card || !frame || !stageBox) return { setStage: function () {} };
+    const badge = card.querySelector(".pj-badge");
+    const note = card.querySelector(".pj-preview-note");
+    let key = docKey(stage);
 
     function load() {
-      frame.srcdoc = doc;
+      frame.srcdoc = buildDocument(project, key);
     }
     load();
+
+    function setStage(next, uiStage) {
+      const target = docKey(next);
+      let ui = uiStage || next;
+      if (target === "css" && ui === "api") ui = "css";
+      if (target !== key) {
+        key = target;
+        load();
+      }
+      if (badge) badge.textContent = badgeFor(ui);
+      if (note) note.textContent = noteFor(project, ui);
+      card.classList.remove("is-synced");
+      void card.offsetWidth;
+      card.classList.add("is-synced");
+    }
 
     card.querySelectorAll("[data-pj-size]").forEach(function (button) {
       button.addEventListener("click", function () {
@@ -503,6 +535,7 @@
         document.body.classList.toggle("pj-locked", on);
       });
     }
+    return { setStage: setStage };
   }
 
   document.addEventListener("keydown", function (event) {
