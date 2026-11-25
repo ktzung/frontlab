@@ -470,6 +470,284 @@
   function teachCheck(c, key) {
     return `<div class="btl-teach-check" data-checkbox="${esc(key)}"><div class="btl-teach-question"><span>KIỂM TRA NHANH</span><p>${rich(c.q)}</p></div><div class="btl-teach-opts">${(c.options || []).map((o, i) => `<button type="button" data-opt="${i}">${rich(o)}</button>`).join("")}</div><p class="btl-teach-feedback" hidden></p></div>`;
   }
+  /* ---------------- tình huống đời sống: hình vật thật + thanh kéo ---------------- */
+  const vnd = (n) => fmt(Math.round(n), 0) + " đ";
+  const WBOX = 480, HBOX = 300;
+  function wtFrame(inner, alt) {
+    return `<svg viewBox="0 0 ${WBOX} ${HBOX}" role="img" aria-label="${esc(alt)}"><rect x="0" y="0" width="${WBOX}" height="${HBOX}" rx="16" class="wt-bg"/>${inner}</svg>`;
+  }
+  function wtChart(o) {
+    const l = o.l == null ? 64 : o.l, r = o.r == null ? 22 : o.r, t = o.t == null ? 30 : o.t, b = o.b == null ? 38 : o.b;
+    const mx = (x) => l + (x - o.x0) / (o.x1 - o.x0) * (WBOX - l - r);
+    const my = (y) => HBOX - b - (y - o.y0) / (o.y1 - o.y0) * (HBOX - b - t);
+    let g = "";
+    for (let x = Math.ceil(o.x0 / o.tickX - 1e-9) * o.tickX; x <= o.x1 + 1e-9; x += o.tickX) {
+      g += `<line x1="${mx(x).toFixed(1)}" y1="${my(o.y0).toFixed(1)}" x2="${mx(x).toFixed(1)}" y2="${my(o.y1).toFixed(1)}" class="wt-grid"/><text x="${mx(x).toFixed(1)}" y="${(my(o.y0) + 16).toFixed(1)}" text-anchor="middle">${esc(o.labX ? o.labX(x) : fmt(x, 0))}</text>`;
+    }
+    for (let y = Math.ceil(o.y0 / o.tickY - 1e-9) * o.tickY; y <= o.y1 + 1e-9; y += o.tickY) {
+      g += `<line x1="${mx(o.x0).toFixed(1)}" y1="${my(y).toFixed(1)}" x2="${mx(o.x1).toFixed(1)}" y2="${my(y).toFixed(1)}" class="wt-grid"/>`;
+      if (y > o.y0 + 1e-9) g += `<text x="${(mx(o.x0) - 8).toFixed(1)}" y="${(my(y) + 4).toFixed(1)}" text-anchor="end">${esc(o.labY ? o.labY(y) : fmt(y, 0))}</text>`;
+    }
+    g += `<line x1="${mx(o.x0).toFixed(1)}" y1="${my(o.y0).toFixed(1)}" x2="${mx(o.x1).toFixed(1)}" y2="${my(o.y0).toFixed(1)}" class="wt-axis"/><line x1="${mx(o.x0).toFixed(1)}" y1="${my(o.y0).toFixed(1)}" x2="${mx(o.x0).toFixed(1)}" y2="${my(o.y1).toFixed(1)}" class="wt-axis"/>`;
+    return { mx, my, base: g };
+  }
+  const WORLD = {
+    speed: {
+      label: "Khoảng thời gian h", min: 0.05, max: 2, step: 0.05, value: 1, def: { k: 5, t0: 2 },
+      fmt: (v) => "h = " + fmt(v, 2) + " s",
+      outs: [
+        { k: "d", label: "Quãng đường thêm", get: (c, v) => fmt(c.k * (Math.pow(c.t0 + v, 2) - c.t0 * c.t0), 1) + " m" },
+        { k: "v", label: "Tốc độ trung bình", get: (c, v) => fmt(c.k * (2 * c.t0 + v), 2) + " m/s" },
+        { k: "g", label: "Kim đồng hồ chỉ", get: (c, v) => fmt(c.k * (2 * c.t0 + v) * 3.6, 0) + " km/h" }
+      ],
+      paint(c, v) {
+        const kmh = clamp(c.k * (2 * c.t0 + v) * 3.6, 0, 120);
+        const ang = Math.PI - Math.PI * kmh / 120;
+        const cx = 240, cy = 212, R = 138;
+        const nx = cx + (R - 26) * Math.cos(ang), ny = cy - (R - 26) * Math.sin(ang);
+        let ticks = "";
+        for (let s = 0; s <= 120; s += 20) {
+          const a = Math.PI - Math.PI * s / 120;
+          ticks += `<line x1="${(cx + (R - 12) * Math.cos(a)).toFixed(1)}" y1="${(cy - (R - 12) * Math.sin(a)).toFixed(1)}" x2="${(cx + R * Math.cos(a)).toFixed(1)}" y2="${(cy - R * Math.sin(a)).toFixed(1)}" class="wt-tick"/><text x="${(cx + (R + 16) * Math.cos(a)).toFixed(1)}" y="${(cy - (R + 16) * Math.sin(a) + 4).toFixed(1)}" text-anchor="middle">${s}</text>`;
+        }
+        const inner = `<path d="M ${cx - R} ${cy} A ${R} ${R} 0 0 1 ${cx + R} ${cy}" class="wt-arc"/>${ticks}<line x1="${cx}" y1="${cy}" x2="${nx.toFixed(1)}" y2="${ny.toFixed(1)}" class="wt-needle"/><circle cx="${cx}" cy="${cy}" r="7" class="wt-dot"/><text x="${cx}" y="252" text-anchor="middle" class="wt-big">${fmt(kmh, 0)}</text><text x="${cx}" y="272" text-anchor="middle">km/h · trung bình trong ${fmt(v, 2)} s</text>`;
+        return wtFrame(inner, "Đồng hồ tốc độ của xe, kim chỉ tốc độ trung bình khi khoảng thời gian co lại");
+      }
+    },
+    parking: {
+      label: "Thời gian gửi xe", min: 0.2, max: 4, step: 0.05, value: 1.3, def: { rate: 5000 },
+      fmt: (v) => "t = " + fmt(v, 2) + " giờ",
+      outs: [
+        { k: "fee", label: "Phí phải trả", get: (c, v) => vnd(c.rate * Math.ceil(v)) },
+        { k: "f2", label: "Đúng mốc 2 giờ: f(2)", get: () => "10.000 đ" },
+        { k: "lim", label: "Hai phía tại 2 giờ", get: () => "10.000 đ / 15.000 đ" }
+      ],
+      paint(c, v) {
+        const rate = c.rate || 5000;
+        const { mx, my, base } = wtChart({ x0: 0, x1: 4, y0: 0, y1: 20000, tickX: 1, tickY: 5000, l: 68, labX: (x) => x + " h", labY: (y) => (y ? fmt(y / 1000, 0) + "k" : "0") });
+        let d = "";
+        for (let i = 1; i <= 4; i++) {
+          d += `<line x1="${mx(i - 1).toFixed(1)}" y1="${my(i * rate).toFixed(1)}" x2="${mx(i).toFixed(1)}" y2="${my(i * rate).toFixed(1)}" class="wt-a-line"/>`;
+          if (i < 4) d += `<line x1="${mx(i).toFixed(1)}" y1="${my(i * rate).toFixed(1)}" x2="${mx(i).toFixed(1)}" y2="${my((i + 1) * rate).toFixed(1)}" class="wt-a-line"/>`;
+        }
+        for (let i = 1; i <= 3; i++) {
+          d += `<circle cx="${mx(i).toFixed(1)}" cy="${my(i * rate).toFixed(1)}" r="4.5" class="wt-dot"/><circle cx="${mx(i).toFixed(1)}" cy="${my((i + 1) * rate).toFixed(1)}" r="4.5" class="wt-open"/>`;
+        }
+        const fee = rate * Math.ceil(v);
+        d += `<line x1="${mx(v).toFixed(1)}" y1="${my(0).toFixed(1)}" x2="${mx(v).toFixed(1)}" y2="${my(fee).toFixed(1)}" class="wt-dash"/><circle cx="${mx(v).toFixed(1)}" cy="${my(fee).toFixed(1)}" r="6" class="wt-dot"/><text x="${WBOX - 20}" y="22" text-anchor="end" class="wt-strong">Phí: ${vnd(fee)}</text>`;
+        return wtFrame(base + d, "Biểu đồ bậc thang phí gửi xe, nhảy bậc khi sang giờ mới");
+      }
+    },
+    rice: {
+      label: "Khối lượng bao gạo", min: 0.5, max: 40, step: 0.5, value: 5, def: { fixed: 90000, perKg: 18000 },
+      fmt: (v) => "bao " + fmt(v, 1) + " kg",
+      outs: [
+        { k: "total", label: "Tiền cả bao", get: (c, v) => vnd(c.fixed + c.perKg * v) },
+        { k: "unit", label: "Đơn giá mỗi kg", get: (c, v) => vnd(c.perKg + c.fixed / v) },
+        { k: "save", label: "So với mua bao 1 kg", get: (c, v) => "rẻ hơn " + fmt(100 - (c.perKg + c.fixed / v) / (c.fixed + c.perKg) * 100, 0) + "%" }
+      ],
+      paint(c, v) {
+        const unit = c.perKg + c.fixed / v;
+        const bags = [1, 5, 25];
+        const xs = [52, 182, 312];
+        let d = `<text x="${WBOX - 20}" y="30" text-anchor="end" class="wt-strong">Bao ${fmt(v, 1)} kg → ${vnd(unit)}/kg</text>`;
+        d += `<line x1="24" y1="238" x2="${WBOX - 24}" y2="238" class="wt-axis"/>`;
+        bags.forEach((m, i) => {
+          const h = 52 + Math.log(m) / Math.log(25) * 88;
+          const x = xs[i], y = 238 - h;
+          const near = Math.abs(v - m) <= (m === 25 ? 7.5 : 2);
+          d += `<rect x="${x}" y="${y}" width="96" height="${h.toFixed(1)}" rx="10" class="wt-bag${near ? " is-near" : ""}"/><rect x="${x + 18}" y="${(y - 10).toFixed(1)}" width="60" height="12" rx="5" class="wt-bag-top"/>`;
+          d += `<text x="${x + 48}" y="${(y + 20).toFixed(1)}" text-anchor="middle" class="wt-strong">${m} kg</text>`;
+          d += `<text x="${x + 48}" y="${(y + 38).toFixed(1)}" text-anchor="middle">${vnd(c.fixed + c.perKg * m)}</text>`;
+          d += `<text x="${x + 48}" y="262" text-anchor="middle" class="wt-strong">${vnd(c.perKg + c.fixed / m)}/kg</text>`;
+        });
+        d += `<text x="240" y="284" text-anchor="middle">bao càng lớn, đơn giá càng tiến về ${vnd(c.perKg)}/kg</text>`;
+        return wtFrame(d, "Ba bao gạo 1 kg, 5 kg, 25 kg với đơn giá mỗi kg giảm dần");
+      }
+    },
+    fall: {
+      label: "Khoảng thời gian h", min: 0.1, max: 2, step: 0.1, value: 1, def: { k: 5, t0: 2 },
+      fmt: (v) => "h = " + fmt(v, 2) + " s",
+      outs: [
+        { k: "d", label: "Quãng đường thêm", get: (c, v) => fmt(c.k * (Math.pow(c.t0 + v, 2) - c.t0 * c.t0), 1) + " m" },
+        { k: "avg", label: "Tốc độ trung bình", get: (c, v) => fmt(c.k * (2 * c.t0 + v), 2) + " m/s" },
+        { k: "inst", label: "Tốc độ tức thời tại t = 2 s", get: () => "20 m/s" }
+      ],
+      paint(c, v) {
+        const s0 = c.k * c.t0 * c.t0, s1 = c.k * Math.pow(c.t0 + v, 2);
+        const top = 40, bot = 258, maxS = 84;
+        const my = (s) => bot - s / maxS * (bot - top);
+        let d = `<rect x="34" y="52" width="112" height="206" rx="6" class="wt-bld"/>`;
+        for (let f = 1; f < 4; f++) d += `<line x1="34" y1="${52 + f * 50}" x2="146" y2="${52 + f * 50}" class="wt-bld-line"/>`;
+        for (let f = 0; f < 4; f++) for (let k = 0; k < 3; k++) d += `<rect x="${46 + k * 30}" y="${66 + f * 50}" width="20" height="24" rx="3" class="wt-win"/>`;
+        d += `<line x1="18" y1="258" x2="${WBOX - 18}" y2="258" class="wt-axis"/>`;
+        d += `<line x1="258" y1="${top}" x2="258" y2="${bot}" class="wt-axis"/>`;
+        for (let s = 0; s <= 80; s += 20) d += `<text x="250" y="${(my(s) + 4).toFixed(1)}" text-anchor="end">${s} m</text>`;
+        d += `<line x1="320" y1="${my(s0).toFixed(1)}" x2="250" y2="${my(s0).toFixed(1)}" class="wt-dash"/><line x1="376" y1="${my(s1).toFixed(1)}" x2="250" y2="${my(s1).toFixed(1)}" class="wt-dash"/>`;
+        d += `<circle cx="320" cy="${my(s0).toFixed(1)}" r="6" class="wt-a2-fill"/><circle cx="320" cy="${my(s0).toFixed(1)}" r="5" class="wt-a2-line"/>`;
+        d += `<circle cx="376" cy="${my(s1).toFixed(1)}" r="5" class="wt-dot"/>`;
+        d += `<text x="330" y="${(my(s0) - 8).toFixed(1)}">2 s</text><text x="386" y="${(my(s1) + 16).toFixed(1)}">2 + h</text>`;
+        d += `<text x="20" y="26" class="wt-strong">Bóng rơi thêm ${fmt(s1 - s0, 1)} m</text>`;
+        return wtFrame(d, "Tòa nhà và quả bóng rơi tại hai thời điểm 2 giây và 2 cộng h giây, có thước đo độ cao");
+      }
+    },
+    battery: {
+      label: "Số giờ xem video", min: 0, max: 10, step: 0.25, value: 4, def: { cap: 100, k: 0.5 },
+      fmt: (v) => "t = " + fmt(v, 2) + " giờ",
+      outs: [
+        { k: "b", label: "Pin còn lại", get: (c, v) => fmt(c.cap - c.k * v * v, 1) + "%" },
+        { k: "r", label: "Đang tụt (đạo hàm)", get: (c, v) => "−" + fmt(2 * c.k * v, 1) + " %/h" },
+        { k: "n", label: "Giờ tiếp theo mất", get: (c, v) => fmt(c.k * (2 * v + 1), 1) + "%" }
+      ],
+      paint(c, v) {
+        const B = Math.max(0, c.cap - c.k * v * v), pct = B / c.cap;
+        const bx = 128, by = 30, bw = 224, bh = 72;
+        let d = `<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" rx="12" class="wt-batt"/><rect x="${bx + bw}" y="${by + bh / 2 - 11}" width="9" height="22" rx="3" class="wt-batt"/>`;
+        d += `<rect x="${bx + 7}" y="${by + 7}" width="${(bw - 14) * pct}" height="${bh - 14}" rx="7" class="wt-charge"/>`;
+        d += `<text x="${bx + bw / 2}" y="${by + bh + 28}" text-anchor="middle" class="wt-big">${fmt(B, 0)}%</text>`;
+        const l = 58, r = WBOX - 30, tp = 176, bm = 272;
+        const mx = (t) => l + t / 10 * (r - l), my = (b) => bm - b / 100 * (bm - tp);
+        d += `<line x1="${l}" y1="${bm}" x2="${r}" y2="${bm}" class="wt-axis"/><line x1="${l}" y1="${tp}" x2="${l}" y2="${bm}" class="wt-axis"/>`;
+        for (let t = 0; t <= 10; t += 2) d += `<text x="${mx(t).toFixed(1)}" y="${bm + 16}" text-anchor="middle">${t} h</text>`;
+        for (let b = 0; b <= 100; b += 50) d += `<text x="${l - 8}" y="${(my(b) + 4).toFixed(1)}" text-anchor="end">${b}%</text>`;
+        let path = "";
+        for (let i = 0; i <= 40; i++) { const t = 10 * i / 40; path += (i ? "L" : "M") + mx(t).toFixed(1) + " " + my(c.cap - c.k * t * t).toFixed(1); }
+        d += `<path d="${path}" class="wt-a2-line"/><line x1="${mx(v).toFixed(1)}" y1="${bm}" x2="${mx(v).toFixed(1)}" y2="${my(B).toFixed(1)}" class="wt-dash"/><circle cx="${mx(v).toFixed(1)}" cy="${my(B).toFixed(1)}" r="5.5" class="wt-dot"/>`;
+        return wtFrame(d, "Pin điện thoại còn phần trăm và đường cong mức pin giảm dần theo giờ");
+      }
+    },
+    fence: {
+      label: "Chiều rộng vườn x", min: 0.5, max: 19.5, step: 0.5, value: 6, def: { L: 40 },
+      fmt: (v) => "x = " + fmt(v, 1) + " m",
+      outs: [
+        { k: "len", label: "Chiều dài (40 − 2x)", get: (c, v) => fmt(c.L - 2 * v, 1) + " m" },
+        { k: "area", label: "Diện tích", get: (c, v) => fmt(v * (c.L - 2 * v), 1) + " m²" },
+        { k: "max", label: "Lớn nhất", get: () => "200 m² tại x = 10 m" }
+      ],
+      paint(c, v) {
+        const len = c.L - 2 * v, sc = 9, cx = 250, wy = 88;
+        const lw = len * sc, hh = v * sc;
+        let d = `<rect x="${(cx - 20 * sc / 2).toFixed(1)}" y="${wy}" width="${20 * sc}" height="${10 * sc}" class="wt-ghost"/>`;
+        d += `<rect x="${(cx - lw / 2).toFixed(1)}" y="${wy - 13}" width="${lw.toFixed(1)}" height="13" class="wt-wall"/>`;
+        d += `<rect x="${(cx - lw / 2).toFixed(1)}" y="${wy}" width="${lw.toFixed(1)}" height="${hh.toFixed(1)}" class="wt-lawn"/>`;
+        d += `<text x="${cx}" y="${(wy - 22).toFixed(1)}" text-anchor="middle">tường dài ${fmt(len, 1)} m</text>`;
+        d += `<text x="${(cx - lw / 2 - 12).toFixed(1)}" y="${(wy + hh / 2 + 4).toFixed(1)}" text-anchor="end" class="wt-strong">x ${fmt(v, 1)} m</text>`;
+        d += `<text x="${WBOX - 20}" y="26" text-anchor="end" class="wt-strong">Diện tích ${fmt(v * len, 1)} m²</text>`;
+        d += `<text x="240" y="292" text-anchor="middle">nét đứt: phương án lớn nhất 20 × 10 m = 200 m²</text>`;
+        return wtFrame(d, "Mảnh vườn hình chữ nhật áp tường, ba cạnh rào và kích thước thay đổi theo thanh kéo");
+      }
+    },
+    floor: {
+      label: "Số dải cỏ cần trải", min: 1, max: 24, step: 1, value: 4, def: {},
+      fmt: (v) => Math.round(v) + " dải",
+      outs: [
+        { k: "est", label: "Ước lượng", get: (c, v) => { const n = Math.round(v), dx = 2 / n; let s = 0; for (let i = 0; i < n; i++) { const xm = (i + 0.5) * dx; s += xm * xm * dx; } return fmt(s, 3) + " m²"; } },
+        { k: "exact", label: "Diện tích đúng", get: () => "2,667 m²" },
+        { k: "err", label: "Sai số", get: (c, v) => { const n = Math.round(v), dx = 2 / n; let s = 0; for (let i = 0; i < n; i++) { const xm = (i + 0.5) * dx; s += xm * xm * dx; } return fmt(Math.abs(s - 8 / 3), 3) + " m²"; } }
+      ],
+      paint(c, v) {
+        const n = Math.round(v);
+        const { mx, my, base } = wtChart({ x0: 0, x1: 2, y0: 0, y1: 4, tickX: 0.5, tickY: 1, l: 46, labX: (x) => fmt(Math.abs(x) < 1e-9 ? 0 : x, 1), labY: (y) => fmt(y, 0) });
+        let d = "";
+        const dx = 2 / n;
+        for (let i = 0; i < n; i++) {
+          const xm = (i + 0.5) * dx, h = xm * xm;
+          const x = mx(i * dx), wpx = mx((i + 1) * dx) - x;
+          d += `<rect x="${x.toFixed(1)}" y="${my(h).toFixed(1)}" width="${Math.max(0.6, wpx - 1).toFixed(1)}" height="${(my(0) - my(h)).toFixed(1)}" class="wt-strip"/>`;
+        }
+        let path = "";
+        for (let i = 0; i <= 60; i++) { const x = 2 * i / 60; path += (i ? "L" : "M") + mx(x).toFixed(1) + " " + my(x * x).toFixed(1); }
+        d += base + `<path d="${path}" class="wt-a2-line"/>`;
+        return wtFrame(d, "Khu vườn có bờ cong được phủ bằng các dải chữ nhật, số dải thay đổi theo thanh kéo");
+      }
+    },
+    bus: {
+      label: "Thời điểm T", min: 0, max: 3, step: 0.1, value: 1.5, def: {},
+      fmt: (v) => "T = " + fmt(v, 1) + " s",
+      outs: [
+        { k: "sp", label: "Vận tốc lúc T", get: (c, v) => fmt(2 * v + 1, 1) + " m/s" },
+        { k: "dist", label: "Quãng đường 0 → T", get: (c, v) => fmt(v * v + v, 1) + " m" },
+        { k: "all", label: "Cả 3 giây đầu", get: () => "12 m" }
+      ],
+      paint(c, v) {
+        const { mx, my, base } = wtChart({ x0: 0, x1: 3, y0: 0, y1: 7, tickX: 1, tickY: 1, l: 46, labX: (x) => x + " s", labY: (y) => fmt(y, 0) });
+        const T = Math.max(v, 0.001);
+        let area = `M ${mx(0).toFixed(1)} ${my(0).toFixed(1)}`;
+        for (let i = 0; i <= 60; i++) { const t = T * i / 60; area += ` L ${mx(t).toFixed(1)} ${my(2 * t + 1).toFixed(1)}`; }
+        area += ` L ${mx(T).toFixed(1)} ${my(0).toFixed(1)} Z`;
+        let line = "";
+        for (let i = 0; i <= 30; i++) { const t = 3 * i / 30; line += (i ? "L" : "M") + mx(t).toFixed(1) + " " + my(2 * t + 1).toFixed(1); }
+        const d = base + `<path d="${area}" class="wt-a-fill"/><path d="${line}" class="wt-a-line"/><line x1="${mx(v).toFixed(1)}" y1="${my(0).toFixed(1)}" x2="${mx(v).toFixed(1)}" y2="${my(2 * v + 1).toFixed(1)}" class="wt-dash"/><circle cx="${mx(v).toFixed(1)}" cy="${my(2 * v + 1).toFixed(1)}" r="5.5" class="wt-dot"/><text x="${WBOX - 20}" y="22" text-anchor="end" class="wt-strong">Diện tích = ${fmt(v * v + v, 1)} m</text>`;
+        return wtFrame(d, "Đồ thị vận tốc theo thời gian của xe buýt, phần diện tích dưới đường là quãng đường");
+      }
+    },
+    bounce: {
+      label: "Số lần nảy", min: 0, max: 8, step: 1, value: 3, def: { H: 2, r: 0.5 },
+      fmt: (v) => Math.round(v) + " lần nảy",
+      outs: [
+        { k: "sum", label: "Tổng quãng đường", get: (c, v) => fmt(c.H + 2 * c.H * c.r * (1 - Math.pow(c.r, Math.round(v))) / (1 - c.r), 3) + " m" },
+        { k: "left", label: "Còn thiếu so với 6 m", get: (c, v) => fmt(6 - (c.H + 2 * c.H * c.r * (1 - Math.pow(c.r, Math.round(v))) / (1 - c.r)), 3) + " m" },
+        { k: "lim", label: "Giới hạn", get: () => "6 m" }
+      ],
+      paint(c, v) {
+        const n = Math.round(v), floor = 258, pxm = 86;
+        let d = `<line x1="24" y1="${floor}" x2="${WBOX - 24}" y2="${floor}" class="wt-axis"/>`;
+        const x0 = 48, yStart = floor - c.H * pxm;
+        d += `<circle cx="${x0}" cy="${yStart}" r="6" class="wt-a2-line"/><line x1="${x0}" y1="${yStart}" x2="${x0 + 34}" y2="${floor}" class="wt-a2-line"/>`;
+        d += `<text x="${x0 - 8}" y="${yStart - 6}" text-anchor="start">2 m</text>`;
+        let x = x0 + 34, h = c.H * c.r, sum = c.H;
+        for (let i = 1; i <= n; i++) {
+          const apex = floor - h * pxm, span = 34;
+          d += `<path d="M ${x} ${floor} Q ${x + span / 2} ${(2 * apex - floor).toFixed(1)} ${x + span} ${floor}" class="wt-a-line"/>`;
+          d += `<circle cx="${x + span}" cy="${floor}" r="3.5" class="wt-dot"/>`;
+          if (i <= 3) d += `<text x="${x + span / 2}" y="${(apex - 8).toFixed(1)}" text-anchor="middle">${fmt(h, 2)} m</text>`;
+          x += span;
+          sum += 2 * h;
+          h *= c.r;
+        }
+        d += `<text x="${WBOX - 20}" y="30" text-anchor="end" class="wt-strong">Tổng: ${fmt(sum, 3)} m</text><text x="${WBOX - 20}" y="48" text-anchor="end">giới hạn 6 m</text>`;
+        return wtFrame(d, "Quả bóng nảy trên sàn với độ cao mỗi lần giảm một nửa");
+      }
+    }
+  };
+  function teachWorld(w) {
+    const kind = WORLD[w.kind];
+    if (!kind) return "";
+    const cfg = Object.assign({}, kind.def, w.p || {});
+    return `<section class="btl-world" data-world="${esc(w.kind)}" data-cfg="${esc(JSON.stringify(cfg))}">
+      <div class="btl-world-head"><div class="btl-teach-kicker">TỪ ĐỜI SỐNG</div><h2>${rich(w.title)}</h2></div>
+      <div class="btl-world-grid">
+        <div class="btl-world-stage"></div>
+        <div class="btl-world-side">
+          <p>${rich(w.story)}</p>
+          <div class="btl-world-readout">${kind.outs.map((o) => `<div><span>${esc(o.label)}</span><b data-wout="${o.k}">—</b></div>`).join("")}</div>
+          <label class="btl-world-slider"><span>${esc(kind.label)}</span><b data-wlabel>—</b><input type="range" min="${kind.min}" max="${kind.max}" step="${kind.step}" value="${kind.value}" aria-label="${esc(kind.label)}"></label>
+          ${w.ask ? `<p class="btl-world-ask">${rich(w.ask)}</p>` : ""}
+        </div>
+      </div>
+    </section>`;
+  }
+  function bindWorlds(main) {
+    $$("[data-world]", main).forEach((box) => {
+      const kind = WORLD[box.dataset.world];
+      if (!kind) return;
+      let cfg = kind.def;
+      try { cfg = Object.assign({}, kind.def, JSON.parse(box.dataset.cfg || "{}")); } catch (err) { /* giữ mặc định */ }
+      const input = $("input[type=range]", box);
+      const stage = $(".btl-world-stage", box);
+      if (!input || !stage) return;
+      const paint = () => {
+        const v = Number(input.value);
+        stage.innerHTML = kind.paint(cfg, v);
+        const lab = $("[data-wlabel]", box);
+        if (lab) lab.textContent = kind.fmt(v);
+        kind.outs.forEach((o) => { const el = $('[data-wout="' + o.k + '"]', box); if (el) el.textContent = o.get(cfg, v); });
+      };
+      input.addEventListener("input", paint);
+      paint();
+    });
+  }
+
   function teachArticle(l) {
     const t = l.teach;
     let checkTotal = 0;
@@ -487,12 +765,14 @@
     return `<div class="btl-teach" data-check-total="${checkTotal}">
       <section class="btl-teach-goals"><div class="btl-kicker">SAU BÀI NÀY BẠN HIỂU</div><ul>${(t.goals || []).map((g) => `<li>${rich(g)}</li>`).join("")}</ul></section>
       ${t.hook ? `<div class="btl-teach-hook"><span>TÌNH HUỐNG</span><p>${rich(t.hook)}</p></div>` : ""}
+      ${t.world ? teachWorld(t.world) : ""}
       ${secs}
       <section class="btl-teach-wrap"><div class="btl-kicker">TÓM LẠI</div>${(t.wrap || []).map((p) => `<p>${rich(p)}</p>`).join("")}${t.bridge ? `<div class="btl-teach-bridge">${rich(t.bridge)}</div>` : ""}</section>
     </div>`;
   }
   function bindTeach(main, l) {
     const t = l.teach;
+    bindWorlds(main);
     const map = {};
     (t.sections || []).forEach((sec, si) => (sec.checks || []).forEach((c, ci) => { map[l.id + ":" + si + ":" + ci] = c; }));
     $$("[data-checkbox]", main).forEach((box) => {

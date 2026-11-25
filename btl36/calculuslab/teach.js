@@ -10,6 +10,12 @@
       "Nhận ra khi nào giới hạn hai phía không tồn tại vì hai bên đi về hai đích khác nhau."
     ],
     hook: "Một xe máy chạy 60 km trong 1,5 giờ. Vận tốc trung bình là 40 km/h, nhưng đồng hồ tốc độ tại đúng phút thứ 30 lại chỉ một con số khác. Muốn biết tốc độ tức thời, ta phải hỏi: khi thời gian tiến sát mốc 30 phút, quãng đường thay đổi nhanh đến mức nào? Câu hỏi đó chính là bài toán giới hạn.",
+    world: {
+      kind: "speed",
+      title: "Đồng hồ tốc độ chỉ gì khi xe đang chạy?",
+      story: "Xe máy đi được quãng đường s = 5t² mét sau t giây. Từ giây thứ 2 đến giây thứ 2 + h, xe đi thêm 20h + 5h² mét nên tốc độ trung bình của khoảng đó là 20 + 5h m/s. Kéo h từ 2 giây xuống 0,05 giây và theo dõi kim đồng hồ.",
+      ask: "Kim tiến dần về 20 m/s, tức 72 km/h — đúng tốc độ tại giây thứ 2, dù khoảng thời gian không bao giờ bằng 0. Đó là giới hạn."
+    },
     sections: [
       {
         kicker: "TRỰC GIÁC",
@@ -96,6 +102,12 @@
       "Phân biệt ba kiểu gián đoạn: lỗ hổng, bước nhảy và đường tiệm cận."
     ],
     hook: "Nhiệt độ trong phòng thay đổi mượt: muốn từ 20°C lên 30°C phải đi qua mọi giá trị ở giữa. Nhưng giá điện bậc thang thì nhảy: dùng 50 số một giá, sang số 51 giá khác hẳn. Hai kiểu thay đổi này chính là liên tục và gián đoạn.",
+    world: {
+      kind: "parking",
+      title: "Phí gửi xe nhảy bậc khi sang giờ",
+      story: "Bãi giữ xe thu 5.000 đồng mỗi giờ và tính tròn lên: gửi 1 giờ 5 phút vẫn tính 2 giờ. Kéo thời gian qua mốc 2 giờ để xem phí thay đổi thế nào.",
+      ask: "Đúng 2 giờ phí vẫn là 10.000 đồng, quá một phút là 15.000 đồng. Hàm xác định tại 2 giờ, giới hạn bên trái tồn tại, giới hạn bên phải khác, nên giới hạn hai phía không tồn tại."
+    },
     sections: [
       {
         kicker: "TRỰC GIÁC",
@@ -181,20 +193,28 @@
       "Tránh kết luận sai chỉ vì phép thay trực tiếp cho 0/0."
     ],
     hook: "Một xưởng tính chi phí trung bình mỗi sản phẩm bằng C(x)/x. Khi số lượng rất nhỏ, cả chi phí lẫn số lượng đều về 0, phép chia thành 0/0. Muốn biết chi phí trung bình tiến về đâu, ta phải khử dạng vô định chứ không thể bấm máy tính.",
+    world: {
+      kind: "rice",
+      title: "Vì sao bao gạo lớn rẻ hơn mỗi kg?",
+      story: "Cửa hàng bán gạo theo bao: tiền bao bằng 90.000 đồng công đóng gói cộng 18.000 đồng mỗi kg. Bao 1 kg giá 108.000, bao 5 kg giá 180.000, bao 25 kg giá 540.000. Đơn giá mỗi kg là 18.000 + 90.000/m, với m là số kg trong bao.",
+      ask: "Khi m rất lớn, 90.000/m teo về 0 nên đơn giá tiến sát 18.000 đồng/kg. Cả tử và mẫu cùng lớn vô hạn, phải chia cho lũy thừa cao nhất thay vì thay số trực tiếp."
+    },
     sections: [
       {
         kicker: "BA KỸ THUẬT",
         title: "Mỗi dạng một cách gỡ",
         paragraphs: [
           "Dạng 0/0 xuất hiện khi thay trực tiếp cho 0 ở cả tử và mẫu. Có ba cách khử thường dùng: phân tích thành nhân tử, nhân với biểu thức liên hợp khi có căn, và quy đồng mẫu khi có phân số lồng nhau.",
-          "Mục tiêu của cả ba cách là rút ra nhân tử chung gây ra số 0, rồi mới thay giá trị."
+          "Cùng họ vô định còn có dạng ∞/∞: cả tử và mẫu cùng lớn không giới hạn, như bao gạo ở trên. Khi đó chia cả tử và mẫu cho lũy thừa cao nhất của biến rồi mới cho biến ra vô cực.",
+          "Mục tiêu của các cách này là rút ra nhân tử chung gây ra số 0, hoặc triệt tiêu phần lớn nhất, rồi mới thay giá trị."
         ],
         table: {
           head: ["Dạng gặp", "Cách xử lý", "Ví dụ"],
           rows: [
             ["Đa thức chia đa thức", "Phân tích thành nhân tử", "(x² − 4)/(x − 2) = x + 2 khi x ≠ 2"],
             ["Có căn bậc hai", "Nhân liên hợp", "(√(x + 1) − 1)/x"],
-            ["Phân số lồng nhau", "Quy đồng mẫu", "1/x − 1/2 chia cho x − 2"]
+            ["Phân số lồng nhau", "Quy đồng mẫu", "1/x − 1/2 chia cho x − 2"],
+            ["Tử và mẫu cùng lớn", "Chia cho lũy thừa cao nhất", "(18 000m + 90 000)/m → 18 000 khi m → ∞"]
           ],
           caption: "Chọn kỹ thuật theo hình dạng biểu thức, không theo thói quen."
         }
@@ -262,6 +282,12 @@
       "Phân biệt đạo hàm tại một điểm với hàm đạo hàm trên cả miền."
     ],
     hook: "Đồng hồ tốc độ trên xe không đo quãng đường; nó đo tốc độ tức thời. Nếu quãng đường là s(t) = 5t² (mét), muốn biết tốc độ đúng lúc t = 2 giây, ta phải tính giới hạn của quãng đường chia thời gian khi khoảng thời gian co về 0.",
+    world: {
+      kind: "fall",
+      title: "Tốc độ tức thời của quả bóng đang rơi",
+      story: "Thả quả bóng từ sân thượng, quãng đường rơi là s = 5t² mét. Trong khoảng từ giây thứ 2 đến 2 + h, bóng rơi thêm 20h + 5h² mét, nên tốc độ trung bình của khoảng đó là 20 + 5h m/s.",
+      ask: "Cho h co về 0, tốc độ trung bình tiến về 20 m/s: đúng tốc độ tức thời tại giây thứ 2 và đúng bằng đạo hàm s'(2)."
+    },
     sections: [
       {
         kicker: "TRỰC GIÁC",
@@ -349,6 +375,12 @@
       "Tránh lỗi phổ biến: đạo hàm của tích khác tích các đạo hàm."
     ],
     hook: "Tính đạo hàm của f(x) = 3x⁵ − 2x³ + 7x − 4 bằng định nghĩa sẽ rất dài. Bộ quy tắc cho phép làm trong một dòng: f'(x) = 15x⁴ − 6x² + 7.",
+    world: {
+      kind: "battery",
+      title: "Vì sao pin tụt nhanh dần?",
+      story: "Một chiếc điện thoại mất pin theo công thức B(t) = 100 − 0,5t² phần trăm sau t giờ xem video. Đạo hàm B'(t) = −t cho biết tại giờ thứ t, mỗi giờ pin tụt thêm bao nhiêu phần trăm.",
+      ask: "Ở giờ thứ 6 pin tụt 6%/giờ, nhanh hơn hẳn lúc mới bật máy. Bộ quy tắc đạo hàm cho ngay B'(t) = −t mà không phải lập giới hạn."
+    },
     sections: [
       {
         kicker: "BẢNG QUY TẮC",
@@ -432,6 +464,12 @@
       "Nhớ kiểm tra miền xác định trước khi kết luận."
     ],
     hook: "Có 40 m lưới, muốn quây một vườn hình chữ nhật sát bờ tường nên chỉ cần ba cạnh. Chọn chiều rộng bao nhiêu để diện tích lớn nhất? Đây là bài toán tối ưu: tìm cực trị của một hàm dựng từ ràng buộc.",
+    world: {
+      kind: "fence",
+      title: "40 m lưới, quây thế nào cho rộng nhất?",
+      story: "Có 40 m lưới, quây vườn chữ nhật sát bờ tường nên chỉ cần ba cạnh. Nếu chiều rộng là x thì chiều dài là 40 − 2x và diện tích là A(x) = x(40 − 2x).",
+      ask: "Kéo x qua lại: diện tích tăng rồi giảm, đỉnh ở x = 10 m với 200 m². Tại đó A'(x) = 0 và đạo hàm đổi dấu từ dương sang âm."
+    },
     sections: [
       {
         kicker: "QUY TRÌNH",
@@ -512,6 +550,12 @@
       "Phân biệt diện tích hình học với tích phân có dấu."
     ],
     hook: "Muốn tính diện tích một cái ao cong, ta không có công thức sẵn. Nhưng nếu phủ lên ao những dải chữ nhật mảnh thì cộng diện tích lại là ra gần đúng. Chia càng mảnh, sai số càng nhỏ. Đó chính là ý tưởng của tích phân.",
+    world: {
+      kind: "floor",
+      title: "Mua cỏ nhân tạo cho mảnh vườn bờ cong",
+      story: "Mảnh vườn có bờ cong theo y = x², rộng 2 m. Không có công thức diện tích sẵn, người bán cỏ ước lượng bằng cách chia vườn thành các dải chữ nhật rộng đều rồi cộng diện tích.",
+      ask: "Tăng số dải từ 1 lên 24: tổng tiến sát 2,667 m². Chia càng mảnh càng đúng, và giới hạn của tổng chính là tích phân."
+    },
     sections: [
       {
         kicker: "TRỰC GIÁC",
@@ -587,6 +631,12 @@
       "Tránh lỗi bỏ qua giá trị tại cận dưới."
     ],
     hook: "Cộng hàng nghìn hình chữ nhật là cách hiểu, nhưng không phải cách tính. Định lý Newton–Leibniz biến bài toán cộng dồn thành một phép trừ hai giá trị nguyên hàm — nhanh và chính xác tuyệt đối.",
+    world: {
+      kind: "bus",
+      title: "Đồng hồ tốc độ ghi lại, tính được quãng đường",
+      story: "Xe buýt rời bến với vận tốc v(t) = 2t + 1 m/s trong 3 giây đầu. Diện tích dưới đường vận tốc chính là quãng đường đi được; cộng từng dải nhỏ thì đúng nhưng rất mất công.",
+      ask: "Chỉ cần F(t) = t² + t, quãng đường 3 giây là F(3) − F(0) = 12 m. Diện tích dưới biểu đồ vận tốc tính được bằng một phép trừ."
+    },
     sections: [
       {
         kicker: "ĐỊNH LÝ",
@@ -667,6 +717,12 @@
       "Phân biệt chuỗi hội tụ với chuỗi phân kỳ, kể cả khi số hạng tiến về 0."
     ],
     hook: "0,999… có bằng 1 không? Viết 0,999… = 9/10 + 9/100 + 9/1000 + … Ta đang cộng vô hạn số hạng. Câu trả lời phụ thuộc vào việc tổng riêng có tiến tới một giới hạn hay không — đó là bài toán hội tụ của chuỗi.",
+    world: {
+      kind: "bounce",
+      title: "Quả bóng nảy mãi, tổng đường đi bằng bao nhiêu?",
+      story: "Thả quả bóng từ 2 m; mỗi lần chạm sàn nảy lên đúng nửa độ cao trước: 1 m, 0,5 m, 0,25 m… Tổng quãng đường là 2 + 2(1 + 1/2 + 1/4 + …), tức cộng vô hạn số hạng dương.",
+      ask: "Sau 8 lần nảy tổng đã 5,984 m và vẫn còn tiến về 6 m. Chuỗi hình học hội tụ vì công bội 1/2 nhỏ hơn 1."
+    },
     sections: [
       {
         kicker: "TRỰC GIÁC",
