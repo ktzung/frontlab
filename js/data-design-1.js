@@ -1083,6 +1083,149 @@
     ]
   };
 
+  L["css-declarations"] = {
+    id: "css-declarations",
+    track: "design",
+    module: "design-css",
+    title: "Các kiểu khai báo CSS",
+    shortTitle: "Khai báo CSS",
+    subtitle: "External, internal, inline, at-rule và những cách viết CSS bạn sẽ gặp mỗi ngày.",
+    blurb: "Đặt CSS đúng chỗ, đọc được cú pháp rule, at-rule, shorthand, custom property, giá trị dự phòng và !important.",
+    level: "Cơ bản",
+    duration: "14 phút",
+    lang: "css",
+    tags: ["external-css", "internal-css", "inline-css", "at-rules", "shorthand", "important"],
+    learn: [
+      "Phân biệt CSS ngoài, CSS nội bộ và style inline",
+      "Đọc cú pháp selector + declaration block",
+      "Nhận biết at-rule như @media, @supports, @import",
+      "Dùng shorthand đúng thứ tự và tránh ghi đè ngoài ý muốn",
+      "Đặt giá trị dự phòng cho custom property"
+    ],
+    code: `:root {
+  --brand: #0f9f8a;
+  --line: #dcd6c9;
+}
+
+.card {
+  margin: 0 0 16px;
+  padding: 16px;
+  border: 1px solid var(--line, #dcd6c9);
+  color: var(--brand);
+}
+
+@media (min-width: 720px) {
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+.card--urgent {
+  color: #c0392b !important;
+}`,
+    file: "declarations.css",
+    life: {
+      icon: "bulb",
+      title: "Ba cách dán nhãn",
+      text: "Cùng một nội dung có thể dán nhãn lên cả quyển sổ, lên một trang hoặc lên đúng một dòng. CSS cũng vậy: file ngoài, khối style trong trang hoặc thuộc tính style trên một phần tử."
+    },
+    visual: S.table(
+      ["Cách đặt CSS", "Phạm vi", "Khi nào dùng"],
+      [["File .css + link", "Toàn site", "Dự án thật"], ["Thẻ style", "Một trang", "Bản thử, CSS nhỏ"], ["style=\"...\"", "Một phần tử", "Trạng thái động rất nhỏ"]],
+      0,
+      "Càng gần phần tử càng khó tái sử dụng"
+    ),
+    steps: [
+      {
+        short: "Nơi đặt CSS",
+        type: "TỔ CHỨC",
+        title: "External, internal và inline",
+        body: "CSS ngoài nằm trong file .css và được nối bằng <code>&lt;link rel=\"stylesheet\"&gt;</code>. CSS nội bộ nằm trong <code>&lt;style&gt;</code> của trang. Inline nằm ngay trong thuộc tính <code>style</code> của một phần tử. Dự án thật nên ưu tiên file ngoài để tái sử dụng và cache.",
+        line: 1,
+        mark: [1, 2, 3, 4, 5, 6, 7],
+        watch: [{ name: "file .css", value: "toàn site", type: "external" }, { name: "<style>", value: "một trang", type: "internal" }, { name: "style=\"...\"", value: "một phần tử", type: "inline" }],
+        output: "",
+        visual: S.flow([{ label: "File .css", sub: "link trong head" }, { label: "<style>", sub: "trong trang" }, { label: "style", sub: "trên phần tử" }], [0]),
+        note: "Inline có specificity cao nhất trong ba cách thông thường, nên rất dễ ghi đè CSS khác ngoài ý muốn.",
+        changes: ["Biết nên đặt CSS ở đâu cho từng phạm vi."]
+      },
+      {
+        short: "Cú pháp rule",
+        type: "CÚ PHÁP",
+        title: "Selector và khối khai báo",
+        body: "Một rule gồm selector, cặp ngoặc nhọn và các khai báo dạng <code>property: value;</code>. Dấu chấm phẩy ngăn các khai báo; dấu hai chấm ngăn thuộc tính với giá trị. Thiếu dấu chấm phẩy ở khai báo trước có thể làm hỏng khai báo sau.",
+        line: 6,
+        mark: [6, 7, 8, 9, 10, 11],
+        watch: [{ name: ".card", value: "selector", type: "selector" }, { name: "padding", value: "16px", type: "declaration" }],
+        output: "",
+        visual: S.table(
+          ["Thành phần", "Ví dụ", "Vai trò"],
+          [["Selector", ".card", "chọn phần tử"], ["Property", "padding", "thuộc tính"], ["Value", "16px", "giá trị"], ["Dấu ;", "cuối khai báo", "ngăn cách"]],
+          1,
+          "Cú pháp declaration block"
+        ),
+        note: "Trong DevTools, khai báo bị gạch là bị rule khác ghi đè; khai báo sai cú pháp thường bị bỏ qua im lặng.",
+        changes: ["Đọc được một rule CSS theo từng thành phần."]
+      },
+      {
+        short: "At-rule",
+        type: "@RULE",
+        title: "@media, @supports, @import",
+        body: "At-rule bắt đầu bằng <code>@</code> và điều khiển cách CSS được áp dụng. <code>@media</code> đổi style theo kích thước hoặc thiết bị; <code>@supports</code> kiểm tra trình duyệt có hiểu tính năng không; <code>@import</code> nạp file CSS khác; <code>@font-face</code> khai báo font.",
+        line: 13,
+        mark: [13, 14, 15, 16, 17, 18, 19],
+        watch: [{ name: "@media", value: "min-width: 720px", type: "at-rule" }, { name: "display", value: "grid khi đủ rộng", type: "result" }],
+        output: "",
+        visual: S.table(
+          ["At-rule", "Dùng để"],
+          [["@media", "theo kích thước hoặc thiết bị"], ["@supports", "khi trình duyệt hỗ trợ tính năng"], ["@import", "nạp stylesheet khác"], ["@font-face", "đăng ký file font"]],
+          0,
+          "At-rule điều khiển phạm vi áp dụng"
+        ),
+        note: "@import phải nằm ở đầu file, trước các rule thường; đặt sai vị trí sẽ bị bỏ qua.",
+        changes: ["Card chuyển sang lưới hai cột khi màn hình đủ rộng."]
+      },
+      {
+        short: "Shorthand",
+        type: "VIẾT TẮT",
+        title: "Shorthand và longhand",
+        body: "<code>margin: 0 0 16px</code> là shorthand: ba giá trị lần lượt là top, hai bên và bottom. Viết đủ bốn giá trị theo thứ tự top, right, bottom, left. Longhand như <code>margin-top</code>, <code>padding-left</code> chỉ đổi một phía. Shorthand đặt sau longhand sẽ ghi đè các phía còn lại về mặc định.",
+        line: 7,
+        mark: [7, 8, 9, 10],
+        watch: [{ name: "margin", value: "0 0 16px", type: "shorthand" }, { name: "padding", value: "16px", type: "all sides" }],
+        output: "",
+        visual: S.table(
+          ["Cách viết", "Tác động"],
+          [["margin: 0 0 16px", "top 0, ngang 0, bottom 16px"], ["margin-bottom: 16px", "chỉ đáy"], ["padding: 16px", "cả bốn phía"]],
+          0,
+          "Shorthand ngắn nhưng dễ ghi đè ngoài ý muốn"
+        ),
+        note: "Khi debug khoảng cách, đọc thứ tự bốn giá trị trước khi thêm margin mới.",
+        changes: ["Card có khoảng cách đáy 16px và padding đều."]
+      },
+      {
+        short: "Dự phòng",
+        type: "AN TOÀN",
+        title: "Fallback và !important",
+        body: "<code>var(--line, #dcd6c9)</code> dùng giá trị sau dấu phẩy khi biến chưa được khai báo. <code>!important</code> ép một khai báo thắng các khai báo thường, nhưng chỉ nên dùng khi override thư viện ngoài hoặc trong phạm vi rất hẹp. Với tính năng mới, dùng <code>@supports</code> thay vì cố ép.",
+        line: 9,
+        mark: [9, 21, 22, 23],
+        watch: [{ name: "var(--line, ...)", value: "fallback", type: "safe" }, { name: "!important", value: "ưu tiên đặc biệt", type: "exception" }],
+        output: "",
+        visual: S.table(
+          ["Cách xử lý", "Nên dùng khi"],
+          [["var(--x, fallback)", "biến có thể thiếu"], ["@supports", "tính năng mới"], ["!important", "override thư viện, phạm vi hẹp"]],
+          0,
+          "Ưu tiên cách bền vững trước"
+        ),
+        note: "Nếu phải dùng !important, hãy ghi chú lý do và giới hạn selector để tránh chuỗi !important chồng chất.",
+        changes: ["Card vẫn có viền khi thiếu biến --line."]
+      }
+    ]
+  };
+
   L["box-model"] = {
     id: "box-model",
     track: "design",

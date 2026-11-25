@@ -225,13 +225,15 @@ kbd {
 }
 .mode-link:hover { color: #fff; background: rgba(255,255,255,.07); }
 .mode-link.is-active { background: #f3efe6; color: #0c1624; }
-.top-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.top-actions { margin-left: auto; display: flex; align-items: center; gap: 8px; min-width: 0; }
 .search-trigger {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   height: 36px;
   width: 238px;
+  min-width: 0;
+  flex-shrink: 1;
   padding: 0 10px 0 11px;
   border: 1px solid var(--top-line);
   border-radius: 10px;
@@ -613,6 +615,7 @@ body[data-theme="dark"] .btn-primary:hover { background: #ddff86; }
 .lesson-mode:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; }
 .lesson-playview[hidden] { display: none; }
 .lesson-playview .csp { margin-top: 0; }
+.play-host:empty { display: none; }
 
 .metric-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px; }
 .metric {
@@ -1076,9 +1079,17 @@ body[data-theme="dark"] .toast { background: var(--lime); color: #0c1624; }
 /* ============================================================
    Responsive
    ============================================================ */
-@media (min-width: 1281px) {
-  .scrim { display: none !important; }
+/* Lesson workspace: the lesson list is a drawer at every width so the
+   simulation/playground gets the full viewport. */
+body[data-view="lesson"] .sidebar {
+  position: fixed; left: 0; top: var(--topbar-h); bottom: 0; height: auto;
+  flex: none; transform: translateX(-104%);
+  transition: transform .24s ease; box-shadow: var(--shadow-lg);
 }
+body[data-view="lesson"].has-sidebar .sidebar { transform: translateX(0); }
+body[data-view="lesson"] .menu-btn { display: inline-flex; }
+body[data-view="lesson"] .scrim:not([hidden]) { display: block; }
+
 @media (max-width: 1420px) {
   .brand-sub { display: none; }
   .search-trigger { width: 150px; }

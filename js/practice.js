@@ -1,4 +1,4 @@
-/* FrontLab — luyện tập: một tình huống cho mỗi bài (44) */
+/* FrontLab — luyện tập: một tình huống cho mỗi bài (45) */
 (function () {
   "use strict";
   const D = window.FRONTLAB;
@@ -119,6 +119,12 @@
       ["Style inline", "#submit", ".btn", "Bộ chọn thẻ button"], 0,
       "Thứ tự ưu tiên tăng dần: thẻ, class, id, inline. Inline thắng id, id thắng class. !important mới đảo ngược thứ tự này.",
       { kind: "table", headers: ["Nguồn", "Độ ưu tiên"], rows: [["button", "0-0-1"], [".btn", "0-1-0"], ["#submit", "1-0-0"], ["inline", "cao nhất"]], activeRow: 3, caption: "Không có !important" }),
+    item("ui-css-placement", "css-declarations", "Đặt CSS ở đâu?",
+      "Một site có 20 trang dùng chung header, footer và hệ thống nút. Nhóm cần sửa màu thương hiệu ở đúng một nơi.",
+      "Cách đặt CSS nào phù hợp nhất?", "Tổ chức CSS",
+      ["File .css nối bằng link trong head", "Thẻ style riêng trong từng trang", "Thuộc tính style trên từng thẻ", "Chèn CSS trong nhiều file JavaScript"], 0,
+      "File CSS ngoài được dùng lại cho mọi trang và trình duyệt có thể cache. Sửa một lần là toàn site đổi; style inline và thẻ style rải rác rất khó đồng bộ.",
+      { kind: "table", headers: ["Cách đặt", "Phạm vi", "Bảo trì"], rows: [["File .css + link", "Toàn site", "Tốt"], ["Thẻ style", "Một trang", "Trung bình"], ["style=\"...\"", "Một phần tử", "Kém"]], activeRow: 0, caption: "Ưu tiên file CSS dùng chung" }),
     item("ui-box-total", "box-model", "Tính chiều rộng thật",
       "Một hộp có width 320px, padding 24px mỗi bên, border 4px mỗi bên và box-sizing mặc định content-box.",
       "Chiều rộng hiển thị của hộp là bao nhiêu?", "Box model",

@@ -254,6 +254,8 @@
     if (sidebar) sidebar.classList.add("is-open");
     if (scrim) scrim.hidden = false;
     document.body.classList.add("has-sidebar");
+    const menuBtn = $("#menuBtn");
+    if (menuBtn) menuBtn.setAttribute("aria-expanded", "true");
   }
   function closeSidebar() {
     const sidebar = $("#sidebar");
@@ -261,6 +263,8 @@
     if (sidebar) sidebar.classList.remove("is-open");
     if (scrim) scrim.hidden = true;
     document.body.classList.remove("has-sidebar");
+    const menuBtn = $("#menuBtn");
+    if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
   }
 
   function selectTrack(id, opts) {
@@ -734,7 +738,7 @@
 
   function renderLesson(lesson, requestedStep) {
     stopPlayer();
-    if (window.CssPlay) window.CssPlay.cleanup();
+    cleanupPlaygrounds();
     state.lesson.id = lesson.id;
     state.lesson.step = clamp(Number(requestedStep) || 1, 1, lesson.steps.length);
     state.lesson.playing = false;
@@ -748,7 +752,8 @@
     const practice = practiceForLesson(lesson);
     const nextHref = practice ? `#/practice/${practice.id}` : next ? `#/learn/${next.id}/1` : "#/practice";
     const nextLabel = practice ? "Luyện tập" : next ? "Bài tiếp" : "Luyện tập";
-    const hasPlay = hasPlayground(lesson);
+    const play = playgroundFor(lesson);
+    const hasPlay = !!play;
     state.lesson.mode = "stage";
     view.innerHTML = `<div class="lesson-page">
       <div class="lesson-head">
@@ -771,7 +776,7 @@
       </div>
       ${hasPlay ? `<div class="lesson-modes" role="group" aria-label="Cách xem bài học">
         <button class="lesson-mode is-on" type="button" data-action="set-lesson-mode" data-mode="stage" aria-pressed="true"><b>Mô phỏng từng bước</b><small>Theo dõi code và giao diện đổi theo từng bước</small></button>
-        <button class="lesson-mode" type="button" data-action="set-lesson-mode" data-mode="play" aria-pressed="false"><b>CSS Playground</b><small>Tự do đổi giá trị trên toàn bộ mã của bài</small></button>
+        <button class="lesson-mode" type="button" data-action="set-lesson-mode" data-mode="play" aria-pressed="false"><b>${esc(play.label)}</b><small>${esc(play.hint)}</small></button>
       </div>` : ""}
       <div class="lesson-layout" id="lessonStageView">
         <div class="lesson-main">
@@ -779,21 +784,55 @@
         </div>
         <aside class="step-panel" id="stepPanel">${stepPanelHTML(lesson, index)}</aside>
       </div>
-      ${hasPlay ? '<div class="lesson-playview" id="lessonPlayView" hidden><div id="cssPlayHost" class="csp-host"></div></div>' : ""}
+      ${hasPlay ? '<div class="lesson-playview" id="lessonPlayView" hidden><div id="lessonPlayHost" class="play-host"></div></div>' : ""}
     </div>`;
     renderSidebar();
     applyStep(lesson, index, { initial: true });
   }
 
+  function playgroundFor(lesson) {
+    if (!lesson) return null;
+    if (lesson.lang === "css" && window.CssPlay && window.CSS_PLAYGROUND && window.CSS_PLAYGROUND[lesson.id]) {
+      return {
+        label: "CSS Playground",
+        hint: "Tự do đổi giá trị trên toàn bộ mã của bài",
+        mount: (host) => window.CssPlay.mount(host, lesson, window.CSS_PLAYGROUND[lesson.id])
+      };
+    }
+    if (lesson.lang === "html" && window.HtmlPlay) {
+      return {
+        label: "HTML Playground",
+        hint: "Sửa mã, xem trang và bấm vào thẻ để hiểu",
+        mount: (host) => window.HtmlPlay.mount(host, lesson, window.HTML_PLAYGROUND && window.HTML_PLAYGROUND[lesson.id])
+      };
+    }
+    if (lesson.lang === "js" && window.JsPlay) {
+      return {
+        label: "JS Playground",
+        hint: "Chạy mã, xem console và thử sửa từng dòng",
+        mount: (host) => window.JsPlay.mount(host, lesson, window.JS_PLAYGROUND && window.JS_PLAYGROUND[lesson.id])
+      };
+    }
+    return null;
+  }
+
   function hasPlayground(lesson) {
-    return !!(lesson && lesson.lang === "css" && window.CssPlay && window.CSS_PLAYGROUND && window.CSS_PLAYGROUND[lesson.id]);
+    return !!playgroundFor(lesson);
+  }
+
+  function cleanupPlaygrounds() {
+    [window.CssPlay, window.HtmlPlay, window.JsPlay].forEach((engine) => {
+      if (engine && engine.cleanup) engine.cleanup();
+    });
   }
 
   function ensurePlayground() {
-    const host = $("#cssPlayHost");
+    const host = $("#lessonPlayHost");
     const lesson = LESSONS[state.lesson.id];
-    if (!host || !lesson || host.dataset.mounted === "1" || !hasPlayground(lesson)) return;
-    window.CssPlay.mount(host, lesson, window.CSS_PLAYGROUND[lesson.id]);
+    if (!host || !lesson || host.dataset.mounted === "1") return;
+    const play = playgroundFor(lesson);
+    if (!play) return;
+    play.mount(host);
     host.dataset.mounted = "1";
   }
 

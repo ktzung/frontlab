@@ -45,8 +45,8 @@ window.FRONTLAB = {
       track: "design",
       num: "03",
       title: "CSS cốt lõi",
-      blurb: "Selector, cascade, box model, màu sắc và typography — nền móng của mọi giao diện.",
-      lessons: ["css-selectors", "cascade-specificity", "box-model", "colors-typography"]
+      blurb: "Selector, cascade, kiểu khai báo, box model, màu sắc và typography — nền móng của mọi giao diện.",
+      lessons: ["css-selectors", "cascade-specificity", "css-declarations", "box-model", "colors-typography"]
     },
     {
       id: "design-layout",
@@ -118,6 +118,6 @@ window.FRONTLAB = {
   cheatsheets: [],
   meta: {
     autoplayMs: 7200,
-    totalLessons: 44
+    totalLessons: 45
   }
 };

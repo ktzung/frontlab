@@ -61,6 +61,33 @@
       ]
     },
 
+    "css-declarations": {
+      target: ".card",
+      extras: ["var()", "!important", "@import", "@supports", "@font-face"],
+      html: `
+<section class="demo-block">
+  <article class="card">
+    <h2>Card thường</h2>
+    <p>Dùng token --brand và --line; margin viết tắt 0 0 16px.</p>
+  </article>
+  <article class="card card--urgent">
+    <h2>Card khẩn cấp</h2>
+    <p>Rule .card--urgent dùng !important để thắng màu của .card.</p>
+  </article>
+</section>
+<p class="demo-note">Khung rộng từ 720px: rule trong @media chuyển card sang lưới hai cột.</p>`,
+      controls: [
+        { sel: ":root", prop: "--brand", type: "color", note: "Token màu thương hiệu, được .card dùng qua var(--brand)." },
+        { sel: ":root", prop: "--line", type: "color", note: "Token viền; nếu xóa biến, border dùng giá trị dự phòng #dcd6c9." },
+        { sel: ".card", prop: "margin", type: "select", options: ["0 0 16px", "0", "16px", "0 auto"], note: "Shorthand ba giá trị: top, hai bên, bottom. 0 auto căn giữa theo chiều ngang." },
+        { sel: ".card", prop: "padding", type: "range", min: 0, max: 40, step: 4, unit: "px", note: "Shorthand một giá trị áp đều bốn phía." },
+        { sel: ".card", prop: "border", type: "select", options: ["1px solid var(--line, #dcd6c9)", "4px dashed #e05d3d", "0"], note: "Border viết tắt gồm độ dày, kiểu viền và màu; var() có giá trị dự phòng." },
+        { sel: ".card", prop: "color", type: "select", options: ["var(--brand)", "#14202d", "#0b7f70"], note: "Card thường đổi màu chữ; card khẩn cấp vẫn giữ màu vì !important." },
+        { sel: ".card--urgent", prop: "color", type: "select", options: ["#c0392b !important", "#c0392b", "var(--brand)"], note: "Bỏ !important để thấy card khẩn cấp quay về cascade thường." },
+        { sel: ".card", prop: "grid-template-columns", type: "select", options: ["1fr 1fr", "1fr", "repeat(3, 1fr)"], note: "Rule nằm trong @media (min-width: 720px), nên chỉ đổi bố cục khi khung đủ rộng." }
+      ]
+    },
+
     "box-model": {
       target: ".card",
       extras: [],

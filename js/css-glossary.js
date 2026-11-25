@@ -18,6 +18,13 @@
       effect: "Tạo biến thể nổi bật mà không cần thêm class cha hay selector phức tạp.",
       tip: "Dấu cách đổi nghĩa hoàn toàn — đây là lỗi đọc selector phổ biến nhất."
     },
+    ".card--urgent": {
+      kind: "selector", title: "Class biến thể BEM",
+      what: "Class biến thể (modifier) của card, viết theo BEM: hai gạch nối ngăn khối và trạng thái.",
+      values: "Ghép bằng thuộc tính class: class=\"card card--urgent\", không viết liền thành .card--urgent mà bỏ .card.",
+      effect: "Card khẩn cấp giữ nền và padding của .card, chỉ ghi đè màu chữ bằng !important.",
+      tip: "Modifier không nên tự chứa toàn bộ style; nó chỉ mô tả phần khác biệt."
+    },
     ".card > h2": {
       kind: "selector", title: "Con trực tiếp",
       what: "Dấu > chỉ chọn h2 là con trực tiếp của card, không chọn h2 nằm sâu bên trong khối khác.",
@@ -174,6 +181,13 @@
     },
 
     /* ---------- at-rule & keyframe ---------- */
+    "@media (min-width: 720px)": {
+      kind: "at-rule", title: "Media query theo pixel",
+      what: "Áp dụng khối bên trong khi khung nhìn rộng từ 720px; viết bằng px là mốc tuyệt đối, không phụ thuộc cỡ chữ người dùng.",
+      values: "720px cố định; muốn co giãn theo cỡ chữ gốc thì dùng 45rem tương đương.",
+      effect: "Card chuyển sang lưới hai cột từ 720px; dưới mốc đó card xếp một cột.",
+      tip: "Ưu tiên rem cho accessibility; px chỉ nên dùng khi cần khớp đúng một khung cố định."
+    },
     "@media (min-width: 48rem)": {
       kind: "at-rule", title: "Media query mobile-first",
       what: "Chỉ áp dụng khối bên trong khi bề rộng khung nhìn từ 48rem (768px) trở lên.",
@@ -201,6 +215,27 @@
       values: "Chỉ có hiệu lực khi một rule dùng animation hoặc animation-name: pulse.",
       effect: "Có thể tái sử dụng cùng một nhịp cho nhiều phần tử.",
       tip: "Giữ keyframes đơn giản và tránh animate thuộc tính gây layout."
+    },
+    "@import": {
+      kind: "at-rule", title: "Nạp file CSS khác",
+      what: "Tải một stylesheet từ file khác ngay trong CSS hiện tại. Phải đặt ở đầu file, trước các rule thường.",
+      values: '@import url("tokens.css"); hoặc @import "tokens.css";',
+      effect: "Tách token, reset hoặc CSS của thư viện thành file riêng rồi gộp khi tải.",
+      tip: "Dùng link trong HTML thường tốt hơn vì tải song song; @import hữu ích khi không sửa được HTML."
+    },
+    "@supports": {
+      kind: "at-rule", title: "Kiểm tra trình duyệt hỗ trợ",
+      what: "Chỉ áp dụng khối bên trong khi trình duyệt hiểu một khai báo hoặc tính năng CSS.",
+      values: "@supports (display: grid) { ... } hoặc @supports not (gap: 1rem) { ... }",
+      effect: "Dùng tính năng mới mà vẫn có phương án dự phòng cho trình duyệt cũ.",
+      tip: "Kiểm tra đúng cặp thuộc tính và giá trị; điều kiện sai sẽ âm thầm bỏ cả khối."
+    },
+    "@font-face": {
+      kind: "at-rule", title: "Khai báo font",
+      what: "Đăng ký một file font để dùng trong font-family.",
+      values: "font-family: \"Be Vietnam Pro\"; src: url(font.woff2) format(\"woff2\");",
+      effect: "Trang dùng font riêng, không phụ thuộc font cài sẵn trên máy người dùng.",
+      tip: "Chỉ tải định dạng cần thiết và đặt font-display để chữ không bị ẩn quá lâu."
     },
     "50%": {
       kind: "at-rule", title: "Mốc keyframe",
@@ -415,6 +450,13 @@
       values: "Bất kỳ giá trị màu hợp lệ; tên custom property phân biệt hoa thường.",
       effect: "Đổi một dòng ở :root là mọi chỗ dùng var(--brand) đổi theo.",
       tip: "Custom property thừa kế; có thể override trong component để đổi cục bộ."
+    },
+    "--line": {
+      kind: "custom-property", title: "Token màu viền",
+      what: "Custom property dùng cho viền và đường phân cách, thường là màu trung tính nhạt.",
+      values: "Màu bất kỳ; có thể truyền giá trị dự phòng khi dùng var(--line, #dcd6c9).",
+      effect: "Viền của card đổi theo token; nếu token chưa khai báo, trình duyệt dùng màu dự phòng.",
+      tip: "Đặt token viền ở :root để mọi component dùng cùng một sắc độ."
     },
     "--ink": {
       kind: "custom-property", title: "Token màu chữ chính",
