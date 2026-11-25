@@ -64,7 +64,7 @@
   const state = {
     track: "design",
     route: { name: "home" },
-    lesson: { id: null, step: 1, playing: false, speed: 1, timer: null },
+    lesson: { id: null, step: 1, mode: "stage", playing: false, speed: 1, timer: null },
     practice: { id: null, answered: null },
     lab: {
       mode: "box",
@@ -748,6 +748,8 @@
     const practice = practiceForLesson(lesson);
     const nextHref = practice ? `#/practice/${practice.id}` : next ? `#/learn/${next.id}/1` : "#/practice";
     const nextLabel = practice ? "Luyện tập" : next ? "Bài tiếp" : "Luyện tập";
+    const hasPlay = hasPlayground(lesson);
+    state.lesson.mode = "stage";
     view.innerHTML = `<div class="lesson-page">
       <div class="lesson-head">
         <div>
@@ -767,19 +769,52 @@
           <a class="btn btn-primary btn-sm" href="${nextHref}">${nextLabel} ${icon("arrow")}</a>
         </div>
       </div>
-      <div class="lesson-layout">
+      ${hasPlay ? `<div class="lesson-modes" role="group" aria-label="Cách xem bài học">
+        <button class="lesson-mode is-on" type="button" data-action="set-lesson-mode" data-mode="stage" aria-pressed="true"><b>Mô phỏng từng bước</b><small>Theo dõi code và giao diện đổi theo từng bước</small></button>
+        <button class="lesson-mode" type="button" data-action="set-lesson-mode" data-mode="play" aria-pressed="false"><b>CSS Playground</b><small>Tự do đổi giá trị trên toàn bộ mã của bài</small></button>
+      </div>` : ""}
+      <div class="lesson-layout" id="lessonStageView">
         <div class="lesson-main">
           ${stageHTML(lesson, step)}
         </div>
         <aside class="step-panel" id="stepPanel">${stepPanelHTML(lesson, index)}</aside>
       </div>
-      ${lesson.lang === "css" && window.CSS_PLAYGROUND && window.CSS_PLAYGROUND[lesson.id] ? '<div id="cssPlayHost" class="csp-host"></div>' : ""}
+      ${hasPlay ? '<div class="lesson-playview" id="lessonPlayView" hidden><div id="cssPlayHost" class="csp-host"></div></div>' : ""}
     </div>`;
     renderSidebar();
     applyStep(lesson, index, { initial: true });
-    const playHost = document.getElementById("cssPlayHost");
-    if (playHost && window.CssPlay && window.CSS_PLAYGROUND && window.CSS_PLAYGROUND[lesson.id]) {
-      window.CssPlay.mount(playHost, lesson, window.CSS_PLAYGROUND[lesson.id]);
+  }
+
+  function hasPlayground(lesson) {
+    return !!(lesson && lesson.lang === "css" && window.CssPlay && window.CSS_PLAYGROUND && window.CSS_PLAYGROUND[lesson.id]);
+  }
+
+  function ensurePlayground() {
+    const host = $("#cssPlayHost");
+    const lesson = LESSONS[state.lesson.id];
+    if (!host || !lesson || host.dataset.mounted === "1" || !hasPlayground(lesson)) return;
+    window.CssPlay.mount(host, lesson, window.CSS_PLAYGROUND[lesson.id]);
+    host.dataset.mounted = "1";
+  }
+
+  function setLessonMode(mode) {
+    if (state.route.name !== "lesson") return;
+    const lesson = LESSONS[state.lesson.id];
+    const play = mode === "play" && hasPlayground(lesson);
+    state.lesson.mode = play ? "play" : "stage";
+    const stageView = $("#lessonStageView");
+    const playView = $("#lessonPlayView");
+    if (!stageView || !playView) return;
+    stageView.hidden = play;
+    playView.hidden = !play;
+    $$("[data-action=\"set-lesson-mode\"]").forEach((button) => {
+      const on = button.dataset.mode === state.lesson.mode;
+      button.classList.toggle("is-on", on);
+      button.setAttribute("aria-pressed", String(on));
+    });
+    if (play) {
+      stopPlayer();
+      ensurePlayground();
     }
   }
 
@@ -1562,6 +1597,7 @@
       return;
     }
     if (action === "toggle-play") { togglePlayer(); return; }
+    if (action === "set-lesson-mode") { setLessonMode(el.dataset.mode); return; }
     if (action === "replay") { replayLesson(); return; }
     if (action === "prev-step") { goToStep(state.lesson.step - 1); return; }
     if (action === "next-step") { goToStep(state.lesson.step + 1); return; }
@@ -1582,7 +1618,7 @@
       const actionEl = event.target.closest("[data-action]");
       if (!actionEl) return;
       const action = actionEl.dataset.action;
-      if (action && ["start-track", "select-track", "toggle-play", "replay", "prev-step", "next-step", "cycle-speed", "copy-code", "fullscreen", "answer-practice", "lab-mode", "video-chapter", "copy-video-cmd"].includes(action)) {
+      if (action && ["start-track", "select-track", "toggle-play", "set-lesson-mode", "replay", "prev-step", "next-step", "cycle-speed", "copy-code", "fullscreen", "answer-practice", "lab-mode", "video-chapter", "copy-video-cmd"].includes(action)) {
         event.preventDefault();
         handleAction(action, actionEl);
       }
@@ -1680,8 +1716,8 @@
       }
       if (state.search.open) return;
       const tag = (event.target && event.target.tagName || "").toLowerCase();
-      if (tag === "input" || tag === "textarea" || event.target.isContentEditable) return;
-      if (state.route.name !== "lesson") return;
+      if (["input", "textarea", "select", "button", "a"].includes(tag) || event.target.isContentEditable) return;
+      if (state.route.name !== "lesson" || state.lesson.mode !== "stage") return;
       if (event.key === "ArrowLeft") { event.preventDefault(); goToStep(state.lesson.step - 1); }
       if (event.key === "ArrowRight") { event.preventDefault(); goToStep(state.lesson.step + 1); }
       if (event.code === "Space") { event.preventDefault(); togglePlayer(); }
