@@ -10,6 +10,7 @@
   const PRACTICE = DATA.practice;
   const CHEATS = DATA.cheatsheets;
   const PROJECTS = window.FRONTLAB_PROJECTS || [];
+  const BTL_SITES = window.BTL36_CATALOG || [];
 
   const $ = (selector, root) => (root || document).querySelector(selector);
   const $$ = (selector, root) => Array.from((root || document).querySelectorAll(selector));
@@ -300,6 +301,7 @@
     if (parts[0] === "projects" && parts[1]) return { name: "project-detail", id: parts[1], stage: parts[2] || "plan" };
     if (parts[0] === "projects") return { name: "projects" };
     if (parts[0] === "lab") return { name: "lab" };
+    if (parts[0] === "btl36") return { name: "btl36" };
     return { name: "home" };
   }
 
@@ -346,6 +348,7 @@
     else if (route.name === "projects" && window.FrontProjects) window.FrontProjects.renderList();
     else if (route.name === "project-detail" && window.FrontProjects) window.FrontProjects.renderDetail(route.id, route.stage);
     else if (route.name === "lab") renderLab();
+    else if (route.name === "btl36" && window.BTL36) window.BTL36.renderList();
     else renderHome();
     updateChrome();
   }
@@ -461,6 +464,22 @@
           ${track.modules.map((moduleId) => outlineModuleHTML(moduleById[moduleId])).join("")}
         </div>
       </section>
+
+      ${BTL_SITES.length ? `<section class="btl36-promo">
+        <div class="btl36-promo-copy">
+          <div class="eyebrow">THƯ VIỆN BTL36</div>
+          <h2>36 website môn học,<br>mở là dạy được.</h2>
+          <p>Mỗi môn có lộ trình 3 chương, phòng lab đúng đặc thù, thẻ ghi nhớ, trắc nghiệm và không gian giảng viên. Dùng làm mẫu cho đồ án hoặc học trực tiếp.</p>
+          <a class="btn btn-lime" href="#/btl36">Mở thư viện BTL36 ${icon("arrow")}</a>
+        </div>
+        <div class="btl36-promo-grid">
+          ${["calculuslab", "netwiz", "ketoanlab", "bioquest", "geoatlas", "melodedu"].map((slug) => BTL_SITES.find((x) => x.slug === slug)).filter(Boolean).map((x) => `<a class="btl36-promo-item" href="btl36/${esc(x.slug)}/index.html" style="--c:${esc(x.accent)};--c2:${esc(x.accent2)}">
+            <span class="btl36-promo-mono">${esc(x.monogram)}</span>
+            <span><b>${esc(x.name)}</b><small>${esc(x.subject)}</small></span>
+            <i aria-hidden="true">→</i>
+          </a>`).join("")}
+        </div>
+      </section>` : ""}
 
       <section class="section">
         <div class="section-head">
