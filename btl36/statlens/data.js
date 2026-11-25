@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Máy tính thống kê từng bước", desc: "Nhập mẫu số liệu, xem trung bình, độ lệch chuẩn, sai số biên và khoảng tin cậy hiện dần kèm công thức đã dùng." },
     { badge: "03", title: "Kiểm định có phản biện", desc: "Mỗi bài kiểm định yêu cầu chọn giả thuyết, tra p-value rồi viết kết luận; hệ thống chỉ ra chỗ suy luận còn thiếu." }
   ],
+  life: [
+    {
+      title: "Sổ ghi bạn đi muộn mỗi sáng",
+      scene: "Tổ trưởng ghi lại mỗi buổi sáng có bao nhiêu bạn tới muộn trong lớp bốn mươi người. Sau một tháng, phần lớn buổi chỉ hai hoặc ba bạn, vài buổi không có ai, riêng hôm mưa to thì chín bạn. Đem các con số đó xếp thành cột, cả lớp thấy rõ chuyện gì hay xảy ra và chuyện gì hiếm.",
+      connect: "Số bạn muộn mỗi buổi là biến ngẫu nhiên đếm được, tần suất lặp lại cho ta bảng phân phối. Trung bình cả tháng là kỳ vọng, mức dao động quanh nó là phương sai, và mỗi bạn muộn độc lập cùng xác suất thì thành nhị thức."
+    },
+    {
+      title: "Nếm một muỗng canh trước khi nêm",
+      scene: "Mẹ nấu nồi canh lớn cho cả nhà, không thể húp hết cả nồi nên múc một muỗng nhỏ để nếm. Muỗng lấy ở giữa nồi khác muỗng lấy sát mép, nên mẹ khuấy đều rồi múc hai ba lần ở các chỗ khác nhau mới quyết định thêm muối.",
+      connect: "Một muỗng là mẫu, độ mặn cả nồi là tham số chưa biết; múc nhiều muỗng rồi lấy trung bình thì đoán sát hơn, và số muỗng tăng thì sai số giảm. Đó chính là ước lượng điểm, sai số chuẩn và khoảng tin cậy cho trung bình."
+    },
+    {
+      title: "Cân rau ở chợ và cái cân nhà",
+      scene: "Mua một ký rau ở chợ, về cân lại bằng cân nhà chỉ được tám lạng rưỡi. Lần đầu nghĩ do cân nhà lệch, nhưng ba lần sau đều hụt đúng chừng ấy, trong khi gói mì cùng cân lại vẫn đủ. Chênh một hai chục gam thì khó nói, chênh cả lạng thì đáng ngờ.",
+      connect: "Đây là kiểm định giả thuyết: giả thuyết H0 là cân ở chợ đúng, số đo chênh lệch là bằng chứng. Nếu chênh lệch lớn tới mức khó xảy ra do may rủi, tức p-value nhỏ, thì bác bỏ H0 và kết luận cân có vấn đề."
+    }
+  ],
   modules: [
     {
       title: "Biến ngẫu nhiên và phân phối xác suất",

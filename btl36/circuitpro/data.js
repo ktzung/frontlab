@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Máy tính Ohm từng bước", desc: "Nhập hai đại lượng, xem đại lượng còn lại cùng công thức và phép thay số trung gian." },
     { badge: "03", title: "Kho mã màu điện trở", desc: "Luyện đọc bốn vạch màu, quy đổi giá trị và sai số, có chế độ tự sinh đề để ôn lại." }
   ],
+  life: [
+    {
+      title: "Dây đèn nháy và ổ cắm nhiều đầu",
+      scene: "Dây đèn nháy mua ở chợ có mười bóng nối liền, một bóng cháy là cả dây tắt ngóm. Trong khi đó ổ cắm nhiều đầu trong phòng trọ, rút phích quạt ra thì đèn bàn và sạc điện thoại vẫn chạy bình thường.",
+      connect: "Dây đèn mắc nối tiếp nên cùng một dòng chạy qua mọi bóng, hở một chỗ là mất cả mạch. Ổ cắm chia các nhánh song song, mỗi nhánh chịu cùng điện áp, dòng tổng bằng tổng dòng nhánh, đúng như Kirchhoff."
+    },
+    {
+      title: "Cục sạc điện thoại ấm sau giờ cắm",
+      scene: "Cục sạc điện thoại cắm ở ổ điện suốt buổi tối, sờ vào thấy âm ấm dù máy đã đầy pin. Tháo ra nhìn thì bên trong chỉ có một bo mạch nhỏ, vài linh kiện, không có gì chuyển động mà vẫn nóng.",
+      connect: "Ổ điện cho ra điện xoay chiều, cầu điốt chỉ cho dòng đi một chiều còn tụ san phẳng lại. Điốt silic sụt khoảng 0,7 vôn, điện trở hạn dòng cũng toả nhiệt, nên phần năng lượng mất đi biến thành cái ấm đó."
+    },
+    {
+      title: "Điện thoại phát nhạc qua loa bluetooth",
+      scene: "Điện thoại phát một bản nhạc, loa trong chỉ đủ nghe khi để sát tai. Cắm sang loa bluetooth nhỏ thì cả phòng nghe rõ, dù loa chỉ chạy bằng viên pin sạc, và tiếng càng mở lớn thì pin càng tụt nhanh.",
+      connect: "Tín hiệu nhạc rất yếu đi vào cực gốc, dòng ở cực góp lớn gấp beta lần và lấy năng lượng từ pin, nên tiếng to hơn mà không cần nguồn tín hiệu mạnh. Mạch chia áp bằng hai điện trở đặt điểm làm việc cho transistor."
+    }
+  ],
   modules: [
     {
       title: "Định luật cơ bản của mạch điện",

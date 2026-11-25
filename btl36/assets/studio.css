@@ -506,3 +506,126 @@ body[data-theme="dark"] .btl-toast { background: #f4f7fb; color: #0b1526; }
   .btl-lesson-side { justify-items: start; grid-auto-flow: column; align-items: center; }
   .btl-step-panel { padding: 20px; }
 }
+
+/* ---------- liên tưởng đời sống ---------- */
+.btl-section-life { background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--a) 4%, transparent)); }
+.btl-life-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.btl-life-card {
+  position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 10px;
+  padding: 22px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--panel); box-shadow: var(--shadow);
+}
+.btl-life-card::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 3px;
+  background: linear-gradient(90deg, var(--a), var(--a2));
+}
+.btl-life-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.btl-life-num { font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; letter-spacing: .08em; color: var(--a); }
+.btl-life-sub { font-size: 10.5px; color: var(--faint); font-weight: 600; text-transform: uppercase; letter-spacing: .07em; }
+.btl-life-card h3 { font-size: 19px; margin-top: 2px; }
+.btl-life-card p { font-size: 13px; color: var(--muted); line-height: 1.62; }
+.btl-life-connect { font-size: 12.5px; color: var(--text); border-left: 3px solid var(--a); padding: 6px 10px; background: color-mix(in srgb, var(--a) 7%, transparent); border-radius: 0 8px 8px 0; }
+.btl-life-connect b { color: var(--a); }
+.btl-life-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 6px; }
+.btl-life-inline { margin-top: 24px; }
+.btl-life-inline .btl-life-card { background: color-mix(in srgb, var(--a) 3%, var(--panel)); }
+.btl-life-mini-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.btl-life-mini { text-decoration: none; display: flex; flex-direction: column; gap: 4px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-2); transition: .16s; }
+.btl-life-mini:hover { border-color: var(--a); transform: translateY(-2px); }
+.btl-life-mini span { font-family: var(--font-mono); font-size: 9.5px; color: var(--a); font-weight: 700; letter-spacing: .06em; }
+.btl-life-mini b { font-size: 13px; }
+.btl-life-mini small { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+.btl-lab-life { margin-top: 26px; padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+
+/* ---------- không gian 2D / 3D ---------- */
+.btl-space-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, .8fr); gap: 18px; align-items: start; }
+.btl-space-stage-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); overflow: hidden; box-shadow: var(--shadow); }
+.btl-space-toolbar { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--panel-2); flex-wrap: wrap; }
+.btl-space-modes { display: flex; border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--panel); }
+.btl-space-modes button { border: 0; background: transparent; padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--muted); }
+.btl-space-modes button.is-on { background: var(--ink); color: var(--paper); }
+.btl-space-tip { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--muted); }
+.btl-space-tip .btl-icon { width: 15px; height: 15px; }
+.btl-space-ctl { width: 30px; height: 30px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--panel); display: grid; place-items: center; font-size: 16px; font-weight: 700; line-height: 1; }
+.btl-space-ctl .btl-icon { width: 15px; height: 15px; }
+.btl-space-zoom { min-width: 42px; text-align: center; font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+.btl-space-stage {
+  position: relative; min-height: 440px; overflow: hidden; touch-action: none; cursor: grab;
+  background: radial-gradient(60% 70% at 50% 40%, color-mix(in srgb, var(--a) 9%, var(--panel-2)) 0%, var(--panel-2) 62%, var(--panel) 100%);
+}
+.btl-space-stage:active { cursor: grabbing; }
+.btl-space-stage.is-flat { touch-action: auto; cursor: default; padding: 18px; }
+.btl-space-svg { display: block; width: 100%; height: auto; user-select: none; }
+.btl-space-face { transition: filter .14s; }
+.btl-space-face[data-space-mod], .btl-space-face[data-space-lesson], .btl-space-face[data-space-lab] { cursor: pointer; }
+.btl-space-face:hover { filter: brightness(1.08); }
+.btl-space-face.is-on { stroke: var(--ink); stroke-width: 1.8; }
+.btl-space-label { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--ink); stroke: var(--panel-2); stroke-width: 3px; paint-order: stroke; stroke-linejoin: round; pointer-events: auto; cursor: pointer; }
+.btl-space-label.mod { font-size: 12.5px; font-weight: 700; }
+.btl-space-label.num { font-size: 11px; font-family: var(--font-mono); font-weight: 700; }
+.btl-space-label.hub { font-size: 12.5px; font-weight: 800; letter-spacing: .08em; }
+.btl-space-label.mono { font-size: 24px; font-weight: 700; }
+.btl-space-label.sel { fill: var(--a); }
+.btl-space-hint {
+  position: absolute; left: 12px; bottom: 12px; padding: 6px 10px; border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 80%, transparent); color: var(--paper);
+  font-size: 10.5px; font-weight: 600; pointer-events: none;
+}
+body[data-theme="dark"] .btl-space-hint { background: color-mix(in srgb, #eaf0f8 82%, transparent); color: #0b1526; }
+.btl-space-panel { position: sticky; top: 88px; }
+.btl-space-picks { display: flex; gap: 6px; margin-bottom: 10px; }
+.btl-space-picks button { flex: 1; border: 1px solid var(--line); background: var(--panel); border-radius: 10px; padding: 7px 4px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--muted); }
+.btl-space-picks button.is-on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btl-space-panel-card { padding: 20px; }
+.btl-space-life { margin: 16px 0 4px; padding: 14px; border-radius: 12px; background: color-mix(in srgb, var(--a) 6%, var(--panel-2)); border: 1px solid color-mix(in srgb, var(--a) 22%, var(--line)); }
+.btl-space-life h3 { font-size: 16px; margin: 4px 0 6px; }
+.btl-space-life p { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+.btl-space-life .btl-life-connect { margin-top: 10px; }
+.btl-space-lessons { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+.btl-space-lessons a { display: flex; align-items: center; gap: 9px; text-decoration: none; padding: 9px 10px; border: 1px solid var(--line); border-radius: 9px; background: var(--panel); transition: .15s; }
+.btl-space-lessons a:hover { border-color: var(--a); }
+.btl-space-lessons span { font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: var(--a); }
+.btl-space-lessons b { flex: 1; font-size: 12.5px; }
+.btl-space-lessons .btl-icon { width: 15px; height: 15px; color: var(--faint); }
+.btl-space-flat { display: grid; grid-template-columns: minmax(150px, .55fr) minmax(0, 2fr); gap: 14px; align-items: start; }
+.btl-space-flat-core { position: sticky; top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 18px; border-radius: 14px; background: var(--ink); color: var(--paper); }
+.btl-space-flat-mono { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: var(--a); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 18px; }
+.btl-space-flat-core b { font-family: var(--font-display); font-size: 16px; }
+.btl-space-flat-core small { font-size: 11px; opacity: .7; }
+.btl-space-flat-core .btl-btn { margin-top: 8px; }
+.btl-space-flat-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.btl-space-flat-card { border: 1px solid var(--line); border-top: 4px solid var(--m, var(--a)); border-radius: 12px; background: var(--panel); padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.btl-space-flat-card.is-on { box-shadow: 0 0 0 2px color-mix(in srgb, var(--m, var(--a)) 30%, transparent); }
+.btl-space-flat-head { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; border: 0; background: transparent; padding: 0; text-align: left; }
+.btl-space-flat-head span { font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; color: var(--m, var(--a)); letter-spacing: .06em; }
+.btl-space-flat-head b { font-family: var(--font-display); font-size: 14px; line-height: 1.25; }
+.btl-space-flat-card p { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+.btl-space-flat-card em { font-size: 11.5px; color: var(--m, var(--a)); font-style: normal; font-weight: 600; }
+.btl-space-flat-lessons { display: flex; flex-direction: column; gap: 4px; margin-top: 2px; }
+.btl-space-flat-lessons a { display: flex; gap: 6px; text-decoration: none; font-size: 11.5px; padding: 5px 6px; border-radius: 6px; background: var(--panel-2); }
+.btl-space-flat-lessons a:hover { background: color-mix(in srgb, var(--m, var(--a)) 10%, var(--panel-2)); }
+.btl-space-flat-lessons span { font-family: var(--font-mono); color: var(--m, var(--a)); font-weight: 700; }
+
+@media (max-width: 1080px) {
+  .btl-space-grid { grid-template-columns: 1fr; }
+  .btl-space-panel { position: static; }
+  .btl-space-flat { grid-template-columns: 1fr; }
+  .btl-space-flat-core { position: static; flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .btl-space-flat-core .btl-btn { margin-top: 0; margin-left: auto; }
+}
+@media (max-width: 760px) {
+  .btl-life-grid, .btl-life-mini-grid, .btl-space-flat-grid { grid-template-columns: 1fr; }
+  .btl-life-card { padding: 18px; }
+  .btl-space-stage { min-height: 250px; }
+  .btl-space-toolbar { gap: 6px; padding: 8px; }
+  .btl-space-tip { display: none; }
+  .btl-space-zoom { min-width: 34px; }
+  .btl-space-stage.is-flat { padding: 10px; }
+  .btl-space-hint { left: 8px; bottom: 8px; font-size: 9.5px; }
+  .btl-space-label { font-size: 16px; stroke-width: 4px; }
+  .btl-space-label.mod { font-size: 18px; }
+  .btl-space-label.num { font-size: 14px; }
+  .btl-space-label.hub { font-size: 18px; }
+  .btl-space-label.mono { font-size: 30px; }
+  .btl-lab-life { padding: 16px; }
+}

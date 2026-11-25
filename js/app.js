@@ -469,7 +469,7 @@
         <div class="btl36-promo-copy">
           <div class="eyebrow">THƯ VIỆN BTL36</div>
           <h2>36 website môn học,<br>mở là dạy được.</h2>
-          <p>Mỗi môn có lộ trình 3 chương, phòng lab đúng đặc thù, thẻ ghi nhớ, trắc nghiệm và không gian giảng viên. Dùng làm mẫu cho đồ án hoặc học trực tiếp.</p>
+          <p>Mỗi môn có lộ trình 3 chương, phòng lab đúng đặc thù, ba liên tưởng đời sống cho từng chương, không gian 2D/3D xoay ngắm bản đồ môn học, cùng thẻ ghi nhớ, trắc nghiệm và không gian giảng viên.</p>
           <a class="btn btn-lime" href="#/btl36">Mở thư viện BTL36 ${icon("arrow")}</a>
         </div>
         <div class="btl36-promo-grid">

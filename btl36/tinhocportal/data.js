@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Hoạt ảnh phím tắt", desc: "Mỗi thao tác quen thuộc đi kèm tổ hợp phím, ví dụ Ctrl + Shift + N để tạo thư mục mới trong File Explorer." },
     { badge: "03", title: "Trắc nghiệm theo chương", desc: "Câu hỏi tình huống về phím tắt, công thức và quy trình, chấm ngay và giải thích lỗi thường gặp của người mới." }
   ],
+  life: [
+    {
+      title: "Cặp sách lộn xộn trước giờ vào lớp",
+      scene: "Sáng thứ hai, cả nhóm đứng trước cổng trường lục cặp tìm bài tập nhóm vừa in, giấy tờ nhét lẫn giữa sách và hóa đơn. Có bạn mất mười phút, có bạn mở đúng ngăn ngay vì đã chia túi theo môn và dán nhãn từng ngăn.",
+      connect: "Chia ngăn theo môn rồi đặt tên chính là cây thư mục có đường dẫn rõ ràng; chụp lại tờ giấy quan trọng gửi vào điện thoại là bản sao thứ hai, tinh thần của quy tắc sao lưu 3-2-1."
+    },
+    {
+      title: "Bốn mươi thư mời họp phụ huynh",
+      scene: "Cô chủ nhiệm in bốn mươi thư mời họp phụ huynh, mỗi thư chỉ khác tên phụ huynh và tên học sinh. In xong mới phát hiện một thư ghi sai tên, cả xấp phải in lại vì sửa tay từng tờ rất dễ sót.",
+      connect: "Trộn thư trong Word làm đúng việc đó: một mẫu thư, một bảng dữ liệu có dòng tiêu đề, mỗi dòng sinh ra một bản riêng thay vì sửa và in thủ công."
+    },
+    {
+      title: "Chia tiền ăn trưa của nhóm sáu người",
+      scene: "Nhóm sáu người ăn trưa, một bạn ứng tiền, tối về ngồi chia lại. Mỗi người gọi món giá khác nhau, có bạn ăn thêm bát cơm, nên cả nhóm mở bảng tính ghi từng dòng tên và số tiền.",
+      connect: "Mỗi dòng là một người, giá bát cơm để ở một ô chung và được khóa bằng địa chỉ tuyệt đối để kéo công thức xuống không lệch; SUMIF cộng nhanh theo nhóm món."
+    }
+  ],
   modules: [
     {
       title: "Hệ điều hành và quản lý tệp",

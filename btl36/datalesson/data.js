@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "ER diagram kéo thả", desc: "Kéo thực thể lên canvas, nối quan hệ và chọn tỉ số 1-n hay n-m để thấy lược đồ hình thành từ phát biểu nghiệp vụ." },
     { badge: "03", title: "Chuẩn hóa từng bước", desc: "Tách quan hệ từ 1NF lên 3NF và BCNF theo từng bước, tô rõ thuộc tính gây phụ thuộc bộ phận hoặc bắc cầu." }
   ],
+  life: [
+    {
+      title: "Sổ ghi nợ của quán tạp hóa",
+      scene: "Quán tạp hóa đầu ngõ giữ một cuốn sổ, mỗi dòng ghi tên người mua, món đã lấy và số tiền còn nợ. Trong xóm có hai người cùng tên Lan, cuối tháng chủ quán không biết dòng nào của ai để đòi.",
+      connect: "Tên chưa đủ mạnh để làm khóa, nên mô hình quan hệ tách người mua và hóa đơn thành hai thực thể, nối với nhau bằng khóa ngoại theo quan hệ một nhiều."
+    },
+    {
+      title: "Bảng điểm dán ở hành lang",
+      scene: "Bảng điểm học kỳ dán ở hành lang, mỗi sinh viên chỉ tìm dòng có tên mình rồi đọc ba cột điểm. Muốn biết lớp trưởng của lớp đó thì phải chạy sang bảng danh sách lớp đặt ở cuối dãy.",
+      connect: "Tìm dòng là mệnh đề WHERE, đọc vài cột là SELECT, còn nối hai bảng rời nhau theo mã lớp chính là JOIN, ở đây là khóa ngoại giữa hai danh sách."
+    },
+    {
+      title: "Danh sách đi chợ ghi lặp địa chỉ",
+      scene: "Mẹ ghi danh sách đi chợ lên tờ giấy nháp, dòng nào cũng viết kèm địa chỉ sạp và tên cô bán hàng. Hôm chợ dời sang bên kia đường, mẹ phải sửa từng dòng, sửa sót một dòng là đi nhầm chỗ.",
+      connect: "Thông tin lặp ở nhiều dòng gây bất thường khi cập nhật, đúng lý do cần chuẩn hóa: tách địa chỉ sạp thành bảng riêng, mỗi dòng chỉ giữ khóa tham chiếu để lên 3NF."
+    }
+  ],
   modules: [
     {
       title: "Mô hình dữ liệu quan hệ",

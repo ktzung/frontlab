@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Phân tích hợp đồng theo điều khoản", desc: "Hợp đồng mẫu tách thành từng điều khoản bấm được, gắn với tình huống để xác định bên vi phạm và trách nhiệm phát sinh." },
     { badge: "03", title: "Trắc nghiệm tình huống", desc: "Mỗi câu là một tình huống ngắn, chọn xong hiện ngay giải thích vì sao đúng và vì sao các phương án còn lại sai." }
   ],
+  life: [
+    {
+      title: "Nội quy ký túc xá dán ở cửa",
+      scene: "Tấm bảng nội quy ký túc xá ghi: sinh viên ở phòng tập thể không được dùng bếp điện trong phòng; ai vi phạm lần đầu bị nhắc nhở, tái phạm thì buộc chuyển ra ngoài. Bạn cùng phòng đọc xong vẫn thắc mắc vì sao tấm bảng đó có hiệu lực.",
+      connect: "Câu ghi đó có đủ ba bộ phận của một quy phạm: đối tượng và hoàn cảnh là phần giả định, việc không được nấu là phần quy định, mức xử lý là phần chế tài. Nội quy cũng không được trái quy chế trường và pháp luật."
+    },
+    {
+      title: "Mua xe đạp cũ của anh khóa trên",
+      scene: "Một bạn mua lại chiếc xe đạp cũ giá 700 nghìn đồng từ anh khóa trên, hẹn cuối tuần giao xe và trả đủ tiền. Hôm sau có người báo chiếc xe đó là xe bị mất cắp ở khu trọ bên cạnh, và anh bán xe không xuất trình giấy tờ gì.",
+      connect: "Người mua và người bán là chủ thể, chiếc xe là khách thể, việc giao xe và trả tiền là nội dung của quan hệ pháp luật. Vì tài sản không có nguồn gốc hợp pháp nên giao dịch vô hiệu, người mua mất xe dù đã trả tiền."
+    },
+    {
+      title: "Va quẹt xe ở ngã tư",
+      scene: "Tan học, hai bạn sinh viên va quẹt xe máy ở ngã tư, một người xước tay và đèn xe bị vỡ. Cảnh sát giao thông lập biên bản và phạt một bên vì vượt đèn đỏ, sau đó hai gia đình phải thỏa thuận tiền sửa xe và viện phí.",
+      connect: "Vụ nhỏ này đủ ba loại trách nhiệm: phạt hành chính với lỗi vượt đèn đỏ, bồi thường dân sự cho đèn xe và viện phí, nếu thương tích nặng thì chuyển sang hình sự. Trình tự thường là thương lượng trước rồi hòa giải."
+    }
+  ],
   modules: [
     {
       title: "Nhà nước và pháp luật",

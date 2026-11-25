@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Phân loại rác từng bước", desc: "Kéo từng món chất thải vào thùng hữu cơ, tái chế hoặc nguy hại; chọn sai sẽ hiện giải thích theo quy định phân loại tại nguồn." },
     { badge: "03", title: "Bản tin ngưỡng có tooltip", desc: "Rê chuột vào một ô chỉ số để xem đơn vị, ngưỡng quy chuẩn và nhóm người cần cảnh báo, không phải mở lại giáo trình." }
   ],
+  life: [
+    {
+      title: "Xem chỉ số bụi trước khi chạy bộ",
+      scene: "Sáng sớm định ra công viên chạy bộ, mở điện thoại thấy chỉ số không khí ở mức một trăm sáu mươi, màu đỏ, trong khi trời vẫn trong xanh. Đến chiều tối mở lại thì chỉ số xuống tám mươi, đường vẫn thế, chỉ khác giờ.",
+      connect: "Chỉ số AQI gộp nhiều chất ô nhiễm vào một thang từ không đến năm trăm, và lấy chỉ số phụ cao nhất trong giờ chứ không lấy trung bình. Muốn so với ngưỡng sức khoẻ thì phải dùng trung bình hai mươi bốn giờ của bụi mịn."
+    },
+    {
+      title: "Con ốc dưới mương sau chợ",
+      scene: "Mương sau chợ chảy ra sông, nước đen và váng, chỉ thấy ốc, đỉa bám đầy. Đoạn mương phía trên gần ruộng thì nước trong hơn, có tép bơi và mấy con cá nhỏ, trẻ con còn câu được.",
+      connect: "Đó là sinh vật chỉ thị: nhóm ưa nước sạch như ấu trùng phù du biến mất khi nước bị ô nhiễm, còn nhóm chịu bẩn như ốc, đỉa lại tăng. Nhìn loài nào còn sống ở đó là cách đánh giá nhanh chất lượng nước."
+    },
+    {
+      title: "Túi rác trong bếp và pin cũ",
+      scene: "Dọn bếp, gom vỏ chai, rau thừa, hộp xốp và mấy viên pin tiểu vào cùng một túi cho nhanh. Hôm sau mang ra điểm tập kết thì bị nhắc tách pin riêng, vì cả túi lẫn vào nhau là hỏng cả xe rác phía sau.",
+      connect: "Rác sinh hoạt chia ba nhóm: tái chế, thực phẩm và nhóm khác, còn pin, bóng đèn huỳnh quang phải tách riêng vì nguy hại. Thứ tự đúng là giảm bớt trước, dùng lại sau, cuối cùng mới tái chế."
+    }
+  ],
   modules: [
     {
       title: "Chỉ số ô nhiễm & quan trắc",

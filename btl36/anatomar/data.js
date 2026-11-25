@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Định vị bằng quan hệ", desc: "Mỗi điểm chạm ghi rõ vị trí theo mốc giải phẫu, ví dụ tim nằm sau xương ức lệch trái so với đường giữa." },
     { badge: "03", title: "Thẻ ghi nhớ theo hệ", desc: "Mười hai thẻ chia theo hệ cơ quan, kèm gợi ý và ví dụ lâm sàng để nhớ vị trí thay vì học thuộc tên." }
   ],
+  life: [
+    {
+      title: "Bê can nước lên tầng ba",
+      scene: "Mỗi tối, một sinh viên bê can nước 20 lít từ nhà xe lên phòng ở tầng ba. Khi bước lên bậc thang, khuỷu tay gập lại, phần cơ phía trước cánh tay căng lên và xương cẳng tay nâng cả can nước.",
+      connect: "Đó là một đòn bẩy trong cơ thể: khuỷu tay là điểm tựa, cơ nhị đầu bám ở giữa cần nên phải kéo lực lớn hơn vật nâng, còn khớp khuỷu chạy như bản lề. Vì vậy bê nặng lâu sẽ mỏi nhanh."
+    },
+    {
+      title: "Leo bốn tầng và mạch ở cổ tay",
+      scene: "Vì thang máy hỏng, một bạn leo bộ bốn tầng lên lớp và tới nơi thì thở dốc, ngực đập mạnh. Ngồi xuống ghế, áp hai ngón tay vào cổ tay thì thấy mạch đập nhanh, vài phút sau mới chậm lại và hơi thở đều trở lại.",
+      connect: "Khi cơ cần nhiều oxy, tim tăng nhịp và phổi thông khí mạnh hơn để đưa khí vào phế nang, trao đổi qua thành mao mạch. Mạch ở cổ tay là làn sóng do tim bơm tạo ra, nên độ nhanh chậm phản ánh huyết áp và lưu lượng máu."
+    },
+    {
+      title: "Rụt tay khi chạm nồi cơm nóng",
+      scene: "Vừa bắc nồi cơm khỏi bếp, một bạn đặt tay lên thành nồi và rụt lại rất nhanh, trước khi kịp nghĩ. Một lát sau mới thấy rát và nhận ra mình vừa chạm vào đâu, rồi tự nhủ lần sau sẽ dùng khăn lót tay.",
+      connect: "Đó là cung phản xạ: tín hiệu đau theo dây thần kinh cảm giác vào tủy sống, tủy phát lệnh co cơ trở ra mà không chờ não xử lý. Cảm giác rát đến sau là lúc não đã nhận thông tin và ghi nhớ tình huống."
+    }
+  ],
   modules: [
     {
       title: "Hệ xương và hệ cơ",

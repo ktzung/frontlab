@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Lịch trả nợ tương tác", desc: "Mỗi kỳ hiển thị dư nợ đầu kỳ, lãi, gốc và dư nợ cuối kỳ, bấm vào kỳ bất kỳ để xem chi tiết và so với cách trả gốc đều." },
     { badge: "03", title: "Thẻ điểm rủi ro tín dụng", desc: "Chấm điểm theo lịch sử thanh toán, dư nợ, thời gian tín dụng và số lần hỏi vay, hiển thị mức rủi ro thấp, vừa hoặc cao." }
   ],
+  life: [
+    {
+      title: "Sổ tiết kiệm năm triệu tiền mừng tuổi",
+      scene: "Mùng ba Tết, một sinh viên gom được 5 triệu đồng tiền mừng tuổi và phân vân giữa ống heo và quầy giao dịch. Nhân viên ngân hàng đề nghị gửi kỳ hạn 12 tháng, lãi 6 phần trăm một năm, đáo hạn thì nhập lãi vào gốc và quay vòng tiếp.",
+      connect: "Tiền trong ống heo đứng yên, còn gửi ngân hàng là ứng dụng giá trị thời gian của tiền: lãi kép cộng dồn vào gốc nên số tiền tăng dần, và càng để lâu phần tăng thêm mỗi năm càng lớn."
+    },
+    {
+      title: "Điện thoại trả góp không lãi suất",
+      scene: "Một bạn mua điện thoại 6 triệu đồng theo hình thức trả góp không lãi suất: trả trước 1 triệu, sáu tháng sau mỗi tháng 900 nghìn, kèm phí chuyển đổi 120 nghìn đồng. Cộng nhẩm lại thì tổng tiền phải trả cao hơn giá niêm yết.",
+      connect: "Khoản phí và cách chia nhỏ kỳ trả đẩy chi phí vay thực tế lên trên mức 0 phần trăm được quảng cáo, đúng bài học về lãi suất thực và lịch trả nợ. Trước khi ký nên cộng đủ các kỳ trả."
+    },
+    {
+      title: "Quỹ lớp cho lớp bên cạnh vay",
+      scene: "Lớp thu mỗi bạn 200 nghìn đồng làm quỹ, tổng cộng 8 triệu, và giữ 2 triệu trong két để chi đột xuất. Số còn lại cho lớp bên cạnh vay 6 triệu, lãi 1 phần trăm một tháng; giữa học kỳ ba bạn cùng xin rút quỹ đi du lịch thì két không đủ tiền.",
+      connect: "Quỹ lớp làm việc của một ngân hàng: gom tiền nhỏ của nhiều người rồi cho vay khoản lớn hơn và ăn chênh lệch lãi. Thiếu tiền khi nhiều người rút là rủi ro thanh khoản, cho vay dài hơn kỳ hạn huy động là khe hở kỳ hạn."
+    }
+  ],
   modules: [
     {
       title: "Giá trị thời gian của tiền",

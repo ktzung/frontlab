@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Mô phỏng đóng gói", desc: "Theo dõi dữ liệu được thêm header ở từng lớp, đổi tên từ segment sang packet rồi frame trước khi lên dây." },
     { badge: "03", title: "Bảng tính subnet", desc: "Nhập địa chỉ và tiền tố để xem địa chỉ mạng, broadcast, dải host hợp lệ kèm minh họa từng bit." }
   ],
+  life: [
+    {
+      title: "Gửi thùng quà cho em ở Đà Lạt",
+      scene: "Gửi cho em hộp bánh ở Đà Lạt, người bán bọc túi niêm phong, dán phiếu ghi người nhận, rồi bưu tá xếp vào bao tải chuyển lên xe. Đến nơi, em bóc lần lượt từng lớp, đọc phiếu ngoài cùng trước rồi mới tới hộp bánh.",
+      connect: "Đó là đóng gói dữ liệu: mỗi lớp mạng thêm một header riêng, lớp nhận chỉ đọc header của mình rồi bóc ra chuyển lên lớp trên, nhờ vậy thay một lớp không phải viết lại cả hệ thống."
+    },
+    {
+      title: "Số nhà trong hẻm nhỏ",
+      scene: "Hẻm nhà có mười hai căn, bảng số nhà đánh từ một đến mười hai, khách tìm số mười lăm thì cả xóm đều biết là không có. Muốn mở thêm nhà phải tách hẻm mới, còn muốn ra đường lớn thì đi qua đầu hẻm.",
+      connect: "Số nhà gồm phần hẻm và phần căn, giống địa chỉ IP chia phần mạng và phần host theo mặt nạ; đầu hẻm đóng vai gateway, cửa ra duy nhất để tới mạng khác."
+    },
+    {
+      title: "Bảo vệ chung cư và thẻ thang máy",
+      scene: "Chung cư có bác bảo vệ ngồi ở cổng, ai vào cũng bị hỏi tên và số phòng. Cư dân quẹt thẻ thì thang máy mới lên đúng tầng của mình, còn khách lạ phải ghi sổ và chờ chủ nhà xuống đón.",
+      connect: "Bảo vệ lọc theo danh sách giống firewall, thang máy chia tầng như switch chia cổng trong cùng mạng, còn việc đi lại giữa các tòa nhà là nhiệm vụ của router."
+    }
+  ],
   modules: [
     {
       title: "Kiến trúc phân tầng và TCP/IP",

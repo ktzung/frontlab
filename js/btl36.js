@@ -61,9 +61,9 @@
         '<div class="b36-hero-copy">' +
           '<div class="eyebrow">THƯ VIỆN ĐỒ ÁN · CSE122</div>' +
           '<h1>36 website môn học <span class="hl">chạy được ngay</span></h1>' +
-          '<p>Mỗi đồ án là một website hoàn chỉnh cho một môn học: bài giảng từng bước, phòng lab tương tác theo đặc thù môn, thẻ ghi nhớ, trắc nghiệm, tiến độ và không gian giảng viên. Mở là dùng, không cần cài đặt.</p>' +
-          '<div class="b36-hero-actions"><a class="b36-btn primary" href="#/btl36" data-b36-scroll>Khám phá thư viện</a><a class="b36-btn" href="btl36/calculuslab/index.html">Xem mẫu CalculusLab</a></div>' +
-          '<div class="b36-hero-stats"><span><b>36</b> môn học</span><span><b>9</b> bài mỗi site</span><span><b>4</b> vai trò</span><span><b>19</b> kiểu lab</span></div>' +
+          '<p>Mỗi đồ án là một website hoàn chỉnh cho một môn học: bài giảng từng bước, phòng lab tương tác theo đặc thù môn, ba liên tưởng đời sống cho từng chương, không gian 2D/3D xoay ngắm bản đồ môn học, thẻ ghi nhớ, trắc nghiệm và không gian giảng viên. Mở là dùng, không cần cài đặt.</p>' +
+          '<div class="b36-hero-actions"><a class="b36-btn primary" href="#/btl36" data-b36-scroll>Khám phá thư viện</a><a class="b36-btn" href="btl36/calculuslab/index.html#/space">Xem không gian 3D mẫu</a></div>' +
+          '<div class="b36-hero-stats"><span><b>36</b> môn học</span><span><b>9</b> bài mỗi site</span><span><b>3</b> liên tưởng đời sống</span><span><b>19</b> kiểu lab</span></div>' +
         '</div>' +
         '<div class="b36-hero-art" aria-hidden="true"><div class="b36-mosaic">' + mosaic + '</div><div class="b36-art-note"><b>BTL36</b><span>Mỗi môn một nhận diện, một phòng lab, một lộ trình.</span></div></div>' +
       '</section>' +
@@ -77,7 +77,7 @@
       '<div class="b36-empty" id="b36Empty" hidden><b>Không tìm thấy website phù hợp</b><span>Thử từ khóa khác hoặc bỏ bộ lọc nhóm môn.</span></div>' +
       '<section class="b36-note"><div><div class="eyebrow">CÁCH KHAI THÁC</div><h2>Dùng trong lớp, dùng để học, dùng làm mẫu</h2></div>' +
         '<div class="b36-note-grid"><div><b>Giảng viên</b><p>Chiếu phòng lab và bài giảng từng bước khi lên lớp; dùng tab giảng dạy để điểm danh tiến độ và giao bài.</p></div>' +
-        '<div><b>Sinh viên</b><p>Học theo chương, lật thẻ công thức, làm trắc nghiệm có giải thích và xem tiến độ lưu trên máy.</p></div>' +
+        '<div><b>Sinh viên</b><p>Học theo chương, đọc liên tưởng đời sống, xoay bản đồ 2D/3D, lật thẻ công thức, làm trắc nghiệm có giải thích và xem tiến độ lưu trên máy.</p></div>' +
         '<div><b>Người làm đồ án</b><p>Đọc brief gốc cạnh từng website để đối chiếu yêu cầu, rồi tái sử dụng cấu trúc cho sản phẩm của mình.</p></div></div>' +
       '</section>' +
       '<footer class="b36-foot">BTL36 · 36 website môn học cho đồ án CSE122 · Dữ liệu và tiến độ lưu cục bộ trên trình duyệt.</footer>' +

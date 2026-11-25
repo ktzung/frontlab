@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Luyện tai nghe có phản hồi", desc: "Nghe một chuỗi nốt rồi chọn quãng hoặc tên nốt; hệ thống chấm ngay và giải thích vì sao đúng hay sai." },
     { badge: "03", title: "Thẻ nhạc lý & nhịp gõ", desc: "Mười hai thẻ ghi nhớ nốt, quãng, dấu hóa, kèm máy gõ nhịp 80 phách mỗi phút để cảm nhận phách đều." }
   ],
+  life: [
+    {
+      title: "Cây đàn organ cũ ở nhà",
+      scene: "Trong nhà có cây đàn organ cũ, bấm thử hai phím trắng liền nhau. Có cặp nghe cách nhau rõ như đô với rê, có cặp mi với fa lại nghe sát nhau, gần như cùng một độ cao.",
+      connect: "Khoảng cách đó là cung và nửa cung: mi đến fa và si đến đô chỉ nửa cung, nên không có phím đen chen giữa. Chỉ cần dịch nửa cung là giọng hát đã khác màu."
+    },
+    {
+      title: "Hát Quốc ca buổi chào cờ",
+      scene: "Sáng thứ hai cả trường hát Quốc ca, có lớp lên giọng quá cao nên tới giữa bài phải hét, cuối bài lạc hẳn so với loa. Hôm sau thầy cho cả lớp nghe một nốt chuẩn rồi mới hát.",
+      connect: "Đó là bài xướng âm: lấy cao độ chuẩn trước rồi đi từng bậc đúng quãng. Quãng ba trưởng và quãng năm đúng có số nửa cung cố định, hát sai một bậc là cả bài trôi theo."
+    },
+    {
+      title: "Ba phím đàn và bài hát thiếu nhi",
+      scene: "Ngồi nghịch đàn, bấm ba phím đô mi sol cùng lúc nghe vui và chắc; đổi sang la đô mi thì cùng một bài hát bỗng nghe buồn. Đưa bài hát trong sách Âm nhạc cho đứa em hát, thấy cứ quay lại mấy nhóm ba phím đó.",
+      connect: "Ba phím bấm cùng lúc là hợp âm ba, còn việc cứ quay lại vài hợp âm là vòng I – IV – V. Đổi nhóm trưởng sang nhóm thứ là đổi từ giọng vui sang giọng buồn."
+    }
+  ],
   modules: [
     {
       title: "Nhạc lý nền tảng",

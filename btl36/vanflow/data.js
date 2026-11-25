@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Studio viết bốn phần", desc: "Khung đoạn văn gồm mở bài, giải thích, phân tích dẫn chứng và kết bài; mỗi ô có gợi ý riêng và bản mẫu để đối chiếu." },
     { badge: "03", title: "Chấm theo tiêu chí", desc: "Năm tiêu chí về câu chủ đề, luận điểm, dẫn chứng và liên kết được đánh dấu trực tiếp khi viết, thay cho nhận xét chung chung." }
   ],
+  life: [
+    {
+      title: "Kể lại phim cho em nghe",
+      scene: "Một người xem xong bộ phim rồi kể lại cho đứa em, nhưng kể từ đầu đến cuối thì em ngủ mất. Khi chỉ kể ba nhân vật chính, một chi tiết đắt là chiếc đồng hồ hỏng, rồi chốt bằng điều phim muốn nói, em hiểu ngay.",
+      connect: "Tuyến nhân vật cho thấy cấu trúc, chi tiết nghệ thuật chứa tư tưởng, còn chủ đề là câu chốt; kể đủ ba lớp đó khác hẳn với kể lại cốt truyện."
+    },
+    {
+      title: "Câu hát ru và nhịp thơ",
+      scene: "Bà ru cháu bằng một câu hát cũ, giọng lên xuống đều đều và dừng đúng chỗ khiến cháu buồn ngủ. Chép câu đó ra giấy mới thấy mỗi dòng ngắt theo một nhịp riêng, có chữ được lặp lại như tiếng võng.",
+      connect: "Nhịp và giọng điệu là chỗ cảm xúc lộ rõ nhất, nên đọc đúng nhịp mới thấy hình ảnh mở ra liên tưởng gì; gọi tên ẩn dụ chỉ có nghĩa khi giải thích được cơ chế chuyển nghĩa."
+    },
+    {
+      title: "Lời phát biểu ở đám cưới bạn",
+      scene: "Trong đám cưới, một người bạn được mời lên nói vài lời. Người nói mở bằng một câu rõ ràng, kể đúng một kỷ niệm có thời gian và địa điểm, rồi nói vì sao kỷ niệm đó đáng nhớ, nên cả hội trường vỗ tay.",
+      connect: "Câu mở đầu đóng vai câu chủ đề, kỷ niệm có địa chỉ là dẫn chứng, và câu nói vì sao chính là thao tác phân tích; thiếu câu đó, dẫn chứng chỉ còn là kể chuyện."
+    }
+  ],
   modules: [
     {
       title: "Đọc hiểu truyện ngắn hiện đại",

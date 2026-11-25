@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Mô phỏng chính sách", desc: "Đặt giá trần, giá sàn hoặc thuế đơn vị rồi so sánh lượng giao dịch, phần thuế mỗi bên chịu và tổn thất vô ích." },
     { badge: "03", title: "Bài tập có lời giải từng bước", desc: "Nhập đáp số, hệ thống chấm ngay và mở lời giải để thấy chỗ sai nằm ở bước lập hàm hay bước thế số." }
   ],
+  life: [
+    {
+      title: "Chả cá và ngày rằm",
+      scene: "Sát ngày rằm, quầy chả cá trong chợ tăng giá mỗi ký thêm vài chục nghìn mà vẫn đông người mua. Qua rằm, giá hạ lại, người mua vãn, hàng còn thừa phải bán rẻ hơn hôm trước.",
+      connect: "Nhu cầu tăng làm đường cầu dịch sang phải, giá và lượng cùng lên tới điểm cân bằng mới; hết rằm cầu lùi lại, đọc hai trạng thái cạnh nhau chính là so sánh tĩnh."
+    },
+    {
+      title: "Vé xe buýt giữ giá thấp",
+      scene: "Vé xe buýt được giữ ở mức thấp để sinh viên đi học, nên giờ cao điểm xe chật kín và có tuyến phải cắt bớt chuyến. Nhà xe kêu lỗ, người đi vẫn phải đứng suốt tuyến.",
+      connect: "Giá thấp hơn mức cân bằng tạo ra giá trần: lượng người muốn đi vượt số chuyến có thể chạy nên sinh ra thiếu hụt; vé rẻ mà cầu ít co giãn thì lượng đi giảm rất ít."
+    },
+    {
+      title: "Chọn mì gói trong siêu thị",
+      scene: "Đứng trước kệ mì, một sinh viên có bảy mươi nghìn trong ví và ba bữa phải lo. Gói đắt hơn thì ngon hơn nhưng chỉ đủ hai bữa, nên chọn gói vừa để đủ cả ba, thêm trứng và rau.",
+      connect: "Đó là bài toán đường ngân sách và lợi ích cận biên: đồng thêm nên dồn vào chỗ mang lại ích lợi thêm lớn nhất, chứ không dồn hết vào món thích nhất."
+    }
+  ],
   modules: [
     {
       title: "Cung, cầu và cân bằng thị trường",

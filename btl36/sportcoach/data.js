@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Nhật ký luyện tập", desc: "Ghi quãng chạy, số vòng và thời gian mỗi buổi, hệ thống tính tốc độ trung bình để so sánh giữa các tuần." },
     { badge: "03", title: "Đồ thị tiến bộ", desc: "Biểu đồ theo tuần cho thấy thành tích đang tăng hay chững, giúp điều chỉnh cường độ thay vì tập theo cảm tính." }
   ],
+  life: [
+    {
+      title: "Đạp xe tới trường buổi sáng",
+      scene: "Sáng dậy muộn, đạp xe hai cây số tới trường, ba trăm mét đầu thở dốc và bắp chân nặng, qua đoạn sau lại thấy đều. Hôm nào đi bộ vài vòng khởi động trước thì đỡ hơn hẳn.",
+      connect: "Đoạn đầu là hệ kỵ khí làm việc khi chưa đủ oxy, sau đó hệ ưa khí tiếp sức nên bền hơn. Đó là hai vùng cường độ trong chương nền tảng thể lực, đo bằng nhịp tim mục tiêu."
+    },
+    {
+      title: "Con mương sau trường và cú nhảy",
+      scene: "Đi học về phải vượt con mương rộng hơn một mét. Ai lấy đà từ xa, đạp mạnh một chân xuống mép rồi mới bật thì sang bờ bên kia, còn ai đứng sát mép rồi nhảy thì rơi xuống nước.",
+      connect: "Đó là bốn giai đoạn của nhảy xa: chạy đà tăng tốc, giậm bằng một chân sát ván, bay trên không rồi tiếp đất hai chân gập gối. Bỏ giai đoạn chạy đà là mất đà."
+    },
+    {
+      title: "Trẹo cổ chân ở sân bóng chiều",
+      scene: "Chiều đá bóng với xóm, tiếp đất sau pha tranh bóng thì cổ chân kêu rụp và sưng lên. Có người bảo xoa dầu nóng rồi đá tiếp cho nóng người, nhưng chân càng đau và tối về không xỏ nổi dép.",
+      connect: "Bài chấn thương thường gặp xử lý theo RICE: nghỉ, chườm lạnh, băng ép, kê cao. Xoa dầu nóng và tập tiếp đúng là hai việc làm tăng sưng, trái với bước đầu tiên."
+    }
+  ],
   modules: [
     {
       title: "Nền tảng thể lực",

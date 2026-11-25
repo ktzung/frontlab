@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Quá trình tách từng kỳ", desc: "Nguyên phân và giảm phân được chia thành các kỳ có thanh tiến độ, kèm số lượng nhiễm sắc thể ở mỗi mốc." },
     { badge: "03", title: "Thẻ thuật ngữ và quiz", desc: "Mười hai thẻ ghi nhớ kèm ví dụ cụ thể, mười câu trắc nghiệm chấm ngay và giải thích vì sao sai." }
   ],
+  life: [
+    {
+      title: "Quán cơm tấm trong hẻm và dây chuyền bếp",
+      scene: "Quán cơm tấm trong hẻm nhận thịt và gạo ở cửa sau, sơ chế trong bếp, gói từng phần ở quầy rồi mới đưa ra cửa trước cho khách. Nguyên liệu đi theo một đường, qua nhiều chặng, mỗi chặng làm thêm một việc.",
+      connect: "Tế bào cũng chia việc như vậy: ribosome làm ra protein, lưới nội chất sơ chế, bộ máy Golgi đóng gói, rồi túi tiết mang ra màng sinh chất để đưa ra ngoài."
+    },
+    {
+      title: "Hai chị em trong cùng một nhà",
+      scene: "Hai chị em trong xóm cùng bố mẹ, một người mắt nâu giống bố, người kia tóc xoăn giống mẹ, tính tình cũng khác nhau. Không ai giống hệt bố mẹ, cũng không ai giống hệt nhau.",
+      connect: "Mỗi giao tử chỉ nhận một nửa bộ nhiễm sắc thể, và trao đổi chéo tạo ra nhiều tổ hợp khác nhau; vì thế con vừa giống bố mẹ vừa khác, đúng như quy luật Mendel mô tả."
+    },
+    {
+      title: "Chậu cây cảnh trên ban công phòng trọ",
+      scene: "Chậu cây cảnh đặt ở ban công phòng trọ, ban ngày lá hứng nắng và cây lớn lên trông thấy, ban đêm cây vẫn thở ra khí các-bô-níc. Cắt bớt nắng thì cây chậm lớn hẳn, dù vẫn được tưới đều.",
+      connect: "Quang hợp giữ năng lượng ánh sáng vào chất hữu cơ, hô hấp tế bào mở nó ra để dùng; năng lượng đi một chiều và mất dần thành nhiệt, không quay vòng như vật chất."
+    }
+  ],
   modules: [
     {
       title: "Tế bào - đơn vị cấu trúc và chức năng",

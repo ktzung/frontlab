@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Máy tính ứng suất từng bước", desc: "Nhập lực, tiết diện và loại ứng suất, xem công thức, đơn vị và kết quả trung gian trước khi ra đáp số." },
     { badge: "03", title: "Bài tập đạt hay nguy hiểm", desc: "So sánh ứng suất tính được với ứng suất cho phép, kết luận kèm lý do và đề xuất tăng tiết diện khi cần." }
   ],
+  life: [
+    {
+      title: "Đóng tủ gỗ theo bản vẽ tay",
+      scene: "Đặt thợ đóng hộc tủ theo mẩu giấy ghi vài kích thước. Khi lắp, cánh cửa kẹt vì hộc hụt ba milimét, còn ngăn kéo thì lỏng vì rộng hơn hai milimét. Thợ bảo gỗ co giãn, chủ nhà bảo đo sai, cuối cùng phải bào lại từng cánh.",
+      connect: "Bản vẽ phải đủ ba hướng nhìn và ghi kích thước chế tạo, không thừa không trùng. Chỗ lắp ráp cần nêu khoảng cho phép, tức dung sai, để hai chi tiết vẫn khớp dù gia công lệch vài phần mười milimét."
+    },
+    {
+      title: "Kệ sách võng xuống giữa hai đầu",
+      scene: "Kệ sách gỗ dài một mét hai bắt vít vào hai đầu tường. Để vừa sách giáo trình, ván võng xuống thấy rõ ở giữa và mép kệ chúc xuống. Đổi sang tấm ván dày gấp đôi, cùng loại gỗ, thì kệ gần như thẳng trở lại.",
+      connect: "Đó là bài toán uốn dầm: ứng suất uốn bằng mô men chia mô men chống uốn W. Với tiết diện chữ nhật, W tỉ lệ với bề dày bình phương nên dày gấp đôi cứng hơn nhiều lần, đúng như quan sát."
+    },
+    {
+      title: "Cái móc nồi nứt dù chưa quá tải",
+      scene: "Móc inox treo nồi trong bếp, mỗi ngày móc vào nhấc ra vài lần, có lần chỉ treo cái chảo nhẹ. Vậy mà sau hơn một năm, đúng chỗ uốn cong xuất hiện vết nứt tóc, rồi gãy khi đang lau bếp. Cân thử thì lực móc chưa bằng nửa mức nó từng chịu được.",
+      connect: "Đó là mỏi vật liệu: tải nhỏ nhưng lặp nhiều lần làm vết nứt khởi phát ở chỗ tập trung ứng suất rồi lan ra. Thiết kế chi tiết máy phải chọn hệ số an toàn cho tải lặp, không chỉ so với lần chịu nặng nhất."
+    }
+  ],
   modules: [
     {
       title: "Bản vẽ kỹ thuật và dung sai",

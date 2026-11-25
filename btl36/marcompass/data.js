@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Hành trình khách hàng tương tác", desc: "Năm giai đoạn từ nhận biết đến trung thành, mỗi chạm mở ra nhiệm vụ marketing, điểm chạm thật và chỉ số cần theo dõi." },
     { badge: "03", title: "Gallery case study thẻ lật", desc: "Mặt trước là tên chiến dịch, mặt sau là phân tích 4P và con số kết quả để đối chiếu với lý thuyết vừa học." }
   ],
+  life: [
+    {
+      title: "Quán trà sữa cạnh ký túc xá",
+      scene: "Chị Hạnh mở quán trà sữa nhỏ ngay cổng ký túc xá, mỗi chiều bán hơn trăm ly nhưng chưa biết nên trang trí quán theo kiểu nào. Chị để ý ba nhóm khách: sinh viên ôn thi cần ổ cắm và chỗ ngồi lâu, người đi làm chỉ ghé mua mang đi, học sinh cấp ba hỏi giá trước tiên.",
+      connect: "Ba nhóm đó là ba phân khúc; chị phải chọn nhóm phục vụ chính rồi định vị quán theo đúng nhu cầu của họ, vì làm hài lòng cả ba thì không nhóm nào thấy quán dành cho mình."
+    },
+    {
+      title: "Áo lớp in hình và bốn quyết định",
+      scene: "Lớp trưởng đứng ra may áo thun in hình cho cả lớp và phải chốt bốn việc trong một buổi họp: chọn vải dày hay mỏng, in một mặt hay hai mặt, để giá 120 nghìn đồng, nhận đặt qua nhóm lớp rồi phát tại lớp, và đăng bài kèm ảnh mẫu để chốt size.",
+      connect: "Bốn việc đó là bốn quyết định 4P: sản phẩm, giá, phân phối, truyền thông. Chúng chỉ ăn khớp khi cùng nhắm vào một nhóm khách đã chọn, ở đây là sinh viên trong lớp cần áo bền và rẻ."
+    },
+    {
+      title: "Năm trăm tờ rơi và ba khách sửa xe",
+      scene: "Tiệm sửa xe đạp in 500 tờ rơi hết 150 nghìn đồng và nhờ sinh viên phát trước cổng trường. Cuối tuần đếm lại: 40 người cầm tờ rơi về, 8 người dắt xe tới tiệm, 3 người sửa thật với giá trung bình 60 nghìn đồng một xe.",
+      connect: "Chuỗi 500 rồi 40 rồi 8 rồi 3 là phễu với tỷ lệ chuyển đổi từng chạm, còn 150 nghìn chia cho 3 khách là chi phí thu một khách. Muốn biết tờ rơi có lời phải so số đó với lợi nhuận mỗi xe."
+    }
+  ],
   modules: [
     {
       title: "Nền tảng marketing và khách hàng",

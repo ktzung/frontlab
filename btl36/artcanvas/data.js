@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Gallery có phản hồi", desc: "Mỗi tác phẩm trong gallery gắn nhận xét theo bốn tiêu chí bố cục, sắc độ, kỹ thuật và cảm xúc, giúp so sánh giữa các bài." },
     { badge: "03", title: "Dựng phối cảnh từng bước", desc: "Chế độ bài học mẫu chiếu lần lượt đường chân trời, điểm tụ, nét phụ rồi mảng màu để người mới thấy trình tự dựng hình." }
   ],
+  life: [
+    {
+      title: "Chụp ảnh nhóm bằng điện thoại",
+      scene: "Chụp ảnh kỷ niệm cho nhóm bạn, ai cũng đứng dồn vào giữa khung, xem xong không nhớ gì. Lần sau lùi lại, dời cả nhóm sang một bên và để khoảng trống phía trước, ảnh có chiều hơn hẳn.",
+      connect: "Đó là quy tắc một phần ba: đặt chủ thể ở giao điểm thay vì giữa khung, rồi dùng khoảng trống làm điểm nhấn và giữ cân bằng bất đối xứng cho ảnh."
+    },
+    {
+      title: "Sơn lại cánh cửa phòng trọ",
+      scene: "Sơn lại cánh cửa phòng trọ bằng một hộp sơn xanh. Pha thêm sơn trắng thì màu nhạt dần, pha thêm chút đen thì màu xỉn và bẩn, còn pha một ít cam thì xanh dịu lại và đỡ chói.",
+      connect: "Ba lần pha đó là ba thuộc tính của màu: sắc, sắc độ và độ bão hòa. Trắng và đen đổi sắc độ, còn cam là màu bổ túc của xanh trên bánh xe 12 cung, pha tỉ lệ nhỏ thì màu vẫn có chủ đạo."
+    },
+    {
+      title: "Đứng đầu hẻm nhìn dãy nhà",
+      scene: "Đứng ở đầu con hẻm nhìn xuống, hai mép đường và mái tôn hai bên chụm dần vào nhau ở phía xa. Người đi chợ ở cuối hẻm trông chỉ cao hơn chiếc xe đạp một chút, còn hàng cây bên trái thấp dần đều.",
+      connect: "Chỗ chụm lại là điểm tụ nằm trên đường chân trời ngang tầm mắt. Bài phối cảnh dùng nó để dựng dãy nhà, và dùng tỉ lệ người để kiểm tra độ xa gần cho đúng."
+    }
+  ],
   modules: [
     {
       title: "Bố cục và tổ chức thị giác",

@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Lớp chồng thông tin", desc: "Ba lớp vùng kinh tế, đới khí hậu và biển đảo bật tắt độc lập, giúp so sánh ranh giới khí hậu với ranh giới hành chính." },
     { badge: "03", title: "Quiz theo vùng", desc: "Mười câu hỏi về tọa độ, địa hình, khí hậu và sản xuất, mỗi câu có giải thích gắn với một vùng cụ thể để nhớ theo bản đồ." }
   ],
+  life: [
+    {
+      title: "Căn trọ gần ngã tư và giá thuê",
+      scene: "Hai phòng trọ cách nhau vài trăm mét, một phòng nằm ngay ngã tư có chợ và bến xe, phòng kia trong hẻm cụt. Giá thuê chênh gần gấp đôi dù diện tích như nhau, chỉ vì chỗ đứng khác nhau.",
+      connect: "Vị trí địa lý quyết định giá trị theo cách đó: nằm ở cửa ngõ ra biển và trên trục giao thương khiến cùng một diện tích đất mang ý nghĩa kinh tế rất khác."
+    },
+    {
+      title: "Phơi chăn và cơn mưa chiều",
+      scene: "Buổi trưa nắng gắt, đem chăn ra phơi, đến bốn giờ chiều mây kéo về và mưa đổ. Ở miền Nam chuyện này lặp gần như mỗi ngày vào mùa mưa, còn mùa khô thì phơi cả tuần không lo.",
+      connect: "Đó là khí hậu nhiệt đới ẩm gió mùa: gió mùa tây nam mang ẩm gây mưa chiều, gió mùa đông bắc mang lạnh và khô, nên hai miền có mùa khác nhau rõ."
+    },
+    {
+      title: "Bản đồ quán ăn đêm",
+      scene: "Một nhóm bạn đi ăn đêm trong thành phố lạ, mở bản đồ đánh dấu các quán và thấy quán dày đặc ở vài phường, còn khu ngoại vi thì trống. Hỏi ra thì đó là nơi tập trung dân cư và chợ đầu mối.",
+      connect: "Phân bố dân cư tạo ra thị trường, nên đọc Atlat hay biểu đồ cũng theo cách đó: nhìn mật độ và điểm tụ để giải thích vì sao một vùng đông và một vùng thưa."
+    }
+  ],
   modules: [
     {
       title: "Vị trí và phạm vi lãnh thổ",

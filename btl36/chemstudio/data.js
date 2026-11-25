@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Mô hình phân tử tương tác", desc: "Xoay và phóng to phân tử nước, CO2, NH3, metan với màu theo nguyên tố và chú thích khối lượng, số liên kết." },
     { badge: "03", title: "Bảng tuần hoàn tra cứu", desc: "Nhấn vào nguyên tố để xem khối lượng nguyên tử, hóa trị, cấu hình electron, từ đó dự đoán kiểu liên kết và tính mol nhanh." }
   ],
+  life: [
+    {
+      title: "Nêm muối vào canh và váng dầu",
+      scene: "Nấu nồi canh, nêm một thìa muối thì muối tan gần như ngay, còn váng dầu thả vào thì nổi thành từng giọt tách riêng. Cùng là chất cho vào nước mà cách hòa vào khác hẳn nhau.",
+      connect: "Muối ăn là hợp chất ion, gặp nước thì tách thành các hạt mang điện nên tan nhanh; dầu là phân tử cộng hóa trị không phân cực nên không tan, và hiệu độ âm điện giải thích khác biệt đó."
+    },
+    {
+      title: "Cái cổng sắt ngoài ngõ bị gỉ",
+      scene: "Cổng sắt ngoài ngõ để lâu ngày mưa nắng, chỗ sơn bong chuyển sang màu nâu đỏ và bở ra khi cạo. Cạo lớp gỉ đi thì thấy sắt bên trong đã mỏng hơn lúc mới làm, chạm vào là rụng thành bụi nâu.",
+      connect: "Sắt nhường electron cho oxi trong không khí ẩm: số oxi hóa của sắt tăng từ 0 lên +3, sắt là chất khử còn oxi là chất oxi hóa, và cân bằng electron cho biết tỉ lệ các chất."
+    },
+    {
+      title: "Chén nước mắm pha cho cả nhà",
+      scene: "Pha nước mắm chua ngọt, một chén mắm đặc rót thêm hai chén nước lọc và nước cốt chanh. Vị mặn loãng đi rõ rệt dù trong chén vẫn ngần ấy mắm, và vắt thêm chanh thì vị chua gắt hơn.",
+      connect: "Thêm nước làm thể tích tăng còn lượng chất tan không đổi, nên nồng độ mol giảm đúng theo tỉ lệ pha loãng; thêm chanh là tăng lượng axit, tức pH giảm xuống."
+    }
+  ],
   modules: [
     {
       title: "Cấu tạo nguyên tử và liên kết",

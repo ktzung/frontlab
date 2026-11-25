@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Mô hình phân tử 2D tương tác", desc: "Xoay, phủ màu theo nguyên tố và xem liên kết của nước, glucozơ, chuỗi peptit ngắn, biến cấu trúc trừu tượng thành hình ảnh dễ nhớ." },
     { badge: "03", title: "Ca bệnh gắn với enzym", desc: "Mỗi thẻ nhớ nối một enzym với hệ quả khi thiếu hụt, ví dụ thiếu phenylalanin hydroxylase gây phenylketonuria, giúp nhớ lâu hơn." }
   ],
+  life: [
+    {
+      title: "Luộc trứng và lòng trắng đổi màu",
+      scene: "Luộc trứng trong nồi nước sôi, lòng trắng từ trong veo chuyển sang đục và rắn lại, còn để lửa to quá lâu thì quanh lòng đỏ có viền xanh. Trứng để lâu trong tủ lạnh cũng khó bóc vỏ hơn.",
+      connect: "Nhiệt làm đứt các liên kết giữ bậc ba, bậc bốn của protein nên lòng trắng đông lại: cấu trúc đổi thì chức năng đổi. Chuỗi axit amin và liên kết peptit vẫn còn, chỉ cách gấp bị phá."
+    },
+    {
+      title: "Hũ cơm rượu và men ở nhà",
+      scene: "Ủ cơm nếp với men trong hũ, hai ngày sau mở ra thấy ngọt và thơm mùi rượu. Hôm ủ gần bếp nóng, hũ chua và lỏng nước, cơm không ngọt như lần trước dù dùng cùng loại men.",
+      connect: "Men chứa enzym cắt tinh bột thành đường, giống phản ứng trong chương enzym và chuyển hóa. Nhiệt quá cao làm enzym mất hoạt tính, còn ít cơm thì vận tốc phản ứng thấp, đúng ý nghĩa của Km và Vmax."
+    },
+    {
+      title: "Chép tay công thức bánh của mẹ",
+      scene: "Chép lại công thức bánh bông lan từ sổ của mẹ, chép nhầm chữ muỗng cà phê thành muỗng canh. Bánh vẫn nở nhưng mặn và xẹp giữa, cả mẻ phải bỏ dù các bước khác làm y như cũ.",
+      connect: "ADN là bản gốc trong sổ, phiên mã và dịch mã là chép ra rồi làm theo. Đổi một chữ là đột biến điểm: có khi vô hại, có khi đổi hẳn axit amin và gây bệnh chuyển hóa."
+    }
+  ],
   modules: [
     {
       title: "Phân tử sinh học",

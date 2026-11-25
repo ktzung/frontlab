@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Flashcard có phiên âm", desc: "Mặt trước là từ hoặc cụm, mặt sau có nghĩa, phiên âm IPA và một câu ví dụ thật, kèm gợi ý để nhớ theo cụm thay vì học chữ." },
     { badge: "03", title: "Quiz chấm ngay", desc: "Mười câu trắc nghiệm về ngữ pháp, trọng âm và cụm cố định, mỗi câu có lời giải thích ngắn nêu rõ lỗi thường gặp." }
   ],
+  life: [
+    {
+      title: "Gọi món trà sữa và âm cuối",
+      scene: "Ở quán trà sữa, câu nói size lớn bị nghe thành size nhỏ vì âm cuối bị nuốt mất. Khi nói chậm lại, nhấn đúng âm tiết chính và thêm một cụm quen như a large one, nhân viên hiểu ngay lần đầu.",
+      connect: "Âm cuối và trọng âm là hai thứ quyết định người nghe có nhận ra từ hay không; học theo cụm và ôn lại sau vài ngày giúp nói đúng mà không phải nghĩ lâu."
+    },
+    {
+      title: "Nghe loa thông báo ở bến xe",
+      scene: "Loa phát thanh ở bến xe đọc một tràng thông báo, tiếng ồn che gần hết. Thay vì cố bắt từng chữ, chỉ cần nghe xem đó là thông báo đổi cổng hay hoãn chuyến, rồi để ý các từ như xin lưu ý để biết phần quan trọng nằm ở đâu.",
+      connect: "Đó là nghe ý chính trước chi tiết và bắt tín hiệu chuyển ý; khi đã có khung, việc điền từ còn thiếu rồi mở transcript đối chiếu sẽ chỉ ra đúng lỗi nghe."
+    },
+    {
+      title: "Hỏi đường khi lạc trong hẻm",
+      scene: "Đi lạc trong một con hẻm nhỏ, cần hỏi đường nhưng người địa phương nói rất nhanh. Thay vì gật đầu cho qua, nói lại phần đã nghe được, hỏi lại một câu ngắn rồi cảm ơn trước khi đi.",
+      connect: "Một câu mở đầu ngắn cộng một câu hỏi lại lịch sự giữ cuộc nói chuyện tiếp tục; gật đầu cho qua chỉ tạo hiểu lầm về sau, còn hỏi lại đúng cách thì không mất mặt."
+    }
+  ],
   modules: [
     {
       title: "Phát âm và từ vựng nền tảng",

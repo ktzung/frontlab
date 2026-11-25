@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Sơ đồ nhân quả", desc: "Mỗi sự kiện được nối với sự kiện dẫn đến nó và sự kiện nó tạo ra, giúp truy vết một chuỗi thay vì học rời từng mốc." },
     { badge: "03", title: "Quiz có bối cảnh", desc: "Mười câu hỏi về mốc, nhân vật và văn bản, mỗi câu có giải thích gắn với tình hình lịch sử cụ thể." }
   ],
+  life: [
+    {
+      title: "Mở quán ở ngã tư đông khách",
+      scene: "Một người mở quán cà phê và chọn ngã tư có nhiều trường học, dù phải đi xa hơn chỗ gần nhà. Quán đông vì chỗ đó sẵn khách qua lại, chứ không hẳn vì quán ngon hơn.",
+      connect: "Việc Pháp chọn Đà Nẵng đọc theo hai lớp như vậy: nguyên nhân sâu xa là nhu cầu thị trường và nguyên liệu, còn lý do trực tiếp là cửa ngõ vào kinh đô, đường biển lại ngắn."
+    },
+    {
+      title: "Ba nhóm cùng làm một dự án",
+      scene: "Ba nhóm sinh viên cùng làm một dự án nhưng mỗi nhóm tự họp, tự đặt tiến độ, nên ghép lại thì lệch hướng. Khi gộp thành một nhóm với một kế hoạch chung, việc mới chạy được.",
+      connect: "Hội nghị hợp nhất đầu năm 1930 làm đúng việc đó: gộp ba tổ chức cộng sản thành một, chấm dứt chia rẽ về đường lối để lực lượng không tự triệt tiêu nhau."
+    },
+    {
+      title: "Bếp nhà và người đi thi",
+      scene: "Trong một nhà có người chuẩn bị thi đại học, cả nhà chia việc: người nấu cơm, người giữ yên lặng, người chở đi thi. Người đi thi học tốt một phần vì phía sau không phải lo gì.",
+      connect: "Hậu phương miền Bắc đóng vai trò đó với tiền tuyến: hậu phương vững mới nuôi được tuyến Trường Sơn trước một đối thủ có ưu thế vũ khí."
+    }
+  ],
   modules: [
     {
       title: "Việt Nam từ 1858 đến 1918",

@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Bài nhận thức tình huống", desc: "Đọc email và liên kết giả lập, chọn mức an toàn, nghi ngờ hay nguy hiểm rồi nhận giải thích ngay dấu hiệu đáng ngờ." },
     { badge: "03", title: "Lab mã hóa và mật khẩu", desc: "Nhập câu tiếng Việt để xem mã hóa Caesar, thử mật khẩu khác nhau và đọc thanh độ mạnh cùng gợi ý cải thiện." }
   ],
+  life: [
+    {
+      title: "Chìa khóa dự phòng cho hàng xóm",
+      scene: "Về quê ba ngày, nhờ hàng xóm giữ chìa để tưới cây. Đưa cả chùm thì tiện cho họ, nhưng chùm ấy mở được cửa phòng trọ, tủ áo và cả ngăn kéo giấy tờ, nên chỉ nên đưa đúng chiếc chìa cửa chính.",
+      connect: "Đó là đặc quyền tối thiểu: cấp đúng quyền cần dùng, không cấp thừa. Nó cũng trả lời câu hỏi của ba trụ cột CIA, vì mất chìa là mất cả bí mật lẫn toàn vẹn giấy tờ."
+    },
+    {
+      title: "Ổ khóa nhà và hòm thư trước cổng",
+      scene: "Cửa nhà dùng một chiếc chìa cho cả việc khóa lẫn mở, nên ai có chìa là vào được. Hòm thư trước cổng thì khác: ai đi ngang cũng bỏ thư vào được, nhưng chỉ người có chìa riêng mới mở ra đọc.",
+      connect: "Hai hình ảnh đó là mã hóa đối xứng và bất đối xứng: một chìa dùng chung cho hai chiều, so với khóa công khai để gửi và khóa riêng để mở; TLS dùng cả hai cho nhanh và an toàn."
+    },
+    {
+      title: "Tin nhắn đòi tiền điện lúc chập tối",
+      scene: "Điện thoại rung lúc bảy giờ tối, tin nhắn tự xưng nhân viên điện lực báo hóa đơn quá hạn, kèm đường dẫn lạ và lời hối thúc đóng trong ba mươi phút. Số gửi không phải tổng đài quen thuộc, tên người nhận còn viết sai.",
+      connect: "Ba dấu hiệu đó là cách nhận diện phishing: người gửi lạ, lời hối thúc gấp và đường dẫn không thuộc tên miền chính thức; cách xử lý là không bấm, gọi tổng đài tra cứu."
+    }
+  ],
   modules: [
     {
       title: "Nền tảng an toàn thông tin",

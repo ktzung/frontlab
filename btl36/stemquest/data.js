@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Sân chơi thử thách có bước", desc: "Học sinh đi qua bốn bước quan sát, giả thuyết, thực hiện, kết luận với đồng hồ đếm và phản hồi ngay sau mỗi lựa chọn." },
     { badge: "03", title: "Tiến độ và bảng thành tích", desc: "Biểu đồ tiến độ theo nhiệm vụ và bảng xếp hạng theo điểm giúp học sinh tự định lượng mức đạt, giáo viên theo dõi nhóm thuận tiện." }
   ],
+  life: [
+    {
+      title: "Giá phơi đồ bị gió thổi đổ",
+      scene: "Cái giá phơi đồ ngoài ban công phòng trọ cứ đổ mỗi lần gió lớn, quần áo rơi xuống sân. Nhóm bạn đo chiều cao lan can, cân túi đồ ướt khoảng năm ký rồi làm lại bằng ống nhựa và dây rút.",
+      connect: "Đó là vòng thiết kế kỹ thuật: phát biểu vấn đề bằng số đo, tách điều mong muốn khỏi ràng buộc như không khoan được tường, rồi dựng nguyên mẫu rẻ để thử từng vòng."
+    },
+    {
+      title: "Nồi cơm lúc nhão lúc khô",
+      scene: "Nấu cơm bằng nồi điện, mỗi lần ước lượng nước một kiểu nên hôm nhão, hôm khô. Lấy cốc đong và ghi lại ba lần thử tỉ lệ gạo với nước, sau đó chọn tỉ lệ một gạo một phẩy hai nước.",
+      connect: "Đó là thiết kế thí nghiệm một biến: giữ gạo và nồi cố định, chỉ đổi lượng nước, lặp ba lần rồi lấy trung bình và xem độ lệch. Ghi thành bảng là đã có dữ liệu để vẽ biểu đồ."
+    },
+    {
+      title: "Thuyết trình mô hình lọc nước",
+      scene: "Nhóm làm mô hình lọc nước cho sân trường, lên thuyết trình mười lăm phút về ý tưởng mà quên chi phí. Hội đồng hỏi một bộ lọc tốn bao nhiêu và chịu được mấy lần rửa thì cả nhóm nhìn nhau.",
+      connect: "Bài tích hợp đòi ghép bốn môn vào một sản phẩm, đặt nó trong bối cảnh địa phương kèm chi phí, và trình bày bốn phút có số liệu thử để trả lời phản biện."
+    }
+  ],
   modules: [
     {
       title: "Vòng tuần hoàn thiết kế kỹ thuật",

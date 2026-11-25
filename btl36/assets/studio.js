@@ -11,7 +11,7 @@
   let KEY = "";
   let store = null;
   let route = { name: "home", id: null, tab: null };
-  let ui = { card: 0, flip: false, quiz: {}, practiceTab: "cards", labStep: 0, labValue: {}, detail: null, matchPick: null, codeStep: 0, tree: "start", dialogueStep: 0, treePath: [] };
+  let ui = { card: 0, flip: false, quiz: {}, practiceTab: "cards", labStep: 0, labValue: {}, detail: null, matchPick: null, codeStep: 0, tree: "start", dialogueStep: 0, treePath: [], spaceMode: "3d", spaceSel: 0, spaceYaw: -0.42, spacePitch: 0.92, spaceZoom: 1 };
 
   const $ = (s, r) => (r || document).querySelector(s);
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
@@ -39,7 +39,9 @@
     play: '<path d="M7 4.5 15 10l-8 5.5z" fill="currentColor" stroke="none"/>',
     pause: '<path d="M7 4.5v11M13 4.5v11"/>',
     lock: '<rect x="4" y="9" width="12" height="8" rx="2"/><path d="M7 9V6.5a3 3 0 0 1 6 0V9"/>',
-    download: '<path d="M10 3v10M6 9l4 4 4-4M4 16.5h12"/>'
+    download: '<path d="M10 3v10M6 9l4 4 4-4M4 16.5h12"/>',
+    cube: '<path d="M10 2.5 17 6v8l-7 3.5L3 14V6z"/><path d="M3 6l7 3.5L17 6M10 9.5V17"/>',
+    heart: '<path d="M10 17s-6-3.4-6-8a3.5 3.5 0 0 1 6-2.5A3.5 3.5 0 0 1 16 9c0 4.6-6 8-6 8z"/>'
   };
   const icon = (name, cls) => `<svg class="btl-icon${cls ? " " + cls : ""}" viewBox="0 0 20 20" aria-hidden="true">${ICONS[name] || ""}</svg>`;
 
@@ -79,6 +81,22 @@
   function moduleLessons(mi) {
     return lessonList().filter((l) => l.moduleIndex === mi);
   }
+  function lifeFor(mi) {
+    const items = Array.isArray(D.life) ? D.life : [];
+    return items[mi] || null;
+  }
+  function lifeCard(mi, compact) {
+    const life = lifeFor(mi);
+    const mod = (D.modules || [])[mi] || {};
+    if (!life) return "";
+    return `<article class="btl-life-card ${compact ? "compact" : ""}">
+      <div class="btl-life-head"><span class="btl-life-num">CHƯƠNG ${pad(mi + 1)}</span><span class="btl-life-sub">${esc(mod.title || "")}</span></div>
+      <h3>${esc(life.title)}</h3>
+      <p>${esc(life.scene)}</p>
+      ${life.connect ? `<div class="btl-life-connect"><b>Chỗ nối:</b> ${esc(life.connect)}</div>` : ""}
+      ${compact ? "" : `<div class="btl-life-actions"><a class="btl-btn small primary" href="#/space/${mi}">Xem trong không gian 3D ${icon("cube")}</a><a class="btl-btn small" href="#/learn/${esc((moduleLessons(mi)[0] || {}).id || "")}">Vào bài ${icon("arrow")}</a></div>`}
+    </article>`;
+  }
   function doneCount() {
     return lessonList().filter((l) => store.done[l.id]).length;
   }
@@ -105,6 +123,7 @@
     const items = [
       ["home", "#/", "Tổng quan", "home"],
       ["learn", "#/learn", "Bài học", "book"],
+      ["space", "#/space", "Không gian", "cube"],
       ["lab", "#/lab", "Phòng lab", "lab"],
       ["practice", "#/practice", "Luyện tập", "spark"],
       ["progress", "#/progress", "Tiến độ", "chart"]
@@ -184,6 +203,7 @@
     if (!parts.length) return { name: "home" };
     if (parts[0] === "learn" && parts[1]) return { name: "lesson", id: parts[1] };
     if (parts[0] === "learn") return { name: "learn" };
+    if (parts[0] === "space") return { name: "space", id: parts[1] != null ? Number(parts[1]) : null };
     if (parts[0] === "lab") return { name: "lab" };
     if (parts[0] === "practice") return { name: "practice" };
     if (parts[0] === "progress") return { name: "progress" };
@@ -212,8 +232,10 @@
     $("#btlNav").classList.remove("open");
     $("#btlMenuBtn").setAttribute("aria-expanded", "false");
     const main = $("#btlMain");
+    if (route.name === "space" && route.id != null && Number.isFinite(route.id)) ui.spaceSel = clamp(route.id, 0, Math.max(0, (D.modules || []).length - 1));
     if (route.name === "lesson") renderLesson(main, route.id);
     else if (route.name === "learn") renderLearn(main);
+    else if (route.name === "space") renderSpace(main);
     else if (route.name === "lab") renderLab(main);
     else if (route.name === "practice") renderPractice(main);
     else if (route.name === "progress") renderProgress(main);
@@ -271,7 +293,8 @@
               <p class="btl-lead">${esc(D.intro || D.tagline)}</p>
               <div class="btl-row btl-hero-actions">
                 <a class="btl-btn primary" href="${first ? "#/learn/" + first.id : "#/learn"}">${pct ? "Tiếp tục học" : "Bắt đầu học"} ${icon("arrow")}</a>
-                <a class="btl-btn" href="#/lab">Mở phòng lab</a>
+                <a class="btl-btn" href="#/space">Không gian 3D ${icon("cube")}</a>
+                <a class="btl-btn ghost" href="#/lab">Mở phòng lab</a>
               </div>
               <p class="btl-hero-note">${esc(D.tagline)}</p>
             </div>
@@ -296,6 +319,15 @@
           <div class="btl-grid cols-3">${feat}</div>
         </div>
       </section>
+      ${(D.life || []).length ? `<section class="btl-section btl-section-life">
+        <div class="btl-wrap">
+          <div class="btl-section-head">
+            <div><div class="btl-kicker">ĐỜI SỐNG</div><h2 class="btl-h2">Khái niệm này nằm ở đâu trong ngày thường?</h2><p>Ba liên tưởng cụ thể, mỗi chương một tình huống quen thuộc. Mỗi thẻ có nút mở thẳng chương đó trong không gian 3D.</p></div>
+            <a class="btl-btn" href="#/space">Mở không gian 3D ${icon("cube")}</a>
+          </div>
+          <div class="btl-life-grid">${mods.map((m, i) => lifeCard(i)).join("")}</div>
+        </div>
+      </section>` : ""}
       <section class="btl-section">
         <div class="btl-wrap">
           <div class="btl-section-head">
@@ -394,6 +426,7 @@
             <button class="btl-btn small primary" type="button" data-step="${s + 1}" ${s === steps.length - 1 ? "disabled" : ""}>Bước tiếp ${icon("arrow")}</button>
           </div>
         </article>
+        ${lifeFor(mi) ? `<section class="btl-life-inline">${lifeCard(mi)}</section>` : ""}
         <div class="btl-row" style="margin-top:22px">
           ${prev ? `<a class="btl-btn" href="#/learn/${esc(prev.id)}">${icon("back")} ${esc(prev.title)}</a>` : ""}
           <span style="flex:1"></span>
@@ -693,17 +726,278 @@
       <div class="btl-lab-head"><div><div class="btl-kicker">PHÒNG LAB TƯƠNG TÁC</div><h1 class="btl-h2" style="margin:6px 0 8px">${esc(lab.title)}</h1><p class="btl-lead">${esc(lab.lead || "")}</p></div><span class="btl-chip">${esc(lab.kind.toUpperCase())}</span></div>
       <div class="btl-lab-grid">
         <section class="btl-lab-stage">
-          <div class="btl-lab-toolbar"><strong>${esc(lab.stageLabel || "Bảng điều khiển")}</strong><span style="flex:1"></span><span id="btlLabStatus" class="btl-small btl-muted"></span></div>
+          <div class="btl-lab-toolbar"><strong>${esc(lab.stageLabel || "Bảng điều khiển")}</strong><span style="flex:1"></span><span id="btlLabStatus" class="btl-small btl-muted"></span><a class="btl-btn small ghost" href="#/space">${icon("cube")} Không gian 3D</a></div>
           <div class="btl-lab-canvas" id="btlLabCanvas"></div>
         </section>
         <aside class="btl-card btl-lab-controls" id="btlLabControls"></aside>
       </div>
       <p class="btl-lab-note">${esc(lab.note || "")}</p>
+      ${(D.life || []).length ? `<section class="btl-lab-life"><div class="btl-between"><div><div class="btl-kicker">LIÊN TƯỞNG ĐỜI SỐNG</div><h3 class="btl-h3">Cùng một ý, nhìn từ ba tình huống quen</h3></div><a class="btl-btn small" href="#/space">Xem bản đồ 3D ${icon("cube")}</a></div>
+        <div class="btl-life-mini-grid">${D.life.map((x, i) => `<a class="btl-life-mini" href="#/space/${i}"><span>CHƯƠNG ${pad(i + 1)}</span><b>${esc(x.title)}</b><small>${esc((x.scene || "").slice(0, 110))}${(x.scene || "").length > 110 ? "…" : ""}</small></a>`).join("")}</div>
+      </section>` : ""}
     </div></div>`;
     const kinds = { plot: labPlot, transform: labTransform, sim: labSim, diagram: labDiagram, timeline: labTimeline, stepper: labStepper, match: labMatch, equation: labEquation, ledger: labLedger, code: labCode, sql: labSql, crypto: labCrypto, chart: labChart, piano: labPiano, paint: labPaint, calendar: labCalendar, tree: labTree, dialogue: labDialogue, builder: labBuilder };
     (kinds[lab.kind] || labDiagram)(lab);
   }
   function labStatus(text) { const n = $("#btlLabStatus"); if (n) n.textContent = text; }
+
+  /* ---------------- 3D learning space ---------------- */
+  function hexRgb(hex) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(String(hex || "").trim());
+    if (!m) return [37, 99, 235];
+    const n = parseInt(m[1], 16);
+    return [n >> 16 & 255, n >> 8 & 255, n & 255];
+  }
+  function rgbHex(rgb) {
+    return "#" + rgb.map((v) => clamp(Math.round(v), 0, 255).toString(16).padStart(2, "0")).join("");
+  }
+  function mixColor(a, b, t) {
+    const x = hexRgb(a), y = hexRgb(b);
+    return rgbHex(x.map((v, i) => v + (y[i] - v) * t));
+  }
+  function shadeColor(hex, pct) {
+    return pct >= 0 ? mixColor(hex, "#ffffff", pct) : mixColor(hex, "#07101c", -pct);
+  }
+  function spaceModules() {
+    const colors = [
+      D.accent || "#2563eb",
+      D.accent2 || "#7c3aed",
+      mixColor(D.accent2 || "#7c3aed", "#f59e0b", 0.55)
+    ];
+    return (D.modules || []).map((m, i) => {
+      const a = -Math.PI / 2 + i * Math.PI * 2 / 3;
+      return { m, i, x: Math.cos(a) * 172, y: Math.sin(a) * 172, color: colors[i] };
+    });
+  }
+  function projector() {
+    const cy = Math.cos(ui.spaceYaw), sy = Math.sin(ui.spaceYaw);
+    const cp = Math.cos(ui.spacePitch), sp = Math.sin(ui.spacePitch);
+    const scale = 1.28 * ui.spaceZoom;
+    return (x, y, z) => {
+      const rx = x * cy - y * sy;
+      const ry = x * sy + y * cy;
+      return { x: 450 + rx * scale, y: 330 + (ry * sp - z * cp) * scale, d: ry * cp + z * sp };
+    };
+  }
+  function spaceTitle(m, i) {
+    const t = String(m.title || "").trim();
+    if (t.length <= 30) return t;
+    const cut = t.slice(0, 28);
+    const sp = cut.lastIndexOf(" ");
+    return (sp > 12 ? cut.slice(0, sp) : cut).replace(/[,;:.–-]+$/, "") + "…";
+  }
+  function paintSpacePanel() {
+    const panel = $("#btlSpacePanel");
+    if (!panel) return;
+    const mods = D.modules || [];
+    const mi = clamp(ui.spaceSel, 0, Math.max(0, mods.length - 1));
+    const m = mods[mi] || {};
+    const life = lifeFor(mi);
+    const lessons = moduleLessons(mi);
+    panel.innerHTML = `<div class="btl-space-picks">${mods.map((x, i) => `<button type="button" data-space-pick="${i}" class="${i === mi ? "is-on" : ""}" aria-label="Chọn chương ${i + 1}">${pad(i + 1)}</button>`).join("")}</div>
+      <div class="btl-card btl-space-panel-card">
+        <div class="btl-kicker">CHƯƠNG ${pad(mi + 1)} · ĐANG CHỌN</div>
+        <h2 class="btl-h3" style="margin:6px 0 8px">${esc(m.title || "")}</h2>
+        <p class="btl-small btl-muted">${esc(m.summary || "")}</p>
+        ${life ? `<div class="btl-space-life"><div class="btl-kicker">LIÊN TƯỞNG ĐỜI SỐNG</div><h3>${esc(life.title)}</h3><p>${esc(life.scene)}</p>${life.connect ? `<div class="btl-life-connect"><b>Chỗ nối:</b> ${esc(life.connect)}</div>` : ""}</div>` : ""}
+        <div class="btl-space-lessons">${lessons.map((l, li) => `<a href="#/learn/${esc(l.id)}"><span>${mi + 1}.${li + 1}</span><b>${esc(l.title)}</b>${store.done[l.id] ? icon("check") : icon("arrow")}</a>`).join("")}</div>
+        <div class="btl-row" style="margin-top:12px"><a class="btl-btn small primary" href="#/lab">Mở phòng lab ${icon("arrow")}</a><a class="btl-btn small" href="#/learn">Tất cả bài học</a></div>
+      </div>`;
+  }
+  function spaceFlat(mods) {
+    return `<div class="btl-space-flat">
+      <div class="btl-space-flat-core"><span class="btl-space-flat-mono">${esc(D.monogram || "LAB")}</span><b>Phòng lab</b><small>Trung tâm của bản đồ</small><a class="btl-btn small primary" href="#/lab">Mở lab ${icon("arrow")}</a></div>
+      <div class="btl-space-flat-grid">${mods.map(({ m, i, color }) => {
+        const life = lifeFor(i);
+        const lessons = moduleLessons(i);
+        return `<article class="btl-space-flat-card ${i === ui.spaceSel ? "is-on" : ""}" style="--m:${esc(color)}">
+          <button type="button" class="btl-space-flat-head" data-flat-mod="${i}"><span>CHƯƠNG ${pad(i + 1)}</span><b>${esc(m.title)}</b></button>
+          <p>${esc(m.summary || "")}</p>
+          ${life ? `<em>${esc(life.title)}</em>` : ""}
+          <div class="btl-space-flat-lessons">${lessons.map((l, li) => `<a href="#/learn/${esc(l.id)}"><span>${i + 1}.${li + 1}</span>${esc(l.title)}</a>`).join("")}</div>
+        </article>`;
+      }).join("")}</div>
+    </div>`;
+  }
+  function drawSpace() {
+    const stage = $("#btlSpaceStage");
+    if (!stage) return;
+    const mods = spaceModules();
+    stage.classList.toggle("is-flat", ui.spaceMode === "2d");
+    const zoomLabel = $("#btlSpaceZoom");
+    if (zoomLabel) zoomLabel.textContent = Math.round(ui.spaceZoom * 100) + "%";
+    $$("[data-space-mode]").forEach((b) => b.classList.toggle("is-on", b.dataset.spaceMode === ui.spaceMode));
+    if (ui.spaceMode === "2d") {
+      stage.innerHTML = spaceFlat(mods);
+      $$("[data-flat-mod]", stage).forEach((b) => b.addEventListener("click", () => {
+        ui.spaceSel = Number(b.dataset.flatMod);
+        drawSpace();
+        paintSpacePanel();
+      }));
+      return;
+    }
+    const proj = projector();
+    const faces = [], labels = [];
+    let ground = "";
+    const addFace = (pts, fill, attrs, top) => {
+      const pp = pts.map((p) => proj(p[0], p[1], p[2]));
+      const d = pp.reduce((s, p) => s + p.d, 0) / pp.length;
+      const cls = "btl-space-face" + (top ? " top" : "") + (attrs && attrs.sel ? " is-on" : "");
+      const raw = attrs ? ` data-space-mod="${attrs.mod}"${attrs.lesson ? ` data-space-lesson="${esc(attrs.lesson)}"` : ""}${attrs.lab ? ' data-space-lab="1"' : ""} role="button" tabindex="0" aria-label="${esc(attrs.label)}"` : "";
+      faces.push({ pp, fill, d, cls, raw });
+    };
+    const addBox = (x, y, z, w, d, h, color, attrs, topColor) => {
+      const x0 = x - w / 2, x1 = x + w / 2, y0 = y - d / 2, y1 = y + d / 2, z1 = z + h;
+      addFace([[x0, y0, z1], [x1, y0, z1], [x1, y1, z1], [x0, y1, z1]], topColor || shadeColor(color, 0.2), attrs, true);
+      addFace([[x0, y0, z], [x0, y1, z], [x0, y1, z1], [x0, y0, z1]], shadeColor(color, -0.2), attrs);
+      addFace([[x1, y0, z], [x1, y1, z], [x1, y1, z1], [x1, y0, z1]], shadeColor(color, -0.07), attrs);
+      addFace([[x0, y0, z], [x1, y0, z], [x1, y0, z1], [x0, y0, z1]], shadeColor(color, -0.3), attrs);
+      addFace([[x0, y1, z], [x1, y1, z], [x1, y1, z1], [x0, y1, z1]], shadeColor(color, 0.05), attrs);
+    };
+    const disc = (x, y, r, color, opacity) => {
+      const pts = [];
+      for (let k = 0; k <= 28; k++) {
+        const a = k / 28 * Math.PI * 2;
+        pts.push(proj(x + Math.cos(a) * r, y + Math.sin(a) * r, 0));
+      }
+      return `<polygon points="${pts.map((p) => p.x.toFixed(1) + "," + p.y.toFixed(1)).join(" ")}" fill="${color}" opacity="${opacity}"/>`;
+    };
+    for (const r of [80, 158, 236]) {
+      const pts = [];
+      for (let k = 0; k <= 64; k++) {
+        const a = k / 64 * Math.PI * 2;
+        pts.push(proj(Math.cos(a) * r, Math.sin(a) * r, 0));
+      }
+      ground += `<polyline points="${pts.map((p) => p.x.toFixed(1) + "," + p.y.toFixed(1)).join(" ")}" fill="none" stroke="var(--line-strong)" stroke-opacity=".28"/>`;
+    }
+    for (let k = 0; k < 12; k++) {
+      const a = k / 12 * Math.PI * 2;
+      const p1 = proj(0, 0, 0), p2 = proj(Math.cos(a) * 236, Math.sin(a) * 236, 0);
+      ground += `<line x1="${p1.x.toFixed(1)}" y1="${p1.y.toFixed(1)}" x2="${p2.x.toFixed(1)}" y2="${p2.y.toFixed(1)}" stroke="var(--line-strong)" stroke-opacity=".16"/>`;
+    }
+    let shadows = disc(0, 0, 76, "#000000", ".13");
+    mods.forEach(({ x, y }) => { shadows += disc(x, y, 112, "#000000", ".12"); });
+    let bridges = "";
+    mods.forEach(({ x, y, color }) => {
+      const a = proj(0, 0, 8), b = proj(x, y, 8);
+      bridges += `<line x1="${a.x.toFixed(1)}" y1="${a.y.toFixed(1)}" x2="${b.x.toFixed(1)}" y2="${b.y.toFixed(1)}" stroke="${color}" stroke-opacity=".5" stroke-width="2" stroke-dasharray="6 7"/>`;
+    });
+    const centerColor = mixColor(D.accent2 || "#7c3aed", "#0f172a", 0.15);
+    addBox(0, 0, 0, 132, 92, 12, shadeColor(centerColor, 0.1), { lab: true, label: "Mở phòng lab" });
+    addBox(0, 0, 12, 58, 58, 92, centerColor, { lab: true, label: "Mở phòng lab" });
+    addBox(0, 0, 104, 70, 70, 8, shadeColor(centerColor, 0.25), { lab: true, label: "Mở phòng lab" });
+    labels.push({ p: proj(0, 0, 170), text: "PHÒNG LAB", cls: "hub", lab: true });
+    labels.push({ p: proj(0, 0, 70), text: D.monogram || "LAB", cls: "mono", lab: true });
+    mods.forEach(({ m, i, x, y, color }) => {
+      const sel = i === ui.spaceSel;
+      const platformAttrs = { mod: i, sel, label: "Chọn chương " + (i + 1) };
+      addBox(x, y, 0, 218, 122, 14, color, platformAttrs, shadeColor(color, sel ? 0.36 : 0.24));
+      const lessons = (m.lessons || []).slice(0, 3);
+      lessons.forEach((l, li) => {
+        const ox = (li - 1) * 66;
+        const h = 24 + li * 7;
+        const pa = { mod: i, lesson: l.id, sel, label: `Chương ${i + 1} bài ${li + 1}: ${l.title}` };
+        addBox(x + ox, y, 14, 42, 48, h, shadeColor(color, li === 0 ? 0.12 : 0.03 + li * 0.02), pa, shadeColor(color, 0.32));
+        labels.push({ p: proj(x + ox, y, 14 + h + 7), text: `${i + 1}.${li + 1}`, cls: "num" + (sel ? " sel" : ""), mod: i, lesson: l.id });
+      });
+      labels.push({ p: proj(x, y + 78, 6), text: pad(i + 1) + " · " + spaceTitle(m, i), cls: "mod" + (sel ? " sel" : ""), mod: i });
+    });
+    faces.sort((a, b) => a.d - b.d);
+    const poly = faces.map((f) => `<polygon class="${f.cls}" points="${f.pp.map((p) => p.x.toFixed(1) + "," + p.y.toFixed(1)).join(" ")}" fill="${f.fill}" stroke="var(--line)" stroke-width=".8"${f.raw}/>`).join("");
+    const labelHtml = labels.map((l) => `<text class="btl-space-label ${l.cls}" x="${l.p.x.toFixed(1)}" y="${l.p.y.toFixed(1)}" text-anchor="middle"${l.lab ? ' data-space-lab="1" role="button" tabindex="0" aria-label="Mở phòng lab"' : l.lesson ? ` data-space-mod="${l.mod}" data-space-lesson="${esc(l.lesson)}" role="button" tabindex="0"` : ` data-space-mod="${l.mod}" role="button" tabindex="0"`}>${esc(l.text)}</text>`).join("");
+    stage.innerHTML = `<svg class="btl-space-svg" viewBox="0 0 900 620" role="img" aria-label="Bản đồ 3D ba chương của môn ${esc(D.subject)}">
+      <g>${ground}</g><g>${shadows}</g><g>${bridges}</g><g>${poly}</g><g>${labelHtml}</g>
+    </svg><div class="btl-space-hint">${window.matchMedia("(pointer: coarse)").matches ? "Kéo để xoay · chạm vào một khối để mở" : "Kéo để xoay · lăn chuột để thu phóng · nhấn vào một khối để mở"}</div>`;
+  }
+  function renderSpace(main) {
+    document.title = `Không gian môn học — ${D.name}`;
+    const mods = D.modules || [];
+    ui.spaceSel = clamp(ui.spaceSel, 0, Math.max(0, mods.length - 1));
+    if (ui.spaceInit !== true) {
+      ui.spaceInit = true;
+      if (window.matchMedia("(max-width: 760px)").matches) ui.spaceMode = "2d";
+    }
+    main.innerHTML = `<div class="btl-page"><div class="btl-wrap">
+      <div class="btl-section-head"><div><div class="btl-kicker">KHÔNG GIAN 2D / 3D</div><h1 class="btl-h2">Đi bộ trong bản đồ môn học</h1><p>Xoay, thu phóng và nhấn vào từng chương để thấy bài học, liên tưởng đời sống và phòng lab. Chuyển sang 2D khi cần nhìn phẳng, in hoặc trình chiếu.</p></div><span class="btl-chip">${icon("cube")} TƯƠNG TÁC</span></div>
+      <div class="btl-space-grid">
+        <section class="btl-space-stage-card">
+          <div class="btl-space-toolbar">
+            <div class="btl-space-modes"><button type="button" data-space-mode="3d">3D</button><button type="button" data-space-mode="2d">2D</button></div>
+            <span class="btl-space-tip">${icon("cube")} Kéo để xoay</span>
+            <span style="flex:1"></span>
+            <button class="btl-space-ctl" type="button" data-space-cmd="out" aria-label="Thu nhỏ">−</button><span class="btl-space-zoom" id="btlSpaceZoom">100%</span><button class="btl-space-ctl" type="button" data-space-cmd="in" aria-label="Phóng to">+</button>
+            <button class="btl-space-ctl" type="button" data-space-cmd="reset" aria-label="Đặt lại góc nhìn">${icon("reset")}</button>
+          </div>
+          <div class="btl-space-stage" id="btlSpaceStage"></div>
+        </section>
+        <aside class="btl-space-panel" id="btlSpacePanel"></aside>
+      </div>
+      <p class="btl-lab-note">Mô hình 3D là sơ đồ khái niệm, không phải bản đồ thật. Mỗi khối bài học dẫn thẳng tới bài; khối trung tâm mở phòng lab.</p>
+    </div></div>`;
+    const stage = $("#btlSpaceStage");
+    let drag = null;
+    stage.addEventListener("pointerdown", (e) => {
+      if (ui.spaceMode !== "3d") return;
+      drag = { x: e.clientX, y: e.clientY, yaw: ui.spaceYaw, pitch: ui.spacePitch };
+      ui.spaceMoved = false;
+      try { if (stage.setPointerCapture) stage.setPointerCapture(e.pointerId); } catch (err) { /* con trỏ tổng hợp không cấp được capture */ }
+    });
+    stage.addEventListener("pointermove", (e) => {
+      if (!drag || ui.spaceMode !== "3d") return;
+      const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) > 4) ui.spaceMoved = true;
+      ui.spaceYaw = drag.yaw + dx * 0.008;
+      ui.spacePitch = clamp(drag.pitch - dy * 0.004, 0.35, 1.25);
+      drawSpace();
+    });
+    const endDrag = () => { drag = null; };
+    stage.addEventListener("pointerup", endDrag);
+    stage.addEventListener("pointercancel", endDrag);
+    stage.addEventListener("pointerleave", endDrag);
+    stage.addEventListener("wheel", (e) => {
+      if (ui.spaceMode !== "3d") return;
+      e.preventDefault();
+      ui.spaceZoom = clamp(ui.spaceZoom * (e.deltaY > 0 ? 0.92 : 1.08), 0.55, 2.4);
+      drawSpace();
+    }, { passive: false });
+    stage.addEventListener("click", (e) => {
+      const hit = e.target.closest("[data-space-lesson],[data-space-mod],[data-space-lab]");
+      if (!hit) return;
+      if (ui.spaceMoved) { ui.spaceMoved = false; return; }
+      if (hit.dataset.spaceLesson) { go("#/learn/" + hit.dataset.spaceLesson); return; }
+      if (hit.dataset.spaceLab) { go("#/lab"); return; }
+      ui.spaceSel = Number(hit.dataset.spaceMod);
+      drawSpace(); paintSpacePanel();
+    });
+    stage.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const hit = e.target.closest("[data-space-lesson],[data-space-mod],[data-space-lab]");
+      if (!hit) return;
+      e.preventDefault();
+      if (hit.dataset.spaceLesson) go("#/learn/" + hit.dataset.spaceLesson);
+      else if (hit.dataset.spaceLab) go("#/lab");
+      else { ui.spaceSel = Number(hit.dataset.spaceMod); drawSpace(); paintSpacePanel(); }
+    });
+    $$("[data-space-mode]", main).forEach((b) => b.addEventListener("click", () => {
+      ui.spaceMode = b.dataset.spaceMode;
+      drawSpace();
+    }));
+    $$("[data-space-cmd]", main).forEach((b) => b.addEventListener("click", () => {
+      const cmd = b.dataset.spaceCmd;
+      if (cmd === "in") ui.spaceZoom = clamp(ui.spaceZoom * 1.14, 0.55, 2.4);
+      else if (cmd === "out") ui.spaceZoom = clamp(ui.spaceZoom / 1.14, 0.55, 2.4);
+      else { ui.spaceZoom = 1; ui.spaceYaw = -0.42; ui.spacePitch = 0.92; }
+      drawSpace();
+    }));
+    $("#btlSpacePanel").addEventListener("click", (e) => {
+      const pick = e.target.closest("[data-space-pick]");
+      if (!pick) return;
+      ui.spaceSel = Number(pick.dataset.spacePick);
+      drawSpace(); paintSpacePanel();
+    });
+    drawSpace();
+    paintSpacePanel();
+  }
 
   /* ---------------- widgets ---------------- */
   function sliderHTML(sliders) {

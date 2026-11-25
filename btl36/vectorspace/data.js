@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Khử Gauss từng bước", desc: "Mỗi phép biến đổi sơ cấp được tô sáng theo hàng, có nút tiến lùi để người học tự đoán bước tiếp theo trước khi xem lời giải." },
     { badge: "03", title: "Thẻ khái niệm và quiz", desc: "Mười hai thẻ ghi nhớ về hạng, định thức, cơ sở, trị riêng kèm trắc nghiệm chấm ngay và giải thích vì sao đúng sai." }
   ],
+  life: [
+    {
+      title: "Hai chuyến xe buýt và điểm hẹn",
+      scene: "Từ phòng trọ, đi xe buýt 3 km về phía chợ rồi xuống, bắt tiếp chuyến khác 4 km theo hướng vuông góc. Điểm hẹn không cách nhà 7 km mà chỉ khoảng 5 km theo đường chim bay.",
+      connect: "Hai chặng là hai vector; cộng chúng cho ra vector thứ ba, còn độ dài thì không cộng như số thường. Muốn đi gấp đôi một chặng thì nhân vector đó với 2, hướng giữ nguyên."
+    },
+    {
+      title: "Bảng order trà sữa của ba phòng trọ",
+      scene: "Ba phòng trọ gom nhau đặt trà sữa, mỗi phòng ghi số ly theo từng loại, mỗi loại có một giá riêng. Chủ quán lấy số ly nhân với giá rồi cộng theo từng phòng để ra tiền của mỗi phòng.",
+      connect: "Bảng số ly là ma trận, cột giá là vector; nhân hàng với cột cho tiền từng phòng. Đổi thứ tự hai bảng thì phép nhân không còn nghĩa, nên nhân ma trận không giao hoán."
+    },
+    {
+      title: "Bản lề cửa và hướng không đổi",
+      scene: "Cửa phòng trọ xoay trên hai bản lề sắt. Khi đẩy cửa, mọi điểm trên cánh cửa đều đổi hướng, riêng đường thẳng đi qua hai bản lề vẫn giữ nguyên hướng cũ và chỉ dài ra đúng một lần.",
+      connect: "Hướng của bản lề là vector riêng của phép quay, hệ số co giãn của nó là trị riêng, ở đây bằng 1. Mọi hướng khác đều bị bẻ sang một hướng mới."
+    }
+  ],
   modules: [
     {
       title: "Vector và không gian vector",

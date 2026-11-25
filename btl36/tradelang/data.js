@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Glossary có ngữ cảnh", desc: "Mỗi thuật ngữ đi kèm phiên âm, nghĩa và một câu trích từ chào hàng hoặc hợp đồng để thấy cách dùng thật." },
     { badge: "03", title: "Email mẫu có chú thích", desc: "Thư chào hàng và thư khiếu nại được tách thành từng phần, mỗi phần ghi rõ chức năng và mức trang trọng phù hợp." }
   ],
+  life: [
+    {
+      title: "Đặt áo từ shop ở tỉnh khác",
+      scene: "Một bạn đặt chiếc áo 250 nghìn đồng từ shop ở tỉnh khác. Shop hỏi lại ba việc: ai trả phí ship 30 nghìn, chuyển khoản trước hay trả khi nhận, và nếu gói hàng rách trên đường thì ai chịu. Hai bên chốt miệng qua tin nhắn.",
+      connect: "Ba câu hỏi đó là điều kiện giao hàng, phương thức thanh toán và điểm chuyển rủi ro trong glossary thương mại. Trả trước bảo vệ người bán, trả khi nhận bảo vệ người mua, rủi ro chuyển khi hàng qua tay đơn vị vận chuyển."
+    },
+    {
+      title: "Nhắn đòi đổi chiếc quạt lỗi",
+      scene: "Chiếc quạt mini mua online chạy được hai hôm thì kêu to rồi sập nguồn. Người mua định nhắn một câu gay gắt, nhưng viết lại thành ba dòng: mã đơn, ảnh chụp lỗi, đề nghị đổi máy mới trong bảy ngày và xin xác nhận thời gian xử lý.",
+      connect: "Tin nhắn thứ hai có dữ kiện và một đề nghị cụ thể nên dễ được xử lý, đúng cách viết thư khiếu nại: nêu sự việc, không công kích, kết bằng hành động mong muốn. Cách chọn từ cũng quyết định việc shop hợp tác hay phòng thủ."
+    },
+    {
+      title: "Thuê phòng trọ và tiền cọc",
+      scene: "Một sinh viên đi xem phòng trọ giá 2,5 triệu đồng một tháng. Bạn hỏi trước về tiền điện, nước, giờ giấc và việc nấu ăn; chủ nhà đòi cọc hai tháng. Hai bên thương lượng: chấp nhận thêm 100 nghìn tiền thuê nếu chủ giữ giá đó trong mười hai tháng và thay máy nước nóng.",
+      connect: "Hỏi trước là thu thập thông tin, còn đổi 100 nghìn lấy cam kết giữ giá và sửa thiết bị là nhượng bộ có điều kiện. Chốt xong phải ghi thành giấy có ngày ký, vì thỏa thuận miệng khó chứng minh khi phát sinh tranh chấp."
+    }
+  ],
   modules: [
     {
       title: "Glossary thương mại cốt lõi",

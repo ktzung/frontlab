@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Lời giải từng bước", desc: "Mỗi bài tự luận được tách thành các bước lập luận, có nút tiến lùi và điểm dừng để tự giải trước." },
     { badge: "03", title: "Thẻ công thức & quiz", desc: "Mười hai thẻ công thức cốt lõi kèm trắc nghiệm chấm ngay, giải thích vì sao đúng sai." }
   ],
+  life: [
+    {
+      title: "Cầu thang bộ và dốc xe lăn",
+      scene: "Từ tầng trệt lên tầng hai của dãy trọ, đi thang bộ thì mỗi bậc nâng người lên đúng một nấc rồi đứng yên, còn dốc xe lăn thì độ cao tăng dần không ngắt quãng. Đứng ngay mép một bậc, không có độ cao nào để nói là đang ở đó.",
+      connect: "Thang bộ là hàm có bước nhảy: hai bên một bậc tiến tới hai độ cao khác nhau nên hàm gián đoạn tại đó. Dốc là hàm liên tục vì giới hạn hai phía và giá trị tại điểm trùng nhau."
+    },
+    {
+      title: "Dốc cầu và nhịp đạp xe",
+      scene: "Đạp xe qua dốc cầu, đoạn chân dốc thoải nên đạp nhẹ, lên gần đỉnh dốc đứng hẳn nên phải đứng lên bàn đạp. Cả con dốc cao bao nhiêu thì tính một lần, nhưng mỗi mét lại có độ nghiêng riêng.",
+      connect: "Độ nghiêng tại đúng một mét là đạo hàm: giới hạn của độ cao chia cho quãng đường khi quãng đường co về 0. Đó cũng là hệ số góc của tiếp tuyến với mặt dốc tại điểm đó."
+    },
+    {
+      title: "Công tơ điện và hóa đơn cuối tháng",
+      scene: "Cuối tháng nhận hóa đơn tiền điện, thấy con số được cộng lại từ hàng nghìn khoảnh khắc chạy tủ lạnh, nấu nồi cơm, bật đèn học. Không ai đọc được từng khoảnh khắc ấy, nhưng công tơ cứ quay đều và cộng dồn.",
+      connect: "Chia thời gian thành từng phút rồi cộng công suất nhân số phút là tổng Riemann. Chia càng nhỏ thì tổng càng sát số trên công tơ, và giới hạn đó chính là tích phân."
+    }
+  ],
   modules: [
     {
       title: "Giới hạn & liên tục",

@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Quy trình 5 bước", desc: "Phiếu chăm sóc tách đúng năm bước từ nhận định đến đánh giá, có gợi ý cho từng ô để không bỏ sót dữ kiện." },
     { badge: "03", title: "Sinh hiệu so chuẩn", desc: "Nhập mạch, nhiệt, huyết áp, nhịp thở và SpO2 để so với ngưỡng người lớn, nhận cảnh báo khi vượt ngưỡng." }
   ],
+  life: [
+    {
+      title: "Chiếc xe đạp non hơi trước giờ thi",
+      scene: "Sáng thi học kỳ, dắt xe ra khỏi phòng trọ mới thấy bánh trước mềm và yên xe tuột ốc. Mất năm phút ngồi liệt kê chỗ hỏng, rồi bơm bánh, siết yên và đạp thử một vòng trước khi đi.",
+      connect: "Đó là quy trình chăm sóc 5 bước thu nhỏ: nhận định dữ kiện, chẩn đoán chỗ hỏng, lập kế hoạch, thực hiện rồi đánh giá bằng lần đạp thử cuối cùng."
+    },
+    {
+      title: "Đêm em nhỏ sốt và tờ giấy ghi giờ",
+      scene: "Em nhỏ sốt, cả nhà thay nhau kẹp nhiệt kế và cho uống thuốc. Mẹ ghi ra giấy từng lần đo: 37,8 độ lúc 8 giờ, 38,6 độ lúc 10 giờ, kèm số lần thở trong một phút lúc em ngủ.",
+      connect: "Nhiệt độ, nhịp thở, mạch và huyết áp là bốn dấu hiệu sinh tồn; người chăm cũng đọc xu hướng qua nhiều lần đo chứ không chỉ một con số, vượt ngưỡng là phải báo động sớm."
+    },
+    {
+      title: "Ba hộp cơm giống nhau ở căng tin",
+      scene: "Giờ trưa, căng tin để ba hộp cơm đặt trước giống hệt nhau trên bàn, ai tới trước nhận hộp gần nhất. Một hộp là phần ăn kiêng của người dị ứng đậu phộng, nên người phát cơm hỏi lại tên và số điện thoại cuối.",
+      connect: "Hai thông tin độc lập đó là cách xác nhận đúng người, giống hai thông tin định danh trước khi cho thuốc; đoán theo chỗ ngồi quen hay vẻ ngoài đều có thể trao nhầm."
+    }
+  ],
   modules: [
     {
       title: "Quy trình chăm sóc 5 bước",

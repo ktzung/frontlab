@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Bài tính liều từng bước", desc: "Mỗi bài tách thành bước xác định cân nặng, liều trên kg, giới hạn tối đa và hiệu chỉnh theo chức năng thận." },
     { badge: "03", title: "Thẻ cặp tương tác", desc: "Mười hai thẻ ghi nhớ ưu tiên các cặp tương tác nghiêm trọng kèm cơ chế, ví dụ simvastatin với clarithromycin." }
   ],
+  life: [
+    {
+      title: "Uống viên thuốc cảm trước giờ học",
+      scene: "Bảy giờ sáng, một bạn uống một viên thuốc cảm 500 miligam với cốc nước rồi đi học. Đến mười một giờ thì hắt hơi và đau đầu quay lại; hôm sau uống lúc bụng đói, thuốc ngấm nhanh hơn hẳn so với hôm uống ngay sau bữa sáng.",
+      connect: "Viên thuốc đi qua dạ dày, vào máu, qua gan rồi thải qua thận, đó là bốn giai đoạn ADME. Thời gian tác dụng dài hay ngắn tùy thời gian bán thải, còn uống lúc đói hay no làm đổi lượng thuốc vào máu, tức sinh khả dụng."
+    },
+    {
+      title: "Chìa khóa gãy trong ổ khóa xe đạp",
+      scene: "Ổ khóa xe đạp bị gỉ, tra dầu vào thì chìa đúng mở được. Một hôm có người nhét mẩu chìa gãy vào ổ, từ đó chìa đúng xoay mạnh cũng không mở; thợ khóa bảo phải gắp mẩu đó ra hoặc thay cả ổ.",
+      connect: "Chìa đúng là chất đồng vận khớp vào thụ thể, mẩu chìa gãy là chất đối kháng cạnh tranh chiếm mất chỗ nên chìa thật mất tác dụng. Nếu lẫy khóa bị bẻ cong thì chìa nào cũng vô ích, giống đối kháng không cạnh tranh."
+    },
+    {
+      title: "Hai hộp thuốc cảm và thuốc ho",
+      scene: "Một bạn bị ho và sốt nên mua hai hộp: thuốc cảm và thuốc ho, hộp nào cũng ghi chứa paracetamol 500 miligam. Uống mỗi loại một viên theo đúng liều in trên hộp, bạn đã dùng gấp đôi liều của cùng một hoạt chất trong một lần.",
+      connect: "Đây là tương tác do trùng hoạt chất: hai sản phẩm cùng tác động lên một đích nên liều cộng dồn và dễ hại gan. Đọc thành phần trên mọi hộp trước khi phối thuốc là bước kiểm tra an toàn bắt buộc."
+    }
+  ],
   modules: [
     {
       title: "Dược động học",

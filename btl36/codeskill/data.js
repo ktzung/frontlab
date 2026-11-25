@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Bộ test đạt và không đạt", desc: "Mỗi ca test hiện đầu vào, kết quả mong đợi và kết quả thực tế, giúp khoanh vùng lỗi thay vì sửa mò." },
     { badge: "03", title: "Trace biến từng bước", desc: "Bấm chạy từng bước để thấy dòng đang thực thi và giá trị biến thay đổi, rèn tư duy gỡ lỗi." }
   ],
+  life: [
+    {
+      title: "Hũ đường và hũ muối giống hệt nhau",
+      scene: "Trong bếp có hai hũ nhựa giống hệt nhau, một hũ đường, một hũ muối, chỉ khác tờ nhãn dán ngoài nắp. Có lần nhãn bong mất, cả nồi canh bị cho muối thay đường và phải đổ đi.",
+      connect: "Tên biến giống tờ nhãn đó: nó chỉ tới một ngăn chứa giá trị, còn kiểu dữ liệu quy định ngăn ấy chứa số hay chuỗi; dán nhầm nhãn là biểu thức tính ra kết quả sai."
+    },
+    {
+      title: "Soát vé trên chuyến xe buýt số 32",
+      scene: "Lên xe buýt, phụ xe chỉ hỏi một câu: có vé tháng chưa. Có thì đi thẳng vào chỗ ngồi, chưa có thì mua vé ở quầy đầu xe. Xe chạy lần lượt qua hai mươi trạm, ai muốn xuống thì bấm chuông để dừng.",
+      connect: "Câu hỏi vé là nhánh if else loại trừ nhau, chỉ một nhánh chạy; danh sách trạm là vòng lặp có điều kiện dừng, và tiếng chuông đóng vai break thoát giữa chừng."
+    },
+    {
+      title: "Đong gạo bằng lon sữa bò",
+      scene: "Cả nhà nấu cơm bằng chiếc lon sữa bò cũ: bốn người thì hai lon, sáu người thì ba lon. Mỗi người đong một kiểu, có hôm quên nên cơm sống, từ đó cả nhà ghi cách đong ra mảnh giấy dán cạnh bếp.",
+      connect: "Mảnh giấy đó là một hàm: đưa vào số người, trả về số lon, gọi lại bao nhiêu lần cũng cho cùng kết quả. Sửa một chỗ trên giấy là mọi lần nấu sau đều đúng."
+    }
+  ],
   modules: [
     {
       title: "Biến, kiểu dữ liệu và biểu thức",

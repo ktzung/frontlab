@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Phân loại dạng bài và mẹo giải", desc: "Mỗi câu hỏi được gắn nhãn dạng bài như tìm tiệm cận, xét dấu tam thức, thể tích khối chóp, kèm bẫy thường gặp cần tránh." },
     { badge: "03", title: "Luyện đề như thi thật", desc: "Đồng hồ đếm ngược, chấm điểm ngay, câu sai hiện lại lời giải từng bước để học sinh tự làm lại cho đúng." }
   ],
+  life: [
+    {
+      title: "Quả bóng rổ và điểm cao nhất",
+      scene: "Ném quả bóng rổ ở sân trường, bóng vọt lên rồi rơi xuống theo một đường cong. Điểm cao nhất nằm đúng giữa đường bay, hai bên thấp dần đều nhau, và số lần bóng ngang tầm vành rổ quyết định có vào hay không.",
+      connect: "Đường bay là parabol: đỉnh cho biết điểm cao nhất, trục đối xứng chia hai bên bằng nhau, còn số giao điểm với đường ngang tầm vành chính là số nghiệm của phương trình."
+    },
+    {
+      title: "Cái thang nhôm dựa tường",
+      scene: "Chuyển đồ lên gác xép, lấy thang nhôm dài 2 m dựng vào tường, chân thang đặt cách tường 0,8 m. Muốn biết thang nghiêng bao nhiêu độ và chạm tới độ cao nào thì phải tính qua góc, không đo trực tiếp được.",
+      connect: "Cạnh huyền, cạnh kề và góc tạo thành tam giác vuông, nên sin và cos cho ngay chiều cao và độ nghiêng. Đổi góc sang vòng tròn lượng giác thì giá trị sin, cos vẫn đọc như cũ."
+    },
+    {
+      title: "Lon sữa bò và phễu nhựa đong gạo",
+      scene: "Đong gạo bằng lon sữa bò đã cắt nắp, đổ đầy vừa một lon. Cùng đường kính miệng và cùng chiều cao, cái phễu nhựa thót xuống đáy chỉ chứa được một phần ba lon ấy.",
+      connect: "Lon là khối trụ, phễu là khối nón có cùng đường kính miệng và cùng chiều cao, nên thể tích nón bằng một phần ba thể tích trụ. Đây là chỗ dễ nhớ nhất của công thức thể tích khối nón."
+    }
+  ],
   modules: [
     {
       title: "Hàm số bậc hai và đồ thị",

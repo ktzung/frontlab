@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Bảng cân đối sống", desc: "Mỗi bút toán vừa ghi làm số dư tài khoản và bảng cân đối cập nhật ngay, kèm cảnh báo khi tổng hai bên lệch." },
     { badge: "03", title: "Sổ cái thẻ lật", desc: "Mỗi tài khoản là một thẻ: mặt trước là số hiệu, tên và tính chất, mặt sau là phát sinh Nợ, Có cùng số dư cuối kỳ." }
   ],
+  life: [
+    {
+      title: "Mua xe máy trả góp",
+      scene: "Một sinh viên mua xe máy mười tám triệu, trả trước năm triệu, phần còn lại trả góp. Trong sổ tay, chiếc xe nằm ở cột tài sản, khoản nợ nằm ở cột phải trả, và hai bên vẫn khớp với số tiền đã bỏ ra.",
+      connect: "Đó là phương trình cân đối và ghi sổ kép: mỗi nghiệp vụ ghi hai mặt, tài sản tăng thì nguồn vốn cũng tăng một khoản tương ứng, nên tổng hai bên không thể lệch."
+    },
+    {
+      title: "Ghi chép tiền ăn cả tháng",
+      scene: "Một người giữ hóa đơn siêu thị và ảnh chụp chuyển khoản trong một phong bì, cuối tuần chép vào sổ theo ngày, cuối tháng cộng lại từng khoản để biết tháng này tiêu bao nhiêu.",
+      connect: "Đó là chu trình kế toán thu nhỏ: chứng từ gốc là hóa đơn, sổ nhật ký ghi theo ngày, sổ cái gom theo từng khoản, và bảng cộng cuối tháng phải khớp trước khi chốt."
+    },
+    {
+      title: "Xem sổ của quán cà phê nhỏ",
+      scene: "Một quán cà phê nhỏ đưa sổ cho người nhà xem để vay vốn. Sổ ghi doanh thu mỗi ngày, tiền thuê và lương, nhưng không tách khoản đã trả với khoản còn nợ, nên nhìn vào không biết quán thật sự còn bao nhiêu.",
+      connect: "Đọc báo cáo tài chính là tách đúng ba lớp: bảng cân đối cho biết đang có gì và nợ ai, kết quả kinh doanh cho biết lãi qua từng tầng, chỉ số thanh toán cho biết có trả nổi nợ ngắn hạn không."
+    }
+  ],
   modules: [
     {
       title: "Đối tượng, phương trình và tài khoản",

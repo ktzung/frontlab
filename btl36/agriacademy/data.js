@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Nhật ký canh tác theo ngày", desc: "Ghi hoạt động, lượng phân, thuốc và ghi chú thời tiết theo từng vụ, đối chiếu với lịch chuẩn để phát hiện chậm lịch." },
     { badge: "03", title: "Chẩn đoán từ triệu chứng", desc: "Chọn cây, chọn triệu chứng trên lá hoặc thân, hệ thống khớp hồ sơ sâu bệnh và hiện mức thiệt hại cùng biện pháp." }
   ],
+  life: [
+    {
+      title: "Chậu cây trên ban công phòng trọ",
+      scene: "Mua bao đất thịt về trồng cây cảnh trong chậu, tưới đều mỗi sáng mà lá vẫn vàng và mặt đất lúc nào cũng sũng nước. Xới lớp trên thấy rễ nằm sát đáy chậu, nước không thoát ra được.",
+      connect: "Đất thịt pha sét giữ nước và giữ phân tốt nhưng thoát nước chậm, đúng như bài sa cấu và kết cấu đất: cùng một lượng nước tưới, chậu thoát kém sẽ úng rễ trước."
+    },
+    {
+      title: "Khay rau cải gieo quá dày",
+      scene: "Gieo cả gói hạt cải vào khay xốp cho nhanh, ba hôm sau cây mọc chi chít, lá nhỏ và vươn dài. Nhổ bớt một nửa thì số cây còn lại to gấp đôi sau hai tuần, dù không bón thêm gì.",
+      connect: "Bài mật độ và khoảng cách giải thích chuyện này: năng suất tính trên mét vuông chứ không phải số cây, gieo dày thì cây tranh ánh sáng và dinh dưỡng nên cây nào cũng còi."
+    },
+    {
+      title: "Vườn rau bị rệp và con kiến",
+      scene: "Sáng ra vườn thấy mấy lá cải xoăn lại, lật mặt dưới có đàn rệp nhỏ li ti và mấy con kiến bò theo. Cả luống chỉ mới vài cây bị, nhưng định ra tiệm mua thuốc phun kín cả luống cho chắc.",
+      connect: "Bài đọc triệu chứng dạy xem vị trí và cách lan trước khi kết luận, rồi so với ngưỡng kinh tế: rệp mới vài lá thì ngắt lá bệnh rẻ hơn phun tràn cả luống."
+    }
+  ],
   modules: [
     {
       title: "Đất và dinh dưỡng cây trồng",

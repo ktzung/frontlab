@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Biểu đồ lực kéo thả", desc: "Kéo các vector trọng lực, phản lực, ma sát và lực kéo lên vật, hệ thống kiểm tra phương chiều rồi cho điểm theo định luật Newton." },
     { badge: "03", title: "Thẻ công thức và quiz", desc: "Mười hai thẻ tóm tắt công thức từ ném xiên tới định luật Ohm, kèm trắc nghiệm tính toán chấm ngay và giải thích từng bước." }
   ],
+  life: [
+    {
+      title: "Đồng hồ công tơ mét trên đường về quê",
+      scene: "Chạy xe máy từ phòng trọ về quê, đoạn đầu đường thoáng nên giữ đều tay ga, tới đoạn sửa đường thì chậm lại rồi dừng ăn cơm. Nhìn lại hành trình, chặng nào chạy nhanh thì kim đồng hồ nhích nhiều hơn.",
+      connect: "Ghi tốc độ theo từng phút rồi cộng lại chính là diện tích dưới đồ thị vận tốc, cho ra quãng đường; còn độ dốc của đồ thị tọa độ cho biết đang chạy nhanh hay chậm."
+    },
+    {
+      title: "Hai xe đẩy hàng đụng nhau trong siêu thị",
+      scene: "Trong siêu thị, một xe đẩy đầy hàng lao vào xe đẩy rỗng đang đứng yên, hai xe dính vào nhau và cùng trôi chậm về phía trước. Xe chở càng nặng thì sau va chạm cả hai càng trôi chậm.",
+      connect: "Tổng khối lượng nhân vận tốc trước và sau va chạm bằng nhau, đó là bảo toàn động lượng; dính vào nhau là va chạm mềm, một phần động năng biến thành nhiệt và tiếng động."
+    },
+    {
+      title: "Chiếc võng trước hiên nhà",
+      scene: "Sợi dây võng mắc giữa hai cột hiên, ngồi lên đung đưa thì mỗi lần qua lại mất khoảng một giây, đưa mạnh hay nhẹ đều gần như vậy. Chỉ khi đưa quá mạnh mới thấy nhịp lệch đi rõ.",
+      connect: "Đung đưa qua lại đều đặn là dao động tuần hoàn; với biên độ nhỏ, chu kỳ gần như không đổi, còn ly độ, vận tốc và gia tốc lệch pha nhau theo từng đoạn của một vòng."
+    }
+  ],
   modules: [
     {
       title: "Động học chất điểm",

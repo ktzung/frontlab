@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Gallery công trình có thông số", desc: "Xem phối cảnh kèm diện tích, phong cách, vật liệu chủ đạo để so sánh cách xử lý của từng công trình." },
     { badge: "03", title: "Chấm đồ án theo tiêu chí", desc: "Mỗi ý tưởng được đánh giá theo ba tiêu chí ý tưởng, bố cục và vật liệu, kèm nhận xét cho từng mục." }
   ],
+  life: [
+    {
+      title: "Phòng trọ mười lăm mét vuông và cửa sổ",
+      scene: "Phòng trọ mười lăm mét vuông chỉ có một cửa sổ rộng một mét vuông, buổi chiều nắng xiên vào tường thì nóng, mà ngồi trong vẫn bí. Dời giường ra khỏi cửa, kê thêm quạt trước cửa sổ mới thấy dễ chịu hơn.",
+      connect: "Diện tích cửa lấy sáng nên đạt khoảng một phần năm diện tích sàn, tức phòng này cần chừng ba mét vuông cửa. Muốn thông gió xuyên phòng phải có cửa vào và cửa ra đối diện, một cửa duy nhất thì gió chỉ đảo tại chỗ."
+    },
+    {
+      title: "Chụp mái chùa từ sân và từ xa",
+      scene: "Đứng sát sân chụp mái chùa, tấm ảnh cho mái ngắn và bè, trông như cái nón úp. Lùi ra ngoài cổng, hạ máy xuống ngang hông, cùng ngôi chùa ấy lại cao vút, các đường song song của mái hội tụ về một phía.",
+      connect: "Đó là cách đọc phối cảnh: vị trí đường chân trời quyết định góc nhìn cao hay thấp, các đường song song trong thực tế hội tụ về điểm tụ. Mặt đứng với nhịp và tỷ lệ lỗ mở vì thế phải đọc kèm điểm nhìn."
+    },
+    {
+      title: "Nhà bà ngoại mát hơn nhà lợp tôn",
+      scene: "Trưa nắng về quê, vào nhà bà ngoại tường gạch dày, mái ngói vẫn mát, phải khoác thêm áo. Sang nhà bên cạnh lợp tôn xi măng, vừa bước vào đã thấy hầm hập, quạt chạy hết cỡ vẫn nóng, mãi tới chiều tối mới dịu.",
+      connect: "Vật liệu khối lượng lớn như gạch, đất nện giữ nhiệt chậm nên đỉnh nóng lệch về chiều tối, còn tôn mỏng truyền nhiệt gần như tức thì. Chọn vật liệu theo khí hậu địa phương là bước đầu của concept, và đồ án phải dẫn chứng."
+    }
+  ],
   modules: [
     {
       title: "Nguyên lý thiết kế",

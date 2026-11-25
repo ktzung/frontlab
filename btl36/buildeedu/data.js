@@ -30,6 +30,23 @@ window.BTL_DATA = {
     { badge: "02", title: "Máy tính tải trọng từng bước", desc: "Nhập kích thước sàn, chiều dày và loại phòng, xem tĩnh tải, hoạt tải và tổng tải hiện dần." },
     { badge: "03", title: "Bảng tra vật liệu có chú thích", desc: "Tra bê tông B20, thép CB400-V hay vữa mác 50 kèm cường độ, công dụng và lưu ý thi công." }
   ],
+  life: [
+    {
+      title: "Xây tường rào bằng gạch và vữa",
+      scene: "Mua ba bao xi măng về xây tường rào. Hôm đầu trộn vội, pha thiếu nước, hôm sau mạch vữa bở ra, lấy tay bóc được từng viên gạch. Thợ xây lại, lần này trộn đúng tỉ lệ và trát đầy mạch đứng, tường chắc hẳn.",
+      connect: "Vữa và bê tông chỉ đạt độ bền khi đúng cấp phối và được bảo dưỡng, giống bê tông B20 phải đủ cường độ chịu nén thiết kế. Mạch vữa dày khoảng mười milimét, thiếu mạch đứng là khối xây yếu đi rõ rệt."
+    },
+    {
+      title: "Chuyển nhà và sàn gác lửng",
+      scene: "Chuyển về phòng mới, kê thêm tủ lạnh, máy giặt và một kệ sách nặng lên gác lửng. Người trong nhà đi lại, có hôm tụ tập chục người ăn lẩu. Chủ nhà chỉ lo mỗi cái tủ lạnh, không nghĩ tới mấy chục người ngồi trên đó.",
+      connect: "Tủ lạnh, kệ sách là tĩnh tải, còn người và đồ di chuyển là hoạt tải; tải sàn truyền xuống dầm rồi xuống cột. Khi tính phải nhân hệ số vượt tải cho từng loại rồi tổ hợp, chứ không cộng trơn các con số."
+    },
+    {
+      title: "Tháo ván khuôn sớm và vết nứt sân",
+      scene: "Nhà đổ sân bê tông, thợ muốn tháo ván khuôn sau hai ngày cho kịp làm cổng. Chủ nhà giữ lại, đợi thêm vài ngày và tưới nước giữ ẩm. Sân nhà bên cạnh tháo sớm thì mặt bị nứt chân chim, đọng nước mỗi khi mưa.",
+      connect: "Bê tông lên cường độ theo tuổi, mẫu nghiệm thu lấy ở hai mươi tám ngày mới đại diện. Tháo ván khuôn khi bê tông còn non là nguyên nhân võng và nứt, còn bảo dưỡng giữ ẩm chính là phần quyết định cường độ cuối."
+    }
+  ],
   modules: [
     {
       title: "Vật liệu và cấu tạo",
